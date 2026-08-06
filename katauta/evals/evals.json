@@ -1,0 +1,17 @@
+{
+  "skill_name": "katauta",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python katauta (3 lines, 5-7-7, addressed directly to the data) that returns the mode of a list",
+      "expected_output": "3 lines with a direct 'to you' answer, runs and prints the mode",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python katauta (3 lines, 5-7-7) that reads words from stdin and directly tells the user how many there are",
+      "expected_output": "3 lines, short opening + heavy tail, runs",
+      "files": []
+    }
+  ]
+}

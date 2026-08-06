@@ -1,0 +1,17 @@
+{
+  "skill_name": "lunes",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python lune (3 lines, middle line shortest) that sums numbers from stdin and prints the total",
+      "expected_output": "3 lines: setup, short punch (sum), landing, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python lune that returns the mode of a list with a razor-thin middle line",
+      "expected_output": "3 lines with a short decisive middle, runs and prints the mode",
+      "files": []
+    }
+  ]
+}

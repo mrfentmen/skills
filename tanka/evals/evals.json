@@ -1,0 +1,17 @@
+{
+  "skill_name": "tanka",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python tanka (5 lines of code) that reads numbers from stdin and prints both the mean and the median",
+      "expected_output": "5 lines: setup, compute mean, then expand with median, runs and prints both",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python tanka that counts words in stdin and prints the most common AND the rarest words (the reflection)",
+      "expected_output": "5 lines: count words, then expand with the rare words, runs",
+      "files": []
+    }
+  ]
+}

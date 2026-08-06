@@ -1,0 +1,17 @@
+{
+  "skill_name": "senryu",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python senryu (3 lines) that prints a random humorous excuse for a broken commit",
+      "expected_output": "3 lines about human excuses with a punchline output, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python senryu that models how long a task 'actually' takes vs the estimate (human nature)",
+      "expected_output": "3 lines: estimate vs reality with a witty output, runs",
+      "files": []
+    }
+  ]
+}

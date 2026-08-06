@@ -1,0 +1,17 @@
+{
+  "skill_name": "sedoka",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python sedoka (6 lines, two 3-line stanzas) that sums a list forward in the first stanza and in reverse in the second stanza (the mirror/response)",
+      "expected_output": "6 lines in two mirroring stanzas, runs and prints both sums",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python sedoka: first stanza counts words from stdin, second stanza answers with the rarest word (question and response)",
+      "expected_output": "6 lines, question stanza + response stanza, runs",
+      "files": []
+    }
+  ]
+}

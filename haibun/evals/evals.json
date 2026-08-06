@@ -1,0 +1,17 @@
+{
+  "skill_name": "haibun",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python haibun (prose body with narrative comments + a 3-line haiku ending, at most 12 lines) that reads lines from stdin, narrates the walk through them, and ends by counting the lines containing ERROR",
+      "expected_output": "narrative prose body + 3-line haiku ending, runs and prints the count",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python haibun that walks through a list of temperatures with narrative comments and ends with a 3-line haiku summarizing cold vs warm days",
+      "expected_output": "story-like prose + 3-line poetic landing, runs",
+      "files": []
+    }
+  ]
+}

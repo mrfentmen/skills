@@ -1,0 +1,17 @@
+{
+  "skill_name": "gogyohka",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python gogyohka (5 lines, free-form, one breath per line) that sums numbers from stdin and prints the total",
+      "expected_output": "5 natural lines, no metered padding, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python gogyohka (5 lines) that reads stdin and reports line count and word count in natural phrases",
+      "expected_output": "5 breathing lines, runs and prints both counts",
+      "files": []
+    }
+  ]
+}

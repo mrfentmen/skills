@@ -1,0 +1,30 @@
+# Local/system files
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated packages and reports
+dist/
+*.skill
+SKILL_AUDIT.json
+ALL_SKILLS_EVALUATION_VIEWER.html
+IMPROVEMENT_REPORT.html
+VARIANCE_REPORT.md
+
+# Evaluation workspaces and generated benchmark artifacts
+*-workspace/
+FORM_RHYTHM_REPORT.json
+ALL_SKILLS_BENCHMARK.md
+
+# Local tooling state
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/

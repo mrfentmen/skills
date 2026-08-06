@@ -1,0 +1,35 @@
+{
+  "skill_name": "haiku",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python haiku (at most 3 lines of code) that prints FizzBuzz for 1 to 100, and it must actually run",
+      "expected_output": "3 dense lines: import, lambda definition, print/write, produces correct FizzBuzz output",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python haiku that reads stdin text and prints the 5 most common words with counts",
+      "expected_output": "3 lines using re + Counter, correct output when piped text",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write a JavaScript haiku (at most 3 lines) that sums an array of numbers and logs the total",
+      "expected_output": "3 dense JS lines that work when run with node",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Write a Python haiku that prints the prime factors of a number given on stdin",
+      "expected_output": "3 lines with a recursive lambda that runs and gives correct factors",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Write a 3-line Python HTTP server that returns 'haiku' on GET requests",
+      "expected_output": "3 lines using http.server, starts and serves without a framework",
+      "files": []
+    }
+  ]
+}
