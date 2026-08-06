@@ -1,0 +1,17 @@
+{
+  "skill_name": "etheree",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python etheree (10 lines whose token counts climb 1-2-3-4-5-6-7-8-9-10) that computes the mean of a list and lands the result on the 10-token final line",
+      "expected_output": "10 lines climbing 1..10, top rung lands the mean, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python etheree that grows from a one-token seed through a health check and lands the verdict on the ten-token final line",
+      "expected_output": "10 lines 1..10 ladder, real check, runs",
+      "files": []
+    }
+  ]
+}

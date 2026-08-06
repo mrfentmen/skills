@@ -18,6 +18,8 @@ SKILLS = [
     "sedoka", "senryu", "sijo", "tanka",
     "kyoka", "somonka", "bussokusekika", "imayo",
     "kanshi", "zappai", "waka", "renshi", "sonnet",
+    "villanelle", "cinquain", "ryuka", "fibonacci",
+    "limerick", "etheree",
 ]
 EXPECTED_TYPES = {"explicit_or_signature", "boundary", "none", "trap"}
 EXPECTED_FIELDS = {"id", "prompt", "target", "type"}

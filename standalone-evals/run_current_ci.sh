@@ -34,7 +34,8 @@ check "standalone Python compilation" \
 
 for skill in choka dodoitsu gogyohka haibun haiku katauta lunes monoku \
   renga sedoka senryu sijo tanka kyoka somonka bussokusekika imayo \
-  kanshi zappai waka renshi sonnet
+  kanshi zappai waka renshi sonnet villanelle cinquain ryuka fibonacci \
+  limerick etheree
 do
   check "skill-local contract: $skill" bash -c "cd \"$ROOT/$skill\" && ./scripts/contract_check.py"
 done

@@ -1,21 +1,21 @@
 # Standalone evaluation foundation
 
 This directory contains the **current**, versioned activation benchmark for the
-22 independently installable skills (the public monorepo scope; persona skills
+28 independently installable skills (the public monorepo scope; persona skills
 god/smoker/terry-davis/psych/no-bullshit live in the public skills-2 repo).
 It is deliberately separate from the
 historical evaluation artifacts in the external `evals-infra/legacy/` tree.
 
 ## Dataset
 
-`standalone_trigger_benchmark_v1.json` contains 208 versioned current-scope
-routing records (110 explicit + 44 boundary + 36 ordinary + 18 trap; the
-ordinary and trap records are global, not per-skill). The validator proves
+`standalone_trigger_benchmark_v1.json` contains 250 versioned current-scope
+routing records (140 explicit/signature + 56 boundary + 36 ordinary + 18 trap;
+the ordinary and trap records are global, not per-skill). The validator proves
 their structural coverage and anti-leak properties; independent authorship and
 blind review are separate Phase 3 evidence and are not claimed by this file:
 
-- 22 skills × 5 explicit-or-signature records = 110
-- 22 skills × 2 close boundary records = 44
+- 28 skills × 5 explicit-or-signature records = 140
+- 28 skills × 2 close boundary records = 56
 - 36 ordinary non-skill records
 - 18 trap records
 
@@ -160,11 +160,12 @@ the **13-skill public scope satisfies the historical suite 9/11 (exit 1)** when
 `SKILLS_ROOT` points at this repository - the 2 failures are the expected frozen
 18-skill-harness dataset entries for god/smoker/terry-davis/psych/no-bullshit
 (which moved to the skills-2 repo) and are recorded in
-`standalone-evals/HISTORICAL_REGRESSION.md`; with the 2026-08-06 expansion the
-repo now contains 22 form skills (the 9 new ones - kyoka, somonka,
-bussokusekika, imayo, kanshi, zappai, waka, renshi, sonnet - are not part of
-the frozen 18-skill historical harness, which still applies unchanged to the
-13-skill form scope). The known default-root frozen-artifact failures only appear in
+`standalone-evals/HISTORICAL_REGRESSION.md`; at the earlier 18-skill scope the
+suite was 11/11. With the 2026-08-06 expansion the repo now contains 28 form
+skills (the 15 new ones - kyoka, somonka, bussokusekika, imayo, kanshi, zappai,
+waka, renshi, sonnet, villanelle, cinquain, ryuka, fibonacci, limerick,
+etheree - are not part of the frozen 18-skill historical harness, which still
+applies unchanged to the 13-skill form scope). The known default-root frozen-artifact failures only appear in
 the default-root invocation and are also recorded there.
 `standalone-evals/HISTORICAL_REGRESSION.md`; at the earlier 18-skill scope the
 suite was 11/11. The known default-root frozen-artifact failures only appear in

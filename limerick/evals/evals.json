@@ -1,0 +1,17 @@
+{
+  "skill_name": "limerick",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python limerick (5 lines shaped ~8-8-5-5-8) that reads health-check booleans and lands a comic punchline about the failed service on the final line",
+      "expected_output": "5 lines 8-8-5-5-8: comic landing + real check, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python limerick that computes the average load and ends with a dry deflation joke about the answer",
+      "expected_output": "5 lines 8-8-5-5-8: honest mean + punchline, runs",
+      "files": []
+    }
+  ]
+}

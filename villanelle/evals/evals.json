@@ -1,0 +1,17 @@
+{
+  "skill_name": "villanelle",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python villanelle (19 lines: 5 tercets + quatrain) that reads health-check booleans and uses two refrain expressions (the up-count and the all-healthy verdict) repeated at lines 1,6,12,18 and 3,9,15,19 while the service state changes between them",
+      "expected_output": "19 lines with two refrains at canonical positions, state evolves, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python villanelle that computes load mean and peak, repeating both as refrains four times while the load values change, and resolves with the final spread",
+      "expected_output": "19 lines, two refrains repeated 4x each, real computation, runs",
+      "files": []
+    }
+  ]
+}

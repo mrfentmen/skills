@@ -22,7 +22,13 @@
     "zappai",
     "waka",
     "renshi",
-    "sonnet"
+    "sonnet",
+    "villanelle",
+    "cinquain",
+    "ryuka",
+    "fibonacci",
+    "limerick",
+    "etheree"
   ],
   "records": [
     {
@@ -1271,6 +1277,258 @@
       "id": "standalone-v1-208",
       "prompt": "Implement a fourteen-line verse with a volta that reframes the computation before the final pair",
       "target": "sonnet",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-209",
+      "prompt": "Write a villanelle-shaped program: 19 lines in five tercets and a closing quatrain, with two refrain expressions repeated at lines 1,6,12,18 and 3,9,15,19, computing the total and error count of a log while the log changes between refrains",
+      "target": "villanelle",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-210",
+      "prompt": "Build a villanelle program with the two-refrain architecture: a health verdict and an up-count, each returning four times as services go up and down",
+      "target": "villanelle",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-211",
+      "prompt": "Write a 19-line verse program where two key expressions recur every few lines and the state between them changes each time",
+      "target": "villanelle",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-212",
+      "prompt": "Write a nineteen-line villanelle program with repeating refrain expressions and a closing quatrain that resolves the computation",
+      "target": "villanelle",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-213",
+      "prompt": "Compose a five-tercet plus quatrain program whose two repeated lines are real expressions over shifting data",
+      "target": "villanelle",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-214",
+      "prompt": "Write a repeating-refrain verse program that computes a moving average",
+      "target": "villanelle",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-215",
+      "prompt": "Write a nineteen-line program that formats a report table",
+      "target": "villanelle",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-216",
+      "prompt": "Write a cinquain program: five lines shaped 2-4-6-8-2 tokens that counts errors in a log and lands on a two-token print of the count",
+      "target": "cinquain",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-217",
+      "prompt": "Build a cinquain-shaped program with the pyramid silhouette 2-4-6-8-2 that computes mean and spread",
+      "target": "cinquain",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-218",
+      "prompt": "Write a five-line pyramid program that swells to an eight-token line and closes on two tokens",
+      "target": "cinquain",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-219",
+      "prompt": "Write a 2-4-6-8-2 shaped cinquain program that checks service health and lands the down-count",
+      "target": "cinquain",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-220",
+      "prompt": "Compose a five-line poem program with a two-token closing word that seals the result",
+      "target": "cinquain",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-221",
+      "prompt": "Write a pyramid-shaped verse program that tallies words in a file",
+      "target": "cinquain",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-222",
+      "prompt": "Write a five-line program that builds a small lookup table",
+      "target": "cinquain",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-223",
+      "prompt": "Write a ryuka program: four lines shaped 8-8-8-6 tokens, three long lines of checking and a short six-token landing line, reading health booleans",
+      "target": "ryuka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-224",
+      "prompt": "Build a ryuka-shaped program with the 8-8-8-6 Okinawan song shape that computes a mean",
+      "target": "ryuka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-225",
+      "prompt": "Write a four-line verse program whose last line is shorter than the first three and lands the result",
+      "target": "ryuka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-226",
+      "prompt": "Write an 8-8-8-6 shaped ryuka program that parses a log and prints the error count on the short line",
+      "target": "ryuka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-227",
+      "prompt": "Compose an Okinawan song program: three long lines of work and one short closing line",
+      "target": "ryuka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-228",
+      "prompt": "Write a song-shaped verse program that reports the number of running services",
+      "target": "ryuka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-229",
+      "prompt": "Write a four-line program that validates JSON config",
+      "target": "ryuka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-230",
+      "prompt": "Write a fibonacci poem program: lines whose token counts follow 1,1,2,3,5,8, summing a list and sealing the result on the final line",
+      "target": "fibonacci",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-231",
+      "prompt": "Build a fibonacci-shaped program where each line's token count is the sum of the previous two, checking service health",
+      "target": "fibonacci",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-232",
+      "prompt": "Write a golden-ratio verse program that grows its lines 1,1,2,3,5,8 and lands the verdict",
+      "target": "fibonacci",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-233",
+      "prompt": "Write a growing-sequence fibonacci program with token counts 1,1,2,3,5,8 that computes the average load",
+      "target": "fibonacci",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-234",
+      "prompt": "Compose a poem program whose line lengths follow the growing sequence and carry a real computation",
+      "target": "fibonacci",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-235",
+      "prompt": "Write a verse program that grows like nature's proportions to report log statistics",
+      "target": "fibonacci",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-236",
+      "prompt": "Write a six-to-eight line program that formats a report of uptimes",
+      "target": "fibonacci",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-237",
+      "prompt": "Write a limerick program: five lines shaped 8-8-5-5-8 with a comic punchline on the final line, reading health booleans",
+      "target": "limerick",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-238",
+      "prompt": "Build a limerick-shaped program that computes an average load and lands a dry deflation joke about the answer",
+      "target": "limerick",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-239",
+      "prompt": "Write a five-line comic verse program in AABBA rhythm that ends on the real result as the joke",
+      "target": "limerick",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-240",
+      "prompt": "Write an 8-8-5-5-8 shaped limerick program that parses a log and delivers a punchline about the error count",
+      "target": "limerick",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-241",
+      "prompt": "Compose a five-line humorous program with two short middle lines and a long closing punchline",
+      "target": "limerick",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-242",
+      "prompt": "Write a joke-shaped verse program that reports how many services are down",
+      "target": "limerick",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-243",
+      "prompt": "Write a five-line program that counts words in a config file",
+      "target": "limerick",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-244",
+      "prompt": "Write an etheree program: ten lines whose token counts climb 1-2-3-4-5-6-7-8-9-10, computing the mean and landing the result on the ten-token final line",
+      "target": "etheree",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-245",
+      "prompt": "Build an etheree-shaped program with the 1-to-10 ladder that checks service health and lands the verdict",
+      "target": "etheree",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-246",
+      "prompt": "Write a ten-line ladder program growing one token per line that counts log errors",
+      "target": "etheree",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-247",
+      "prompt": "Write a 1-2-3-4-5-6-7-8-9-10 shaped etheree program that sums a list and reports on the top rung",
+      "target": "etheree",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-248",
+      "prompt": "Compose a ten-rung poem program where each line is one token longer than the last and the final line carries the answer",
+      "target": "etheree",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-249",
+      "prompt": "Write a ladder-shaped verse program that reports the average response time",
+      "target": "etheree",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-250",
+      "prompt": "Write a ten-line program that validates an input schema",
+      "target": "etheree",
       "type": "boundary"
     }
   ]

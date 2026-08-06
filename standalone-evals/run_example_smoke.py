@@ -23,6 +23,8 @@ SKILLS = [
     "sedoka", "senryu", "sijo", "tanka",
     "kyoka", "somonka", "bussokusekika", "imayo",
     "kanshi", "zappai", "waka", "renshi", "sonnet",
+    "villanelle", "cinquain", "ryuka", "fibonacci",
+    "limerick", "etheree",
 ]
 BLOCK_RE = re.compile(r"^```([A-Za-z0-9+#-]*)\s*\n(.*?)^```\s*$", re.MULTILINE | re.DOTALL)
 SUPPORTED = {"python", "py", "javascript", "js"}

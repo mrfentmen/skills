@@ -1,14 +1,16 @@
 # Current-Scope Release Report
 
-> **UPDATE (2026-08-06): the public monorepo scope is now 22 form skills.**
+> **UPDATE (2026-08-06): the public monorepo scope is now 28 form skills.**
 > `god`, `smoker`, `terry-davis`, `psych`, and `no-bullshit` moved to the public
 > `mrfentmen/skills-2` repo (joined by `quantum-computing`); the `skills`
-> monorepo is public. On top of the 13 form skills, 9 new forms were added:
+> monorepo is public. On top of the 13 form skills, 15 new forms were added:
 > `kyoka`, `somonka`, `bussokusekika`, `imayo`, `kanshi`, `zappai`, `waka`,
-> `renshi`, and `sonnet` (English). The 22-skill current state has a 208-record
-> trigger scope (110 explicit + 44 boundary + 36 global `none` + 18 global
-> `trap`) and passes the mechanical CI gate 27/27. All numbers below describe
-> the historical 18-skill scope as of commit `629e96f`.
+> `renshi`, `sonnet` (English), `villanelle`, `cinquain`, `ryuka`,
+> `fibonacci`, `limerick`, and `etheree`. The 28-skill current state has a
+> 250-record trigger scope (140 explicit/signature + 56 boundary + 36 global
+> `none` + 18 global `trap`) and passes the mechanical CI gate 33/33 with all
+> 28 skills scoring 1.00 in the static audit. All numbers below describe the
+> historical 18-skill scope as of commit `629e96f`.
 
 **Release scope (historical):** 18 coding skills, 180 trigger-evaluation queries  
 **Report date:** 2026-08-06  

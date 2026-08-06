@@ -1,12 +1,13 @@
 # Unconventional Coding Skills
 
-Twenty-two themed coding skills that change *how* an AI writes code, each one a
+Twenty-eight themed coding skills that change *how* an AI writes code, each one a
 philosophy, a set of reusable patterns, and a checkable spec.
 
 ## The Skills
 
-The current release contains exactly 22 independently installable skills — 13
-short-form poetry skills plus 9 newly added classical and Western forms:
+The current release contains exactly 28 independently installable skills — 13
+short-form poetry skills plus 15 added classical, Asian-adjacent, and Western
+forms:
 
 | Skill | Identity | Standalone activation |
 |---|---|---|
@@ -32,6 +33,12 @@ short-form poetry skills plus 9 newly added classical and Western forms:
 | `waka` | Classical five-line 5-7-5-7-7 scene, turn, and resolve | explicit waka or classical verse request |
 | `renshi` | Chain of linked short stages passing a torch | explicit renshi or linked-relay request |
 | `sonnet` | Fourteen lines in quatrains with a volta and couplet | explicit sonnet or 14-line verse request |
+| `villanelle` | Nineteen lines in tercets with two repeating refrains | explicit villanelle or 19-line refrain request |
+| `cinquain` | Five lines shaped 2-4-6-8-2, a pyramid with a two-token landing | explicit cinquain or 2-4-6-8-2 request |
+| `ryuka` | Four-line Okinawan 8-8-8-6 song with a short landing | explicit ryuka or 8-8-8-6 request |
+| `fibonacci` | Lines growing 1-1-2-3-5-8, each the sum of the previous two | explicit fibonacci poem or golden-ratio request |
+| `limerick` | Five lines ~8-8-5-5-8 in AABBA rhythm with a comic punchline | explicit limerick or AABBA request |
+| `etheree` | Ten lines climbing 1-2-3-4-5-6-7-8-9-10 to the result | explicit etheree or ten-line ladder request |
 
 Every skill is self-contained and carries its own activation contract, minimum
 requirements, cross-language examples, and helper policy. Installing one skill

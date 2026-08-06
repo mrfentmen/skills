@@ -1,0 +1,17 @@
+{
+  "skill_name": "cinquain",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python cinquain (5 lines shaped 2-4-6-8-2 tokens) that reads a log, counts the errors, and lands on a two-token print of the count",
+      "expected_output": "5 lines 2-4-6-8-2: pyramid shape, real computation, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python cinquain that computes the mean and spread of a list and lands on a two-token verdict",
+      "expected_output": "5 lines 2-4-6-8-2: wide line 4 carries the math, 2-token landing, runs",
+      "files": []
+    }
+  ]
+}

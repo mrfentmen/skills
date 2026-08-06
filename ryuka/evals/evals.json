@@ -1,0 +1,17 @@
+{
+  "skill_name": "ryuka",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python ryuka (4 lines shaped 8-8-8-6 tokens) that reads health-check booleans and prints how many are up and down, landing on the short 6-token final line",
+      "expected_output": "4 lines 8-8-8-6: three long lines + short landing, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python ryuka that parses a log, counts the error lines, and lands on a short closing line",
+      "expected_output": "4 lines 8-8-8-6: real parse, short landing seals it, runs",
+      "files": []
+    }
+  ]
+}

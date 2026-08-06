@@ -1,0 +1,17 @@
+{
+  "skill_name": "fibonacci",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python fibonacci poem (6-8 lines whose token counts follow 1,1,2,3,5,8...) that sums a list of numbers and seals the result on the final line",
+      "expected_output": "token counts follow fibonacci growth, real computation, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python fibonacci poem that reads health checks and grows its lines 1,1,2,3,5,8, landing on the verdict",
+      "expected_output": "fibonacci token growth, real check, runs",
+      "files": []
+    }
+  ]
+}

@@ -17,6 +17,8 @@ SKILLS = [
     "sedoka", "senryu", "sijo", "tanka",
     "kyoka", "somonka", "bussokusekika", "imayo",
     "kanshi", "zappai", "waka", "renshi", "sonnet",
+    "villanelle", "cinquain", "ryuka", "fibonacci",
+    "limerick", "etheree",
 ]
 FORBIDDEN_PARTS = {"shared", "evals-infra", "dist", ".github"}
 FORBIDDEN_TEXT = (
