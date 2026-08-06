@@ -9,8 +9,6 @@
     "katauta",
     "lunes",
     "monoku",
-    "no-bullshit",
-    "psych",
     "renga",
     "sedoka",
     "senryu",
@@ -518,456 +516,372 @@
     },
     {
       "id": "standalone-v1-084",
-      "prompt": "Write a no-bullshit program that diagnoses a slow API with evidence and a verified fix.",
-      "target": "no-bullshit",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-085",
-      "prompt": "Write a no-bullshit program that reviews a deployment plan with tests and rollback.",
-      "target": "no-bullshit",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-086",
-      "prompt": "Write a no-bullshit program that hardens an authentication endpoint.",
-      "target": "no-bullshit",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-087",
-      "prompt": "Build a program that diagnoses a slow API with evidence and a verified fix, using evidence-first engineering that states assumptions, verifies claims, and refuses to guess.",
-      "target": "no-bullshit",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-088",
-      "prompt": "Implement a computation that reviews a deployment plan with tests and rollback, shaped as measured risks, reproducible checks, and a practical rollback path.",
-      "target": "no-bullshit",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-089",
-      "prompt": "Solve the engineering task from inspected evidence: state assumptions, verify claims, and report what remains unknown.",
-      "target": "no-bullshit",
-      "type": "boundary"
-    },
-    {
-      "id": "standalone-v1-090",
-      "prompt": "Give a production plan with reproducible checks, failure handling, and a rollback path; do not guess.",
-      "target": "no-bullshit",
-      "type": "boundary"
-    },
-    {
-      "id": "standalone-v1-091",
       "prompt": "Implement diagnoses a slow API with evidence and a verified fix with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-092",
+      "id": "standalone-v1-085",
       "prompt": "Build a maintainable service that reviews a deployment plan with tests and rollback and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-093",
+      "id": "standalone-v1-086",
       "prompt": "Explain how to hardens an authentication endpoint in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-094",
-      "prompt": "Write a psych program that grows unexpected color patterns from feedback loops.",
-      "target": "psych",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-095",
-      "prompt": "Write a psych program that evolves particles through user interaction.",
-      "target": "psych",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-096",
-      "prompt": "Write a psych program that makes an emergent generative canvas.",
-      "target": "psych",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-097",
-      "prompt": "Build a program that grows unexpected color patterns from feedback loops, using a psychedelic generative visual whose feedback and mutation create emergent motion.",
-      "target": "psych",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-098",
-      "prompt": "Implement a computation that evolves particles through user interaction, shaped as an interactive landscape where patterns evolve from feedback and color.",
-      "target": "psych",
-      "type": "explicit_or_signature"
-    },
-    {
-      "id": "standalone-v1-099",
-      "prompt": "Build a generative visual where simple feedback and mutation produce surprising emergent motion.",
-      "target": "psych",
-      "type": "boundary"
-    },
-    {
-      "id": "standalone-v1-100",
-      "prompt": "Create an interactive algorithmic landscape whose colors and particles evolve from user input.",
-      "target": "psych",
-      "type": "boundary"
-    },
-    {
-      "id": "standalone-v1-101",
+      "id": "standalone-v1-087",
       "prompt": "Implement grows unexpected color patterns from feedback loops with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-102",
+      "id": "standalone-v1-088",
       "prompt": "Build a maintainable service that evolves particles through user interaction and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-103",
+      "id": "standalone-v1-089",
       "prompt": "Explain how to makes an emergent generative canvas in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-104",
+      "id": "standalone-v1-090",
       "prompt": "Write a renga program that hands a data transformation from one stage to the next.",
       "target": "renga",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-105",
+      "id": "standalone-v1-091",
       "prompt": "Write a renga program that chains small functions through deliberate turns.",
       "target": "renga",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-106",
+      "id": "standalone-v1-092",
       "prompt": "Write a renga program that links processing stages with visible pivots.",
       "target": "renga",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-107",
+      "id": "standalone-v1-093",
       "prompt": "Build a program that hands a data transformation from one stage to the next, using linked program stanzas with visible handoff pivots between processing stages.",
       "target": "renga",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-108",
+      "id": "standalone-v1-094",
       "prompt": "Implement a computation that chains small functions through deliberate turns, shaped as small code sections where each result becomes the next section's turn.",
       "target": "renga",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-109",
+      "id": "standalone-v1-095",
       "prompt": "Link multiple program sections so each result becomes the next section's input, with visible handoff turns.",
       "target": "renga",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-110",
+      "id": "standalone-v1-096",
       "prompt": "Implement a chained workflow whose blocks pivot deliberately from the previous block's output.",
       "target": "renga",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-111",
+      "id": "standalone-v1-097",
       "prompt": "Implement hands a data transformation from one stage to the next with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-112",
+      "id": "standalone-v1-098",
       "prompt": "Build a maintainable service that chains small functions through deliberate turns and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-113",
+      "id": "standalone-v1-099",
       "prompt": "Explain how to links processing stages with visible pivots in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-114",
+      "id": "standalone-v1-100",
       "prompt": "Write a sedoka program that validates a form in two reflective blocks.",
       "target": "sedoka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-115",
+      "id": "standalone-v1-101",
       "prompt": "Write a sedoka program that answers an input with two matching code stanzas.",
       "target": "sedoka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-116",
+      "id": "standalone-v1-102",
       "prompt": "Write a sedoka program that processes a request and mirrors it in a second stanza.",
       "target": "sedoka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-117",
+      "id": "standalone-v1-103",
       "prompt": "Build a program that validates a form in two reflective blocks, using two mirrored three-line stanzas, each shaped 5-7-7.",
       "target": "sedoka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-118",
+      "id": "standalone-v1-104",
       "prompt": "Implement a computation that answers an input with two matching code stanzas, shaped as a paired response in which the second three-line block reflects the first.",
       "target": "sedoka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-119",
+      "id": "standalone-v1-105",
       "prompt": "Write two mirrored three-line stanzas, each shaped 5-7-7, responding to the same input.",
       "target": "sedoka",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-120",
+      "id": "standalone-v1-106",
       "prompt": "Build a paired code response where the second 5-7-7 block reflects the first.",
       "target": "sedoka",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-121",
+      "id": "standalone-v1-107",
       "prompt": "Implement validates a form in two reflective blocks with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-122",
+      "id": "standalone-v1-108",
       "prompt": "Build a maintainable service that answers an input with two matching code stanzas and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-123",
+      "id": "standalone-v1-109",
       "prompt": "Explain how to processes a request and mirrors it in a second stanza in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-124",
+      "id": "standalone-v1-110",
       "prompt": "Write a senryu program that mocks a confusing API gently.",
       "target": "senryu",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-125",
+      "id": "standalone-v1-111",
       "prompt": "Write a senryu program that jokes about a failing cache.",
       "target": "senryu",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-126",
+      "id": "standalone-v1-112",
       "prompt": "Write a senryu program that turns a human habit into a small debugging punchline.",
       "target": "senryu",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-127",
+      "id": "standalone-v1-113",
       "prompt": "Build a program that mocks a confusing API gently, using three humorous logic lines shaped 5-7-5 and focused on human behavior.",
       "target": "senryu",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-128",
+      "id": "standalone-v1-114",
       "prompt": "Implement a computation that jokes about a failing cache, shaped as a small human-nature punchline carried by three measured runnable lines.",
       "target": "senryu",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-129",
+      "id": "standalone-v1-115",
       "prompt": "Write three humorous logic lines shaped 5-7-5 about a human habit or foible.",
       "target": "senryu",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-130",
+      "id": "standalone-v1-116",
       "prompt": "Build a compact program with a human-nature punchline in a measured three-line shape, 5-7-5.",
       "target": "senryu",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-131",
+      "id": "standalone-v1-117",
       "prompt": "Implement mocks a confusing API gently with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-132",
+      "id": "standalone-v1-118",
       "prompt": "Build a maintainable service that jokes about a failing cache and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-133",
+      "id": "standalone-v1-119",
       "prompt": "Explain how to turns a human habit into a small debugging punchline in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-134",
+      "id": "standalone-v1-120",
       "prompt": "Write a sijo program that reveals a surprising bug in the final line.",
       "target": "sijo",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-135",
+      "id": "standalone-v1-121",
       "prompt": "Write a sijo program that explains an architecture and turns at the end.",
       "target": "sijo",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-136",
+      "id": "standalone-v1-122",
       "prompt": "Write a sijo program that makes the third long line change the result.",
       "target": "sijo",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-137",
+      "id": "standalone-v1-123",
       "prompt": "Build a program that reveals a surprising bug in the final line, using three long logic lines with a final twist that changes the reading.",
       "target": "sijo",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-138",
+      "id": "standalone-v1-124",
       "prompt": "Implement a computation that explains an architecture and turns at the end, shaped as two extended setup lines followed by a surprising third-line turn.",
       "target": "sijo",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-139",
+      "id": "standalone-v1-125",
       "prompt": "Write three long logic lines whose final line twists or reframes the first two.",
       "target": "sijo",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-140",
+      "id": "standalone-v1-126",
       "prompt": "Implement a three-line program with extended setup and a surprising closing turn.",
       "target": "sijo",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-141",
+      "id": "standalone-v1-127",
       "prompt": "Implement reveals a surprising bug in the final line with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-142",
+      "id": "standalone-v1-128",
       "prompt": "Build a maintainable service that explains an architecture and turns at the end and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-143",
+      "id": "standalone-v1-129",
       "prompt": "Explain how to makes the third long line change the result in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-144",
+      "id": "standalone-v1-130",
       "prompt": "Implement reviews a production WebSocket rollout with failure handling with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-145",
+      "id": "standalone-v1-131",
       "prompt": "Build a maintainable service that optimizes database queries without hand-waving and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-146",
+      "id": "standalone-v1-132",
       "prompt": "Explain how to designs a resilient job queue and its tests in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-147",
+      "id": "standalone-v1-133",
       "prompt": "Write a tanka program that reports a query result and reflects on it.",
       "target": "tanka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-148",
+      "id": "standalone-v1-134",
       "prompt": "Write a tanka program that computes a result and states its consequence.",
       "target": "tanka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-149",
+      "id": "standalone-v1-135",
       "prompt": "Write a tanka program that summarizes a file transformation and its lesson.",
       "target": "tanka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-150",
+      "id": "standalone-v1-136",
       "prompt": "Build a program that reports a query result and reflects on it, using five logic lines shaped 5-7-5-7-7, ending in result and reflection.",
       "target": "tanka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-151",
+      "id": "standalone-v1-137",
       "prompt": "Implement a computation that computes a result and states its consequence, shaped as three compact action lines followed by two longer consequence lines.",
       "target": "tanka",
       "type": "explicit_or_signature"
     },
     {
-      "id": "standalone-v1-152",
+      "id": "standalone-v1-138",
       "prompt": "Write five logic lines shaped 5-7-5-7-7, ending with a result and reflection.",
       "target": "tanka",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-153",
+      "id": "standalone-v1-139",
       "prompt": "Implement five logic lines: three compact action lines followed by two longer consequence lines.",
       "target": "tanka",
       "type": "boundary"
     },
     {
-      "id": "standalone-v1-154",
+      "id": "standalone-v1-140",
       "prompt": "Implement reports a query result and reflects on it with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-155",
+      "id": "standalone-v1-141",
       "prompt": "Build a maintainable service that computes a result and states its consequence and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-156",
+      "id": "standalone-v1-142",
       "prompt": "Explain how to summarizes a file transformation and its lesson in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
     },
     {
-      "id": "standalone-v1-157",
+      "id": "standalone-v1-143",
       "prompt": "Implement prints system status in a direct low-level utility with clear errors, tests, and a small command-line interface.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-158",
+      "id": "standalone-v1-144",
       "prompt": "Build a maintainable service that inspects a device-flavored value and records useful diagnostics.",
       "target": "none",
       "type": "none"
     },
     {
-      "id": "standalone-v1-159",
+      "id": "standalone-v1-145",
       "prompt": "Explain how to writes a small HolyC-style service loop in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"

@@ -58,20 +58,6 @@
       "expected": "15"
     },
     {
-      "id": "no-bullshit",
-      "skill": "no-bullshit",
-      "task": "Write a function that validates a simple password (at least 8 chars, contains a digit). Show the inspect/plan/implement/verify/report discipline: state assumptions, implement, and report what is and is not verified. Do not invent APIs.",
-      "input": "",
-      "expected": ""
-    },
-    {
-      "id": "psych",
-      "skill": "psych",
-      "task": "Write a short Python program that produces an emergent visual: a feedback loop updating colors in a tiny 4x4 grid for 2 iterations, printing the grid states. Keep it simple and runnable without any external library.",
-      "input": "",
-      "expected": ""
-    },
-    {
       "id": "renga",
       "skill": "renga",
       "task": "Read numbers from stdin, then in linked renga stanzas with visible pivot handoffs (at least three stanzas alternating 3-line and 2-line), print the sum, then the count, then the average.",

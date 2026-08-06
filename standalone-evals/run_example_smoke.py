@@ -19,7 +19,7 @@ from pathlib import Path
 
 SKILLS = [
     "choka", "dodoitsu", "gogyohka", "haibun", "haiku",
-    "katauta", "lunes", "monoku", "no-bullshit", "psych", "renga",
+    "katauta", "lunes", "monoku", "renga",
     "sedoka", "senryu", "sijo", "tanka",
 ]
 BLOCK_RE = re.compile(r"^```([A-Za-z0-9+#-]*)\s*\n(.*?)^```\s*$", re.MULTILINE | re.DOTALL)

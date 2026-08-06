@@ -1,20 +1,21 @@
 # Standalone evaluation foundation
 
 This directory contains the **current**, versioned activation benchmark for the
-15 independently installable skills (the public monorepo scope; persona skills
-god/smoker/terry-davis live in the private skills-2 repo). It is deliberately separate from the
+13 independently installable skills (the public monorepo scope; persona skills
+god/smoker/terry-davis/psych/no-bullshit live in the public skills-2 repo).
+It is deliberately separate from the
 historical evaluation artifacts in the external `evals-infra/legacy/` tree.
 
 ## Dataset
 
-`standalone_trigger_benchmark_v1.json` contains 159 versioned current-scope
-routing records (75 explicit + 30 boundary + 36 ordinary + 18 trap; the
+`standalone_trigger_benchmark_v1.json` contains 145 versioned current-scope
+routing records (65 explicit + 26 boundary + 36 ordinary + 18 trap; the
 ordinary and trap records are global, not per-skill). The validator proves
 their structural coverage and anti-leak properties; independent authorship and
 blind review are separate Phase 3 evidence and are not claimed by this file:
 
-- 15 skills × 5 explicit-or-signature records = 75
-- 15 skills × 2 close boundary records = 30
+- 13 skills × 5 explicit-or-signature records = 65
+- 13 skills × 2 close boundary records = 26
 - 36 ordinary non-skill records
 - 18 trap records
 
@@ -65,7 +66,7 @@ independently reviewed prompt set, no blind-routing score is claimed.
 
 ## Current-scope held-out workflow
 
-The 159-record release benchmark measures whether the current-scope prompts are
+The 145-record release benchmark measures whether the current-scope prompts are
 well formed. The held-out set (`current_scope_heldout_v1.json`, 54 records) is a **frozen
 historical artifact of the 18-skill era**, kept for comparison and not rebuilt
 after the 15-skill reorg (its prompts reference skills that now live in
@@ -155,10 +156,10 @@ recorded results remain frozen historical regression data; they are not rewritte
 or silently replaced by this current standalone dataset. Run the external
 `evals-infra/run_ci_checks.sh` separately (with `SKILLS_ROOT` set) when you
 intentionally want historical regression checks too. As recorded on 2026-08-06,
-the **15-skill public scope satisfies the historical suite 9/11 (exit 1)** when
+the **13-skill public scope satisfies the historical suite 9/11 (exit 1)** when
 `SKILLS_ROOT` points at this repository - the 2 failures are the expected frozen
-18-skill-harness dataset entries for god/smoker/terry-davis (which moved to the
-private skills-2 repo) and are recorded in
+18-skill-harness dataset entries for god/smoker/terry-davis/psych/no-bullshit
+(which moved to the skills-2 repo) and are recorded in
 `standalone-evals/HISTORICAL_REGRESSION.md`; at the earlier 18-skill scope the
 suite was 11/11. The known default-root frozen-artifact failures only appear in
 the default-root invocation and are also recorded there.

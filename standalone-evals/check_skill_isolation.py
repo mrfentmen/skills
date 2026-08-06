@@ -13,7 +13,7 @@ from pathlib import Path, PurePosixPath
 
 SKILLS = [
     "choka", "dodoitsu", "gogyohka", "haibun", "haiku",
-    "katauta", "lunes", "monoku", "no-bullshit", "psych", "renga",
+    "katauta", "lunes", "monoku", "renga",
     "sedoka", "senryu", "sijo", "tanka",
 ]
 FORBIDDEN_PARTS = {"shared", "evals-infra", "dist", ".github"}

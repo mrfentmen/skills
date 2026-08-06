@@ -9,7 +9,7 @@ separate from the current-scope gate in this repo (`standalone-evals/run_current
 | Invocation | Result |
 |---|---|
 | `SKILLS_ROOT=<this repo>` (18-skill era, pre-reorg) | **11/11 PASS (exit 0)** |
-| `SKILLS_ROOT=<this repo>` (15-skill public scope, post-reorg) | 9 PASS, **2 expected failures** (frozen 18-skill dataset entries for god/smoker/terry-davis) |
+| `SKILLS_ROOT=<this repo>` (13-skill public scope, post-reorg) | 9 PASS, **2 expected failures** (frozen 18-skill dataset entries for god/smoker/terry-davis/psych/no-bullshit) |
 | `bash "<harness>/run_ci_checks.sh"` (no `SKILLS_ROOT`) | 8 PASS, **3 known failures** (frozen artifacts) |
 
 The 3 failures are **not** defects in the current 18 skills. They are a mismatch
@@ -80,30 +80,33 @@ out-of-set routing eval reproducible, keyword-router real-eval report
 reproducible, keyword-router out-of-set report reproducible, generated artifacts
 in sync.
 
-## 15-skill public-scope reorg (2026-08-06)
+## Public-scope reorg (2026-08-06, two rounds)
 
-After the reorg the monorepo holds the **15 form skills**; `god`, `smoker`, and
-`terry-davis` moved to the private `mrfentmen/skills-2` repo (joined by
-`quantum-computing`). The legacy harness dataset
-(`evals-infra/legacy/trigger_eval_queries.json`) remains **frozen at 18 skills**,
-so with `SKILLS_ROOT` set to the 15-skill repo exactly two checks fail as
-expected frozen-artifact mismatches:
+Round 1: the monorepo dropped `god`, `smoker`, and `terry-davis` to the private
+`mrfentmen/skills-2` repo (joined by `quantum-computing`). Round 2: `psych` and
+`no-bullshit` also moved there, and `skills-2` became public. The monorepo now
+holds the **13 form skills**; skills-2 holds the **6 persona skills** (`god`,
+`smoker`, `terry-davis`, `quantum-computing`, `psych`, `no-bullshit`).
 
-- **skill contract**: 3 x `trigger-dataset entry has no local SKILL.md`
-  (god, smoker, terry-davis).
-- **description sync**: 3 x `MISSING god|smoker|terry-davis: no frontmatter
-description (would prune)`.
+The legacy harness dataset (`evals-infra/legacy/trigger_eval_queries.json`)
+remains **frozen at 18 skills**, so with `SKILLS_ROOT` set to the 13-skill repo
+exactly two checks fail as expected frozen-artifact mismatches:
+
+- **skill contract**: 5 x `trigger-dataset entry has no local SKILL.md`
+  (god, smoker, terry-davis, psych, no-bullshit).
+- **description sync**: 5 x `MISSING god|smoker|terry-davis|psych|no-bullshit:
+no frontmatter description (would prune)`.
 
 These are not defects: the dataset still describes the pre-reorg scope. The
-current-scope gate (`standalone-evals/run_current_ci.sh`) passes **20/20** at the
-15-skill scope. This run also fixed em dashes introduced into `haiku/SKILL.md`
+current-scope gate (`standalone-evals/run_current_ci.sh`) passes **18/18** at the
+13-skill scope. This run also fixed em dashes introduced into `haiku/SKILL.md`
 and `senryu/SKILL.md` by E-009/E-010 (the historical dash sweep bans them); the
 sweep is green again.
 
 ## Correct usage
 
 Always set `SKILLS_ROOT` so the historical suite validates **this** tree (9/11
-at the 15-skill scope, with the 2 expected frozen-dataset failures above)
+at the 13-skill scope, with the 2 expected frozen-dataset failures above)
 instead of its default frozen parent:
 
 ```bash
@@ -119,9 +122,9 @@ bash "/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh"
 ## Policy
 
 - **Current-repo health** = `standalone-evals/run_current_ci.sh` (mechanical
-  gate, 20/20 at the 15-skill public scope) plus the historical suite run with
+  gate, 18/18 at the 13-skill public scope) plus the historical suite run with
   `SKILLS_ROOT` set (9/11; the 2 failures are the frozen 18-skill dataset
-  entries for god/smoker/terry-davis, documented above).
+  entries for god/smoker/terry-davis/psych/no-bullshit, documented above).
 - **Never** read a default-root failure of the historical suite as a defect in
   the current 18 skills; it validates the frozen `skills 3 /` snapshot.
 - The 3 failing checks are intentionally **not fixed**: the old tree and the
