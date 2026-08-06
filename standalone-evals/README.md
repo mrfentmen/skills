@@ -150,6 +150,8 @@ AI behavior or independent generalization. The old 180-query set and its
 recorded results remain frozen historical regression data; they are not rewritten
 or silently replaced by this current standalone dataset. Run the external
 `evals-infra/run_ci_checks.sh` separately (with `SKILLS_ROOT` set) when you
-intentionally want historical regression checks too. Known frozen-artifact
-failures of the default-root invocation are recorded in
+intentionally want historical regression checks too. As recorded on 2026-08-06,
+the **18 current skills satisfy the full historical suite 11/11 (exit 0)** when
+`SKILLS_ROOT` points at this repository; the known frozen-artifact failures only
+appear in the default-root invocation and are recorded in
 `standalone-evals/HISTORICAL_REGRESSION.md`.
