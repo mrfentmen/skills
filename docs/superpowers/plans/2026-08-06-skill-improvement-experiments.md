@@ -559,6 +559,17 @@ If independent evidence is unavailable, report the state as mechanically validat
 - Decision: skill stays as-is for now (no churn on validated text); E-011 (mandatory checker + tight-first example) deferred to optional robustness work for weak models.
 - Next: run the same test on the other available free models (nemotron, deepseek v4 flash, etc.) to build the cross-model table; optionally a without-skill A/B on big pickle for an independent control.
 
+### E-013 — Canonicalize big pickle's passing haiku (first independent model PASS)
+
+- Date: 2026-08-06
+- Model: big pickle (opencode/big-pickle, GLM 4.6 family), opencode free/high - the first model other than longcat2.0-free tested.
+- Output saved: `standalone-evals/output-benchmark/model-outputs/big-pickle/haiku.py` (verbatim), also delivered as `skill-test-kit/haiku/solve.py`. New `model-outputs/` directory documents provenance and grading.
+- Grade: correct output `down:cache`; 3 logic lines; **exact [3, 7, 5]**; `rhythm_check.py` exit 0.
+- Why canonical: first model-produced output to land the full haiku contract (runs + correct + exact meter + adopted the taught filter/lambda tight technique). Contrast: longcat2.0-free missed 3/3 on the same task ([3, 11, 9], 2-line [11, 9], [3, 11, 11]).
+- Provenance: two-prompt flow, fresh opencode session, current skill text (E-008 + E-009 + E-010). Minor critiques (not contract failures): no kigo name, hardcoded absolute input path (required by the test prompt), minimal output styling.
+- Decision: save as canonical evidence; skill text unchanged (E-012 decision holds - no churn on validated text).
+- Next: collect nemotron + deepseek v4 flash outputs into `model-outputs/` to build the cross-model table.
+
 ## Experiment log format
 
 For every candidate edit, record:
