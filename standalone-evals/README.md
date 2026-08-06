@@ -28,8 +28,11 @@ From the skills repository root:
 ```bash
 EVALS_INFRA_ROOT="/Users/del/Desktop/skills 3 /evals-infra" \
   bash standalone-evals/run_current_ci.sh
-# The historical suite is separate:
-# bash "/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh"
+# The historical suite is separate. Always set SKILLS_ROOT so it validates
+# THIS tree (11/11 PASS); without it the relocated harness validates its own
+# frozen parent directory and reports known frozen-artifact failures:
+# SKILLS_ROOT="$PWD" bash "/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh"
+# See standalone-evals/HISTORICAL_REGRESSION.md for the frozen-artifact record.
 # Or run the individual checks below:
 python3 standalone-evals/validate_standalone_benchmark.py --root .
 python3 standalone-evals/check_skill_isolation.py --root .
@@ -146,5 +149,7 @@ command reports 100% only for its mechanical checks; that does not prove perfect
 AI behavior or independent generalization. The old 180-query set and its
 recorded results remain frozen historical regression data; they are not rewritten
 or silently replaced by this current standalone dataset. Run the external
-`evals-infra/run_ci_checks.sh` separately when you intentionally want historical
-regression checks too.
+`evals-infra/run_ci_checks.sh` separately (with `SKILLS_ROOT` set) when you
+intentionally want historical regression checks too. Known frozen-artifact
+failures of the default-root invocation are recorded in
+`standalone-evals/HISTORICAL_REGRESSION.md`.
