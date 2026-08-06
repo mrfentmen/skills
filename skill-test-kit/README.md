@@ -1,6 +1,6 @@
 # Skill Test Kit
 
-Mock work for hands-on testing: **18 realistic coding tasks**, one per skill.
+Mock work for hands-on testing: **15 realistic coding tasks**, one per skill.
 You load a skill into an AI agent, point it at a task folder, and check the AI's
 `solve.py` against the answer key.
 
@@ -53,7 +53,7 @@ The form column is the point. Plain code never produces a 7-7-7-5 dodoitsu, a
 5-3-5 lune hinge, or a closing choka couplet by accident. (The forms that *can*
 happen by accident — haiku, monoku, senryu — are noted in their `expected.md`.)
 
-## The 18 tasks at a glance
+## The 15 tasks at a glance
 
 | Skill | Task | Input |
 |---|---|---|

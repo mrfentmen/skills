@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Current-scope gate for the 18 standalone skills.
+# Current-scope gate for the 15 standalone skills (public monorepo scope;
+# persona skills god/smoker/terry-davis moved to the private skills-2 repo).
 # Historical evals-infra/legacy checks are intentionally separate.
 set -u
 
@@ -31,8 +32,8 @@ check "standalone benchmark contract" \
 check "standalone Python compilation" \
   "$PYTHON" -m py_compile "$ROOT"/standalone-evals/*.py "$ROOT"/*/scripts/contract_check.py
 
-for skill in choka dodoitsu god gogyohka haibun haiku katauta lunes monoku \
-  no-bullshit psych renga sedoka senryu sijo smoker tanka terry-davis
+for skill in choka dodoitsu gogyohka haibun haiku katauta lunes monoku \
+  no-bullshit psych renga sedoka senryu sijo tanka
 do
   check "skill-local contract: $skill" bash -c "cd \"$ROOT/$skill\" && ./scripts/contract_check.py"
 done

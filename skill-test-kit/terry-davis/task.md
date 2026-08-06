@@ -1,1 +1,0 @@
-Write a single Python script `solve.py` in a deliberately direct, homespun style: read bytes from `input/bytes.bin`, count how many have the high bit set, and print the count with a plain direct statement. No frameworks; talk to the bytes directly.

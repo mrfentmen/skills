@@ -27,7 +27,7 @@ Same token math as haiku, tokens are the code analog of syllables:
 - **Line 2, 7 tokens**: the turn. The behavior, the habit, the honest truth.
 - **Line 3, 5 tokens**: landing. The punchline, a name, an output, a number that says it all.
 
-Approximate ±2. The budget is conserved when you use fewer lines: two lines collapse to ~12 tokens (5+7) then ~5, one line to ~17; the punchline landing stays the short ~5. Fewer lines is legal, rhythm is not optional — `scripts/rhythm_check.py` enforces the silhouette at any line count.
+Approximate ±2. The budget is conserved when you use fewer lines: two lines collapse to ~12 tokens (5+7) then ~5, one line to ~17; the punchline landing stays the short ~5. Fewer lines is legal, rhythm is not optional - `scripts/rhythm_check.py` enforces the silhouette at any line count.
 
 The difference from haiku is subject, not shape: nature and seasons are out; people, humor, and recognizably human failure are in.
 
@@ -77,7 +77,7 @@ Every deliverable produced with this skill must be gradeable. You must include A
 - rhythm self-check: after writing, count the tokens on each logic line (imports and comments are free) and tighten any line that is outside ±2 of the silhouette (`[5, 7, 5]` on three lines, `[12, 5]` on two, `[17]` on one) by shortening names or simplifying expressions; never split a line into more, never pad
 - bundled checker: `scripts/rhythm_check.py solve.py` prints the token profile and fails any line outside ±2; run it when you can, or count by hand, and report the counts with the solution
 
-Benchmark signature: report the visible logic-line token counts against the conserved 5-7-5 silhouette — `[5, 7, 5]` on three lines, `[12, 5]` on two, `[17]` on one — with ±2 tolerance, separately from the human-subject and punchline assertions; never pad for the meter.
+Benchmark signature: report the visible logic-line token counts against the conserved 5-7-5 silhouette - `[5, 7, 5]` on three lines, `[12, 5]` on two, `[17]` on one - with ±2 tolerance, separately from the human-subject and punchline assertions; never pad for the meter.
 
 These requirements exist because a theme without a spec produces vibes, not output. A senryu without the human subject is just a haiku; a senryu that doesn't run is just a dead joke.
 

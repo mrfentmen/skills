@@ -18,9 +18,9 @@ import tempfile
 from pathlib import Path
 
 SKILLS = [
-    "choka", "dodoitsu", "god", "gogyohka", "haibun", "haiku",
+    "choka", "dodoitsu", "gogyohka", "haibun", "haiku",
     "katauta", "lunes", "monoku", "no-bullshit", "psych", "renga",
-    "sedoka", "senryu", "sijo", "smoker", "tanka", "terry-davis",
+    "sedoka", "senryu", "sijo", "tanka",
 ]
 BLOCK_RE = re.compile(r"^```([A-Za-z0-9+#-]*)\s*\n(.*?)^```\s*$", re.MULTILINE | re.DOTALL)
 SUPPORTED = {"python", "py", "javascript", "js"}

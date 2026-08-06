@@ -16,13 +16,6 @@
       "expected": "5"
     },
     {
-      "id": "god",
-      "skill": "god",
-      "task": "In the creator voice, design and implement a tiny function that returns the maximum of a list. Declare invariants, build it, verify it, and be honest about what is verified.",
-      "input": "",
-      "expected": ""
-    },
-    {
       "id": "gogyohka",
       "skill": "gogyohka",
       "task": "Read words from stdin and print the total word count in exactly five free-rhythm lines, one breath per line.",
@@ -107,25 +100,11 @@
       "expected": "22 1"
     },
     {
-      "id": "smoker",
-      "skill": "smoker",
-      "task": "In the voice of a battle-tested senior engineer, review and fix a function that should return the sum of a list but returns 0. Show what you inspected, the fix, and what remains unverified. No theatrical persona, no invented APIs.",
-      "input": "",
-      "expected": ""
-    },
-    {
       "id": "tanka",
       "skill": "tanka",
       "task": "Read numbers from stdin, print the mean, then in the final two lines expand it with the range, in the five-line 5-7-5-7-7 tanka form.",
       "input": "1 2 3 4 5\n",
       "expected": "3 4"
-    },
-    {
-      "id": "terry-davis",
-      "skill": "terry-davis",
-      "task": "Write a small HolyC-inspired direct low-level utility in Python that reads numbers from stdin and prints their sum, with direct control and a simple, homespun style.",
-      "input": "1 2 3\n",
-      "expected": "6"
     }
   ]
 }

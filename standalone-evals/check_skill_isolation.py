@@ -12,9 +12,9 @@ import zipfile
 from pathlib import Path, PurePosixPath
 
 SKILLS = [
-    "choka", "dodoitsu", "god", "gogyohka", "haibun", "haiku",
+    "choka", "dodoitsu", "gogyohka", "haibun", "haiku",
     "katauta", "lunes", "monoku", "no-bullshit", "psych", "renga",
-    "sedoka", "senryu", "sijo", "smoker", "tanka", "terry-davis",
+    "sedoka", "senryu", "sijo", "tanka",
 ]
 FORBIDDEN_PARTS = {"shared", "evals-infra", "dist", ".github"}
 FORBIDDEN_TEXT = (

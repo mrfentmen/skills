@@ -8,10 +8,10 @@ holds up.
 
 ## Files
 
-- `e3-manifest.json` — 18 executable tasks, one per skill (id, task, stdin
+- `e3-manifest.json` — 15 executable tasks, one per skill (id, task, stdin
   input, expected output tokens).
 - `references/<skill>.py` — verified, form-compliant reference implementations.
-  These are the **gold set**: they prove every one of the 18 contracts is
+  These are the **gold set**: they prove every one of the 15 contracts is
   satisfiable and define what compliant output looks like.
 - `without_skill/<skill>.py` — plain idiomatic solutions to the same tasks with
   no form intent (the control arm).
@@ -39,8 +39,8 @@ checks.
 
 | Arm | Run | Expected output tokens present | Form compliance |
 |---|---|---|---|
-| With skill (contract-following) | 18/18 | 18/18 | **18/18** |
-| Without skill (plain idiomatic) | 18/18 | 18/18 | **1/18** |
+| With skill (contract-following) | 15/15 | 15/15 | **15/15** |
+| Without skill (plain idiomatic) | 15/15 | 15/15 | **1/15** |
 
 "Expected output tokens present" means every expected token is in the output
 and no unexpected **numbers** appear (extra words are allowed; extra numbers
@@ -51,7 +51,7 @@ natural short code lands inside it. `haiku` and `senryu` look permissive
 ("three lines or fewer") but their rhythm silhouette is enforced at any line
 count (3 lines ~5/7/5, 2 lines ~12/5, 1 line ~17), so plain 2-line code
 (which reads ~7/1 or ~3/7, not ~12/5) no longer passes by accident. The other
-**17 forms require deliberate compliance**: plain code never produces a 7-7-5
+**14 forms require deliberate compliance**: plain code never produces a 7-7-5
 dodoitsu settlement, a 5-3-5 lune hinge, a 3-stanza renga alternation, a
 closing 7-7 choka couplet, or the inspect/plan/verify discipline of
 no-bullshit and smoker.

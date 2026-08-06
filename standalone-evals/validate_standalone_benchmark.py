@@ -13,15 +13,13 @@ import sys
 from pathlib import Path
 
 SKILLS = [
-    "choka", "dodoitsu", "god", "gogyohka", "haibun", "haiku",
+    "choka", "dodoitsu", "gogyohka", "haibun", "haiku",
     "katauta", "lunes", "monoku", "no-bullshit", "psych", "renga",
-    "sedoka", "senryu", "sijo", "smoker", "tanka", "terry-davis",
+    "sedoka", "senryu", "sijo", "tanka",
 ]
 EXPECTED_TYPES = {"explicit_or_signature", "boundary", "none", "trap"}
 EXPECTED_FIELDS = {"id", "prompt", "target", "type"}
-ALIASES = {
-    "terry-davis": ("terry-davis", "terry davis"),
-}
+ALIASES = {}
 for _skill in SKILLS:
     ALIASES.setdefault(_skill, (_skill,))
 
@@ -60,16 +58,17 @@ def validate(data: dict, root: Path) -> list[str]:
     if data.get("version") != "standalone-trigger-v1":
         errors.append("version must be standalone-trigger-v1")
     if data.get("skills") != SKILLS:
-        errors.append("skills must exactly match the current 18-skill order")
+        errors.append("skills must exactly match the current 15-skill order")
     records = data.get("records")
     if not isinstance(records, list):
         return errors + ["records must be a list"]
-    if len(records) != 180:
-        errors.append(f"expected 180 records, found {len(records)}")
-    expected_ids = [f"standalone-v1-{index:03d}" for index in range(1, 181)]
+    expected_total = len(SKILLS) * 7 + 36 + 18  # per-skill 5+2, plus global none/trap
+    if len(records) != expected_total:
+        errors.append(f"expected {expected_total} records, found {len(records)}")
+    expected_ids = [f"standalone-v1-{index:03d}" for index in range(1, expected_total + 1)]
     actual_ids = [record.get("id") if isinstance(record, dict) else None for record in records]
     if actual_ids != expected_ids:
-        errors.append("record IDs must be standalone-v1-001 through standalone-v1-180 in order")
+        errors.append(f"record IDs must be standalone-v1-001 through standalone-v1-{expected_total:03d} in order")
 
     type_counts = {kind: 0 for kind in EXPECTED_TYPES}
     per_skill: dict[str, dict[str, int]] = {
@@ -138,8 +137,10 @@ def validate(data: dict, root: Path) -> list[str]:
         if re.search(r"(?i)benchmark|evaluator|trigger\s+set|ground\s+truth|test\s+case", prompt):
             errors.append(f"{label}: prompt leaks evaluation terminology")
 
-    if type_counts != {"explicit_or_signature": 90, "boundary": 36, "none": 36, "trap": 18}:
-        errors.append(f"type counts are {type_counts}, expected 90/36/36/18")
+    expected_types = {"explicit_or_signature": len(SKILLS) * 5, "boundary": len(SKILLS) * 2,
+                      "none": 36, "trap": 18}
+    if type_counts != expected_types:
+        errors.append(f"type counts are {type_counts}, expected {expected_types}")
     if none_counts != {"none": 36, "trap": 18}:
         errors.append(f"none/trap counts are {none_counts}, expected 36/18")
     for skill in SKILLS:

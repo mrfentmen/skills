@@ -1,8 +1,15 @@
 # Current-Scope Release Report
 
-**Release scope:** 18 coding skills, 180 trigger-evaluation queries  
+> **UPDATE (2026-08-06): the public monorepo scope is now 15 skills.** `god`,
+> `smoker`, and `terry-davis` moved to the private `mrfentmen/skills-2` repo
+> (joined by `quantum-computing`); the `skills` monorepo is public. All numbers
+> below describe the historical 18-skill scope as of commit `629e96f`; see the
+> reorg commit for the 15-skill current state (150-record-equivalent trigger
+> scope: 159 records with 36 global `none` + 18 global `trap`).
+
+**Release scope (historical):** 18 coding skills, 180 trigger-evaluation queries  
 **Report date:** 2026-08-06  
-**Repository commit:** `629e96f` — `Initialize skills monorepo with validated skills and CI`
+**Repository commit:** `629e96f` - `Initialize skills monorepo with validated skills and CI`
 
 ## Executive summary
 
