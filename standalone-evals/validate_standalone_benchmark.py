@@ -16,6 +16,8 @@ SKILLS = [
     "choka", "dodoitsu", "gogyohka", "haibun", "haiku",
     "katauta", "lunes", "monoku", "renga",
     "sedoka", "senryu", "sijo", "tanka",
+    "kyoka", "somonka", "bussokusekika", "imayo",
+    "kanshi", "zappai", "waka", "renshi", "sonnet",
 ]
 EXPECTED_TYPES = {"explicit_or_signature", "boundary", "none", "trap"}
 EXPECTED_FIELDS = {"id", "prompt", "target", "type"}
@@ -179,7 +181,13 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
-    print("PASS: standalone-trigger-v1; 180 records; 18 skills; 90 explicit/signature, 36 boundary, 36 none, 18 trap")
+    n_records = len(data.get("records", []))
+    n_skills = len(data.get("skills", []))
+    n_exp = sum(1 for r in data.get("records", []) if r.get("type") == "explicit_or_signature")
+    n_bnd = sum(1 for r in data.get("records", []) if r.get("type") == "boundary")
+    n_non = sum(1 for r in data.get("records", []) if r.get("type") == "none")
+    n_trp = sum(1 for r in data.get("records", []) if r.get("type") == "trap")
+    print(f"PASS: standalone-trigger-v1; {n_records} records; {n_skills} skills; {n_exp} explicit/signature, {n_bnd} boundary, {n_non} none, {n_trp} trap")
     return 0
 
 

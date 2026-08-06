@@ -1,0 +1,17 @@
+{
+  "skill_name": "sonnet",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python sonnet: 14 lines in three quatrains + couplet that analyze request loads, turn at the volta, and resolve in the final two lines",
+      "expected_output": "14 lines ~10 tokens each, volta ~line 9-12, couplet resolves, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python sonnet that computes error rate in a log with a volta judging health and a couplet resolving the fix",
+      "expected_output": "14 lines, volta + couplet, runs",
+      "files": []
+    }
+  ]
+}

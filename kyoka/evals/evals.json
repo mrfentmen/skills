@@ -1,0 +1,17 @@
+{
+  "skill_name": "kyoka",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python kyoka (5 lines) that reads health-check booleans and prints the count of failures with a comedic punchline about the scale",
+      "expected_output": "5 lines 5-7-5-7-7: real computation + comic turn, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python kyoka that computes the average load and lands a satirical punchline about the \"high-performance\" system",
+      "expected_output": "5 lines: honest mean + deflation joke, runs",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "skill_name": "somonka",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python somonka: an opening 5-line tanka computing a mean, and a reply 5-line tanka that answers with the spread",
+      "expected_output": "two 5-line programs 5-7-5-7-7, reply consumes opening result, both run",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python somonka exchange where the first sorts users and the reply reveals admins outside the sort",
+      "expected_output": "paired tanka, reply overturns first, both run",
+      "files": []
+    }
+  ]
+}

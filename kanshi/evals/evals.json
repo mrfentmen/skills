@@ -1,0 +1,17 @@
+{
+  "skill_name": "kanshi",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python kanshi: 4 lines in parallel couplets (7 tokens each) that count up and down services and resolve with uptime",
+      "expected_output": "4 lines ~7 tokens, parallel couplets, turn + resolve, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python kanshi whose first couplet mirrors min/max and whose turn and resolve report the range",
+      "expected_output": "4 lines, mirror couplet, resolve, runs",
+      "files": []
+    }
+  ]
+}

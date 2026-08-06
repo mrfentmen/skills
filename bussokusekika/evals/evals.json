@@ -1,0 +1,17 @@
+{
+  "skill_name": "bussokusekika",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python bussokusekika (6 lines) that reads latencies and prints median with a seal line delivering the verdict",
+      "expected_output": "6 lines 5-7-5-7-7-7 with sealing line 6, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python bussokusekika that checks config completeness and seals with the missing-key judgment",
+      "expected_output": "6 lines, seal line judges, runs",
+      "files": []
+    }
+  ]
+}

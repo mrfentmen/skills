@@ -1,0 +1,17 @@
+{
+  "skill_name": "renshi",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python renshi: a visible chain of short stages from raw JSON text to parsed events to failed ids to a final report",
+      "expected_output": "3-6 stages each consuming previous output, chain traceable, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python renshi relay that transforms numbers through sum, mean, deviation, to a final verse",
+      "expected_output": "visible linked stages, evolves through chain, runs",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "skill_name": "imayo",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python imayo: 4 lines each with a 7-5 pulse that reads a log and prints the error count as a refrain",
+      "expected_output": "4 lines, each 7-5 pulse, final short phrase lands refrain, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python imayo that rolls through parse, filter, count, report with a 7-5 beat per line",
+      "expected_output": "4 rolling lines with 7-5 pulse, runs",
+      "files": []
+    }
+  ]
+}

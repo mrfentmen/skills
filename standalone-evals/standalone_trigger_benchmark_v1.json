@@ -13,7 +13,16 @@
     "sedoka",
     "senryu",
     "sijo",
-    "tanka"
+    "tanka",
+    "kyoka",
+    "somonka",
+    "bussokusekika",
+    "imayo",
+    "kanshi",
+    "zappai",
+    "waka",
+    "renshi",
+    "sonnet"
   ],
   "records": [
     {
@@ -885,6 +894,384 @@
       "prompt": "Explain how to writes a small HolyC-style service loop in a straightforward implementation with no special presentation.",
       "target": "none",
       "type": "trap"
+    },
+    {
+      "id": "standalone-v1-146",
+      "prompt": "Write a kyoka program that reads health checks and prints the failure count with a comedic punchline",
+      "target": "kyoka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-147",
+      "prompt": "Build a kyoka that computes the average load and lands a satirical jab about the high-performance system",
+      "target": "kyoka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-148",
+      "prompt": "Write a kyoka: a five-line comic verse program that counts log errors and ends with a self-aware joke",
+      "target": "kyoka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-149",
+      "prompt": "Write a five-line program whose final two lines deliver a comic deflation of a real computation",
+      "target": "kyoka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-150",
+      "prompt": "Compose a five-line humorous verse program that parses a config and ends on an absurd observation",
+      "target": "kyoka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-151",
+      "prompt": "A five-line program that honestly computes a statistic and then undercuts its own importance in the last two lines",
+      "target": "kyoka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-152",
+      "prompt": "Implement a five-line verse whose third line lands the real result and whose closing lines reveal the joke",
+      "target": "kyoka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-153",
+      "prompt": "Write a somonka: an opening five-line verse computing a mean, and a reply verse answering with the spread",
+      "target": "somonka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-154",
+      "prompt": "Build a somonka exchange where the first verse sorts users and the reply reveals the admins outside the sort",
+      "target": "somonka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-155",
+      "prompt": "Write a somonka: paired verses where the second program consumes the first output and counters it",
+      "target": "somonka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-156",
+      "prompt": "Write a paired exchange of two five-line programs where the second mirrors and answers the first result",
+      "target": "somonka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-157",
+      "prompt": "Compose two five-line verse programs in dialogue, the second overturning the first verdict",
+      "target": "somonka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-158",
+      "prompt": "A pair of five-line programs where the second reads the first output file and issues a different judgment",
+      "target": "somonka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-159",
+      "prompt": "Implement two short verse programs in conversation, the second escalating on the first finding",
+      "target": "somonka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-160",
+      "prompt": "Write a bussokusekika: a six-line verse program that reads latencies and seals with a verdict line",
+      "target": "bussokusekika",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-161",
+      "prompt": "Build a bussokusekika that checks config completeness and ends on a threshold judgment",
+      "target": "bussokusekika",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-162",
+      "prompt": "Write a bussokusekika: six lines where the final line names the conclusion the earlier lines earned",
+      "target": "bussokusekika",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-163",
+      "prompt": "Write a six-line verse program whose last line settles the computation without new machinery",
+      "target": "bussokusekika",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-164",
+      "prompt": "Compose a six-line meditation program that counts words and seals with the dominant token name",
+      "target": "bussokusekika",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-165",
+      "prompt": "A six-line program where lines one through five build evidence and line six issues the verdict",
+      "target": "bussokusekika",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-166",
+      "prompt": "Implement a six-line verse whose closing line confirms the threshold the earlier lines measured",
+      "target": "bussokusekika",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-167",
+      "prompt": "Write an imayo: a four-line verse program where each line carries a long-short seven-five pulse",
+      "target": "imayo",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-168",
+      "prompt": "Build an imayo that reads a log and rolls through parse, filter, count, and a refrain",
+      "target": "imayo",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-169",
+      "prompt": "Write an imayo: four lines, each with the seven-five beat, ending on a chorus hook",
+      "target": "imayo",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-170",
+      "prompt": "Write a four-line song-like program whose every line alternates a long and short phrase",
+      "target": "imayo",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-171",
+      "prompt": "Compose a four-line rolling verse that sums prices and lands the total as a refrain",
+      "target": "imayo",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-172",
+      "prompt": "A four-line program with a repeating long-short rhythm inside each statement line",
+      "target": "imayo",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-173",
+      "prompt": "Implement a four-line verse that counts failures and closes on a short chorus line",
+      "target": "imayo",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-174",
+      "prompt": "Write a kanshi: a four-line verse program in parallel couplets that count up and down services and resolve with uptime",
+      "target": "kanshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-175",
+      "prompt": "Build a kanshi whose first couplet mirrors min and max and whose turn and resolve report the range",
+      "target": "kanshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-176",
+      "prompt": "Write a kanshi: four lines of paired seven-token couplets, the third turning and the fourth resolving",
+      "target": "kanshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-177",
+      "prompt": "Write a four-line verse program where the first two lines are a structural mirror and the last two turn and settle",
+      "target": "kanshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-178",
+      "prompt": "Compose a four-line parallel verse that counts characters and words and resolves with the density",
+      "target": "kanshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-179",
+      "prompt": "A four-line program whose first couplet mirrors two counts and whose closing couplet turns and resolves",
+      "target": "kanshi",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-180",
+      "prompt": "Implement a four-line verse in two matching pairs, the final line settling the third line pivot",
+      "target": "kanshi",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-181",
+      "prompt": "Write a zappai: a three-line verse program that reads health data and prints which services are down",
+      "target": "zappai",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-182",
+      "prompt": "Build a zappai that counts errors in a log and lands the small truth as the third line moment",
+      "target": "zappai",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-183",
+      "prompt": "Write a zappai: a three-line verse program free of season words that prints a config summary",
+      "target": "zappai",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-184",
+      "prompt": "Write a three-line verse program shaped five-seven-five that reports the cache state in a snapshot",
+      "target": "zappai",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-185",
+      "prompt": "Compose a three-line unconstrained moment program that prints the unique keys of a JSON object",
+      "target": "zappai",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-186",
+      "prompt": "A three-line program with the three-line silhouette that lands an observation as its final line",
+      "target": "zappai",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-187",
+      "prompt": "Implement a three-line verse without seasonal requirements that reports a single system fact",
+      "target": "zappai",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-188",
+      "prompt": "Write a waka: a five-line verse program where the first three set the scene and the last two turn and resolve",
+      "target": "waka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-189",
+      "prompt": "Build a waka that counts users and admin share, turning on line four with the hidden fact",
+      "target": "waka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-190",
+      "prompt": "Write a waka: five lines in the classical five-seven-five-seven-seven shape with a quiet turn",
+      "target": "waka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-191",
+      "prompt": "Write a five-line verse program that establishes a scene then pivots on line four and resolves on five",
+      "target": "waka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-192",
+      "prompt": "Compose a five-line courtly verse that reads a log and ends with the peak-to-average verdict",
+      "target": "waka",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-193",
+      "prompt": "A five-line program whose first three lines describe a state and whose last two reveal its hidden pattern",
+      "target": "waka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-194",
+      "prompt": "Implement a five-line verse with a restrained turn that re-reads the earlier computation",
+      "target": "waka",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-195",
+      "prompt": "Write a renshi: a chain of short stages where each stage consumes the previous output and transforms it",
+      "target": "renshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-196",
+      "prompt": "Build a renshi relay from raw JSON text to parsed events to failed ids to a final report",
+      "target": "renshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-197",
+      "prompt": "Write a renshi: linked verse stages that evolve numbers through sum, mean, and deviation",
+      "target": "renshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-198",
+      "prompt": "Write a linked chain of short program stages where every stage names what it received",
+      "target": "renshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-199",
+      "prompt": "Compose a relay-style multi-stage verse that passes a value from parse to verdict",
+      "target": "renshi",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-200",
+      "prompt": "A chain of short computation stages where each stage visibly transforms the previous output",
+      "target": "renshi",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-201",
+      "prompt": "Implement a multi-stage verse program whose links are traceable from source to final line",
+      "target": "renshi",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-202",
+      "prompt": "Write a sonnet: a fourteen-line verse program in three quatrains and a couplet that analyze request loads",
+      "target": "sonnet",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-203",
+      "prompt": "Build a sonnet that computes the error rate of a log with a volta judging health and a couplet resolving the fix",
+      "target": "sonnet",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-204",
+      "prompt": "Write a sonnet: fourteen lines of about ten tokens each with a turn before the closing pair",
+      "target": "sonnet",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-205",
+      "prompt": "Write a fourteen-line verse program where three four-line movements build and a final couplet resolves",
+      "target": "sonnet",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-206",
+      "prompt": "Compose a fourteen-line iambic-flavored verse that reports a statistic then turns on the ninth line",
+      "target": "sonnet",
+      "type": "explicit_or_signature"
+    },
+    {
+      "id": "standalone-v1-207",
+      "prompt": "A fourteen-line program whose argument shifts near the tenth line and closes with a two-line verdict",
+      "target": "sonnet",
+      "type": "boundary"
+    },
+    {
+      "id": "standalone-v1-208",
+      "prompt": "Implement a fourteen-line verse with a volta that reframes the computation before the final pair",
+      "target": "sonnet",
+      "type": "boundary"
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "skill_name": "zappai",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python zappai: 3 lines ~5-7-5 that read health.json and print which services are down, no kigo needed",
+      "expected_output": "3 lines 5-7-5, moment lands, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python zappai that counts errors in a log and lands the small truth as the third-line moment",
+      "expected_output": "3 lines, observation moment, runs",
+      "files": []
+    }
+  ]
+}

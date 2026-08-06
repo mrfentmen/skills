@@ -1,0 +1,17 @@
+{
+  "skill_name": "waka",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python waka: 5 lines where the first three set the scene of request loads and the last two turn and resolve with the peak ratio",
+      "expected_output": "5 lines 5-7-5-7-7, quiet turn + resolve, runs",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a Python waka that counts users and admin share, turning on line 4 with the hidden fact",
+      "expected_output": "5 lines, hidden-fact turn, resolves, runs",
+      "files": []
+    }
+  ]
+}

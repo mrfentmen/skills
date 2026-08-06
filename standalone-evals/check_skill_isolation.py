@@ -15,6 +15,8 @@ SKILLS = [
     "choka", "dodoitsu", "gogyohka", "haibun", "haiku",
     "katauta", "lunes", "monoku", "renga",
     "sedoka", "senryu", "sijo", "tanka",
+    "kyoka", "somonka", "bussokusekika", "imayo",
+    "kanshi", "zappai", "waka", "renshi", "sonnet",
 ]
 FORBIDDEN_PARTS = {"shared", "evals-infra", "dist", ".github"}
 FORBIDDEN_TEXT = (

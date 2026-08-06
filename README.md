@@ -1,32 +1,37 @@
 # Unconventional Coding Skills
 
-Eighteen themed coding skills that change *how* an AI writes code, each one a
+Twenty-two themed coding skills that change *how* an AI writes code, each one a
 philosophy, a set of reusable patterns, and a checkable spec.
 
 ## The Skills
 
-The current release contains exactly 18 independently installable skills:
+The current release contains exactly 22 independently installable skills — 13
+short-form poetry skills plus 9 newly added classical and Western forms:
 
 | Skill | Identity | Standalone activation |
 |---|---|---|
 | `choka` | Long alternating verse with a closing couplet | explicit choka or long-metered-verse request |
 | `dodoitsu` | Four-line 7-7-7-5 folk form | explicit dodoitsu or 7-7-7-5 request |
-| `god` | Creator voice for coding and software architecture | explicit god-mode or divine-architecture request |
 | `gogyohka` | Free-form five-line code | explicit gogyohka or free-form five-line request |
 | `haibun` | Narrative code with a three-line poetic landing | explicit haibun or narrated prose-and-verse request |
 | `haiku` | Compact three-line 5-7-5 code | explicit code-haiku or 5-7-5 request |
 | `katauta` | Directly addressed three-line 5-7-7 fragment | explicit katauta or 5-7-7 fragment request |
 | `lunes` | Three-line 5-3-5 form with a short middle | explicit lune or 5-3-5 request |
 | `monoku` | Complete program on one physical line | explicit monoku or one-line-program request |
-| `no-bullshit` | Evidence-first production-minded engineering | explicit no-bullshit or strict-verification request |
-| `psych` | Psychedelic emergent algorithms and visuals | explicit psychedelic or emergent-visual request |
 | `renga` | Linked stanzas with visible handoff pivots | explicit renga or chained-stanza request |
 | `sedoka` | Two mirrored 5-7-7 stanzas | explicit sedoka or two-stanza-response request |
 | `senryu` | Human-nature humor in three 5-7-5 lines | explicit senryu or human-comedy request |
 | `sijo` | Three long lines ending in a twist | explicit sijo or three-line-twist request |
-| `smoker` | Battle-tested senior-engineer voice | explicit smoker or veteran-engineer request |
 | `tanka` | Five-line 5-7-5-7-7 result and reflection | explicit tanka or 5-7-5-7-7 request |
-| `terry-davis` | TempleOS/HolyC-inspired unconventional code | explicit Terry Davis, TempleOS, or HolyC request |
+| `kyoka` | Comic tanka: five lines 5-7-5-7-7 ending in a joke | explicit kyoka or comic-verse request |
+| `somonka` | Paired exchange of two 5-7-5-7-7 verses | explicit somonka or paired-exchange request |
+| `bussokusekika` | Six-line 5-7-5-7-7-7 verse with a sealing verdict | explicit bussokusekika or 5-7-5-7-7-7 request |
+| `imayo` | Four lines with a rolling 7-5 pulse per line | explicit imayo or 7-5-7-5 song request |
+| `kanshi` | Four lines of paired 7-7 couplets with a turn and resolve | explicit kanshi or couplet-verse request |
+| `zappai` | Three-line moment freed from haiku's kigo rules | explicit zappai or free three-line moment request |
+| `waka` | Classical five-line 5-7-5-7-7 scene, turn, and resolve | explicit waka or classical verse request |
+| `renshi` | Chain of linked short stages passing a torch | explicit renshi or linked-relay request |
+| `sonnet` | Fourteen lines in quatrains with a volta and couplet | explicit sonnet or 14-line verse request |
 
 Every skill is self-contained and carries its own activation contract, minimum
 requirements, cross-language examples, and helper policy. Installing one skill
