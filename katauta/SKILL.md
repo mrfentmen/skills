@@ -1,14 +1,7 @@
 ---
 name: katauta
 description: >-
-  Write code as a katauta: a 3-line program with the 5-7-7 rhythm - a short opening and a
-  heavier two-line tail - addressed directly to its subject like a half-poem spoken to a
-  lover. Use this skill when the user wants a 3-line program with a long falling ending,
-  or code that speaks directly to its data. Make sure to use this skill whenever the user
-  mentions katauta, katuka, 5-7-7, the half-poem, or a fragment verse addressed to its
-  subject. This skill is NOT for the 5-7-5 forms (use haiku for nature, senryu for humor),
-  NOT for the 5-3-5 form (use lunes), and two katauta make a sedoka when the user wants
-  the pair.
+  Write runnable code in a katauta form: one three-line, 5-7-7 program that addresses its subject directly and ends with a heavy two-line tail. Activate only for an explicit katauta, 5-7-7 half-poem, or directly addressed fragment request.
 ---
 
 # Katauta Skill
@@ -55,17 +48,9 @@ words = sys.stdin.read().lower().split()
 print(len(words), "words, all yours")
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every poetic-code request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- 5-7-5 3-liners about nature -> haiku
-- 5-7-5 3-liners about human nature / humor -> senryu
-- the American 5-3-5 punch form -> lunes
-- two answering stanzas -> sedoka
-- 5-line forms -> tanka or gogyohka
-
-Katauta is the 5-7-7 half-poem. Two katauta in conversation are a sedoka; one katauta is a fragment that stands alone.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -82,13 +67,13 @@ Benchmark signature: report the three visible logic-line token counts against `[
 
 These requirements exist because a theme without a spec produces vibes, not output. A katauta without the direct address is just a shorter haiku; a katauta that doesn't run is a message with no recipient.
 
-## When to Use Katauta Patterns
+## Boundaries
 
-Use katauta code when:
-- a single decisive answer should feel spoken directly to the data
-- the user wants a 3-line program with a heavy, falling ending
-- the task is a direct question with a direct answer
-- the user says "address it", "5-7-7", or "the half-poem"
+This skill is not for any three-line program or an unaddressed short response. Without an explicit katauta request and its directly addressed 5-7-7 fragment contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names katauta or requests a directly addressed 5-7-7 fragment. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Katauta Aesthetic
 
@@ -133,9 +118,4 @@ For other languages, translate the same structure, short opening, direct address
 
 ## Bundled Helpers
 
-If the address needs randomness or a canvas, reuse the shared toolkit:
-
-- `shared/rng.py`, seeded RNG and choice helpers
-- `shared/ascii_canvas.py`, ASCII canvas for the message
-
-A katauta may import one of these on its opening line, it counts toward the three.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

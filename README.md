@@ -5,52 +5,32 @@ philosophy, a set of reusable patterns, and a checkable spec.
 
 ## The Skills
 
-| Skill | Theme | NOT for (use instead) |
+The current release contains exactly 18 independently installable skills:
+
+| Skill | Identity | Standalone activation |
 |---|---|---|
-| `terry-davis` | HolyC / TempleOS, cosmic variable names, goto spaghetti | production code → `no-bullshit`; surreal → `psych` |
-| `psych` | psychedelic, fractal, emergent algorithms | genetic algos → `biomimicry`; quantum → `quantum-computing`; esolangs → `esoteric-programming` |
-| `no-bullshit` | production-minded, zero hallucination, honest verification | themed code → the matching theme skill; golf → `esoteric-programming` |
-| `smoker` | battle-tested senior-engineer voice, inspect-first | themed code → theme skill; diplomatic → `no-bullshit` |
-| `retro-computing` | 8-bit / DOS / C64, direct memory, chiptune | CRT glitches → `glitch-art`; generative art → `artistic-creative` |
-| `mathematical-elegance` | proofs, invariants, pure function beauty | quantum → `quantum-computing`; golden ratio → `renaissance` |
-| `minimalist-zen` | fewest honest lines, no gold-plating | ink art → `zen-calligraphy`; golf → `esoteric-programming` |
-| `artistic-creative` | generative art, particles, procedural beauty | glitch → `glitch-art`; math proofs → `mathematical-elegance` |
-| `quantum-computing` | qubits, superposition, entanglement | psychedelic → `psych` |
-| `esoteric-programming` | Brainfuck, Befunge, golf, quines | security obfuscation → security review; readable code → `no-bullshit` |
-| `biomimicry` | evolution, swarms, neural nets, ecosystems | psychedelic → `psych` |
-| `glitch-art` | pixel sorting, data bending, CRT artifacts | intentional pixel art → `retro-computing` |
-| `steampunk` | gears, brass, Babbage, Victorian computing | 8-bit → `retro-computing`; Victorian horror → `cosmic-horror` |
-| `cosmic-horror` | sanity systems, non-Euclidean dread | game AI w/o horror → no theme; generative art → `artistic-creative` |
-| `renaissance` | golden ratio, perspective, classical proportion | pure math → `mathematical-elegance` |
-| `zen-calligraphy` | brush strokes, ink, haiku comments | minimal code → `minimalist-zen`; mechanics → `steampunk` |
-| `haiku` | 3-line dense code that actually runs (5-7-5 token rhythm) | code golf → `esoteric-programming`; minimal architecture → `minimalist-zen` |
-| `tanka` | 5-line dense code (5-7-5-7-7): result plus reflection | 3-line forms → `haiku`/`senryu`/`lunes`; golf → `esoteric-programming` |
-| `senryu` | 3-line human-nature humor (5-7-5) with a punchline | nature → `haiku`; 5-line → `tanka`; 5-3-5 → `lunes` |
-| `lunes` | 3-line American form (5-3-5) with a razor-thin punch middle | 5-7-5 → `haiku`; 5-line → `tanka` |
-| `haibun` | narrative prose-like code + 3-line haiku ending (≤12 lines) | pure 3-line forms → `haiku`/`senryu`/`lunes`/`katauta` |
-| `sedoka` | 6 lines in two mirroring 5-7-7 stanzas (question/response) | single 3-line stanzas → `katauta`; 5-line → `tanka`/`gogyohka` |
-| `katauta` | 3-line 5-7-7 half-poem, addressed to its subject | 5-7-5 → `haiku`/`senryu`; 5-3-5 → `lunes` |
-| `gogyohka` | free-form 5-liner, one breath per line, no meter | metered tanka → `tanka`; 3-line forms → `haiku`/`senryu`/`lunes`/`katauta` |
+| `choka` | Long alternating verse with a closing couplet | explicit choka or long-metered-verse request |
+| `dodoitsu` | Four-line 7-7-7-5 folk form | explicit dodoitsu or 7-7-7-5 request |
+| `god` | Creator voice for coding and software architecture | explicit god-mode or divine-architecture request |
+| `gogyohka` | Free-form five-line code | explicit gogyohka or free-form five-line request |
+| `haibun` | Narrative code with a three-line poetic landing | explicit haibun or narrated prose-and-verse request |
+| `haiku` | Compact three-line 5-7-5 code | explicit code-haiku or 5-7-5 request |
+| `katauta` | Directly addressed three-line 5-7-7 fragment | explicit katauta or 5-7-7 fragment request |
+| `lunes` | Three-line 5-3-5 form with a short middle | explicit lune or 5-3-5 request |
+| `monoku` | Complete program on one physical line | explicit monoku or one-line-program request |
+| `no-bullshit` | Evidence-first production-minded engineering | explicit no-bullshit or strict-verification request |
+| `psych` | Psychedelic emergent algorithms and visuals | explicit psychedelic or emergent-visual request |
+| `renga` | Linked stanzas with visible handoff pivots | explicit renga or chained-stanza request |
+| `sedoka` | Two mirrored 5-7-7 stanzas | explicit sedoka or two-stanza-response request |
+| `senryu` | Human-nature humor in three 5-7-5 lines | explicit senryu or human-comedy request |
+| `sijo` | Three long lines ending in a twist | explicit sijo or three-line-twist request |
+| `smoker` | Battle-tested senior-engineer voice | explicit smoker or veteran-engineer request |
+| `tanka` | Five-line 5-7-5-7-7 result and reflection | explicit tanka or 5-7-5-7-7 request |
+| `terry-davis` | TempleOS/HolyC-inspired unconventional code | explicit Terry Davis, TempleOS, or HolyC request |
 
-Every skill has:
-
-- **Boundaries**, an explicit "when NOT to use this skill / use X instead"
-  section plus a boundary sentence in the description, so overlapping skills
-  never coin-flip on the same prompt.
-- **Minimum Requirements (checkable)**, objective items a reviewer can grade
-  without judgment calls (these power the eval assertions).
-- **Cross-Language Examples**, Python + JavaScript + Rust (and C for
-  terry-davis), so the theme translates to any stack.
-- **Bundled Helpers**, pointers to the shared toolkit below.
-
-## Shared Helpers (`shared/`)
-
-The themed skills kept reinventing the same primitives. They now share:
-
-- `shared/ascii_canvas.py`, ASCII canvas with Bresenham lines, circles,
-  rectangles, ink-density characters (█ ▓ ▒ ░)
-- `shared/box_drawing.py`, box-drawing headers and sections (╔══╗ ║ ╚══╝)
-- `shared/rng.py`, seeded RNG, gaussian/choice, value noise
+Every skill is self-contained and carries its own activation contract, minimum
+requirements, cross-language examples, and helper policy. Installing one skill
+does not require downloading or loading any other skill or repository file.
 
 ## Installation
 
@@ -77,24 +57,29 @@ cp -r skills/terry-davis ~/.agents/skills/   # repeat for each skill
 ```javascript
 skill({ name: "terry-davis" })
 skill({ name: "psych" })
-skill({ name: "retro-computing" })
-// ... any of the 16
+skill({ name: "haiku" })
+// ... any of the 18 current skills
 ```
 
-Example prompts per theme are listed in `COMPREHENSIVE_DOCUMENTATION.md`.
+`COMPREHENSIVE_DOCUMENTATION.md` is a historical four-skill reference; use each current `SKILL.md` as the source of truth for activation and examples.
 
 ## Evaluation
 
 - `static_skill_audit.py`, objective SKILL.md quality audit
-  (frontmatter, boundaries, requirements, language coverage, helpers, and no-mock-code integrity).
-  Baseline: **0.39 overall** → after this pass: **1.00 overall** (18/18).
-- `evals-infra/`, the real with-skill vs. baseline harness (scaffold →
-  grade → aggregate → viewer). See `evals-infra/HOW_TO_RUN_EVALS.md`.
+  (frontmatter, scope, requirements, language coverage, helper policy, and no-mock-code integrity).
+  The latest local validation score is **0.79 overall** (all 18 skills above the
+  0.75 release floor); earlier **0.80** and **1.00** results are generated
+  historical snapshots.
+- The external `evals-infra/` repository contains the with-skill vs. baseline
+  harness (scaffold → grade → aggregate → viewer). Installed skills do not
+  require the harness at runtime. See its `HOW_TO_RUN_EVALS.md` when validating
+  a source checkout.
 
-> ⚠️ The older "benchmark" percentages for the 12 newer skills were simulated
-> by a local script, not measured with LLM runs. The harness in `evals-infra/`
-> is the real thing, run it in an environment with LLM subagents and treat
-> its output as the source of truth.
+> ⚠️ The historical 180-query trigger set and its recorded decisions predate
+> the standalone activation rewrite. They remain reproducible regression data,
+> not independent evidence that the revised descriptions generalize. The
+> external harness is the source of truth for future independently authored
+> routing evaluations.
 
 ## GitHub Actions CI (per-skill repos)
 
@@ -122,11 +107,10 @@ monorepo (`skills/`) and inside a per-skill repo (`SKILL.md` at the root).
 
 ## The infra repo (`mrfentmen/skills-infra`)
 
-The `shared/` helpers and the `evals-infra/` harness live in their own repo
-so the skill repos stay lean. `GITHUB_TOKEN=<pat> bash push_infra_repo.sh`
-creates/updates it with: `shared/`, `evals-infra/` (incl. legacy history),
-`package_skills.py`, `ci/audit-and-package.yml`, and a README, caches,
-`dist/`, workspaces, and generated reports are excluded.
+The `evals-infra/` harness lives in its own repository so the standalone skill
+repos stay lean. `GITHUB_TOKEN=<pat> bash push_infra_repo.sh` creates or updates
+that infrastructure repository. Generated reports, caches, workspaces, and
+build artifacts remain outside the standalone skill payloads.
 
 ## Safety
 

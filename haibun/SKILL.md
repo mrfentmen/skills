@@ -1,13 +1,7 @@
 ---
 name: haibun
 description: >-
-  Write code as a haibun: a flowing, narrative program (the prose - step-by-step code with
-  story-like comments) that ends in a 3-line dense haiku (the moment). Use this skill when
-  the user wants a program that tells a story about its data, a narrated walkthrough that
-  finishes with a poetic summary, or a report that reads like a travel diary. Make sure to
-  use this skill whenever the user mentions haibun, prose-and-haiku, narrated code, or a
-  story-shaped program with a poetic ending. This skill is NOT for pure 3-line forms (use
-  haiku, senryu, lunes, or katauta) and NOT for strict-meter forms (use tanka or sedoka).
+  Write a runnable haibun: a short narrative program with diary-like processing and a distinct three-line poetic landing that summarizes the journey. Activate only for an explicit haibun, prose-and-verse program, or narrated code journey request.
 ---
 
 # Haibun Skill
@@ -73,16 +67,9 @@ summer = len(warm)
 print(f"{winter} cold days, {summer} warm")
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every poetic-code request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- pure 3-line forms with no prose body -> haiku, senryu, lunes, or katauta
-- strict-meter forms -> tanka or sedoka
-- free-form 5-liners -> gogyohka
-- shortest-possible / golfed code -> esoteric-programming
-
-Haibun is the story-shaped form: prose that walks, then a haiku that lands. Without the narrative body, it's just a haiku; without the final haiku, it's just a script.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -99,13 +86,13 @@ Benchmark signature: measure the narrative body separately, then report the fina
 
 These requirements exist because a theme without a spec produces vibes, not output. A haibun without the story is a script; a haibun without the ending haiku is a diary with no last page. The prose comments and the poetic landing are what make the narrative mechanically checkable, a plain script that merely fits the line budget is not a haibun.
 
-## When to Use Haibun Patterns
+## Boundaries
 
-Use haibun code when:
-- the task is a journey, a file to read, a walk to take, a story to tell
-- the user wants narrated, readable processing with a poetic payoff
-- a report should read like a travel diary and end in a single insight
-- the user says "narrate it", "walk me through it", or "with a poetic ending"
+This skill is not for ordinary prose documentation, a plain script, or a poem without narrative processing and its three-line landing. Without the complete haibun contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names haibun or requests a narrative prose-and-verse program with a three-line landing. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Haibun Aesthetic
 
@@ -158,9 +145,4 @@ For other languages, translate the same structure, narrative prose body, then th
 
 ## Bundled Helpers
 
-If the walk needs randomness or ASCII scenery, reuse the shared toolkit:
-
-- `shared/rng.py`, seeded RNG and choice helpers
-- `shared/ascii_canvas.py`, ASCII canvas for rendering the walk
-
-A haibun may import one of these in its prose body, it counts toward the 12 lines.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

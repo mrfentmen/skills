@@ -1,36 +1,14 @@
 ---
 name: no-bullshit
 description: >-
-  Write production-minded code with zero hallucination. Enforces a strict cycle:
-  Understand, Inspect, Plan, Implement, Check, Report. Never invents files, functions,
-  APIs, packages, or database tables; never presents mock, fake, or placeholder code as
-  finished; asks instead of guessing; stops after repeated failures; verifies everything.
-  Use this skill when you want honest, reliable, production-ready code without any
-  bullshit, pretending, or guessing. Triggers on requests for: "production code", "real
-  implementation", "no hallucination", "honest coding", "verify before claiming", "no
-  mocks", "production-ready", "don't make things up", "no fake code", "code that actually
-  works". Also triggers when the user expresses frustration with AI making things up. Make
-  sure to use this skill whenever code must be verified, not assumed. This skill is NOT
-  for stylized or themed code (use that theme's skill: retro-computing, quantum-computing,
-  zen-calligraphy...) and NOT for shortest-possible code (use esoteric-programming).
+  Write production-minded code with an inspect-plan-implement-verify-report discipline. Never invent files, APIs, packages, schemas, or test results; make claims only from evidence. Activate only when the user explicitly requests no-bullshit, no-hallucination, real implementation, or strict verification.
 ---
 
 # No-Bullshit Skill
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every request in its neighborhood. When the user
-asks for one of the following, **instead use** the listed skill, the goal is
-that two skills never coin-flip on the same prompt:
-
-- - stylized or themed code -> the matching theme skill (retro-computing, quantum-computing, zen-calligraphy...)
-- shortest-possible / golfed code -> esoteric-programming
-- artistic or generative output -> artistic-creative
-
-The point of these lines is not to be restrictive, it is so that two skills
-never coin-flip on the same prompt. If two skills could both claim a request,
-pick the one whose name matches the dominant theme and say so in your reply.
-
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -140,7 +118,7 @@ State:
 ### Bad (What You Never Do)
 ```
 User: Implement user authentication
-AI: Here's a JWT authentication system with refresh tokens, 
+AI: Here's a JWT authentication system with refresh tokens,
     rate limiting, and OAuth support. [Produces 500 lines of
     untested code with invented APIs]
 ```
@@ -149,21 +127,21 @@ AI: Here's a JWT authentication system with refresh tokens,
 ```
 User: Implement user authentication
 AI: Let me first check what auth system is already in place.
-    
+
     [Inspects codebase]
-    
+
     I see you have:
     - express.js backend in /src/server
     - PostgreSQL database with a users table
     - bcrypt already in package.json
     - No existing auth middleware
-    
+
     I'll implement:
     - POST /auth/login endpoint in /src/server/routes/auth.js
     - Password verification using bcrypt
     - JWT token generation using jsonwebtoken (need to install)
     - Auth middleware for protected routes
-    
+
     Before I start: Do you want refresh tokens, or just access tokens?
     What's the token expiration time?
 ```
@@ -180,17 +158,17 @@ AI: I've implemented a complete Stripe integration with webhooks,
 ```
 User: Add a payment system
 AI: I need to check what payment provider you're using.
-    
+
     [Inspects codebase]
-    
+
     I don't see any payment packages in package.json, and no
     payment-related code in the codebase.
-    
+
     Before I can implement this, I need to know:
     1. Which payment provider? (Stripe, PayPal, Square, etc.)
     2. Do you have API keys configured?
     3. What payment flows? (one-time, subscriptions, etc.)
-    
+
     I can't implement a payment system without knowing which
     provider to use and having the API credentials.
 ```
@@ -207,19 +185,19 @@ AI: The issue is probably in your auth middleware. I've updated
 ```
 User: Fix the login bug
 AI: Let me trace the login flow to find where the bug is.
-    
+
     [Inspects codebase]
-    
+
     Login flow:
     1. POST /auth/login in routes/auth.js
     2. Calls authService.login() in services/auth.js
     3. Queries users table for email
     4. Compares password with bcrypt
     5. Generates JWT token
-    
+
     The bug is in step 4: bcrypt.compare() is being called with
     the wrong argument order. The password and hash are swapped.
-    
+
     Here's the fix:
     [Shows specific diff with explanation]
 ```
@@ -236,15 +214,17 @@ The skill also suggests these verification steps:
 6. **Detect fakes**: Look for TODOs, placeholders, fake data
 7. **Track failures**: Monitor repeated failed approaches
 
+## Boundaries
+
+This skill is not for a themed voice, unsupported certainty, or a generic request that lacks an evidence-and-verification contract. Without an explicit no-bullshit, no-hallucination, or strict-verification request, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly requests no-bullshit, no-hallucination, or strict-verification engineering. Generic coding, production, artistic, or algorithmic requests do not activate it without that explicit identity.
+
 ## When to Ask
 
-Ask the user when:
-- API contracts are unclear
-- Database schemas are unknown
-- Business logic is ambiguous
-- Multiple valid approaches exist
-- Information is missing
-- You're unsure about requirements
+Ask for missing information instead of guessing when an API contract, database schema, business rule, package, or acceptance condition is unclear. If the request cannot be completed honestly from the inspected repository, state exactly what is missing and pause.
 
 ## When to Stop
 
@@ -289,16 +269,4 @@ in one language.
 
 ## Bundled Helpers
 
-This skill shares a small toolkit with the other themed skills. When your
-output needs ASCII rendering, line drawing, decorative headers, or randomness,
-reuse these instead of rewriting them from scratch:
-
-- `shared/ascii_canvas.py`, ASCII canvas with Bresenham lines, circles,
-  rectangles, and ink-density characters (█ ▓ ▒ ░)
-- `shared/box_drawing.py`, box-drawing headers and sections (╔══╗ ║ ╚══╝)
-- `shared/rng.py`, seeded RNG, gaussian/choice helpers, and value noise
-
-Reference them from the code you produce (copy the relevant function into the
-answer, or point to the file) so every themed skill outputs consistent,
-non-reinvented helpers.
-
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

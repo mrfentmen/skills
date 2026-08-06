@@ -1,13 +1,7 @@
 ---
 name: gogyohka
 description: >-
-  Write code as a gogyohka: a 5-line program with no syllable or token counting - five
-  lines, each one natural phrase, one breath per line, free verse for code. Use this skill
-  when the user wants a 5-line program that is free and natural rather than metered, or
-  dense code that breathes. Make sure to use this skill whenever the user mentions
-  gogyohka, five-line poems, free-form five-liners, or one-breath-per-line code. This
-  skill is NOT for the strict 5-7-5-7-7 tanka and NOT for 3-line forms (use haiku, senryu,
-  lunes, or katauta).
+  Write runnable code in a gogyohka form: exactly five natural logic lines with free rhythm, one complete breath per line, and no meter requirement. Activate only for an explicit gogyohka, free-form five-line, or five-breath code request.
 ---
 
 # Gogyohka Skill
@@ -58,17 +52,9 @@ words = sum(len(l.split()) for l in lines)
 print(f"{len(lines)} lines, {words} words")
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every poetic-code request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- the strict 5-7-5-7-7 metered tanka -> tanka
-- 3-line forms -> haiku, senryu, lunes, or katauta
-- prose-with-haiku -> haibun
-- two-stanza mirror forms -> sedoka
-- shortest-possible / golfed code -> esoteric-programming
-
-Gogyohka is the free five-line form. If the user wants a meter, use tanka; if they want three lines, use a 3-line form; if they want five free breaths, this is it.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -85,13 +71,13 @@ Benchmark signature: report five visible logic-line counts without applying a me
 
 These requirements exist because a theme without a spec produces vibes, not output. A gogyohka that counts tokens is a tanka in disguise; a gogyohka that doesn't run is five dead breaths.
 
-## When to Use Gogyohka Patterns
+## Boundaries
 
-Use gogyohka code when:
-- the task fits naturally in five short steps
-- the user wants a 5-line program without meter constraints
-- dense code that breathes is more important than a rhythm
-- the user says "free form", "five lines", "one breath per line", or "just make it five lines"
+This skill is not for any arbitrary five-line snippet or generic brevity. Without an explicit gogyohka request or the free-rhythm five-line contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names gogyohka or requests free-form five-line code. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Gogyohka Aesthetic
 
@@ -139,9 +125,4 @@ For other languages, translate the same structure, five natural lines, one breat
 
 ## Bundled Helpers
 
-If the five lines need randomness or a canvas, reuse the shared toolkit:
-
-- `shared/rng.py`, seeded RNG and choice helpers
-- `shared/ascii_canvas.py`, ASCII canvas for the free verse
-
-A gogyohka may import one of these on its first breath, it counts toward the five.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

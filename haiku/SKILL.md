@@ -1,24 +1,7 @@
 ---
 name: haiku
 description: >-
-  Write code as a haiku: a complete, working program in three lines or fewer, following
-  the 5-7-5 spirit with tokens as the code analog of syllables - a short setup, a dense
-  middle turn, a short landing, and a kigo that names the moment. Use this skill when the
-  user wants ultra-dense, boilerplate-free code that actually runs: 3-line solutions, one-
-  shot scripts, terse functions, compact expressions that do real work. Make sure to use
-  this skill whenever the user mentions code haiku, haiku style code, 5-7-5 code, 3-line
-  programs, dense one-liners, no-boilerplate snippets, or asks to write it in three lines,
-  condense a script, or finish a whole task in a few working lines. This skill is NOT for
-  code golf or shortest-possible code (use esoteric-programming), NOT for minimal
-  architecture across a whole codebase (use minimalist-zen), NOT for production
-  scaffolding or enterprise review (use no-bullshit), and NOT for poetic comments or brush
-  art (use zen-calligraphy). For the rest of the poetic family, use: tanka for a 5-line
-  expanded form with reflection, senryu for a human-nature humor 3-liner with a punchline,
-  lunes for the American 5-3-5 punch form, haibun for prose-with-a-closing-haiku, sedoka
-  for two mirroring 5-7-7 stanzas, katauta for the 5-7-7 half-poem addressed to its
-  subject, and gogyohka for free-form five-liners. For the newer family extremes, use:
-  monoku for the one-line form, sijo for a 3-line twist ending, choka for long alternating
-  verse, dodoitsu for the 4-line folk form, and renga for a linked chain of stanzas.
+  Write runnable code in a haiku form: a compact nature-or-moment program with a 5-7-5 token rhythm, at most three logic lines, and a setup, turn, and landing. Activate only when the user explicitly requests a code haiku, 5-7-5 structure, or a three-line moment program.
 ---
 
 # Haiku Skill
@@ -85,23 +68,9 @@ H = type("H", (BaseHTTPRequestHandler,), {"do_GET": lambda s: (s.send_response(2
 HTTPServer(("", 8000), H).serve_forever()
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every brevity request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- shortest-possible / golfed code where size is the trophy -> esoteric-programming
-- minimal architecture across a whole codebase (services, functions, modules) -> minimalist-zen
-- production scaffolding, verification, enterprise review -> no-bullshit
-- poetic comments or ink/brush art -> zen-calligraphy
-- 5-line expanded forms (result plus reflection) -> tanka
-- human-nature humor, 3 lines with a punchline -> senryu
-- the American 5-3-5 form (razor-thin middle) -> lunes
-- prose-with-haiku (narrative body + poetic ending) -> haibun
-- two-stanza mirror forms -> sedoka
-- the 5-7-7 half-poem, addressed to its subject -> katauta
-- free-form five-liners (no meter) -> gogyohka
-
-Haiku is the middle ground: dense enough to feel like a poem, structured enough to always run.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -118,14 +87,13 @@ Benchmark signature: report the three visible logic-line token counts against `[
 
 These requirements exist because a theme without a spec produces vibes, not output. A haiku that doesn't run is just a broken poem, the run is the whole point.
 
-## When to Use Haiku Patterns
+## Boundaries
 
-Use haiku code when:
-- the whole task fits in a moment, parse, transform, print
-- the user wants a dense one-shot script with zero boilerplate
-- you need a drop-in 3-line function, not a module
-- the user says "no boilerplate bullshit" or "just make it work"
-- a single focused operation deserves a single dense expression
+This skill is not for generic short code, any three-line snippet, or an arbitrary compact program. Without an explicit haiku request or the 5-7-5 moment contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names haiku/code haiku, requests a 5-7-5 structure, or requests a three-line moment program. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Haiku Aesthetic
 
@@ -186,10 +154,4 @@ For other languages (C...), translate the same structure, imports/setup, the den
 
 ## Bundled Helpers
 
-If the task needs ASCII output, randomness, or decorative headers, reuse the shared toolkit instead of importing it line-by-line:
-
-- `shared/ascii_canvas.py`, ASCII canvas with lines, circles, ink-density characters
-- `shared/rng.py`, seeded RNG and value noise
-- `shared/box_drawing.py`, box-drawing headers
-
-A haiku may import one of these on its setup line, that still counts as one of the three.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

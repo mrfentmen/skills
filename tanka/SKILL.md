@@ -1,14 +1,7 @@
 ---
 name: tanka
 description: >-
-  Write code as a tanka: a complete, working program in five lines that first captures a
-  moment and then expands it - the 5-7-5-7-7 rhythm with tokens as the code analog of
-  syllables (setup, turn, landing, then two expanding lines). Use this skill when the user
-  wants a 5-line dense program, or a solution that shows a result and then its deeper view
-  (mean and median, common and rare, before and after). Make sure to use this skill
-  whenever the user mentions tanka, five-line poems, 5-7-5-7-7, or wants a dense working
-  program with an expanded second view. This skill is NOT for 3-line forms (use haiku,
-  senryu, or lunes) and NOT for code golf (use esoteric-programming).
+  Write runnable code in a tanka form: exactly five logic lines shaped 5-7-5-7-7, where the first three complete the immediate result and the final two expand or reflect on it. Activate only for an explicit tanka, 5-7-5-7-7, or five-line expansion request.
 ---
 
 # Tanka Skill
@@ -71,15 +64,9 @@ steps = abs(x2 - x1) + abs(y2 - y1)
 print(f"straight {dist:.1f} manhattan {steps}")
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every poetic-code request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- 3-line forms (nature, humor, or American punch) -> haiku, senryu, or lunes
-- shortest-possible / golfed code -> esoteric-programming
-- minimal architecture across a codebase -> minimalist-zen
-
-Tanka is the five-line form: core task, then the expansion. If the user wants exactly three lines, it's not a tanka.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -96,13 +83,13 @@ Benchmark signature: report the five visible logic-line token counts against `[5
 
 These requirements exist because a theme without a spec produces vibes, not output. A tanka that doesn't run is just a long broken poem, and a tanka without the two expanding lines is just a padded haiku.
 
-## When to Use Tanka Patterns
+## Boundaries
 
-Use tanka code when:
-- the task has two layers, a result and its deeper view
-- the user wants a five-line dense program
-- one number alone isn't enough (mean needs median, count needs rare)
-- the user says "expanded", "the deeper view", or "and also show..."
+This skill is not for any five-line program, generic reflection, or compact code that lacks the expanding 5-7-5-7-7 result-and-reflection shape. Without an explicit tanka request or that structural contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names tanka, requests a 5-7-5-7-7 structure, or requests a five-line result-plus-reflection program. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Tanka Aesthetic
 
@@ -151,10 +138,4 @@ For other languages, translate the same structure, setup, turn, landing, then tw
 
 ## Bundled Helpers
 
-If the task needs ASCII output, randomness, or decorative headers, reuse the shared toolkit:
-
-- `shared/ascii_canvas.py`, ASCII canvas with lines, circles, ink-density characters
-- `shared/rng.py`, seeded RNG and value noise
-- `shared/box_drawing.py`, box-drawing headers
-
-A tanka may import one of these on its setup line, that still counts as one of the five.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

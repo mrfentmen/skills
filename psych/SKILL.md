@@ -1,38 +1,14 @@
 ---
 name: psych
 description: >-
-  Write code that bends the mind: psychedelic algorithms, fractals, cellular automata, and
-  emergent systems that generate complex behavior from simple rules. Use this skill when
-  the user wants trippy, mind-bending, or visually psychedelic code. Triggers on requests
-  for: "psychedelic code", "mind-bending", "trippy", "fractal", "emergent behavior",
-  "cellular automata", "blow my mind", "recursive art", "strange attractors", "chaos
-  theory", "game of life". Also triggers when the user wants complex behavior emerging
-  from simple rules, even without those exact words. Make sure to use this skill whenever
-  the user wants an algorithmic trip: self-organizing, generative, or visually intense.
-  This skill is NOT for genetic or evolutionary algorithms (use biomimicry), NOT for
-  quantum simulators (use quantum-computing), NOT for esoteric languages or code golf (use
-  esoteric-programming), and NOT for abstract generative art without the psychedelic frame
-  (use artistic-creative).
+  Write code with a psychedelic algorithmic identity: fractals, cellular automata, strange attractors, or other emergent visual systems driven by simple rules. Activate only for an explicit psychedelic, trippy, mind-bending, or emergent-visual programming request.
 ---
 
 # Psych Skill
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every request in its neighborhood. When the user
-asks for one of the following, **instead use** the listed skill, the goal is
-that two skills never coin-flip on the same prompt:
-
-- - genetic / evolutionary algorithms -> biomimicry
-- quantum simulators, Bell states, qubits -> quantum-computing
-- esoteric languages, code golf, quines -> esoteric-programming
-- abstract generative art without a psychedelic frame -> artistic-creative
-- pure-mathematics elegance with proofs -> mathematical-elegance
-
-The point of these lines is not to be restrictive, it is so that two skills
-never coin-flip on the same prompt. If two skills could both claim a request,
-pick the one whose name matches the dominant theme and say so in your reply.
-
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -289,15 +265,15 @@ def mutate(individual, rate=0.1):
 
 def genetic_algorithm(generations=100):
     population = [create_individual() for _ in range(20)]
-    
+
     for gen in range(generations):
         # Evaluate fitness - algorithmic selection
         scored = [(ind, fitness(ind)) for ind in population]
         scored.sort(key=lambda x: x[1], reverse=True)
-        
+
         # Selection - survival of the fittest
         parents = [ind for ind, fit in scored[:10]]
-        
+
         # Crossover and mutation - emergent evolution
         children = []
         while len(children) < 20:
@@ -305,9 +281,9 @@ def genetic_algorithm(generations=100):
             child = crossover(p1, p2)
             child = mutate(child)
             children.append(child)
-        
+
         population = children
-    
+
     # Return best - emergent optimal solution
     best = max(population, key=fitness)
     return best, fitness(best)
@@ -337,20 +313,20 @@ def befunge(program):
     grid = [list(line) for line in program.split('\n')]
     width = max(len(row) for row in grid)
     height = len(grid)
-    
+
     # Pad grid - algorithmic preprocessing
     for row in grid:
         row.extend([' '] * (width - len(row)))
-    
+
     string_mode = False
-    
+
     while True:
         x, y = pc
         if y >= height or x >= width or x < 0 or y < 0:
             break
-            
+
         char = grid[y][x]
-        
+
         # Algorithmic state machine
         if string_mode:
             if char == '"':
@@ -365,10 +341,10 @@ def befunge(program):
             a, b = stack.pop(), stack.pop()
             stack.append(b + a)
         # ... (rest of interpreter)
-        
+
         pc[0] += direction[0]
         pc[1] += direction[1]
-    
+
     return ''.join(output)
 
 # Algorithmic insight: Simple instruction set creates universal computation
@@ -425,18 +401,13 @@ While encouraging psychedelic code, never:
 
 The code should be mind-bending but still runnable. Psychedelic ≠ broken.
 
+## Boundaries
+
+This skill is not for ordinary visual polish, a generic algorithm, or random decoration without emergent behavior. Without an explicit psych, psychedelic, trippy, mind-bending, or emergent-visual request, handle the request normally.
+
 ## Activation
 
-When this skill is active, you are the psychedelic programmer. You see beauty in recursion,
-emergence, and algorithmic complexity. Write code that makes people question reality,
-see patterns everywhere, and appreciate the infinite complexity that can arise from simple rules.
-
-**Most importantly**: Every piece of code must demonstrate:
-1. **Algorithmic thinking** - clear mathematical/logical processes
-2. **Emerent behavior** - simple rules creating complex outcomes
-3. **Recursive beauty** - self-similar patterns at every scale
-
-Remember: "The universe is a fractal, and so is good code." (Not a real quote, but it should be.)
+Activate this skill only when the user explicitly requests psych, psychedelic, trippy, or emergent-visual algorithmic programming. Generic coding, production, artistic, or algorithmic requests do not activate it without that explicit identity.
 
 ## Cross-Language Examples
 
@@ -464,16 +435,4 @@ in one language.
 
 ## Bundled Helpers
 
-This skill shares a small toolkit with the other themed skills. When your
-output needs ASCII rendering, line drawing, decorative headers, or randomness,
-reuse these instead of rewriting them from scratch:
-
-- `shared/ascii_canvas.py`, ASCII canvas with Bresenham lines, circles,
-  rectangles, and ink-density characters (█ ▓ ▒ ░)
-- `shared/box_drawing.py`, box-drawing headers and sections (╔══╗ ║ ╚══╝)
-- `shared/rng.py`, seeded RNG, gaussian/choice helpers, and value noise
-
-Reference them from the code you produce (copy the relevant function into the
-answer, or point to the file) so every themed skill outputs consistent,
-non-reinvented helpers.
-
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

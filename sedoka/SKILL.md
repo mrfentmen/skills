@@ -1,13 +1,7 @@
 ---
 name: sedoka
 description: >-
-  Write code as a sedoka: a 6-line program in two 3-line stanzas (5-7-7 / 5-7-7 tokens)
-  where the second stanza mirrors the first - a question and its answer, a pass and its
-  reverse, a count and its echo. Use this skill when the user wants a mirrored or
-  response-shaped 6-line program. Make sure to use this skill whenever the user mentions
-  sedoka, 6-line poems, two-stanza programs, 5-7-7, or question-and-response code. This
-  skill is NOT for single 3-line stanzas (use haiku, senryu, lunes, or katauta) and NOT
-  for 5-line forms (use tanka or gogyohka).
+  Write runnable code in a sedoka form: two distinct three-line stanzas shaped 5-7-7 / 5-7-7, with the second stanza mirroring or answering the first. Activate only for an explicit sedoka, two-stanza response, or 5-7-7 / 5-7-7 request.
 ---
 
 # Sedoka Skill
@@ -60,16 +54,9 @@ rare = min(counts, key=counts.get)
 print(common, "and rarely:", rare)
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every poetic-code request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- a single 3-line stanza -> haiku, senryu, lunes, or katauta
-- 5-line forms -> tanka (strict meter) or gogyohka (free form)
-- prose-with-haiku -> haibun
-- shortest-possible / golfed code -> esoteric-programming
-
-Sedoka is the two-stanza form. One stanza is a katauta; five lines is a tanka or gogyohka; a sedoka needs both halves to converse.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -86,13 +73,13 @@ Benchmark signature: report both stanza shapes against `[5, 7, 7, 5, 7, 7]` with
 
 These requirements exist because a theme without a spec produces vibes, not output. A sedoka without the mirror is two unrelated half-poems; a sedoka that doesn't run is a conversation neither side finished.
 
-## When to Use Sedoka Patterns
+## Boundaries
 
-Use sedoka code when:
-- the same data deserves two views, forward and reverse, common and rare
-- the user wants a question-and-response shaped program
-- one result needs an echo
-- the user says "mirror it", "answer it", or "the other side"
+This skill is not for two unrelated snippets or any ordinary paired response. Without an explicit sedoka request and two mirrored 5-7-7 stanzas, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names sedoka or requests two 5-7-7 stanzas in a response structure. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Sedoka Aesthetic
 
@@ -142,9 +129,4 @@ For other languages, translate the same structure, stanza one, then the mirror.
 
 ## Bundled Helpers
 
-If the walk needs randomness or ASCII scenery, reuse the shared toolkit:
-
-- `shared/rng.py`, seeded RNG and choice helpers
-- `shared/ascii_canvas.py`, ASCII canvas for rendering the mirror
-
-A sedoka may import one of these in its first stanza, it counts toward the six lines.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

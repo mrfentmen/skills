@@ -1,14 +1,7 @@
 ---
 name: lunes
 description: >-
-  Write code as a lune: a complete, working 3-line program with the American 5-3-5 token
-  rhythm - a short setup, a razor-thin 3-token middle line that is the punch, and a short
-  landing. Use this skill when the user wants a minimal 3-line program with an abrupt
-  decisive middle, or a tiny one-shot where the middle line does exactly one sharp thing.
-  Make sure to use this skill whenever the user mentions lune, lunes, 5-3-5, or wants a
-  very short dense program with a punchy middle line. This skill is NOT for the Japanese
-  5-7-5 (use haiku), NOT for the 5-line expanded form (use tanka), and NOT for human-humor
-  forms (use senryu).
+  Write runnable code in a lune form: three logic lines shaped 5-3-5, with a single decisive middle operation that is visibly shorter than its setup and landing. Activate only for an explicit lune, lunes, or 5-3-5 request.
 ---
 
 # Lunes Skill
@@ -65,16 +58,9 @@ lines = sys.stdin.read().splitlines()
 print(len(lines))
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every poetic-code request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- the Japanese 5-7-5 (long middle line) -> haiku
-- the 5-line expanded form -> tanka
-- human-nature humor forms -> senryu
-- shortest-possible / golfed code -> esoteric-programming
-
-Lune is the American 5-3-5 form. If the middle line isn't dramatically shorter than the others, it's not a lune.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -89,13 +75,13 @@ Every deliverable produced with this skill must be gradeable. You must include A
 
 These requirements exist because a theme without a spec produces vibes, not output. The short middle line is what separates a lune from a haiku, grade it like you mean it.
 
-## When to Use Lune Patterns
+## Boundaries
 
-Use lune code when:
-- the task reduces to one sharp operation on a small input
-- the user wants the tightest possible 3-line one-shot
-- a single decisive middle line can carry the whole task
-- the user says "punchy", "minimal middle", or "just the one move"
+This skill is not for generic brevity or any three-line program whose middle is not deliberately short. Without an explicit lune request or the 5-3-5 contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names lune/lunes or requests a 5-3-5 program. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Lune Aesthetic
 
@@ -139,9 +125,4 @@ For other languages, translate the same structure, setup, one sharp middle, land
 
 ## Bundled Helpers
 
-If the task needs randomness or ASCII output, reuse the shared toolkit:
-
-- `shared/rng.py`, seeded RNG and choice helpers
-- `shared/ascii_canvas.py`, ASCII canvas for one-stroke output
-
-A lune may import one of these on its setup line, that still counts as one of the three.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

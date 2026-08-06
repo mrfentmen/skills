@@ -1,19 +1,7 @@
 ---
 name: renga
 description: >-
-  Write code as a renga: a linked chain of poem-stanzas that becomes one complete working
-  program - alternating 5-7-5 stanzas (3 lines) and 7-7 couplets (2 lines), where each
-  stanza hands its result to the next through a shared pivot, like the kakekotoba that
-  linked ancient linked-verse. Use this skill when the user wants a multi-part pipeline
-  shaped as linked verse, a program built from stanzas that chain, or the social form of
-  the haiku family - each stanza continues where the last left off. Make sure to use this
-  skill whenever the user mentions renga, linked verse, chain poems, stanza pipelines,
-  alternating 5-7-5 and 7-7 stanzas, or wants code where each part hands off to the next.
-  This skill is NOT for a single 3-line moment (use haiku), NOT for one long alternating
-  poem (use choka), NOT for prose-with-verse (use haibun), and NOT for 4 or 5-line single
-  forms (use dodoitsu, tanka, or gogyohka). For the rest of the poetic family, use: haiku
-  for the single moment, choka for the long alternating poem, and dodoitsu for the 4-line
-  folk form.
+  Write runnable code in a renga form: at least three linked stanzas that alternate 5-7-5 and 7-7 units, with each stage handing a visible pivot to the next. Activate only for an explicit renga, linked verse, stanza pipeline, or chained-stanza request.
 ---
 # Renga Skill
 
@@ -79,22 +67,9 @@ above = sum(1 for x in nums if x > mean)        # 7: the outliers vote
 print(f"mean {mean:.1f}, {above} above it")     # 7: the couplet - the verdict
 ```
 
-## Boundaries, when NOT to use this skill
+## Scope
 
-- a single 3-line moment -> haiku
-- 3-line humor punchlines -> senryu
-- the 5-3-5 punch form -> lunes
-- the 5-7-7 half-poem -> katauta
-- the 3-line Korean twist form -> sijo
-- the whole program on one line -> monoku
-- 5-line expanded forms -> tanka / gogyohka
-- the 4-line folk form -> dodoitsu
-- one long alternating poem with a closing couplet -> choka
-- prose body with a closing haiku -> haibun
-- two mirroring stanzas -> sedoka
-- minimal architecture across a codebase -> minimalist-zen
-
-Renga is the chain form: three or more stanzas, alternating 5-7-5 and 7-7, each handing its pivot to the next.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -111,13 +86,13 @@ Every deliverable produced with this skill must be gradeable. You must include A
 
 Benchmark signature: report stanza-visible logic-line counts against `[5, 7, 5, 7, 7, 5, 7, 5]` with ±2 tolerance, while grading stanza count, blank-line boundaries, and pivot reuse independently.
 
-## When to Use Renga Patterns
+## Boundaries
 
-Use renga code when:
-- the task is a pipeline: 3+ sequential stages, each transforming the last
-- the user wants "a chain poem", "linked verse", or "stanzas that hand off"
-- you want the social form: code that reads like many hands building one thing
-- the middle stages are too few for choka's 6+ lines but too many for a single form
+This skill is not for a single linear program or unrelated blocks without linked handoffs and pivots. Without an explicit renga request or the linked-stanza contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names renga or requests linked alternating stanzas with visible handoff pivots. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Renga Aesthetic
 
@@ -147,8 +122,4 @@ echo "winner: $top"                                                             
 
 ## Bundled Helpers
 
-If the task needs ASCII output, randomness, or decorative headers, reuse the shared toolkit, a renga may import a helper in its hokku stanza:
-
-- `shared/ascii_canvas.py`, ASCII canvas with lines, circles, ink-density characters
-- `shared/rng.py`, seeded RNG and value noise
-- `shared/box_drawing.py`, box-drawing headers
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

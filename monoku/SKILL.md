@@ -1,17 +1,7 @@
 ---
 name: monoku
 description: >-
-  Write code as a monoku: the ENTIRE working program on a single line - the one-line
-  haiku, a whole task in one breath of code that runs. Use this skill when the user wants
-  an ultra-dense single-line solution, a one-shot script squeezed onto one line, a
-  complete program in one expression, or the extreme of the haiku family. Make sure to use
-  this skill whenever the user mentions monoku, one-line haiku, single-line programs, or
-  asks to write the whole thing on one line. This skill is NOT for 3-line forms (use
-  haiku, senryu, lunes, or katauta), NOT for code golf or shortest-possible trophy code
-  (use esoteric-programming), NOT for minimal architecture across a codebase (use
-  minimalist-zen), and NOT for 5-line forms (use tanka or gogyohka). For the rest of the
-  poetic family, use: sijo for a 3-line Korean twist form, choka for a long alternating
-  verse, dodoitsu for the 4-line folk form, and renga for a linked chain of stanzas.
+  Write a complete runnable monoku: the entire program body on one physical line, with a single continuous transformation and no line breaks in the logic. Activate only for an explicit monoku, one-line program, or single-line code request.
 ---
 # Monoku Skill
 
@@ -69,21 +59,9 @@ One name carries the moment, the middle of the line is where the transformation 
 import sys;print(max(sys.stdin.read().split(), key=len))
 ```
 
-## Boundaries, when NOT to use this skill
+## Scope
 
-- shortest-possible / golfed trophy code, obfuscation as sport -> esoteric-programming
-- 3-line forms (setup/turn/landing) -> haiku
-- human-nature humor 3-liners -> senryu
-- the American 5-3-5 punch form -> lunes
-- the 5-7-7 half-poem addressed to its subject -> katauta
-- 5-line expanded forms -> tanka (strict) or gogyohka (free)
-- 4-line folk form with a short landing -> dodoitsu
-- long alternating verse -> choka
-- linked chains of stanzas -> renga
-- minimal architecture across a codebase -> minimalist-zen
-- production scaffolding or verification -> no-bullshit
-
-Monoku is the one-line extreme: denser than haiku, but it must still read as a breath, not a scramble.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -98,13 +76,13 @@ Every deliverable produced with this skill must be gradeable. You must include A
 
 Benchmark signature: report the single visible logic-line token count against `[17]` with ±4 tolerance; the diagnostic must never reward unreadable compression or broken one-liners.
 
-## When to Use Monoku Patterns
+## Boundaries
 
-Use monoku code when:
-- the whole task collapses to a single transformation, read, transform, print
-- the user wants the haiku extreme: "can you do it in one line?"
-- you need a drop-in single-expression function
-- the user says "no boilerplate bullshit" and means it absolutely
+This skill is not for merely concise code, a one-line explanation, or code that needs line breaks to remain correct. Without an explicit monoku request or the one-physical-line contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names monoku or requests the entire program on one physical line. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Monoku Aesthetic
 
@@ -136,8 +114,4 @@ For other languages, translate the same structure: everything on one line, the p
 
 ## Bundled Helpers
 
-If the task needs ASCII output, randomness, or decorative headers, reuse the shared toolkit, but a monoku may import it inline:
-
-- `shared/ascii_canvas.py`, ASCII canvas with lines, circles, ink-density characters
-- `shared/rng.py`, seeded RNG and value noise
-- `shared/box_drawing.py`, box-drawing headers
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

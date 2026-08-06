@@ -1,18 +1,7 @@
 ---
 name: sijo
 description: >-
-  Write code as a sijo: a complete, working 3-line program in the Korean form - three
-  LONGER lines (~15 tokens each) with a strict dramatic structure: line 1 states the
-  theme, line 2 develops it, and line 3 delivers the TWIST, the surprise that reframes the
-  whole task. Use this skill when the user wants a 3-line program whose ending turns the
-  meaning, a solution with a volta or surprise ending, or Korean-style verse in code. Make
-  sure to use this skill whenever the user mentions sijo, twist endings, volta, or wants
-  three longer lines where the last one lands the surprise. This skill is NOT for the
-  5-7-5 haiku (shorter lines, no twist requirement - use haiku), NOT for humor punchlines
-  (use senryu), NOT for 1-line programs (use monoku), and NOT for 5-line forms (use tanka
-  or gogyohka). For the rest of the poetic family, use: haiku for the 5-7-5 moment, senryu
-  for humor, lunes for the 5-3-5 punch, katauta for the 5-7-7 half-poem, and monoku for
-  the one-line extreme.
+  Write runnable code in a sijo form: exactly three deliberately long logic lines, with the third line delivering a genuine twist, inversion, or reframe of the first two. Activate only for an explicit sijo, Korean verse, or three-line twist-ending request.
 ---
 # Sijo Skill
 
@@ -69,19 +58,9 @@ print("unique:", len(set(queries)))               # development: counting kinds
 print("actual:", len(queries), "- repetition is the real story")  # twist: the count that mattered was the boring one
 ```
 
-## Boundaries, when NOT to use this skill
+## Scope
 
-- short 5-7-5 lines, nature moment, kigo -> haiku
-- humor punchline as the point -> senryu
-- the razor-thin 5-3-5 middle -> lunes
-- the 5-7-7 half-poem addressed to its subject -> katauta
-- the whole program on one line -> monoku
-- 5-line expanded forms -> tanka / gogyohka
-- 4-line folk form -> dodoitsu
-- long alternating verse -> choka
-- linked chains of stanzas -> renga
-
-Sijo is the twist form: longer lines than haiku, and the third line must turn the meaning.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -94,13 +73,13 @@ Every deliverable produced with this skill must be gradeable. You must include A
 - **the third line contains a genuine twist**: a surprise, inversion, reframe, or reveal that changes the meaning of lines 1-2, explainable as "line 3 reveals that ..."
 - no mock, fake, or pseudo code: every line is real, runs, and does the actual work
 
-## When to Use Sijo Patterns
+## Boundaries
 
-Use sijo code when:
-- the user wants three lines but with room to breathe, longer lines, real structure
-- the task has a natural reveal: the data's shape, a hidden property, an irony
-- the user asks for a "twist ending", a "surprise", or "make the last line change everything"
-- you want a program whose OUTPUT reframes its INPUT
+This skill is not for any three-line script or a final line that merely repeats the setup. Without an explicit sijo request and three long lines ending in a genuine twist, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names sijo or requests three long lines ending in a genuine twist. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Sijo Aesthetic
 
@@ -127,10 +106,4 @@ echo "winner: $counts - the rest are noise"                                     
 
 ## Bundled Helpers
 
-If the task needs ASCII output, randomness, or decorative headers, reuse the shared toolkit:
-
-- `shared/ascii_canvas.py`, ASCII canvas with lines, circles, ink-density characters
-- `shared/rng.py`, seeded RNG and value noise
-- `shared/box_drawing.py`, box-drawing headers
-
-A sijo may import one of these on its statement line, that still counts as one of the three.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

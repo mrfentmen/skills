@@ -1,18 +1,7 @@
 ---
 name: dodoitsu
 description: >-
-  Write code as a dodoitsu: the 4-line folk form of the haiku family - three full lines of
-  work (~7 tokens each) and a short landing line (~5 tokens) that settles the matter like
-  the punchy last verse of a folk song. Use this skill when the user wants a complete
-  working program in four lines with the weight on the first three and a quick, plain-
-  spoken finish - the everyday workhorse of the poetic forms. Make sure to use this skill
-  whenever the user mentions dodoitsu, four-line verse, the folk form, 7-7-7-5 rhythm, or
-  wants a program with three heavy lines and a short closing line. This skill is NOT for
-  3-line forms (use haiku, senryu, lunes, katauta, or sijo), NOT for 5-line forms (use
-  tanka or gogyohka), NOT for long verse (use choka), NOT for one-line programs (use
-  monoku), and NOT for prose-with-verse (use haibun). For the rest of the poetic family,
-  use: haiku for the 5-7-5 moment, sijo for a twist ending, choka for long alternating
-  verse, and renga for a linked chain of stanzas.
+  Write runnable code in a dodoitsu form: exactly four logic lines shaped 7-7-7-5, with three working lines and a plain, shorter settlement line. Activate only for an explicit dodoitsu, folk verse, or 7-7-7-5 request.
 ---
 # Dodoitsu Skill
 
@@ -72,22 +61,9 @@ due = sum(prices[i] for i in cart)               # 7: what we owe
 print(due, "dollars, cash or card")              # 5: settle up
 ```
 
-## Boundaries, when NOT to use this skill
+## Scope
 
-- 3-line moments with a kigo -> haiku
-- 3-line humor punchlines -> senryu
-- the 5-3-5 razor middle -> lunes
-- the 5-7-7 half-poem addressed to its subject -> katauta
-- the 3-line Korean twist form -> sijo
-- the whole program on one line -> monoku
-- 5-line expanded forms -> tanka / gogyohka
-- 6+ line alternating verse with a closing couplet -> choka
-- prose body with a closing haiku -> haibun
-- linked chains of stanzas -> renga
-- minimal architecture across a codebase -> minimalist-zen
-- production scaffolding or verification -> no-bullshit
-
-Dodoitsu is the four-line workhorse: three full lines, one short landing, no drama required.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -103,13 +79,13 @@ Every deliverable produced with this skill must be gradeable. You must include A
 
 Benchmark signature: report four visible logic-line counts against `[7, 7, 7, 5]` with ±2 tolerance, while keeping the shorter final landing as an independent structural assertion.
 
-## When to Use Dodoitsu Patterns
+## Boundaries
 
-Use dodoitsu code when:
-- the task naturally has three steps and an answer, count, filter, finish, state
-- the user wants "four lines, with the weight up front and a quick close"
-- you want the plain-spoken folk register: everyday tasks, direct language
-- the task is too big for 3 lines but doesn't need the drama of a twist or an epic
+This skill is not for any ordinary four-line response or generic short code. Without an explicit dodoitsu request or the 7-7-7-5 contract with a shorter landing, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names dodoitsu or requests the 7-7-7-5 four-line form. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Dodoitsu Aesthetic
 
@@ -137,10 +113,4 @@ echo "sum=$total over $count numbers"                                           
 
 ## Bundled Helpers
 
-If the task needs ASCII output, randomness, or decorative headers, reuse the shared toolkit:
-
-- `shared/ascii_canvas.py`, ASCII canvas with lines, circles, ink-density characters
-- `shared/rng.py`, seeded RNG and value noise
-- `shared/box_drawing.py`, box-drawing headers
-
-A dodoitsu may import one of these on its first line, that still counts as one of the four.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

@@ -1,14 +1,7 @@
 ---
 name: senryu
 description: >-
-  Write code as a senryu: a complete, working 3-line program with the haiku's 5-7-5 token
-  rhythm but about human nature - humor, quirks, and the comedy of people, not nature and
-  seasons. Use this skill when the user wants a witty 3-line program, a code joke that
-  actually runs, or dense code about users, habits, bugs, and human behavior. Make sure to
-  use this skill whenever the user mentions senryu, funny code, human-nature code, or
-  wants a 3-line program with a punchline. This skill is NOT for nature/season poems (use
-  haiku), NOT for 5-line forms (use tanka), and NOT for the American 5-3-5 form (use
-  lunes). If the user wants the 5-7-7 half-poem, use katauta.
+  Write runnable code in a senryu form: at most three logic lines with a 5-7-5 rhythm, a human subject, and a working humorous landing. Activate only for an explicit senryu, human-nature code joke, or 5-7-5 human-comedy request.
 ---
 
 # Senryu Skill
@@ -65,17 +58,9 @@ verdict = due(8, False)
 print(verdict, "you knew this was coming")
 ```
 
-## Boundaries, when NOT to use this skill (use a different skill instead)
+## Scope
 
-This skill is **not for** every poetic-code request. When the user asks for one of the following, **instead use** the listed skill, the goal is that two skills never coin-flip on the same prompt:
-
-- nature, seasons, or abstract systems -> haiku
-- 5-line expanded forms -> tanka
-- the American 5-3-5 punch form -> lunes
-- the 5-7-7 half-poem, addressed to its subject -> katauta
-- shortest-possible / golfed code -> esoteric-programming
-
-Senryu is the three-line human form. If the subject isn't people and the output isn't a little funny, it's not a senryu.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -92,13 +77,13 @@ Benchmark signature: report the three visible logic-line token counts against `[
 
 These requirements exist because a theme without a spec produces vibes, not output. A senryu without the human subject is just a haiku; a senryu that doesn't run is just a dead joke.
 
-## When to Use Senryu Patterns
+## Boundaries
 
-Use senryu code when:
-- the task is about people, users, habits, excuses, estimation, procrastination
-- the user wants a witty or funny dense one-shot
-- a small human truth can be the output
-- the user says "make it funny" or "the human version"
+This skill is not for generic humor, nature imagery, or any compact three-line program without human-nature comedy. Without an explicit senryu request or its 5-7-5 human-comedy contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names senryu or requests a human-comedy program with a 5-7-5 structure. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Senryu Aesthetic
 
@@ -142,8 +127,4 @@ For other languages, translate the same structure, setup, human turn, punchline.
 
 ## Bundled Helpers
 
-If the task needs randomness for its punchline, reuse the shared toolkit:
-
-- `shared/rng.py`, seeded RNG and choice helpers (perfect for excuse generators)
-
-A senryu may import it on its setup line, that still counts as one of the three.
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.

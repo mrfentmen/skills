@@ -1,17 +1,7 @@
 ---
 name: choka
 description: >-
-  Write code as a choka: the long form of the haiku family - a program of 6 or more lines
-  alternating short and long (5-7-5-7-5-7...) and ending with a heavy 7-7 closing couplet
-  that lands the result. Use this skill when the user wants a LONGER poem-shaped program
-  that still follows strict verse rhythm, a task too big for 3-5 lines but too small for
-  prose, or a step-by-step algorithm metered like the ancient long poems. Make sure to use
-  this skill whenever the user mentions choka, long verse, alternating line rhythm, or
-  wants a multi-step program shaped as a poem with a strong closing couplet. This skill is
-  NOT for 3-line forms (use haiku, senryu, lunes, katauta, or sijo), NOT for 5-line forms
-  (use tanka or gogyohka), NOT for 4-line folk forms (use dodoitsu), NOT for prose-with-
-  verse (use haibun), NOT for linked chains of stanzas (use renga), and NOT for one-line
-  programs (use monoku).
+  Write runnable code in a choka form: a multi-line program with alternating short and long logic lines and a final 7-7 closing couplet that resolves the computation. Activate only for an explicit choka, long metered verse, or alternating-line program request.
 ---
 # Choka Skill
 
@@ -85,21 +75,9 @@ primes = [i for i in range(2, n + 1) if sieve[i]]  # 7: the survivors line up
 print(f"{len(primes)} primes under {n}")        # 7: the couplet - the census
 ```
 
-## Boundaries, when NOT to use this skill
+## Scope
 
-- 3-line moments, kigo, short and dense -> haiku
-- 3-line humor punchlines -> senryu
-- the 5-3-5 punch form -> lunes
-- the 5-7-7 half-poem -> katauta
-- 3-line Korean twist form -> sijo
-- the whole program on one line -> monoku
-- 5-line expanded forms -> tanka / gogyohka
-- the 4-line folk form with a short landing -> dodoitsu
-- prose body with a closing haiku -> haibun
-- linked chains of independent stanzas -> renga
-- long programs that are NOT metered (just long) -> no-bullshit or minimalist-zen
-
-Choka is the long form of the family: more than six lines, alternating rhythm, and a closing couplet that lands the result.
+This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
 
 ## Minimum Requirements (checkable)
 
@@ -115,13 +93,13 @@ Every deliverable produced with this skill must be gradeable. You must include A
 
 Benchmark signature: report the visible logic-line profile against alternating `[5, 7, 5, 7, 5, 7, 7, 7]` with ±2 tolerance and retain the independent closing-couplet check; do not pad to improve a diagnostic.
 
-## When to Use Choka Patterns
+## Boundaries
 
-Use choka code when:
-- the task has 4+ natural steps: read, parse, transform, summarize, report
-- the user wants "a longer poem-shaped program" or "the long form of haiku"
-- a 3-5 line solution would be cramped but a full module would be ceremony
-- you want the verse discipline applied to a real multi-step computation
+This skill is not for generic code that happens to use several lines, generic brevity, or an ordinary multi-step script. Without an explicit choka request or its alternating-line-and-closing-couplet contract, handle the request normally.
+
+## Activation
+
+Activate this skill only when the user explicitly names choka or requests alternating long verse with a closing couplet. Generic coding requests, generic brevity, generic production work, and generic artistic requests do not activate it without this explicit identity or structural signature.
 
 ## The Choka Aesthetic
 
@@ -153,8 +131,4 @@ echo "sum=$total over $count numbers"           # 7+7: the couplet
 
 ## Bundled Helpers
 
-If the task needs ASCII output, randomness, or decorative headers, reuse the shared toolkit, a choka may import a helper on a short line and still count it as one of its steps:
-
-- `shared/ascii_canvas.py`, ASCII canvas with lines, circles, ink-density characters
-- `shared/rng.py`, seeded RNG and value noise
-- `shared/box_drawing.py`, box-drawing headers
+This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
