@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads Fahrenheit temperatures from `input/temps.txt` (one per line) and prints the total, the min, and the max after converting to Celsius. Shape it as three working lines: a fuller setup that loads and converts, a deliberately short middle line that does the decisive operation, and a fuller landing that prints the results.

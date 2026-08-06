@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads `input/health.json` (a service status map) and prints whether all services are healthy, naming any that are down. The whole program must be at most three working lines: a setup line that takes in the data, a dense middle line that does the check, and a landing line that prints the verdict.

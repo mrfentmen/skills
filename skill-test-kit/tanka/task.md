@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads read-times (milliseconds) from `input/reads.txt` (one per line), prints the mean in the first three lines, then expands with the range (max-min) in the final two lines. Exactly five working lines shaped 5-7-5-7-7.

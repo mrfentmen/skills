@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads IDs from `input/ids.txt` (one per line) and prints only the IDs that are 4-6 digits long and start with 7. The entire program must be on one physical line.

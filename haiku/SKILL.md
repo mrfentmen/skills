@@ -6,7 +6,7 @@ description: >-
 
 # Haiku Skill
 
-Write code as a haiku, three lines, each doing real work, the whole thing runs. No boilerplate. No filler. No placeholders. A complete moment of computation, captured in three dense lines.
+Write code as a haiku, three lines, each doing real work, the whole thing runs. No boilerplate. No filler. No placeholders. A complete moment of computation, captured in three dense lines. Aim each line at its count as you write: line 1 about 5 tokens, line 2 about 7 (the dense turn), line 3 about 5, choosing short names and tight expressions so the rhythm holds without padding; if a line overshoots, simplify it, never split or pad it.
 
 ## Philosophy
 
@@ -30,6 +30,39 @@ So a code haiku follows the shape:
 - **Line 3, 5 tokens**: landing. The result, the world after.
 
 Treat the counts as a rhythm, not a law: ±2 slack is fine, and a line may carry multiple statements (`;`, chained calls, lambdas), density is the point. NEVER pad with dead code to hit a count; a 3-line haiku with three working lines beats a padded one.
+
+The budget is conserved when you use fewer lines: two lines collapse to ~12 tokens (5+7) then ~5, one line to ~17; the landing line stays the short ~5. Fewer lines is legal, rhythm is not optional — `scripts/rhythm_check.py` enforces the silhouette at any line count.
+
+Shaping the counts: the same logic can be written long or tight. Short names and fewer method calls buy tokens back. For a health check, the verbose version runs 3-11-9:
+
+```python
+d = json.load(open("input/health.json"))
+down = [k for k, v in d.items() if not v]
+print("All healthy" if not down else f"Down: {', '.join(down)}")
+```
+
+The tight version lands 3-7-5, inside ±2 of 5-7-5, with no padding — the turn compresses from a comprehension to a filter so it fits:
+
+```python
+d = json.load(open("input/health.json"))
+bad = list(filter(lambda k: not d[k], d))
+print("Down:", *bad or ["all ok"])
+```
+
+(Profiles: [3, 11, 9] → [3, 7, 5]. Verify any tightening with `scripts/rhythm_check.py`.)
+
+When a line overshoots, tighten the expression itself (shorter names, one operation per line, drop an f-string for a plain print, swap a comprehension for a filter). Do not split the line into more lines and do not pad it.
+
+## Workflow
+
+Shape the haiku in passes, correctness first, form second:
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Compress into the moment.** Merge the logic into at most three dense lines with a setup, turn, and landing, aiming each line at the silhouette (5-7-5 on three lines, ~12/5 on two, ~17 on one): shorter names, comprehensions, lambdas, filters, one operation per line. Imports and comments are free ceremony.
+3. **Verify the form.** Run it again — the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py` (or count by hand) and tighten any line outside ±2 by simplifying the expression; never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
+
+If the task cannot fit the silhouette without breaking correctness, say so and deliver the correct plain implementation rather than a fake haiku.
 
 ## Core Patterns
 
@@ -83,7 +116,10 @@ Every deliverable produced with this skill must be gradeable. You must include A
 - the middle line (the turn) does the heaviest lifting whenever the task has a natural setup/turn/landing shape
 - no mock, fake, or pseudo code: every line is real, runs, and does the actual work
 
-Benchmark signature: report the three visible logic-line token counts against `[5, 7, 5]` with ±2 tolerance; this is a diagnostic, never a reason to pad or add dead code.
+- rhythm self-check: after writing, count the tokens on each logic line (imports and comments are free) and tighten any line that is outside ±2 of the silhouette (`[5, 7, 5]` on three lines, `[12, 5]` on two, `[17]` on one) by shortening names or simplifying expressions; never split a line into more, never pad
+- bundled checker: `scripts/rhythm_check.py solve.py` prints the token profile and fails any line outside ±2; run it when you can, or count by hand, and report the three counts with the solution
+
+Benchmark signature: the visible logic-line token counts against the conserved 5-7-5 silhouette — `[5, 7, 5]` on three lines, `[12, 5]` on two, `[17]` on one — with ±2 tolerance; a diagnostic that drives the tightening step, never a reason to pad or add dead code.
 
 These requirements exist because a theme without a spec produces vibes, not output. A haiku that doesn't run is just a broken poem, the run is the whole point.
 

@@ -492,6 +492,73 @@ If independent evidence is unavailable, report the state as mechanically validat
 - Decision: no skill text change on this evidence; samples were author-written and not yet independently produced.
 - Next step: author verified form-compliant reference implementations per form (proving the contracts are satisfiable), then have a fresh model produce code under the same contracts and grade it. Use the verified references as the canonical answer key.
 
+### E-007 — Output-correctness benchmark: verified references + with/without-skill arms
+
+- Date: 2026-08-06
+- Skill changed: none (benchmark tooling added under `standalone-evals/output-benchmark/`)
+- Setup: 18 verified form-compliant reference implementations, one per skill, authored line-by-line against each SKILL.md contract (line counts, token profiles ±2 per the skills' own "rhythm, not a law" language, imports free ceremony). A mechanical grader (`grade_output.py`) runs each program on the manifest input, checks expected output tokens, and checks the per-skill form contract. Control arm: 18 plain idiomatic solutions with no form intent, graded by the same checks.
+- Result (same-author):
+  - References (with-skill): run 18/18, expected output tokens present 18/18, form 18/18.
+  - Plain control (without-skill): run 18/18, expected output tokens present 18/18, form 3/18.
+  - Without-skill passes: haiku, monoku, senryu — their contracts allow "or fewer" lines, so natural short code lands inside them by accident. The other 15 forms require deliberate compliance.
+- Interpretation: every one of the 18 contracts is satisfiable, and following the contract measurably changes output shape (18/18 vs 3/18 form). The 3 accidental passes are a real property of the permissive contracts, not a grader artifact.
+- Honest limits: both arms were authored by the same writer (no external model CLI/API key available on this machine). The with-skill number is a same-author upper bound, not an independent model result. The grader is objective; the writer is not independent. A fresh-model run is documented in the benchmark README (drop model output into any directory, grade with `--dir`).
+- Decision: no skill text changed. References kept as the gold answer key for a future fresh-model run.
+
+### E-008 — haiku intro rhythm-shaping nudge (candidate)
+
+- Date: 2026-08-06
+- Skill changed: haiku (intro paragraph only; frontmatter `description` untouched so routing evidence stays valid)
+- Original failure: chipotleai agent produced a correct 3-line health check with token profile [3, 11, 9] vs the 5-7-5 target (line 2 and line 3 overshoot). It followed structure (setup/turn/landing, no padding) but never aimed at the counts.
+- Hypothesis: the intro lists the counts as a passive description; adding an active rhythm-shaping instruction (aim at ~5/7/5, short names, tight expressions, overshoot = simplify, never split or pad) will move model output inside the +/-2 profile without contradicting the "never pad" principle.
+- Exact edit: one sentence appended to the "# Haiku Skill" intro: "Aim each line at its count as you write: line 1 about 5 tokens, line 2 about 7 (the dense turn), line 3 about 5, choosing short names and tight expressions so the rhythm holds without padding; if a line overshoots, simplify it, never split or pad it."
+- Original prompt result: correct output, 3 lines, profile [3, 11, 9].
+- Validation after edit: haiku contract check PASS; current gate 23/23; description frontmatter byte-identical (routing unaffected); synced to chipotleai (project .claude/skills).
+- Pair-matrix / held-out result: not re-run (description unchanged, so routing datasets are untouched by design).
+- Retest (chipotleai, same task): correct output, but the agent compressed to 2 logic lines [11, 9] — the intro nudge alone did not land a 5-7-5 profile; it drove density (merging setup+turn) instead of rhythm. The 2-line output was legal under the old contract ("three lines or fewer", rhythm checked only at exactly 3 lines) and exposed an escape hatch.
+- Decision: kept as a companion nudge, promoted together with E-009's silhouette enforcement; the intro alone is insufficient (see E-009).
+- Reason: the aim-at-counts guidance is consistent with the stronger fix and does not contradict "never pad".
+
+### E-009 — conserved 5-7-5 silhouette enforcement (haiku + senryu)
+
+- Date: 2026-08-06
+- Skills changed: haiku, senryu (docs + bundled checker); benchmark grader (grade_output.py)
+- Original failure: E-008 retest produced a 2-line [11, 9] haiku that dodged the rhythm check entirely — the contract allowed "three lines or fewer" and the checker/grader only enforced 5-7-5 at exactly 3 lines. The without-skill benchmark arm exploited the same gap (haiku ~7/1, senryu ~3/7 passed form by being 2 lines).
+- Hypothesis: rhythm must be a conserved token budget, not a 3-line-only rule. 5+7+5 = ~17 tokens: 2 lines collapse to ~12/5, 1 line to ~17; the landing line stays the short ~5. Enforcing the silhouette at any line count closes the dodge while keeping "three lines or fewer; never pad to make three" intact.
+- Exact changes:
+  - haiku/scripts/rhythm_check.py and senryu/scripts/rhythm_check.py: new bundled checkers — print the token profile, fail any line outside +/-2 of the silhouette at 1-3 lines (3 ~5/7/5, 2 ~12/5, 1 ~17); counting convention identical to the benchmark grader.
+  - grade_output.py: haiku and senryu branches enforce the same silhouette (was: rhythm checked only when len == 3).
+  - haiku/SKILL.md and senryu/SKILL.md: conserved-budget wording in the syllable section, silhouette in the rhythm self-check bullet and benchmark signature; senryu gained the bundled-checker bullet. Also fixed a miscounted example in haiku (claimed 3-9-3, actually 3-10-4 → replaced with a 3-7-5 filter/lambda version). Review correction: the landing was initially `*bad or "all ok"`, which unpacks the string to characters when all services are healthy (printed 'Down: a l l   o k'); corrected to `*bad or ["all ok"]` (same 5 tokens) and verified end-to-end under both health states.
+- Retest evidence: chipotleai 2-line [11, 9] now FAILS the checker (line 2 must be 3-7); a genuine 2-line [10, 5] silhouette PASSES; reference implementations ([3, 7, 4] haiku, [3, 9, 4] senryu) still PASS.
+- Benchmark effect: with-skill arm unchanged 18/18; without-skill arm 3/18 → 1/18 (haiku ~7/1 and senryu ~3/7 were accidental passes via the 2-line dodge and now fail; only monoku, whose contract is exactly one line, legitimately passes). README updated.
+- Current gate: 23/23 (100%); haiku + senryu contract checks PASS; git diff --check clean; description frontmatter untouched (routing evidence unaffected).
+- Decision: keep (promoted). E-008 kept as the companion nudge.
+- Reason: closes a real dodge with a principled, minimal rule; makes the benchmark strictly more honest (fake passes removed); the reference implementations prove the stricter form is satisfiable.
+
+### E-010 — haiku Workflow section (correct-first → compress → verify), transferred from sonnet
+
+- Date: 2026-08-06
+- Skill changed: haiku (added `## Workflow` after the Syllable Question section; frontmatter description untouched)
+- Origin: skills 2 sonnet skill (`## Workflow`: "Draft the algorithm in ordinary code first, compress it only after the behavior is understood, then count the physical lines" + numbered steps + "refuse a fake sonnet").
+- Hypothesis: our observed failures (chipotleai [3,11,9] then 2-line [11,9]) show models optimize correctness XOR form. Sequencing — write correct → compress into the silhouette → verify with the bundled checker → report counts — should land rhythm while preserving correctness. The "refuse a fake haiku" step keeps feasibility honest.
+- Exact edit: `## Workflow` with 4 numbered steps (write plainly / compress into the moment / verify the form with `scripts/rhythm_check.py` / report the counts) plus a feasibility-refusal sentence; wording aligned with the existing silhouette + never-pad vocabulary.
+- Validation: haiku contract PASS; current gate 23/23; git diff --check clean; description byte-identical (routing unaffected); synced to chipotleai.
+- Retest (correction: chipotleai is the opencode harness; the model is longcat2.0 free/high — the same model as every prior run): correct output `Down: cache`, 3 logic lines, profile [3, 11, 11], checker exit 1. Structure transferred, meter missed again — consistent with the two earlier runs from the same model (pattern: structure transfers, meter never does, for this model). Not a cross-model datapoint.
+- Pending: E-011 changes (mandatory checker run + reported verdict; tight example first, verbose second), then retest with the same model.
+- Decision: candidate (not yet promoted); workflow alone did not land the meter.
+- Reason: single-section edit, reversible, but insufficient alone — the checker must be mandatory, not "when you can".
+
+### E-012 — cross-model validation: big pickle (GLM 4.6) PASS [3, 7, 5]
+
+- Date: 2026-08-06
+- Test: haiku health-check task (skill-test-kit/haiku), current skill text (E-008+E-009+E-010), fresh opencode session, two-prompt flow, solution written to /Users/del/Desktop/big_pickle_haiku.py.
+- Model: big pickle (opencode/big-pickle, GLM 4.6 family) — first model other than longcat2.0-free tested.
+- Result: correct output `down:cache`; 3 logic lines; token profile [3, 7, 5] — EXACT 5-7-5; bundled rhythm_check.py exit 0. Adopted the tight filter+lambda technique from the doc's "Shaping the counts" example rather than the verbose shape.
+- Interpretation: the skill is valid — a capable model holds the meter exactly with the current text. The three longcat2.0-free misses (E-008/E-009/E-010 pendings) were model-limited, not skill-limited. First perfect independent pass.
+- Notes: task.md leaks the 3-line setup/turn/landing structure (by design) but not the meter, so the meter result is a clean skill attribution.
+- Decision: skill stays as-is for now (no churn on validated text); E-011 (mandatory checker + tight-first example) deferred to optional robustness work for weak models.
+- Next: run the same test on the other available free models (nemotron, deepseek v4 flash, etc.) to build the cross-model table; optionally a without-skill A/B on big pickle for an independent control.
+
 ## Experiment log format
 
 For every candidate edit, record:

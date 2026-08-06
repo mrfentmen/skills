@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads numbers from `input/numbers.txt` (one per line) and prints the sum of the list in a first three-line stanza, then the sum of the reversed list in a second three-line stanza that mirrors/answers the first.

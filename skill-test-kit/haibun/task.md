@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads `input/trip.csv` (columns: `day,miles,weather`) and narrates the journey as a short prose program with diary-like comments: total miles, number of days, the worst day. End the script with a distinct three-line poetic landing that summarizes the trip.

@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads scores from `input/scores.csv` (one score per line), prints the average in a first long line and the count of scores in a second long line, then a third long line that delivers the twist: reveal how many scores are above the average.

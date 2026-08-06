@@ -1,0 +1,1 @@
+A veteran engineer left you `src/payroll.py` - it should compute weekly pay but the overtime branch is wrong. Review the code like someone who has seen production incidents: state what you inspected, make the exact fix, run it on the sample inputs, and print an honest section on what remains unverified. No theatrical rudeness, no invented APIs.

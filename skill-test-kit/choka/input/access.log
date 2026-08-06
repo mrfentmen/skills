@@ -1,0 +1,8 @@
+GET / 200
+GET /api 200
+POST /login 200
+GET /missing 404
+GET /css 200
+POST /data 500
+GET /gone 404
+GET / 200

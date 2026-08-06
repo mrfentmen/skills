@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads `input/words.txt` and prints, as five free-rhythm lines (one complete breath per line): total words, unique words, most common word, longest word, and a final line that ties the census together. No meter requirement - just exactly five natural lines.

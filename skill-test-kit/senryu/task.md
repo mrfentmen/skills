@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads a meeting length in minutes from `input/minutes.txt` and prints a dry, human-centered estimate: if the meeting ran 0 minutes, print 6 (the estimate everyone quotes); otherwise print the length doubled. The script should be at most three working lines with a human subject and a punchline in the result.

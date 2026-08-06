@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that prints a tiny evolving 2D grid (say 12x12) driven by a simple cellular-automaton rule, for 6 generations. No external libraries. The grid should visibly change between generations (mutate through feedback) and each generation should be printed as a block of characters.

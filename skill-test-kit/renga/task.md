@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads `input/text.txt` and runs a chained text pipeline as linked stanzas (at least three stages, each handed the previous stage's output): tokenize the text, count word frequencies, and report the top three words and their counts. Make each stage visibly begin from the previous stage's result (no mirroring, no repetition).

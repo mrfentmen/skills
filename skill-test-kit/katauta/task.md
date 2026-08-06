@@ -1,0 +1,1 @@
+Write a single Python script `solve.py` that reads one name from `input/names.txt` and prints a directly-addressed message to that name, ending with a heavy two-line tail (e.g. a reason and a consequence). Keep it to exactly three working lines shaped so the first is a short setup, and the final two are the heavier tail.
