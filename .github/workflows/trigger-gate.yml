@@ -9,49 +9,15 @@ name: trigger-overlap gate
 on:
   push:
     paths:
-      - 'evals-infra/trigger_overlap_check.py'
-      - 'evals-infra/static_skill_audit.py'
-      - 'evals-infra/sync_descriptions.py'
-      - 'evals-infra/improve_descriptions.py'
-      - 'evals-infra/real_trigger_eval.py'
-      - 'evals-infra/run_real_trigger_eval.py'
-      - 'evals-infra/run_out_of_set_eval.py'
-      - 'evals-infra/run_ci_checks.sh'
-      - 'evals-infra/legacy/trigger_eval_queries.json'
-      - 'evals-infra/legacy/trigger_overlap_report.md'
-      - 'evals-infra/legacy/real_trigger_decisions.json'
-      - 'evals-infra/legacy/real_trigger_eval_sheet.md'
-      - 'evals-infra/legacy/real_trigger_eval_report.md'
-      - 'evals-infra/legacy/real_trigger_eval_prompt.md'
-      - 'evals-infra/legacy/out_of_set_prompts.json'
-      - 'evals-infra/legacy/out_of_set_decisions.json'
-      - 'evals-infra/legacy/out_of_set_eval_sheet.md'
-      - 'evals-infra/legacy/out_of_set_eval_report.md'
-      - 'evals-infra/legacy/out_of_set_eval_prompt.md'
+      - 'standalone-evals/**'
+      - 'package_skills.py'
       - '*/SKILL.md'
       - 'shared/**'
       - '.github/workflows/trigger-gate.yml'
   pull_request:
     paths:
-      - 'evals-infra/trigger_overlap_check.py'
-      - 'evals-infra/static_skill_audit.py'
-      - 'evals-infra/sync_descriptions.py'
-      - 'evals-infra/improve_descriptions.py'
-      - 'evals-infra/real_trigger_eval.py'
-      - 'evals-infra/run_real_trigger_eval.py'
-      - 'evals-infra/run_out_of_set_eval.py'
-      - 'evals-infra/run_ci_checks.sh'
-      - 'evals-infra/legacy/trigger_eval_queries.json'
-      - 'evals-infra/legacy/trigger_overlap_report.md'
-      - 'evals-infra/legacy/real_trigger_decisions.json'
-      - 'evals-infra/legacy/real_trigger_eval_sheet.md'
-      - 'evals-infra/legacy/real_trigger_eval_report.md'
-      - 'evals-infra/legacy/real_trigger_eval_prompt.md'
-      - 'evals-infra/legacy/out_of_set_prompts.json'
-      - 'evals-infra/legacy/out_of_set_decisions.json'
-      - 'evals-infra/legacy/out_of_set_eval_sheet.md'
-      - 'evals-infra/legacy/out_of_set_eval_report.md'
-      - 'evals-infra/legacy/out_of_set_eval_prompt.md'
+      - 'standalone-evals/**'
+      - 'package_skills.py'
       - '*/SKILL.md'
       - 'shared/**'
       - '.github/workflows/trigger-gate.yml'
@@ -70,10 +36,10 @@ jobs:
           python-version: '3.12'
 
       # The checks are stdlib-only (json/re/pathlib/subprocess), so no pip
-      # install is needed. Any check that exits non-zero fails the job and
-      # blocks merge. The script also diffs the regenerated reports
-      # (trigger_overlap_report.md, SKILL_AUDIT.json, real_trigger_eval_*)
-      # against the committed copies, so a stale committed artifact fails
-      # the job too.
-      - name: Run CI gate (trigger-overlap + static audit + artifact sync)
-        run: sh evals-infra/run_ci_checks.sh
+      # install is needed. The gate runs the repo's self-contained current
+      # harness: standalone benchmark contract, per-skill contract checks,
+      # example syntax smoke, one-skill package isolation, and the vendored
+      # static SKILL.md audit (quality floor). Any check that exits non-zero
+      # fails the job and blocks merge.
+      - name: Run CI gate (standalone contracts + isolation + static audit)
+        run: sh standalone-evals/run_current_ci.sh

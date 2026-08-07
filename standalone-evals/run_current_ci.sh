@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Current-scope gate for the 22 standalone form skills (public monorepo scope;
+# Current-scope gate for the 28 standalone form skills (public monorepo scope;
 # persona skills god/smoker/terry-davis/psych/no-bullshit moved to skills-2).
 # Historical evals-infra/legacy checks are intentionally separate.
+# Fully self-contained: the static audit is vendored at standalone-evals/static_skill_audit.py
+# so this gate runs in GitHub Actions with no external harness.
 set -u
 
 ROOT="${SKILLS_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
@@ -49,10 +51,13 @@ check "one-skill package isolation" \
 if [ -n "$HARNESS" ] && [ -f "$HARNESS/static_skill_audit.py" ]; then
   check "static skill audit" \
     "$PYTHON" "$HARNESS/static_skill_audit.py" --root "$ROOT" --min-score 0.75
+elif [ -f "$ROOT/standalone-evals/static_skill_audit.py" ]; then
+  check "static skill audit" \
+    "$PYTHON" "$ROOT/standalone-evals/static_skill_audit.py" --root "$ROOT" --min-score 0.75
 else
   total=$((total + 1))
   failed=$((failed + 1))
-  printf '\nFAIL: static skill audit (set EVALS_INFRA_ROOT to the harness directory)\n'
+  printf '\nFAIL: static skill audit (vendored copy missing at standalone-evals/static_skill_audit.py)\n'
 fi
 
 printf '\nCURRENT-SCOPE RESULT: %d/%d mechanical checks passed (%d failed)\n' "$passed" "$total" "$failed"

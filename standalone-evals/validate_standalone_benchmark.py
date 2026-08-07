@@ -62,7 +62,7 @@ def validate(data: dict, root: Path) -> list[str]:
     if data.get("version") != "standalone-trigger-v1":
         errors.append("version must be standalone-trigger-v1")
     if data.get("skills") != SKILLS:
-        errors.append("skills must exactly match the current 13-skill order")
+        errors.append("skills must exactly match the current skill order")
     records = data.get("records")
     if not isinstance(records, list):
         return errors + ["records must be a list"]
