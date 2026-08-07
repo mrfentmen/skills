@@ -1,23 +1,23 @@
 import sys
 
 def main():
-    numbers = []
+    total = 0
     for line in sys.stdin:
-        stripped = line.strip()
-        if stripped:
-            numbers.append(int(stripped))
-
-    total = sum(numbers)
-
-    # Split the total into three lines: 5-3-5 characters
-    total_str = str(total)
-    first_part = total_str[:5]
-    middle_part = total_str[5:8]
-    last_part = total_str[8:]
-
-    print(first_part)
-    print(middle_part)
-    print(last_part)
+        total += int(line.strip())
+    s = str(total)
+    n = len(s)
+    if n == 1:
+        print(s)
+        print(s)
+        print(s)
+    elif n == 2:
+        print(s[0])
+        print(s[1])
+        print(s[0])
+    else:
+        print(s[:3])
+        print(s[3])
+        print(s[4:])
 
 if __name__ == "__main__":
     main()

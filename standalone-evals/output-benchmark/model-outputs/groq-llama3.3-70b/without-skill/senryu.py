@@ -1,6 +1,6 @@
 import sys
 
-hours = int(input())
+hours = int(sys.stdin.readline().strip())
 print(f"Worker idle {hours} hours")
-print("Procrastination doubles")
-print(f"Now {hours * 2} hours lost")
+print(f"Work doubles, stress triples")
+print(f"Now {hours*2} hours behind, oh no")

@@ -1,3 +1,4 @@
 import sys
-nums = list(map(int, sys.stdin.read().split()))
-print(sum(nums))
+nums = [int(x) for x in sys.stdin.read().split()]
+total = sum(nums)
+print(total)

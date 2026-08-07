@@ -1,26 +1,22 @@
 import sys
 
-def read_numbers():
-    numbers = []
+def calculate_total():
+    total = 0
     for line in sys.stdin:
-        for word in line.split():
+        for num in line.split():
             try:
-                numbers.append(float(word))
+                total += float(num)
             except ValueError:
                 pass
-    return numbers
-
-def calculate_total(numbers):
-    return sum(numbers)
+    return total
 
 def print_lune(total):
-    print("Total is the sum of all")
+    print("Totals are fun to see")
     print(str(total))
-    print("Of the numbers given to me")
+    print("Now the totals are free")
 
 def main():
-    numbers = read_numbers()
-    total = calculate_total(numbers)
+    total = calculate_total()
     print_lune(total)
 
 if __name__ == "__main__":

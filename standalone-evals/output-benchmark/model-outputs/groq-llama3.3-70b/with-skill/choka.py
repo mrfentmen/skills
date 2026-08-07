@@ -1,7 +1,12 @@
 import sys
-nums = sys.stdin.read().split()               # 5: the input arrives
-nums = [int(n) for n in nums]                 # 7: the numbers form
-count = len(nums)                             # 5: the count stands
-total = sum(nums)                             # 7: the sum is found
-print(f"count: {count}")                       # 5: the count is told
-print(f"sum: {total}, count: {count}")         # 7: the couplet lands
+nums = list(map(int, sys.stdin.read().split()))
+total = sum(nums)
+count = len(nums)
+mean = total / count if count > 0 else 0
+print("sum:", total)
+print("count:", count)
+print("mean:", mean)
+print("stats done")
+print("input processed")
+print(f"sum {total} over {count} numbers")
+print(f"count {count} with mean {mean:.2f}")

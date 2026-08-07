@@ -61,8 +61,9 @@ def check_form(pid, path):
             fails.append(msg)
     if pid == 'choka':
         need(len(lines) >= 6, f'need >=6 logic lines, got {len(lines)}')
-        need(len(lines) >= 2 and within(tok(lines[-1]), 7) and within(tok(lines[-2]), 7),
-             f'closing couplet not ~7-7: {[tok(l) for l in lines[-2:]]}')
+        couplet = [tok(l) for l in lines[-2:]] if len(lines) >= 2 else []
+        need(bool(couplet) and all(within(t, 7) for t in couplet),
+             f'closing couplet not ~7-7: {couplet}')
         toks = [tok(l) for l in lines]
         need(any(t < 5 for t in toks) and any(t > 5 for t in toks),
              f'no short/long alternation in {toks}')
@@ -257,7 +258,7 @@ def check_form(pid, path):
         for i in range(2, len(toks)):
             need(abs(toks[i] - (toks[i - 1] + toks[i - 2])) <= 3,
                  f'line {i + 1}: {toks[i]} is not the sum of {toks[i - 2]} and {toks[i - 1]} (+/-3)')
-        need(toks[-1] >= 5, 'final line too small to carry the result')
+        need(len(toks) > 0 and toks[-1] >= 5, 'final line too small to carry the result')
     elif pid == 'limerick':
         toks = [tok(l) for l in lines]
         need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
@@ -278,6 +279,11 @@ results = []
 for item in MANIFEST['items']:
     pid = item['id']
     path = BASE / ARMDIR / f'{pid}.py'
+    head = path.read_text(encoding='utf-8', errors='replace').splitlines()[:1] if path.is_file() else ['']
+    if head and head[0].strip() == '# MODEL CALL FAILED':
+        # an arm that never produced code: report it honestly as a failure
+        results.append((pid, False, False, False, '', ['MODEL CALL FAILED']))
+        continue
     rc, so, se = run(pid, path)
     stdout_by[pid] = so
     oo, omsg = out_ok(pid, so)

@@ -1,5 +1,4 @@
 import sys
-data = sys.stdin.read()
-words = data.split()
-total = len(words)
-print(total)
+data = sys.stdin.read().split()
+total_words = len(data)
+print("Total words:", total_words)

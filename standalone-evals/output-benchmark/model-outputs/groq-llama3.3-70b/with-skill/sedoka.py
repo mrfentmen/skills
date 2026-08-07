@@ -1,8 +1,8 @@
 import sys
 nums = list(map(int, sys.stdin.read().split()))
-total = sum(nums)
-print(f"sum {total} forward")
+forward = "sum " + str(sum(nums))
+print(forward, "is", "the", "sum", "now")
+
 rev = nums[::-1]
-total2 = sum(rev)
-print(f"reverse {total2} same")
-print("numbers mirrored")
+backward = "sum " + str(sum(rev))
+print(backward, "is", "the", "mirror", "sum")

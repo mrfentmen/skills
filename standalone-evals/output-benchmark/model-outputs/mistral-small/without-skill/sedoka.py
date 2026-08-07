@@ -3,9 +3,9 @@ import sys
 def main():
     numbers = []
     for line in sys.stdin:
-        line = line.strip()
-        if line:
-            numbers.extend(map(int, line.split()))
+        stripped = line.strip()
+        if stripped:
+            numbers.append(int(stripped))
 
     total = sum(numbers)
     reversed_total = int(str(total)[::-1])

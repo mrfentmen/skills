@@ -1,3 +1,3 @@
 import sys
 total = sum(map(int, sys.stdin.read().split()))
-print(total)
+print("Total is", total, "now")

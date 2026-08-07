@@ -4,10 +4,17 @@ import sys
 def most_frequent_number(numbers):
     counter = Counter(numbers)
     most_common = counter.most_common(1)
-    return most_common[0][0]
+    if most_common:
+        return most_common[0][0]
+    else:
+        return None
 
-def katauta(number):
-    return f"Silent streams swirl {number}\nGentle gusts groom {number}\nMoonlit murmurs {number} slowly"
+def katauta_form(number):
+    if number is not None:
+        return f"Silent streams {number}\nGentle waves crash {number}\nMoonlight shines on {number}"
+    else:
+        return "No numbers found\nIn the empty space\nSilence remains"
 
 numbers = [int(line.strip()) for line in sys.stdin]
-print(katauta(most_frequent_number(numbers)))
+most_frequent = most_frequent_number(numbers)
+print(katauta_form(most_frequent))

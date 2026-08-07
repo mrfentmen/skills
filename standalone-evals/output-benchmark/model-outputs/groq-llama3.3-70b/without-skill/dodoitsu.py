@@ -6,6 +6,6 @@ for line in sys.stdin:
 
 average = sum(numbers) // len(numbers)
 print(f"Numbers given to me")
-print(f"Many, many numbers")
-print(f"All added up with care")
-print(f"Average is {average}")
+print(f"Average calculated slow")
+print(f"Result is now quite clear")
+print(f"{average}")

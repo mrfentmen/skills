@@ -1,12 +1,13 @@
 import sys
 
-def count_errors():
+def count_errors_in_log():
     error_count = 0
     for line in sys.stdin:
         if "ERROR" in line:
             error_count += 1
-    print(f"Found {error_count} lines containing ERROR.")
-    print("\nThe logs whisper secrets in the night,")
-    print("Each ERROR a shadow, a flicker of fright.")
-    print("Count them softly, then rest in the light.")
-count_errors()
+    print(f"Within the log's sprawling scroll, {error_count} lines bear the mark of ERROR—")
+    print("a silent tally of the system's woes,")
+    print("each one a whisper of a fault below.")
+
+if __name__ == "__main__":
+    count_errors_in_log()

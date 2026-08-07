@@ -1,7 +1,6 @@
-import sys
-nums = [int(x) for x in sys.stdin.read().split()]
+nums = [int(x) for x in input().split()]
 mean = sum(nums) / len(nums)
-print("mean", mean)
+print(mean)
 range_val = max(nums) - min(nums)
 print("range", range_val)
-print(f"mean {mean:.2f} range {range_val}")
+print("mean and range", mean, range_val)

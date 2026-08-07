@@ -13,10 +13,15 @@ def main():
 
     average = sum(numbers) // len(numbers)
 
-    print("Average is not a myth")
-    print("Sum divided by count")
-    print("Whole number result")
-    print(average)
+    line1 = "Hear the numbers,"
+    line2 = "Count them up,"
+    line3 = "Find their average,"
+    line4 = f"{average} it is."
+
+    print(line1)
+    print(line2)
+    print(line3)
+    print(line4)
 
 if __name__ == "__main__":
     main()

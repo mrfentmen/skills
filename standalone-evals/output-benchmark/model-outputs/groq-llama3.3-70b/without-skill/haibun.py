@@ -10,8 +10,8 @@ def count_errors(log):
 log = sys.stdin.readlines()
 error_count = count_errors(log)
 
-print(f"After reviewing the log, it became clear that errors were a significant issue. The log contained {error_count} lines with the word ERROR, a stark reminder of the problems that needed to be addressed. As the review came to a close, the true extent of the errors became apparent, and it was time to take action to prevent such issues in the future.")
-
-print("Errors abound, a troubling sight")
-print("Correcting them, our guiding light")
-print("Code perfected, all is right")
+print("As we delve into the depths of the log, a narrative unfolds, a tale of trials and tribulations, of code that faltered and failed. The errors, like whispers in the dark, hint at the struggles of the programmer, the long hours and the sleepless nights. And yet, amidst the chaos, a glimmer of hope emerges, a chance to learn and to grow, to rise above the mistakes and to forge a new path forward.")
+print("The count of errors, a stark reminder of the journey, stands at", error_count)
+print("In the silence, errors whisper low,")
+print("A count of", error_count, "lines that did not go,")
+print("As code and dreams in darkness grow.")

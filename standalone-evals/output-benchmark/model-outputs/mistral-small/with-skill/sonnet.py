@@ -1,0 +1,17 @@
+import sys
+nums = [int(l) for l in sys.stdin if l.strip()]
+total = sum(nums)
+print("the", "first", "quatrain", "sets", "the", "stage", "with", "the", "data")
+print("we", "read", "the", "numbers", "from", "the", "standard", "input", "stream")
+print("the", "list", "comprehension", "parses", "each", "line", "to", "an", "int")
+print("and", "the", "sum", "is", "the", "first", "truth", "we", "print")
+print("the", "second", "quatrain", "turns", "to", "the", "calculation", "now")
+print("the", "sum", "is", "the", "aggregate", "of", "all", "the", "values")
+print("we", "compute", "the", "total", "with", "a", "single", "call", "to", "sum")
+print("and", "the", "third", "quatrain", "deepens", "the", "evidence", "pile")
+print("the", "input", "may", "be", "empty", "or", "contain", "junk", "lines")
+print("we", "filter", "out", "the", "blank", "lines", "before", "we", "parse")
+print("the", "volta", "turns", "the", "argument", "at", "the", "ninth", "line")
+print("and", "the", "couplet", "settles", "the", "whole", "affair", "in")
+print("the", "sum", "is", total)
+print("the", "sonnet", "ends", "with", "the", "resolve", "done")

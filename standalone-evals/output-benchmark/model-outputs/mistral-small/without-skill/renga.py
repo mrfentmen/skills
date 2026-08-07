@@ -21,68 +21,66 @@ class LinkedList:
             self.tail = new_node
         self.length += 1
 
+    def get_values(self):
+        values = []
+        current = self.head
+        while current:
+            values.append(current.value)
+            current = current.next
+        return values
+
 def read_numbers():
     numbers = []
     for line in sys.stdin:
         line = line.strip()
         if line:
-            numbers.extend(map(float, line.split()))
+            try:
+                num = float(line)
+                numbers.append(num)
+            except ValueError:
+                continue
     return numbers
 
 def create_linked_renga(numbers):
-    renga = LinkedList()
+    ll = LinkedList()
+    for num in numbers:
+        ll.append(num)
+    return ll
+
+def print_renga_stanzas(ll):
+    values = ll.get_values()
+    stanzas = []
     i = 0
-    stanza_count = 0
-    while i < len(numbers):
-        if stanza_count % 2 == 0:  # 3-line stanza
-            for _ in range(3):
-                if i < len(numbers):
-                    renga.append(numbers[i])
-                    i += 1
+    stanza_num = 1
+    while i < len(values):
+        if stanza_num % 2 == 1:  # 3-line stanza
+            stanza = values[i:i+3]
+            i += 3
         else:  # 2-line stanza
-            for _ in range(2):
-                if i < len(numbers):
-                    renga.append(numbers[i])
-                    i += 1
-        stanza_count += 1
-    return renga
+            stanza = values[i:i+2]
+            i += 2
+        stanzas.append(stanza)
+        stanza_num += 1
 
-def print_renga_with_pivots(renga):
-    current = renga.head
-    stanza_count = 0
-    while current:
-        if stanza_count % 2 == 0:  # 3-line stanza
-            print(f"{current.value} + {current.next.value} + {current.next.next.value} = ", end="")
-            total = current.value + current.next.value + current.next.next.value
-            print(total)
-            current = current.next.next.next
-        else:  # 2-line stanza
-            print(f"{current.value} + {current.next.value} = ", end="")
-            total = current.value + current.next.value
-            print(total)
-            current = current.next.next
-        stanza_count += 1
+    for stanza in stanzas:
+        for num in stanza:
+            print(num)
+        print("--")  # Pivot handoff
 
-def calculate_and_print_stats(renga):
-    total_sum = 0
-    count = 0
-    current = renga.head
-    while current:
-        total_sum += current.value
-        count += 1
-        current = current.next
-
-    average = total_sum / count if count > 0 else 0
-
-    print(total_sum)
+def calculate_and_print_stats(ll):
+    values = ll.get_values()
+    total = sum(values)
+    count = len(values)
+    average = total / count if count > 0 else 0
+    print(total)
     print(count)
     print(average)
 
 def main():
     numbers = read_numbers()
-    renga = create_linked_renga(numbers)
-    print_renga_with_pivots(renga)
-    calculate_and_print_stats(renga)
+    ll = create_linked_renga(numbers)
+    print_renga_stanzas(ll)
+    calculate_and_print_stats(ll)
 
 if __name__ == "__main__":
     main()

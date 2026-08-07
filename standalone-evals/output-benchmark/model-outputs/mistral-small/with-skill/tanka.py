@@ -1,6 +1,5 @@
-import statistics as st
-nums = list(map(float, input().split()))
-mean = st.mean(nums)
-spread = max(nums) - min(nums)
-print(f"mean {mean:.2f}")
-print(f"range {spread:.2f}")
+import sys
+nums = list(map(float, sys.stdin.read().split()))
+mean = sum(nums) / len(nums)
+print("mean", mean)
+print("range", max(nums) - min(nums), "spreads", "the", "moment")

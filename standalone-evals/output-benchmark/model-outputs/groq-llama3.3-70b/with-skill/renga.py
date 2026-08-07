@@ -1,21 +1,13 @@
 import sys
+data = sys.stdin.read().split()          # 5: the numbers march in
+nums = [int(x) for x in data]             # 7: the integers rise
+total = sum(nums)                          # 5: the sum unfolds
 
-# 5-7-5: the numbers arrive
-nums = [int(x) for x in sys.stdin.read().split()]
-total = sum(nums)
-count = len(nums)
-pivot = total
+count = len(nums)                          # 7: the count is known
+n = count                                   # 7: the total count
 
-# 7-7: the sum is known
-sum_result = f"sum: {pivot}"
-count_result = count
+mean = total / n                            # 5: the average dawns
+print("sum", total)                         # 7: the sum is told
+print("count", count)                       # 7: the count is shared
 
-# 5-7-5: the count is clear
-pivot = count_result
-avg = total / pivot
-avg_result = f"average: {avg:.2f}"
-count_str = str(pivot)
-
-# 7-7: the count and average
-print(f"count: {count_str}")
-print(f"{sum_result}, {avg_result}")
+print("average", mean)                      # 5: the average shines

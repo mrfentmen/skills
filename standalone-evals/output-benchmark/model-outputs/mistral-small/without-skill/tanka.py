@@ -9,11 +9,11 @@ def main():
                 num = float(stripped)
                 numbers.append(num)
             except ValueError:
-                pass
+                continue
 
     if not numbers:
-        print("0.0")
-        print("0.0")
+        print("0")
+        print("0")
         print("0")
         print("0")
         print("0")
@@ -23,29 +23,23 @@ def main():
     print(mean)
 
     if len(numbers) < 2:
-        print("0.0")
-        print("0")
-        print("0")
-        print("0")
-        print("0")
+        print(0)
+        print(0)
+        print("0\n0\n0")
         return
 
     min_val = min(numbers)
     max_val = max(numbers)
     print(max_val - min_val)
 
-    range_val = max_val - min_val
-    line1 = range_val
-    line2 = range_val * 2
-    line3 = range_val * 3
-    line4 = range_val * 4
-    line5 = range_val * 5
-
-    print(f"{line1:.1f}")
-    print(f"{line2:.1f}")
-    print(f"{line3:.1f}")
-    print(f"{line4:.1f}")
-    print(f"{line5:.1f}")
+    tanka = [
+        f"{mean:.6f}",
+        f"{min_val:.6f}",
+        f"{max_val:.6f}",
+        f"{mean:.6f}",
+        f"{max_val - min_val:.6f}"
+    ]
+    print("\n".join(tanka))
 
 if __name__ == "__main__":
     main()

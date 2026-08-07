@@ -1,9 +1,9 @@
 import sys
 
-nums = list(map(int, sys.stdin.read().split()))
-total = sum(nums)
-print(f"sum {total}")
+data = list(map(int, sys.stdin.read().split()))
+total = sum(data)
+print("sum", total, "is", "the", "total")
 
-rev = nums[::-1]
-total2 = sum(rev)
-print(f"reverse {total2}")
+rev = data[::-1]
+rev_total = sum(rev)
+print("reverse", "sum", rev_total, "mirrors", "the", "input")

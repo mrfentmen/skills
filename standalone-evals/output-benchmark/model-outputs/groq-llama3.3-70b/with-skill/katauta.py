@@ -1,5 +1,5 @@
-from collections import Counter
-c = Counter(map(int, input().split()))
-print("to you:", c.most_common(1)[0][0])
-print("it appears", c.most_common(1)[0][1], "times, a clear mode")
-print("in your data, this number stands out, a peak in the distribution")
+import sys
+data = [int(x) for x in sys.stdin.read().split()]
+print("to you:")
+counts = {x: data.count(x) for x in set(data)}
+print("most frequent is", max(counts, key=counts.get), "with", max(counts.values()), "occurrences now")
