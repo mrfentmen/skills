@@ -18,7 +18,9 @@ SKILLS = ['choka', 'dodoitsu', 'gogyohka', 'haibun', 'haiku', 'katauta', 'lunes'
           'bussokusekika', 'imayo', 'kanshi', 'zappai', 'waka', 'renshi', 'sonnet',
           'villanelle', 'cinquain', 'ryuka', 'fibonacci', 'limerick', 'etheree']
 E3_SKILLS = ['choka', 'dodoitsu', 'gogyohka', 'haibun', 'haiku', 'katauta', 'lunes',
-             'monoku', 'renga', 'sedoka', 'senryu', 'sijo', 'tanka']
+             'monoku', 'renga', 'sedoka', 'senryu', 'sijo', 'tanka', 'kyoka', 'somonka',
+             'bussokusekika', 'imayo', 'kanshi', 'zappai', 'waka', 'renshi', 'sonnet',
+             'villanelle', 'cinquain', 'ryuka', 'fibonacci', 'limerick', 'etheree']
 
 
 def run_checker(skill, paths, cwd):
@@ -62,6 +64,31 @@ with tempfile.TemporaryDirectory() as td:
         if not ref.exists():
             fails.append(f'{skill}: E3 reference missing')
             continue
+        if skill == 'somonka':
+            # E3 somonka reference is one file with two blank-line-separated
+            # 5-line stanzas (the skill's rhythm_check takes two files instead).
+            raw = ref.read_text(encoding='utf-8')
+            groups = [g.splitlines() for g in raw.split('\n\n') if g.strip()]
+            stanzas = [[l for l in g
+                        if l.strip() and not l.strip().startswith('#')
+                        and not re.match(r'^(import|from) ', l.strip())]
+                       for g in groups]
+            msgs = []
+            ok = len(stanzas) == 2
+            msgs.append(f'stanzas {[len(s) for s in stanzas]} (need 2)')
+            if ok:
+                for i, st in enumerate(stanzas, 1):
+                    ok = ok and len(st) == 5
+                    msgs.append(f'stanza {i} lines {len(st)} (need 5)')
+                    toks = [len(l.split()) for l in st]
+                    ok = ok and all(abs(t - tgt) <= 2
+                                    for t, tgt in zip(toks, [5, 7, 5, 7, 7]))
+                    msgs.append(f'stanza {i} profile {toks} (need [5,7,5,7,7] pm2)')
+            if ok:
+                print('PASS reference somonka')
+            else:
+                fails.append(f'somonka reference: {msgs}')
+            continue
         ok, msg = run_checker(skill, [f'{skill}.py'], refdir)
         if ok:
             print(f'PASS reference {skill}')
@@ -72,4 +99,4 @@ if fails:
     print('\n'.join(fails))
     print(f'FAIL rhythm gate: {len(fails)} problem(s)')
     sys.exit(1)
-print(f'PASS rhythm gate: {len(SKILLS)} documented examples + {len(E3_SKILLS)} E3 references pass their own checkers')
+print(f'PASS rhythm gate: {len(SKILLS)} documented examples + {len(E3_SKILLS)} E3 references pass their own checkers (somonka via inline stanza check)')

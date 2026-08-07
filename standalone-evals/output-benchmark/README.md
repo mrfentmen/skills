@@ -8,10 +8,10 @@ holds up.
 
 ## Files
 
-- `e3-manifest.json` — 13 executable tasks, one per skill (id, task, stdin
+- `e3-manifest.json` — 28 executable tasks, one per skill (id, task, stdin
   input, expected output tokens).
 - `references/<skill>.py` — verified, form-compliant reference implementations.
-  These are the **gold set**: they prove every one of the 13 contracts is
+  These are the **gold set**: they prove every one of the 28 contracts is
   satisfiable and define what compliant output looks like.
 - `without_skill/<skill>.py` — plain idiomatic solutions to the same tasks with
   no form intent (the same-author control arm).
@@ -45,17 +45,22 @@ python3 grade_output.py --dir model-outputs/groq-llama3.3-70b/without-skill
 Drop any directory of `<skill>.py` files in and grade it with the same form
 checks.
 
-## Results — same-author baseline (2026-08-06)
+## Results — same-author baseline (2026-08-06, extended to 28 forms 2026-08-07)
 
 | Arm | Run | Expected output tokens present | Form compliance |
 |---|---|---|---|
-| With skill (contract-following) | 13/13 | 13/13 | **13/13** |
-| Without skill (plain idiomatic) | 13/13 | 13/13 | **1/13** |
+| With skill (contract-following) | 28/28 | 28/28 | **28/28** |
+| Without skill (plain idiomatic) | 28/28 | 28/28 | **1/28** |
 
 The with-skill number is an upper bound: it was authored by someone holding
-the skill spec and deliberately landing the rhythm. It proves the contracts
-are satisfiable and gradeable. The only accidental without-skill pass is
-`monoku` (its contract is exactly one line).
+the skill spec and deliberately landing the rhythm. It proves all 28
+contracts are satisfiable and gradeable. The only accidental without-skill
+pass is `monoku` (its contract is exactly one line). The 15 newer forms
+(kyoka, somonka, bussokusekika, imayo, kanshi, zappai, waka, renshi,
+sonnet, villanelle, cinquain, ryuka, fibonacci, limerick, etheree) were
+added as manifest entries, gold references, and control arms; the grader
+gained a form-check branch per form (mirroring each skill's
+`rhythm_check.py`).
 
 ## Results — independent model arms (2026-08-07)
 
@@ -120,11 +125,16 @@ body + 3-line landing) when given the skill.
 - All 28 skills now bundle a `scripts/rhythm_check.py`. The **rhythm gate**
   (`standalone-evals/check_rhythm_examples.py`, wired into CI) requires every
   documented example and every E3 reference to pass its own checker. The
-  documented examples were rewritten until they all pass (28/28 examples +
-  13/13 references), so a model copying an example starts from a known-pass
-  shape and only refines its own task code.
+  documented examples were rewritten until they all pass, so a model copying
+  an example starts from a known-pass shape and only refines its own task
+  code. The rhythm gate now covers all 28 skills: 28/28 documented examples
+  and 28/28 E3 references pass their own checkers (somonka's E3 reference is
+  a single file with two stanzas and is checked inline).
 
 ## Open work
 
-- Extend this benchmark to all 28 skills (the 15 newer forms have no
-  manifest/reference/control entries yet).
+- Re-run the independent model arms on the full 28-item manifest
+  (`run_model_arms.py` picks up all items automatically) and re-grade to
+  measure with-skill shape convergence across the newer forms.
+- Add a concrete token-counting procedure to the skills so one-shot models
+  can reach exact rhythm without a checker feedback loop.

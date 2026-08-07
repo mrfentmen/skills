@@ -158,6 +158,116 @@ def check_form(pid, path):
     elif pid == 'terry-davis':
         need(any(m in src for m in ('holy', 'templeos', 'holyc', 'divine')), 'missing TempleOS/HolyC marker')
         need('direct' in src or 'control' in src, 'missing direct-control marker')
+    elif pid == 'kyoka':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
+        need(all(within(t, tgt) for t, tgt in zip(toks, [5, 7, 5, 7, 7])),
+             f'token profile {toks} != [5,7,5,7,7] pm2')
+    elif pid == 'somonka':
+        raw = Path(path).read_text()
+        groups = [g.splitlines() for g in raw.split('\n\n') if g.strip()]
+        stanzas = []
+        for g in groups:
+            lg = [l for l in g
+                  if l.strip() and not l.strip().startswith('#')
+                  and not re.match(r'^(import|from) ', l.strip())]
+            if lg:
+                stanzas.append(lg)
+        need(len(stanzas) == 2, f'need two blank-line-separated stanzas, got {len(stanzas)}')
+        if len(stanzas) == 2:
+            for i, st in enumerate(stanzas, 1):
+                toks = [tok(l) for l in st]
+                need(len(st) == 5, f'stanza {i} has {len(st)} lines, need 5')
+                need(all(within(t, tgt) for t, tgt in zip(toks, [5, 7, 5, 7, 7])),
+                     f'stanza {i} profile {toks} != [5,7,5,7,7] pm2')
+    elif pid == 'bussokusekika':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 6, f'need exactly 6 logic lines, got {len(lines)}')
+        need(all(within(t, tgt) for t, tgt in zip(toks, [5, 7, 5, 7, 7, 7])),
+             f'token profile {toks} != [5,7,5,7,7,7] pm2')
+    elif pid == 'imayo':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 4, f'need exactly 4 logic lines, got {len(lines)}')
+        need(all(within(t, 12, 4) for t in toks),
+             f'lines not ~12 pm4 (7-5 long-short): {toks}')
+    elif pid == 'kanshi':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 4, f'need exactly 4 logic lines, got {len(lines)}')
+        need(all(within(t, tgt) for t, tgt in zip(toks, [7, 7, 7, 7])),
+             f'token profile {toks} != [7,7,7,7] pm2')
+    elif pid == 'zappai':
+        toks = [tok(l) for l in lines]
+        need(0 < len(toks) <= 3, f'need 1-3 logic lines, got {len(toks)}')
+        if 1 <= len(toks) <= 3:
+            want = {3: [5, 7, 5], 2: [12, 5], 1: [17]}[len(toks)]
+            need(all(within(t, tgt) for t, tgt in zip(toks, want)),
+                 f'token profile {toks} not within pm2 of silhouette {want} (5-7-5 conserved)')
+    elif pid == 'waka':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
+        need(all(within(t, tgt) for t, tgt in zip(toks, [5, 7, 5, 7, 7])),
+             f'token profile {toks} != [5,7,5,7,7] pm2')
+    elif pid == 'renshi':
+        raw = Path(path).read_text()
+        groups = [g.splitlines() for g in raw.split('\n\n') if g.strip()]
+        sizes = []
+        for g in groups:
+            lg = [l for l in g if l.strip() and not l.strip().startswith('#')]
+            if lg:
+                sizes.append(len(lg))
+        need(3 <= len(sizes) <= 6, f'need 3-6 stages, got {len(sizes)}')
+        need(all(s in (2, 3) for s in sizes), f'stage sizes not 2-3 lines: {sizes}')
+    elif pid == 'sonnet':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 14, f'need exactly 14 logic lines, got {len(lines)}')
+        need(all(within(t, 10) for t in toks),
+             f'lines not ~10 tokens pm2 (iambic pentameter analog): {toks}')
+    elif pid == 'villanelle':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 19, f'need exactly 19 logic lines, got {len(lines)}')
+        need(all(within(t, 10, 3) for t in toks),
+             f'lines not ~10 tokens pm3: {toks}')
+        a_pos = [1, 6, 12, 18]
+        b_pos = [3, 9, 15, 19]
+        if len(toks) >= 19:
+            a_toks = [toks[i - 1] for i in a_pos]
+            b_toks = [toks[i - 1] for i in b_pos]
+            need(max(a_toks) - min(a_toks) <= 3,
+                 f'refrain A not repeated at {a_pos}: {a_toks}')
+            need(max(b_toks) - min(b_toks) <= 3,
+                 f'refrain B not repeated at {b_pos}: {b_toks}')
+            need(abs(sum(a_toks) / 4 - sum(b_toks) / 4) >= 2,
+                 f'refrains A and B not distinct ({a_toks} vs {b_toks})')
+    elif pid == 'cinquain':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
+        need(all(within(t, tgt, 1) for t, tgt in zip(toks, [2, 4, 6, 8, 2])),
+             f'token profile {toks} != [2,4,6,8,2] pm1')
+    elif pid == 'ryuka':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 4, f'need exactly 4 logic lines, got {len(lines)}')
+        need(all(within(t, tgt) for t, tgt in zip(toks, [8, 8, 8, 6])),
+             f'token profile {toks} != [8,8,8,6] pm2')
+    elif pid == 'fibonacci':
+        toks = [tok(l) for l in lines]
+        fibs = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+        need(6 <= len(toks) <= 8, f'need 6-8 logic lines, got {len(toks)}')
+        need(all(any(abs(t - f) <= 1 for f in fibs) for t in toks),
+             f'token counts not fibonacci (+/-1): {toks}')
+        for i in range(2, len(toks)):
+            need(abs(toks[i] - (toks[i - 1] + toks[i - 2])) <= 3,
+                 f'line {i + 1}: {toks[i]} is not the sum of {toks[i - 2]} and {toks[i - 1]} (+/-3)')
+        need(toks[-1] >= 5, 'final line too small to carry the result')
+    elif pid == 'limerick':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
+        need(all(within(t, tgt) for t, tgt in zip(toks, [8, 8, 5, 5, 8])),
+             f'token profile {toks} != [8,8,5,5,8] pm2')
+    elif pid == 'etheree':
+        toks = [tok(l) for l in lines]
+        need(len(lines) == 10, f'need exactly 10 logic lines, got {len(lines)}')
+        need(all(within(t, i + 1, 1) for i, t in enumerate(toks)),
+             f'ladder not 1-10 pm1: {toks}')
     return fails
 
 parser = argparse.ArgumentParser()

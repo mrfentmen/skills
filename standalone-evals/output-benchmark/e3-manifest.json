@@ -1,5 +1,5 @@
 {
-  "version": "e3-v1",
+  "version": "e3-v2",
   "items": [
     {
       "id": "choka",
@@ -91,6 +91,111 @@
       "task": "Read numbers from stdin, print the mean, then in the final two lines expand it with the range, in the five-line 5-7-5-7-7 tanka form.",
       "input": "1 2 3 4 5\n",
       "expected": "3 4"
+    },
+    {
+      "id": "kyoka",
+      "skill": "kyoka",
+      "task": "Read numbers from stdin and print the peak and the spread, in the five-line kyoka form (5-7-5-7-7) where the final two lines land a comic turn.",
+      "input": "3 1 4 1 5\n",
+      "expected": "peak 5 spread 4"
+    },
+    {
+      "id": "somonka",
+      "skill": "somonka",
+      "task": "Read numbers from stdin and write a two-voice somonka as a SINGLE Python file: two blank-line-separated five-line stanzas, each shaped 5-7-5-7-7, the first voice printing the count and the second voice answering with the sum.",
+      "input": "3 1 4 1 5\n",
+      "expected": "count 5 sum 14"
+    },
+    {
+      "id": "bussokusekika",
+      "skill": "bussokusekika",
+      "task": "Read numbers from stdin and print the mean and the sum, in the six-line bussokusekika form (5-7-5-7-7-7).",
+      "input": "3 1 4 1 5\n",
+      "expected": "mean 2.8 sum 14"
+    },
+    {
+      "id": "imayo",
+      "skill": "imayo",
+      "task": "Read numbers from stdin and sing the sum in a four-line imayo song, each line a long rolling breath of 7-5 rhythm.",
+      "input": "3 1 4 1 5\n",
+      "expected": "sum 14"
+    },
+    {
+      "id": "kanshi",
+      "skill": "kanshi",
+      "task": "Read numbers from stdin, and in the four-line kanshi form (two 7-7 couplets) print the sum and the count in the first couplet, turn and resolve in the second.",
+      "input": "3 1 4 1 5\n",
+      "expected": "sum 14 count 5"
+    },
+    {
+      "id": "zappai",
+      "skill": "zappai",
+      "task": "Read numbers from stdin and print their maximum in the three-line zappai form (roughly 5-7-5, no kigo required).",
+      "input": "7 2 9 4\n",
+      "expected": "9"
+    },
+    {
+      "id": "waka",
+      "skill": "waka",
+      "task": "Read numbers from stdin and print the range and the count, in the five-line waka form (5-7-5-7-7).",
+      "input": "3 1 4 1 5\n",
+      "expected": "range 4 count 5"
+    },
+    {
+      "id": "renshi",
+      "skill": "renshi",
+      "task": "Read a line of text from stdin and, in linked renshi stages (at least three visible stages of two to three lines), print the token count of the text.",
+      "input": "the quick brown fox jumps\n",
+      "expected": "tokens 5"
+    },
+    {
+      "id": "sonnet",
+      "skill": "sonnet",
+      "task": "Read numbers from stdin and report the sum in a fourteen-line sonnet (three quatrains and a couplet, each line about ten tokens).",
+      "input": "3 1 4 1 5\n",
+      "expected": "sum 14"
+    },
+    {
+      "id": "villanelle",
+      "skill": "villanelle",
+      "task": "Read lines from stdin and report the total lines and the error lines in a nineteen-line villanelle with two repeating refrains.",
+      "input": "ERR bad\nok\nWARN slow\n",
+      "expected": "total 3 errors 1"
+    },
+    {
+      "id": "cinquain",
+      "skill": "cinquain",
+      "task": "Read words from stdin and print the word count in the five-line cinquain form (2-4-6-8-2 pyramid).",
+      "input": "the quick brown fox jumps\n",
+      "expected": "words 5"
+    },
+    {
+      "id": "ryuka",
+      "skill": "ryuka",
+      "task": "Read positive and negative numbers from stdin and print the count of positive and negative numbers in the four-line ryuka form (8-8-8-6).",
+      "input": "3 -1 4 1 -5\n",
+      "expected": "up 3 down 2"
+    },
+    {
+      "id": "fibonacci",
+      "skill": "fibonacci",
+      "task": "Read numbers from stdin and print their sum in a fibonacci poem whose line counts grow by the golden sequence (six to eight lines).",
+      "input": "3 1 4 1 5\n",
+      "expected": "sum 14"
+    },
+    {
+      "id": "limerick",
+      "skill": "limerick",
+      "task": "Read numbers from stdin and print their sum, in the five-line limerick form (8-8-5-5-8) with a comic punchline in the final line.",
+      "input": "3 1 4 1 5\n",
+      "expected": "sum 14"
+    },
+    {
+      "id": "etheree",
+      "skill": "etheree",
+      "task": "Read words from stdin and print the token count in a ten-line etheree whose lines climb from one to ten tokens.",
+      "input": "the quick brown fox jumps\n",
+      "expected": "sum 5"
     }
   ]
 }
