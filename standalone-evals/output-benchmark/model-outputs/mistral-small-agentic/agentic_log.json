@@ -1,0 +1,758 @@
+{
+ "choka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['no short/long alternation in [8, 12, 9, 9, 8, 8]', 'too many consecutive like-sized lines: [8, 12, 9, 9, 8, 8]', 'too many consecutive like-sized lines: [8, 12, 9, 9, 8, 8]', 'too many consecutive like-sized lines: [8, 12, 9, 9, 8, 8]', 'too many consecutive like-sized lin"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['count', 'sum'] ['closing couplet not ~7-7: [1, 1]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 1, 1]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 1, 1]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['count', 'sum'] ['closing couplet not ~7-7: [1, 1]', 'no short/long alternation in [3, 4, 3, 3, 1, 1]', 'too many consecutive like-sized lines: [3, 4, 3, 3, 1, 1]', 'too many consecutive like-sized lines: [3, 4, 3, 3, 1, 1]', 'too many consecutive like-sized lines: [3, 4, 3, 3, 1, 1]', 'too"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['count', 'sum'] ['closing couplet not ~7-7: [1, 1]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 1, 1]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 1, 1]']"
+   }
+  ],
+  "ts": "2026-08-07 18:06:46"
+ },
+ "dodoitsu": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [9, 8, 8, 12] != [7,7,7,5] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 3, 7] != [7,7,7,5] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'token profile [4, 9, 1] != [7,7,7,5] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 3, 3, 7] != [7,7,7,5] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:06:53"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:00"
+ },
+ "haibun": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['errors'] ['need body + 3-line landing, got 4 logic lines']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need body + 3-line landing, got 4 logic lines']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['errors'] ['need body + 3-line landing, got 4 logic lines']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['2']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:08"
+ },
+ "haiku": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [4, 1] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [4, 1] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [4, 5] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 5] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:15"
+ },
+ "katauta": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [4, 3] != [5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [7, 3] != [5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 3] != [5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [4, 3] != [5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:22"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:29"
+ },
+ "monoku": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 1 logic line, got 0']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 1 logic line, got 0']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 1 logic line, got 0']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 1 logic line, got 0']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:35"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['stanza sizes not 2/3: [1, 1, 3, 3]', 'alternation wrong: [1, 1, 3, 3]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['stanza sizes not 2/3: [1, 2, 2, 3, 3, 1]', 'alternation wrong: [1, 2, 2, 3, 3, 1]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['stanza sizes not 2/3: [1, 2, 2, 3]', 'alternation wrong: [1, 2, 2, 3]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['00'] ['stanza sizes not 2/3: [1, 3, 2, 2]', 'alternation wrong: [1, 3, 2, 2]']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:43"
+ },
+ "sedoka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [1, 3, 3]', 'token 3 not within pm2 of 7', 'token 3 not within pm2 of 7']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [1, 3, 3]', 'token 3 not within pm2 of 7', 'token 2 not within pm2 of 7', 'token 3 not within pm2 of 7', 'token 2 not within pm2 of 7']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [1, 3, 3]', 'token 3 not within pm2 of 7', 'token 2 not within pm2 of 7', 'token 3 not within pm2 of 7', 'token 2 not within pm2 of 7']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [1, 3, 3]', 'token 3 not within pm2 of 7', 'token 2 not within pm2 of 7', 'token 3 not within pm2 of 7', 'token 2 not within pm2 of 7']"
+   }
+  ],
+  "ts": "2026-08-07 18:07:50"
+ },
+ "senryu": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [3, 9] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['6'] ['token profile [3, 7] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [3, 9] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [3, 9] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   }
+  ],
+  "ts": "2026-08-07 18:08:37"
+ },
+ "sijo": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['need exactly 3 logic lines, got 2', 'lines not long enough: [9, 12]', 'third line missing twist marker']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['need exactly 3 logic lines, got 2', 'lines not long enough: [9, 10]', 'third line missing twist marker']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['need exactly 3 logic lines, got 2', 'third line missing twist marker']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['need exactly 3 logic lines, got 2', 'lines not long enough: [5, 10]', 'third line missing twist marker']"
+   }
+  ],
+  "ts": "2026-08-07 18:08:45"
+ },
+ "tanka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['need exactly 5 logic lines, got 4', 'token profile [4, 5, 2, 7] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['token profile [4, 5, 2, 5, 2] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['00'] ['token profile [4, 5, 2, 5, 2] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['need exactly 5 logic lines, got 4', 'token profile [4, 5, 2, 4] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:08:53"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [4, 3, 5, 4, 7] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 7', 'token profile [4, 3, 5, 2, 2, 5, 4] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 7', 'token profile [4, 3, 5, 2, 2, 5, 5] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 7', 'token profile [4, 3, 5, 2, 2, 5, 3] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:09:00"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['stanza 1 profile [3, 4, 3, 3, 5] != [5,7,5,7,7] pm2', 'stanza 2 has 4 lines, need 5', 'stanza 2 profile [3, 3, 5, 6] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need two blank-line-separated stanzas, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need two blank-line-separated stanzas, got 3']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need two blank-line-separated stanzas, got 4']"
+   }
+  ],
+  "ts": "2026-08-07 18:09:09"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['token profile [4, 3, 5, 2, 5, 7] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['token profile [4, 3, 5, 2, 2, 7] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['token profile [7, 3, 5, 2, 2, 7] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['8'] ['token profile [4, 3, 6, 2, 2, 6] != [5,7,5,7,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:09:17"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['lines not ~12 pm4 (7-5 long-short): [3, 9, 3, 4]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [6, 1, 2]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['lines not ~12 pm4 (7-5 long-short): [3, 9, 3, 4]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [6, 1, 2]']"
+   }
+  ],
+  "ts": "2026-08-07 18:09:24"
+ },
+ "kanshi": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['2', '8'] ['need exactly 4 logic lines, got 7', 'token profile [3, 9, 3, 3, 9, 6, 2] != [7,7,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['2', '8'] ['need exactly 4 logic lines, got 6', 'token profile [7, 3, 3, 6, 6, 6] != [7,7,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 6', 'token profile [3, 7, 3, 3, 3, 5] != [7,7,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['count', 'sum'] ['need exactly 4 logic lines, got 7', 'token profile [3, 9, 3, 3, 2, 7, 6] != [7,7,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:09:32"
+ },
+ "zappai": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [4, 1] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [4, 1] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [4, 1] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 1] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   }
+  ],
+  "ts": "2026-08-07 18:10:19"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [11, 7, 7, 10, 9] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 3, 4, 2] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 3, 4, 2] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [7, 3, 3, 4, 2] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:10:26"
+ },
+ "renshi": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['tokens'] ['need 3-6 stages, got 2', 'stage sizes not 2-3 lines: [4, 2]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['tokens'] ['stage sizes not 2-3 lines: [1, 2, 2]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['tokens'] ['need 3-6 stages, got 2', 'stage sizes not 2-3 lines: [1, 4]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['tokens'] ['need 3-6 stages, got 2', 'stage sizes not 2-3 lines: [1, 4]']"
+   }
+  ],
+  "ts": "2026-08-07 18:10:33"
+ },
+ "sonnet": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   }
+  ],
+  "ts": "2026-08-07 18:10:44"
+ },
+ "villanelle": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0', '2'] ['need exactly 19 logic lines, got 20', 'lines not ~10 tokens pm3: [7, 6, 11, 4, 12, 6, 11, 4, 9, 6, 11, 4, 11, 6, 11, 4, 9, 6, 11, 4]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0', '2'] ['need exactly 19 logic lines, got 20', 'lines not ~10 tokens pm3: [7, 6, 11, 4, 12, 7, 6, 11, 4, 9, 6, 6, 11, 4, 9, 4, 6, 11, 4, 6]', 'refrain A not repeated at [1, 6, 12, 18]: [7, 7, 6, 11]', 'refrain B not repeated at [3, 9, 15, 19]: [11, 4, 9, 4]', 'refrains A and B"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['0', '2'] ['need exactly 19 logic lines, got 21', 'lines not ~10 tokens pm3: [7, 6, 11, 4, 12, 7, 6, 11, 7, 9, 12, 7, 6, 11, 7, 9, 12, 7, 7, 6, 12]', 'refrain B not repeated at [3, 9, 15, 19]: [11, 7, 7, 7]', 'refrains A and B not distinct ([7, 7, 7, 7] vs [11, 7, 7, 7])']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['0', '2'] ['need exactly 19 logic lines, got 20', 'lines not ~10 tokens pm3: [7, 6, 11, 4, 12, 7, 6, 11, 4, 9, 7, 6, 11, 4, 9, 7, 7, 6, 11, 4]', 'refrain B not repeated at [3, 9, 15, 19]: [11, 4, 9, 11]']"
+   }
+  ],
+  "ts": "2026-08-07 18:10:56"
+ },
+ "cinquain": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [3, 3, 3, 3, 1] != [2,4,6,8,2] pm1']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['words'] ['token profile [3, 3, 3, 3, 1] != [2,4,6,8,2] pm1']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['words'] ['token profile [3, 3, 3, 5, 1] != [2,4,6,8,2] pm1']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [3, 3, 3, 3, 1] != [2,4,6,8,2] pm1']"
+   }
+  ],
+  "ts": "2026-08-07 18:11:03"
+ },
+ "ryuka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['down', 'up'] ['token profile [13, 15, 15, 7] != [8,8,8,6] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['down', 'up'] ['token profile [7, 11, 11, 4] != [8,8,8,6] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['down', 'up'] ['token profile [9, 11, 11, 4] != [8,8,8,6] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['down', 'up'] ['token profile [7, 11, 11, 4] != [8,8,8,6] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:11:51"
+ },
+ "fibonacci": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need 6-8 logic lines, got 3', 'line 3: 1 is not the sum of 4 and 3 (+/-3)', 'final line too small to carry the result']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need 6-8 logic lines, got 9', 'line 3: 3 is not the sum of 3 and 9 (+/-3)', 'line 4: 1 is not the sum of 9 and 3 (+/-3)', 'final line too small to carry the result']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['5'] ['line 3: 1 is not the sum of 4 and 3 (+/-3)', 'line 7: 2 is not the sum of 5 and 5 (+/-3)', 'line 8: 1 is not the sum of 5 and 2 (+/-3)', 'final line too small to carry the result']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need 6-8 logic lines, got 9', 'line 3: 3 is not the sum of 3 and 7 (+/-3)', 'line 4: 1 is not the sum of 7 and 3 (+/-3)', 'line 9: 1 is not the sum of 3 and 3 (+/-3)', 'final line too small to carry the result']"
+   }
+  ],
+  "ts": "2026-08-07 18:11:58"
+ },
+ "limerick": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [13, 8, 9, 8, 11] != [8,8,5,5,8] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['sum'] ['token profile [3, 9, 3, 4, 5] != [8,8,5,5,8] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   }
+  ],
+  "ts": "2026-08-07 18:12:06"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 13', 'ladder not 1-10 pm1: [1, 3, 3, 3, 1, 4, 5, 5, 6, 7, 7, 6, 3]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 12', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 3, 3, 3, 4, 4, 6, 5]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 11', 'ladder not 1-10 pm1: [1, 3, 3, 1, 3, 1, 2, 4, 6, 6, 8]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 11', 'ladder not 1-10 pm1: [1, 3, 3, 1, 3, 1, 2, 3, 4, 6, 8]']"
+   }
+  ],
+  "ts": "2026-08-07 18:12:14"
+ }
+}

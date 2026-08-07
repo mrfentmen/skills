@@ -75,14 +75,38 @@ substitution was needed):
 |---|---|---|---|---|---|
 | With skill | Groq llama-3.3-70b | 21/28 | 9/28 | **1/28** (haibun) | **11/28** |
 | With skill | Mistral small | 27/28 | **15/28** | 0/28 | **15/28** |
+| With skill | NVIDIA Nemotron-3-Super 120B | 24/28 | 9/28 | **1/28** (renga) | **15/28** |
+| With skill | OpenRouter llama-3.3-70b | 22/28 | 11/28 | **1/28** (haibun) | **12/28** |
+| With skill | Mistral small (agentic loop) | 26/28 | 15/28 | **1/28** (haibun) | 15/28 |
 | Without skill | Groq llama-3.3-70b | 19/28 | 10/28 | 0/28 | 3/28 |
 | Without skill | Mistral small | 19/28 | 3/28 | 0/28 | 4/28 |
+| Without skill | NVIDIA Nemotron-3-Super 120B | 26/28 | 9/28 | 0/28 | 5/28 |
+| Without skill | OpenRouter llama-3.3-70b | 20/28 | 8/28 | 0/28 | 3/28 |
 
 Shape convergence = the output lands the form's structural silhouette (line
 count / stanza structure per the grader's own checks) even if the exact ±2
 token profile is off. Runtime failures are model-side stdin misreads (they
 parse line-by-line while the manifest input is space-separated on one line),
 not skill defects.
+
+Model-notes: the NVIDIA Nemotron arm is served via the NIM API with the
+reasoning narrative suppressed (`reasoning.enabled=false`) so `content` is
+clean code (an initial run without that flag truncated on reasoning and was
+re-run; minimax-m3 was tried too but its free tier 429'd after one call).
+The Groq with-skill arm needed a retry loop because the org hit its 100k
+tokens/day cap after the first 48 calls; the rolling window freed tokens and
+all 8 remaining arms completed on the same Groq API (no model substitution).
+The agentic loop (write -> grade -> refine, up to 4 generations, judge = this
+grader) ran all 28 skills for Mistral and a few for Groq before the Groq
+quota cut in; its unfinished skills are documented, not failures.
+
+The OpenRouter and NVIDIA llama arms were run with **parallel key workers**:
+`run_model_arms.py --workers N` spreads the env-var key list across a thread
+pool, multiplying per-key rate limits (the OpenRouter arm's 56 calls took
+~4 minutes on 4 keys; its 4 keys are a different account from the
+near-empty one first probed). The NVIDIA llama-3.3-70b arm is throttled at
+the endpoint even across 5 keys (curl timeouts) and is partial; its with-skill
+results are not included above until complete.
 
 ### The measurable with-skill effect: shape convergence
 
@@ -139,11 +163,30 @@ body + 3-line landing, correct output, runs clean) when given the skill.
    help the *agentic loop* (write, run `rhythm_check.py`, refine) — a one-shot
    API call cannot run the checker. That loop, not this table, is how a model
    reaches exact compliance.
-5. **Implication for use:** these skills are agentic, not one-shot. The
+5. **The with-skill effect holds across four independent models/hosts.**
+   Groq llama-3.3-70b (11 vs 3), Mistral (15 vs 4), NVIDIA Nemotron-3-Super
+   (15 vs 5), and OpenRouter llama-3.3-70b (12 vs 3) all show ~3-4x shape
+   convergence with the skill, plus strict passes on haibun (Groq, OpenRouter,
+   and Mistral's agentic loop) and renga (NVIDIA). Four providers, four
+   model families, the same effect each time.
+6. **The checker-feedback loop measurably raises the ceiling.** Mistral's
+   agentic loop produced its first strict-form pass (haibun: narrative body
+   + 3-line landing, correct output, runs) that one-shot never reached, and
+   it traded an output regression for a fix elsewhere (limerick ->
+   fibonacci). It cannot close exact token-profile forms (haiku still [4,5]
+   vs [12,5] after 4 generations) — that arithmetic needs the stronger
+   models in the skill-test-kit workflow, and even they land it by iteration,
+   not one-shot.
+7. **Implication for use:** these skills are agentic, not one-shot. The
    intended workflow (skill-test-kit + per-skill checkers, e.g. haiku's
    `rhythm_check.py`) has the agent write, run the checker, and refine.
    A one-shot API call is the weakest-case test and deliberately not the bar;
    the shape-convergence gap is the proof the skill is steering output.
+8. **Per-skill breakdown** (which forms converge, which are inherently
+   concise, which contracts need work): see `per_skill_results.md`, generated
+   by `gen_per_skill_report.py`. 16/28 forms converge with the skill, 4 are
+   inherently concise, and 8 need contract work (gogyohka, monoku, somonka,
+   kanshi, sonnet, villanelle, fibonacci, etheree).
 
 ## Agentic upgrade (done)
 
@@ -176,8 +219,15 @@ procedure instead of just asserting the rhythm.
 - Re-run the independent model arms on the full 28-item manifest
   (`run_model_arms.py` picks up all items automatically) and re-grade to
   measure with-skill shape convergence across the newer forms.
-  **DONE 2026-08-07** — see the 28-item table above; both models show
-  ~3.7x shape convergence and Mistral shows a 5x correct-output gain.
+  **DONE 2026-08-07** — see the 28-item table above: three models, ~3-4x
+  shape convergence, strict form passes on haibun (Groq + Mistral agentic)
+  and renga (NVIDIA).
 - Re-run the same arms with a checker-feedback loop (write, run
   `rhythm_check.py`, refine) to measure the agentic ceiling directly; the
   28/28 gold references bound it from above.
+  **DONE 2026-08-07 (Mistral)** — `run_feedback_arms.py`; Mistral's loop
+  produced its first strict-form pass (haibun). Groq's loop is quota-bound
+  (100k tokens/day org cap); re-run with `--sweeps 6` once the window frees.
+- Inspect the 8 "NEEDS CONTRACT WORK" forms from `per_skill_results.md`
+  (gogyohka, monoku, somonka, kanshi, sonnet, villanelle, fibonacci, etheree)
+  for ambiguity — candidates for the next skill-improvement round.

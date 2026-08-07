@@ -1,0 +1,16 @@
+import sys
+data = sys.stdin.read().split()
+nums = [float(x) for x in data]
+total = sum(nums)
+print(f"the sum of {len(nums)} numbers is")
+print(f"{total:.6f}".rstrip('0').rstrip('.'))
+print("if no numbers were given the sum is")
+print("zero point zero as the base case")
+print("the first quatrain sets up the task")
+print("the second quatrain does the work")
+print("the third quatrain reads the input")
+print("and prepares the sum for display")
+print("the volta turns to the output now")
+print("formatting the result for the user")
+print("the couplet gives the final answer")
+print("sum done and the sonnet ends")

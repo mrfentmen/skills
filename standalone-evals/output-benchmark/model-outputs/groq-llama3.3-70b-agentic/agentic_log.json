@@ -1,0 +1,55 @@
+{
+ "choka": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['2', '8', '80'] ['too many consecutive like-sized lines: [4, 3, 3, 11, 2, 2, 2, 2, 2, 5, 5]', 'too many consecutive like-sized lines: [4, 3, 3, 11, 2, 2, 2, 2, 2, 5, 5]', 'too many consecutive like-sized lines: [4, 3, 3, 11, 2, 2, 2, 2, 2, 5, 5]', 'too many consecutive like-sized"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['no short/long alternation in [8, 8, 9, 8, 8, 8, 8]', 'too many consecutive like-sized lines: [8, 8, 9, 8, 8, 8, 8]', 'too many consecutive like-sized lines: [8, 8, 9, 8, 8, 8, 8]', 'too many consecutive like-sized lines: [8, 8, 9, 8, 8, 8, 8]', 'too many consecutive like-sized lines: [8, 8, 9, 8, "
+   }
+  ],
+  "ts": "2026-08-07 18:30:20"
+ },
+ "dodoitsu": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 3, 3, 3] != [7,7,7,5] pm2']"
+   }
+  ],
+  "ts": "2026-08-07 18:44:25"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   }
+  ],
+  "ts": "2026-08-07 18:58:30"
+ },
+ "haibun": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-07 18:58:33"
+ }
+}

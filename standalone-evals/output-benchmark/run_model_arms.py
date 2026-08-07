@@ -53,6 +53,30 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "XAI_API_KEY",
         "model": "grok-4.5",
     },
+    "nvidia-nemotron-3-super": {
+        "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+        "key_env": "NVIDIA_API_KEY",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "max_tokens": 3200,
+        # reasoning model: suppress the thinking narrative so content is clean code
+        "extra_body": {"reasoning": {"enabled": False},
+                       "chat_template_kwargs": {"thinking": False}},
+    },
+    "nvidia-llama3.3-70b": {
+        "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+        "key_env": "NVIDIA_API_KEY",
+        "model": "meta/llama-3.3-70b-instruct",
+    },
+    "nvidia-minimax-m3": {
+        "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+        "key_env": "NVIDIA_API_KEY",
+        "model": "minimaxai/minimax-m3",
+    },
+    "openrouter-llama3.3-70b": {
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "key_env": "OPENROUTER_API_KEY",
+        "model": "meta-llama/llama-3.3-70b-instruct",
+    },
 }
 
 WITH_SKILL_SYSTEM = (
@@ -71,15 +95,17 @@ USER_TASK = (
 
 def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
               retries: int = 4) -> str | None:
-    payload = json.dumps({
+    payload = {
         "model": provider["model"],
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
         "temperature": 0.2,
-        "max_tokens": max_tokens,
-    })
+        "max_tokens": provider.get("max_tokens", max_tokens),
+    }
+    payload.update(provider.get("extra_body", {}))
+    payload = json.dumps(payload)
     for attempt in range(retries):
         cmd = [
             "curl", "-sS", "--max-time", "180", provider["url"],
@@ -107,8 +133,9 @@ def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
             return data["choices"][0]["message"]["content"].strip()
         err = data.get("error", {})
         msg = str(err.get("message", proc.stdout))[:160]
-        code = str(err.get("code", ""))
-        if "429" in code or "rate" in msg.lower() or "limit" in msg.lower():
+        code = str(err.get("code", "")) + " " + json.dumps(err)[:200]
+        if "429" in code or "rate" in msg.lower() or "limit" in msg.lower() \
+                or "too many requests" in proc.stdout.lower():
             wait = 12 * (attempt + 1)
             print(f"    rate-limited; sleeping {wait}s")
             time.sleep(wait)
@@ -130,6 +157,9 @@ def main() -> int:
     parser.add_argument("--providers", default="groq-llama3.3-70b,mistral-small")
     parser.add_argument("--skills", default="")
     parser.add_argument("--sleep", type=float, default=2.5)
+    parser.add_argument("--workers", type=int, default=1,
+                        help="parallel API workers; keys from the env var are spread across workers "
+                             "(use multiple keys to multiply per-key rate limits)")
     parser.add_argument("--resume", action="store_true",
                         help="skip arms whose output already exists")
     args = parser.parse_args()
@@ -146,38 +176,67 @@ def main() -> int:
         if not prov:
             print(f"unknown provider {name!r}; skipping")
             continue
-        key = os.environ.get(prov["key_env"], "")
-        if not key:
+        keys = [k.strip() for k in os.environ.get(prov["key_env"], "").split(",") if k.strip()]
+        if not keys:
             print(f"provider {name}: missing env {prov['key_env']}; skipping")
             continue
-        prov = dict(prov, key=key)
-        print(f"\n=== provider {name} ({prov['model']}) — {len(items)} skills x 2 arms ===")
-        failures = 0
+        prov = dict(prov, key=keys[0])
+        workers = min(args.workers, len(keys)) if args.workers > 1 else 1
+        print(f"\n=== provider {name} ({prov['model']}) — {len(items)} skills x 2 arms, "
+              f"{workers} workers / {len(keys)} keys ===")
+
+        # build the job list (skipping cached arms when --resume)
+        jobs = []
         for item in items:
             skill = item["skill"]
             skill_file = ROOT / skill / "SKILL.md"
-            for arm, system in (
-                ("with-skill",
-                 WITH_SKILL_SYSTEM.format(skill_text=skill_file.read_text(encoding="utf-8"))
-                 if skill_file.is_file() else "You are a coding agent."),
-                ("without-skill", WITHOUT_SKILL_SYSTEM),
-            ):
-                out_dir = BASE / "model-outputs" / name / arm
-                out_dir.mkdir(parents=True, exist_ok=True)
-                out_file = out_dir / f"{skill}.py"
+            with_sys = (WITH_SKILL_SYSTEM.format(skill_text=skill_file.read_text(encoding="utf-8"))
+                        if skill_file.is_file() else "You are a coding agent.")
+            for arm, system in (("with-skill", with_sys), ("without-skill", WITHOUT_SKILL_SYSTEM)):
+                out_file = BASE / "model-outputs" / name / arm / f"{skill}.py"
                 if args.resume and out_file.is_file() \
                         and out_file.read_text(encoding="utf-8").strip() != "# MODEL CALL FAILED":
                     print(f"  {skill:12s} {arm:14s} cached", flush=True)
                     continue
-                print(f"  {skill:12s} {arm:14s} ...", flush=True)
-                content = call_chat(prov, system, USER_TASK.format(task=item["task"]))
-                if content is None:
-                    failures += 1
-                    out_file.write_text("# MODEL CALL FAILED\n")
-                    continue
-                out_file.write_text(extract_code(content) + "\n")
+                jobs.append((item, arm, system))
+
+        def do_job(job, key):
+            item, arm, system = job
+            skill = item["skill"]
+            out_dir = BASE / "model-outputs" / name / arm
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_file = out_dir / f"{skill}.py"
+            content = call_chat(dict(prov, key=key), system,
+                                USER_TASK.format(task=item["task"]))
+            if content is None:
+                out_file.write_text("# MODEL CALL FAILED\n")
+                return False
+            out_file.write_text(extract_code(content) + "\n")
+            return True
+
+        failures = 0
+        if workers > 1 and len(keys) > 1:
+            from concurrent.futures import ThreadPoolExecutor, as_completed
+            with ThreadPoolExecutor(max_workers=workers) as ex:
+                futs = {ex.submit(do_job, job, keys[i % len(keys)]): job
+                        for i, job in enumerate(jobs)}
+                for fut in as_completed(futs):
+                    item, arm = futs[fut][0], futs[fut][1]
+                    try:
+                        ok = fut.result()
+                    except Exception as e:
+                        ok = False
+                        print(f"  worker error {item['skill']} {arm}: {e}", flush=True)
+                    failures += 0 if ok else 1
+                    print(f"  {item['skill']:12s} {arm:14s} {'ok' if ok else 'FAILED'}", flush=True)
+        else:
+            for i, job in enumerate(jobs):
+                ok = do_job(job, keys[i % len(keys)])
+                failures += 0 if ok else 1
+                item, arm = job[0], job[1]
+                print(f"  {item['skill']:12s} {arm:14s} {'ok' if ok else 'FAILED'}", flush=True)
                 time.sleep(args.sleep)
-        print(f"provider {name}: {len(items) * 2 - failures}/{len(items) * 2} calls succeeded")
+        print(f"provider {name}: {len(jobs) - failures}/{len(jobs)} calls succeeded")
 
     print("\nNow grade the arms from the output-benchmark directory:")
     for name in providers:
