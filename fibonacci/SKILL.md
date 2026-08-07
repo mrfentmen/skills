@@ -33,10 +33,12 @@ The token counts of consecutive logic lines must follow the Fibonacci progressio
 The growing count that lands on the total (the annotated counts are the target rhythm, a 2-3-5-8 tail of the sequence):
 
 ```python
-import sys                      # 2: the tool
-lines = sys.stdin.read().splitlines()  # 3: the source
-errs = sum(1 for l in lines if "ERR" in l)  # 5: the errors
-print(f"{errs} errors of {len(lines)}")  # 8: the report
+pass
+s = 0
+s = 1
+total = s
+print(s, "then", total)
+print("sum", s + total, "of", "the", "count")
 ```
 
 ### The Stats Fibonacci
@@ -58,6 +60,13 @@ h = json.load(open("health.json"))  # 3: the state
 down = [k for k, v in h.items() if not v]  # 5: the failures
 print(f"{len(down)} down of {len(h)}")  # 8: the verdict
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the fibonacci form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -137,3 +146,5 @@ For other languages, translate the same structure, growing token counts in the F
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

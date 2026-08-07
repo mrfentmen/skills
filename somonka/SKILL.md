@@ -37,38 +37,22 @@ The reply must reference the first's result — the two halves are one poem.
 The first counts, the second explains:
 
 ```python
-# opening: the ledger
-import statistics as st
-nums = [4, 8, 15, 16, 23, 42]
-mean = st.mean(nums)
-print(f"mean {mean:.2f}")          # expansion: the number
-print(f"n={len(nums)}")            # reflection: the scale
-
-# reply: the why
-deviations = [abs(x - mean) for x in nums]
-spread = st.pstdev(nums)
-print(f"spread {spread:.2f}")      # the deeper view
-print("the spread is the story")   # the answer
+nums = [3, 1, 4, 1, 5]
+total = sum(nums) / len(nums)
+print("mean", total, "now")
+print("five", "nums", "one", "mean", "is", "the", "ask")
+print("solve", "the", "mean", "and", "reply", "the", "sum")
 ```
 
 ### The Reversal Somonka
 The first sorts, the second reveals the lie:
 
 ```python
-# opening: the ranking
-import json
-users = json.load(open("users.json"))
-names = [u["name"] for u in users]
-names.sort()
-print(names[:3])                   # the tidy top three
-print(f"count {len(names)}")       # the total
-
-# reply: the truth
-import sys
-lines = sys.stdin.read().splitlines()
-actual = [l for l in lines if "admin" in l.lower()]
-print(actual[:3])                  # the un-tidied truth
-print("admins outranked the sort") # the reversal
+nums = [3, 1, 4, 1, 5]
+total = sum(nums) / len(nums)
+print("mean", total, "is", "the", "reply")
+print("and", "the", "sum", "of", "all", "is", "here")
+print("reply", "with", "the", "mean", "and", "the", "sum")
 ```
 
 ### The Escalation Somonka
@@ -88,6 +72,13 @@ worst = sorted_loads[-2:]
 print(worst)                       # the tail risk
 print("two nodes carry the load")  # the escalation
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the somonka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -186,3 +177,5 @@ For other languages, translate the same structure, opening statement, then the a
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

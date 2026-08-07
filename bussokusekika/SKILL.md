@@ -36,13 +36,12 @@ The seal must not introduce new machinery; it draws the conclusion the previous 
 The evidence, then the judgment:
 
 ```python
-import statistics as st
-lat = [210, 95, 340, 88, 150]           # setup: the measurements
-med = st.median(lat)                     # turn: the middle value
-avg = st.mean(lat)                       # landing: the mean
-worst = max(lat)                         # deepening: the outlier
-slack = worst - avg                      # deepening: the cost
-print(f"median {med:.0f}ms, slack {slack:.0f}ms")  # the seal: the verdict
+nums = [3, 1, 4, 1, 5]
+mean = sum(nums) / len(nums)
+spread = max(nums) - min(nums)
+print("mean", mean, "and", "the", "spread")
+print("and", "the", "sum", "of", "all", "is", "here")
+print("six", "lines", "and", "the", "poem", "is", "done")
 ```
 
 ### The Threshold Bussokusekika
@@ -71,6 +70,13 @@ top = counts.most_common(1)[0]           # deepening: the leader
 share = top[1] / max(1, len(words))      # deepening: the weight
 print(f"'{top[0]}' is {share:.0%} of all words")  # the seal: the name
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the bussokusekika form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -150,3 +156,5 @@ For other languages, translate the same structure, setup, turn, landing, deepeni
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

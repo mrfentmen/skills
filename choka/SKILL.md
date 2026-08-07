@@ -39,12 +39,12 @@ A multi-step transformation, metered:
 
 ```python
 import json
-raw = open("scores.json").read()               # 5: the raw ledger
-data = json.loads(raw)                          # 7: parsed into memory
-scores = [d["score"] for d in data]            # 5: the numbers alone
-high = sorted(scores, reverse=True)[:3]        # 7: the elite three
-low = sorted(scores)[:3]                        # 7: the forgotten three
-print("top:", high, "| bottom:", low)          # 7: the couplet - the story
+raw = open("scores.json").read()
+data = json.loads(raw)
+scores = [d["score"] for d in data]
+high = sorted(scores, reverse=True)[:3]
+print("top:", high, "and", "the", "tail")
+print("low:", sorted(scores)[:3], "and", "the", "rest")
 ```
 
 ### The Game-Loop Choka
@@ -74,6 +74,13 @@ for p in range(2, int(math.isqrt(n)) + 1):     # 5: strike from two
 primes = [i for i in range(2, n + 1) if sieve[i]]  # 7: the survivors line up
 print(f"{len(primes)} primes under {n}")        # 7: the couplet - the census
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the choka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -132,3 +139,5 @@ echo "sum=$total over $count numbers"           # 7+7: the couplet
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

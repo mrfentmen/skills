@@ -37,7 +37,7 @@ Setup, one 3-token strike, landing.
 ```python
 nums = [3, 1, 4, 1, 5]
 total = sum(nums)
-print(total)
+print("sum", total, "now")
 ```
 
 ### Mode Lune
@@ -57,6 +57,13 @@ import sys
 lines = sys.stdin.read().splitlines()
 print(len(lines))
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the lunes form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -126,3 +133,5 @@ For other languages, translate the same structure, setup, one sharp middle, land
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

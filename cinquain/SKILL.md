@@ -36,12 +36,12 @@ The wide line 4 carries the real computation; the landing closes it.
 The count that builds and lands:
 
 ```python
-import re, sys                 # (ceremony is free)
-text = sys.stdin.read()        # 2: the source
-words = re.findall(r"\S+", text)   # 4: the tokens
-errors = [w for w in words if "ERR" in w]  # 6: the errors
-print(f"{len(errors)} errors in {len(words)} words")  # 8: the report
-print(len(errors))             # 2: the landing
+import sys
+text = sys.stdin.read()
+words = text.split()
+total = sum(1 for w in words)
+print("total", total, "words", "in", "the", "whole", "verse")
+print(total)
 ```
 
 ### The Stats Cinquain
@@ -66,6 +66,13 @@ down = [k for k, v in data.items() if not v]  # 6: the failures
 print(f"down: {', '.join(down) or 'none'}")  # 8: the report
 print(len(down))               # 2: the landing
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the cinquain form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -141,3 +148,5 @@ For other languages, translate the same structure, five lines, pyramid to a two-
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

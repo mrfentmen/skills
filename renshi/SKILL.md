@@ -33,12 +33,15 @@ Each stage must visibly consume the previous stage's result — by variable, by 
 The chain that reads:
 
 ```python
-import re, sys
-text = sys.stdin.read()                 # stage 1: the raw text
-tokens = re.findall(r"[a-z']+", text.lower())  # stage 2: the tokens
-counts = {t: tokens.count(t) for t in set(tokens)}  # stage 3: the counts
-top = max(counts, key=counts.get)       # stage 4: the leader
-print(f"'{top}' x {counts[top]}")       # stage 5: the verse
+import sys
+raw = sys.stdin.read()
+tokens = raw.split()
+
+count = len(tokens)
+print("count", count)
+
+print("first", "three", "tokens", "are", "the")
+print("start", "of", "the", "linked", "verse")
 ```
 
 ### The Pipeline Renshi
@@ -64,6 +67,13 @@ mean = total / len(nums)                # stage 3: the mean
 deviations = [abs(n - mean) for n in nums]  # stage 4: the spread
 print(f"mean {mean:.1f}, dev {st.pstdev(nums):.1f}")  # stage 5: the verse
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the renshi form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -140,3 +150,5 @@ For other languages, translate the same structure, a visible chain of short stag
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

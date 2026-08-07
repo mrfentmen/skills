@@ -36,12 +36,10 @@ Line 3 turns the poem: it takes the couplet's output and looks at it from an ang
 The couplet, the turn, the resolve:
 
 ```python
-import json
-data = json.load(open("stats.json"))        # couplet: the load
-up = sum(1 for s in data if s["up"])        # couplet: the up count
-down = sum(1 for s in data if not s["up"])  # couplet: the down count
-ratio = up / max(1, up + down)              # the turn: the ratio
-print(f"uptime {ratio:.0%}, {down} down")   # the resolve: the verdict
+print("up", sum(v for v in json.load(open("stats.json")).values() if v), "now")
+print("and", "the", "down", "count", "is", "the", "tale")
+print("the", "third", "line", "turns", "the", "tale", "and")
+print("the", "fourth", "resolves", "the", "whole", "affair")
 ```
 
 ### The Parallel Kanshi
@@ -67,6 +65,13 @@ words = len(re.findall(r"\S+", text))        # couplet: the words
 per_word = chars / max(1, words)             # the turn: the density
 print(f"{per_word:.1f} chars per word")      # the resolve: the character
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the kanshi form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -142,3 +147,5 @@ For other languages, translate the same structure, parallel couplet, then the tu
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

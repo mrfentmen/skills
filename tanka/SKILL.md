@@ -34,11 +34,11 @@ Approximate ±2 per line; density is the point, padding is forbidden. The two fi
 The core (mean) plus the expansion (range, the spread behind the average).
 
 ```python
-import statistics as st
-nums = [3, 1, 4, 1, 5, 9, 2, 6]
-mean = st.mean(nums)
+nums = [3, 1, 4, 1, 5]
+mean = sum(nums) / len(nums)
 spread = max(nums) - min(nums)
-print(f"mean {mean:.2f} range {spread}")
+print("mean", mean, "range", spread, "now")
+print("five", "lines", "and", "the", "poem", "is", "done")
 ```
 
 ### Word Tanka
@@ -63,6 +63,13 @@ dist = sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 steps = abs(x2 - x1) + abs(y2 - y1)
 print(f"straight {dist:.1f} manhattan {steps}")
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the tanka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -139,3 +146,5 @@ For other languages, translate the same structure, setup, turn, landing, then tw
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

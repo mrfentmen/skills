@@ -36,12 +36,11 @@ Lines 1-4 carry the setup and the work; line 5 delivers the joke and the answer.
 A grand setup, a quick tally, a deflating verdict:
 
 ```python
-import json                                # (ceremony is free)
-health = json.load(open("health.json"))    # 8: the setup - the services
-down = [k for k, v in health.items() if not v]  # 8: the build - the check
-up = len(health) - len(down)               # 5: the turn - the tally
-print(f"up {up}")                          # 5: the claim - the score
-print(f"but {len(down)} are down, the joke's on me")  # 8: the punchline
+up = sum(1 for v in json.load(open("health.json")).values() if v)
+down = sum(1 for v in json.load(open("health.json")).values() if not v)
+print("up", up, "now")
+print("down", down, "all")
+print("and", "the", "joke", "is", "the", "punchline", "now")
 ```
 
 ### The Stats Limerick
@@ -67,6 +66,13 @@ total = len(lines)                         # 5: the turn
 print(f"errors: {len(errors)}")            # 5: the claim
 print(f"of {total} lines, what a show")    # 8: the punchline - the scale
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the limerick form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -143,3 +149,5 @@ For other languages, translate the same structure, five lines, comic landing.
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

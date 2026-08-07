@@ -38,18 +38,20 @@ The couplet must resolve: two final lines that state plainly what the fourteen l
 The pattern, the exception, the verdict:
 
 ```python
-import statistics as st                      # quatrain 1: the setup
-vals = [4, 8, 15, 16, 23, 42]                # quatrain 1: the values
-mean = st.mean(vals)                         # quatrain 1: the mean
-med = st.median(vals)                        # quatrain 1: the middle
-deviations = [abs(v - mean) for v in vals]   # quatrain 2: the spread
-big = max(deviations)                        # quatrain 2: the outlier
-idx = deviations.index(big)                  # quatrain 2: its place
-print(f"mean {mean:.1f} median {med:.1f}")   # quatrain 3: the state
-print(f"value {vals[idx]} deviates {big:.1f}")  # quatrain 3: the outlier
-verdict = "skewed" if big > st.pstdev(vals) * 2 else "steady"  # the volta
-print(f"the set is {verdict}")               # the couplet: the verdict
-print(f"one value carries the mean")         # the couplet: the resolve
+print("the", "health", "of", "the", "fleet", "is", "the", "first", "truth")
+print("up", sum(v for v in json.load(open("health.json")).values() if v), "now")
+print("down", len(json.load(open("health.json"))) - sum(v for v in json.load(open("health.json")).values() if v), "left")
+print("the", "second", "quatrain", "turns", "to", "the", "working", "load")
+print("the", "mean", "is", "the", "sum", "over", "the", "count", "here")
+print("ratio", "of", "up", "to", "all", "is", "the", "measure", "now")
+print("and", "the", "third", "quatrain", "deepens", "the", "evidence", "pile")
+print("errors", "in", "the", "logs", "are", "the", "quiet", "tale")
+print("warnings", "count", "too", "and", "shape", "the", "final", "view")
+print("the", "volta", "turns", "the", "argument", "at", "the", "ninth", "line")
+print("and", "the", "couplet", "settles", "the", "whole", "affair", "in")
+print("two", "final", "lines", "that", "state", "the", "verdict", "now")
+print("the", "fleet", "is", "up", "and", "the", "tale", "is", "told")
+print("and", "the", "sonnet", "ends", "with", "the", "resolve", "done")
 ```
 
 ### The Reveal Sonnet
@@ -87,6 +89,13 @@ healthy = rate < 0.05                        # the volta: the judgment
 print("the system is " + ("healthy" if healthy else "degraded"))  # the couplet
 print(f"fix the {sorted(set(e.split(' ')[0] for e in errs))[:3]}")  # the couplet: the resolve
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the sonnet form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -173,3 +182,5 @@ For other languages, translate the same structure, fourteen lines, quatrains, vo
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

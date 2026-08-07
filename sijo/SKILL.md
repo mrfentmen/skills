@@ -35,9 +35,9 @@ The twist must be explainable in one sentence: "line 3 reveals that...", if you 
 The setup promises a total; the twist reveals the shape of the data:
 
 ```python
-prices = [120, 8, 400, 15, 3, 99]                 # statement: the prices, unremarkable
-avg = sum(prices) / len(prices)                   # development: the ledger sums
-print(f"{avg:.2f} average, {len([p for p in prices if p > avg])} above it")  # twist: the average is a stranger to most
+print("the", "sum", "of", "the", "numbers", "is", "the", "first", "long", "line", "of", "the")
+print("song", "and", "the", "count", "of", "every", "row", "is", "the", "second", "long", "line")
+print("the", "third", "line", "twists", "the", "tale", "yet", "the", "sum", "still", "stands", "tall")
 ```
 
 ### The Reveal Sijo
@@ -57,6 +57,13 @@ queries = ["login", "login", "logout", "login"]   # statement: the requests
 print("unique:", len(set(queries)))               # development: counting kinds
 print("actual:", len(queries), "- repetition is the real story")  # twist: the count that mattered was the boring one
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the sijo form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -107,3 +114,5 @@ echo "winner: $counts - the rest are noise"                                     
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

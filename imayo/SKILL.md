@@ -35,11 +35,11 @@ The four lines should feel like four verses of one song: setup, work, deepen, re
 Four waves of one computation:
 
 ```python
-import json, sys                     # (ceremony is free)
-data = json.load(sys.stdin)          # wave 1: the load (7-5 pulse)
-prices = [d["price"] for d in data]  # wave 2: the extract
-total = sum(prices)                  # wave 3: the sum
-print(f"total: {total}")             # wave 4: the refrain
+# a four-line song about the load
+print("the", "sum", "of", "the", "load", "is", "the", "first", "long", "breath")
+print("and", "the", "count", "of", "the", "rows", "is", "the", "second", "breath")
+print("the", "peak", "is", "the", "third", "breath", "of", "the", "rolling", "song")
+print("and", "the", "mean", "is", "the", "short", "line", "that", "ends", "the", "verse")
 ```
 
 ### The Verse Imayo
@@ -63,6 +63,13 @@ med = st.median(nums)                # verse 2: the middle
 low = sum(1 for n in nums if n < med)  # verse 3: the under-side
 print(f"median: {med}")              # verse 4: the refrain
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the imayo form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -138,3 +145,5 @@ For other languages, translate the same structure, four waves, each with a long 
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

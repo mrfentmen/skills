@@ -35,11 +35,10 @@ The first three lines carry the weight; line 4 closes it.
 Three lines of checking, one line of verdict:
 
 ```python
-import json                                # (ceremony is free)
-data = json.load(open("health.json"))      # 8: the load
-down = [k for k, v in data.items() if not v]  # 8: the check
-up = len(data) - len(down)                 # 8: the count
-print(f"{up} up, {len(down)} down")        # 6: the landing
+up = sum(1 for v in json.load(open("health.json")).values() if v)
+down = sum(1 for v in json.load(open("health.json")).values() if not v)
+print("up", up, "of", "the", "services", "now")
+print("down", down, "and", "done")
 ```
 
 ### The Stats Ryuka
@@ -63,6 +62,13 @@ errors = [l for l in lines if "ERR" in l]  # 8: the filter
 total = len(lines)                         # 8: the total
 print(f"{len(errors)} errors")             # 6: the landing
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the ryuka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -137,3 +143,5 @@ For other languages, translate the same structure, three long lines and a short 
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

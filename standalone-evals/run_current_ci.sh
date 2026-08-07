@@ -45,6 +45,9 @@ done
 check "example syntax smoke" \
   "$PYTHON" "$ROOT/standalone-evals/run_example_smoke.py" --root "$ROOT"
 
+check "rhythm examples pass their own checkers" \
+  "$PYTHON" "$ROOT/standalone-evals/check_rhythm_examples.py"
+
 check "one-skill package isolation" \
   "$PYTHON" "$ROOT/standalone-evals/check_skill_isolation.py" --root "$ROOT"
 

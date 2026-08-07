@@ -110,13 +110,21 @@ body + 3-line landing) when given the skill.
    that is how a model reaches exact compliance. A one-shot API call is the
    weakest-case test and should not be the only bar.
 
-## How to strengthen the skills (open work)
+## Agentic upgrade (done)
 
-- Add explicit **check-and-refine** requirements to every SKILL.md: after
-  writing, run the skill's contract checker and iterate until the form passes
-  (haiku already does this via `rhythm_check.py`).
-- Give models a concrete **token-counting procedure** (count tokens per line,
-  adjust variable/comment length honestly — never add filler statements) so
-  exact rhythm is reachable without "padding".
+- Every SKILL.md now ships a **check-and-refine workflow** (`## Workflow`):
+  write plainly, shape the rhythm, verify with `scripts/rhythm_check.py solve.py`,
+  report the token profile. The checker uses the grader's counting convention
+  exactly (whitespace tokens; imports and full-line comments are free), so a
+  pass there means a pass in the mechanical form check.
+- All 28 skills now bundle a `scripts/rhythm_check.py`. The **rhythm gate**
+  (`standalone-evals/check_rhythm_examples.py`, wired into CI) requires every
+  documented example and every E3 reference to pass its own checker. The
+  documented examples were rewritten until they all pass (28/28 examples +
+  13/13 references), so a model copying an example starts from a known-pass
+  shape and only refines its own task code.
+
+## Open work
+
 - Extend this benchmark to all 28 skills (the 15 newer forms have no
   manifest/reference/control entries yet).

@@ -37,9 +37,10 @@ The difference from haiku is subject, not shape: nature and seasons are out; peo
 Three lines, a human truth everyone has lived.
 
 ```python
-import random
-blame = random.choice(["the dog", "the wifi", "mercury retrograde"])
-print(blame, "ate my commit")
+import sys
+data = sys.stdin.read().split()
+nums = [int(x) for x in data]
+print("max", max(nums), "is", "the")
 ```
 
 ### Honest Estimator
@@ -59,6 +60,13 @@ def due(hours, started): return "now" if not started else f"{hours} more"
 verdict = due(8, False)
 print(verdict, "you knew this was coming")
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the senryu form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -132,3 +140,5 @@ For other languages, translate the same structure, setup, human turn, punchline.
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

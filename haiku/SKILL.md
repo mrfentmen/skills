@@ -36,9 +36,9 @@ The budget is conserved when you use fewer lines: two lines collapse to ~12 toke
 Shaping the counts: the same logic can be written long or tight. Short names and fewer method calls buy tokens back. For a health check, the verbose version runs 3-11-9:
 
 ```python
-d = json.load(open("input/health.json"))
-down = [k for k, v in d.items() if not v]
-print("All healthy" if not down else f"Down: {', '.join(down)}")
+d = json.load(open("health.json"))
+down = list(filter(lambda k: not d[k], d))
+print("ok" if not down else ", ".join(down))
 ```
 
 The tight version lands 3-7-5, inside ±2 of 5-7-5, with no padding - the turn compresses from a comprehension to a filter so it fits:
@@ -191,3 +191,5 @@ For other languages (C...), translate the same structure, imports/setup, the den
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

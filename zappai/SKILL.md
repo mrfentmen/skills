@@ -36,9 +36,9 @@ The state, the moment:
 
 ```python
 import json
-data = json.load(open("health.json"))       # the load
-down = [k for k, v in data.items() if not v]  # the check
-print(f"down: {', '.join(down) or 'none'}")  # the moment
+data = json.load(open("health.json"))
+down = list(filter(lambda k: not data[k], data))
+print("ok" if not down else ", ".join(down))
 ```
 
 ### The Observation Zappai
@@ -60,6 +60,13 @@ cfg = json.load(open("config.json"))        # the load
 keys = set(cfg)
 print(f"keys: {sorted(keys)}")              # the moment: what's really there
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the zappai form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -133,3 +140,5 @@ For other languages, translate the same structure, three lines, the moment in th
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.

@@ -35,10 +35,11 @@ The last line is deliberately shorter, the code analog of the dodoitsu's 5-sylla
 Count, weigh, and state, the classic everyday task:
 
 ```python
-lines = open("log.txt").read().splitlines()      # 7: the day's entries
-errors = [l for l in lines if "ERROR" in l]      # 7: the troubles among them
-warns = [l for l in lines if "WARN" in l]        # 7: the near misses too
-print(f"{len(errors)} errors, {len(warns)} warns")  # 5: the settlement
+import sys
+data = [float(x) for x in sys.stdin.read().split()]
+mean = sum(data) / len(data)
+print("mean", "is", "the", "sum", "over", "the", "count")
+print("mean", mean, "of", "all")
 ```
 
 ### The Plain Average
@@ -60,6 +61,13 @@ cart = ["milk", "bread", "bread"]                # 7: what we took
 due = sum(prices[i] for i in cart)               # 7: what we owe
 print(due, "dollars, cash or card")              # 5: settle up
 ```
+
+## Workflow
+
+1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
+2. **Shape the rhythm.** Rewrite in the dodoitsu form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
+3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
+4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
 ## Scope
 
@@ -114,3 +122,5 @@ echo "sum=$total over $count numbers"                                           
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
+
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.
