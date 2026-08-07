@@ -17,13 +17,13 @@ The sonnet mindset:
 2. **Quatrain 1 (lines 1-4)**: the setup, the world as given
 3. **Quatrain 2 (lines 5-8)**: the development, the work
 4. **Quatrain 3 (lines 9-12)**: the deepening, the evidence piling up
-5. **The volta (around line 9-12)**: the turn — the change of angle, the "but"
-6. **The couplet (lines 13-14)**: the resolution — two lines that settle the argument
+5. **The volta (around line 9-12)**: the turn: the change of angle, the "but"
+6. **The couplet (lines 13-14)**: the resolution: two lines that settle the argument
 7. **Actually works**: if it doesn't run, the sonnet is just fourteen broken lines
 
 ## The Volta: what counts
 
-The volta is the sonnet's engine: the turn where the argument shifts — from problem to insight, from observation to judgment, from accumulation to revelation. In code, the volta is the line where the computation changes what it's looking at. Good code-sonnet voltas:
+The volta is the sonnet's engine: the turn where the argument shifts: from problem to insight, from observation to judgment, from accumulation to revelation. In code, the volta is the line where the computation changes what it's looking at. Good code-sonnet voltas:
 
 - **The contrast**: the pattern, then the exception to it
 - **The reveal**: the aggregate, then the outlier behind it
@@ -97,6 +97,25 @@ print(f"fix the {sorted(set(e.split(' ')[0] for e in errs))[:3]}")  # the couple
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+
+## Counting Tokens (the exact procedure)
+
+The rhythm is the number of whitespace-separated groups per logic line: exactly what `len(line.split())` returns, exactly what `scripts/rhythm_check.py` counts. Count mechanically, not by feel:
+
+1. **Split on spaces.** Each space-separated group is one token. `x = 1` is 3 tokens (`x`, `=`, `1`); `x=1` is 1 token.
+2. **Brackets and parens glue when there is no space.** `sum(nums)` is 1 token; `sum(nums) / len(nums)` is 3; `[int(x) for x in data]` is 5 (`[int(x)`, `for`, `x`, `in`, `data]`).
+3. **A space inside a call or a string splits.** `print("a", b)` is 2 tokens (`print("a",`, `b)`); `"two words"` is 2 tokens.
+4. **Inline comments count; full-line comments and imports are free.** `total = sum(data)  # the total sum` is 7 tokens.
+5. **Names are always one token.** `total = x` and `t = x` are both 3 tokens. Renaming never changes the count; the budget is changed by expression shape, not word length.
+
+Adjust honestly:
+
+- **Under the target:** grow a real step, never a filler statement. `sum(data)` (1 token) becomes `sum(data) / len(data)` (3), then a print that must happen anyway can carry more real words. A comprehension is worth 5-7 tokens of real work.
+- **Over the target:** shrink real steps. Drop words from prints that only narrate, prefer `f(a,b)` over `f(a, b)`, replace a spread-out expression with a tighter one. Remove nothing the task needs.
+- **Never pad:** no dead assignments, no `* 1`, no placeholder statements, no splitting one line into two to reach a count. A line carrying real work at the wrong count is fixed by reshaping it, not by faking it.
+
+After adjusting, run `scripts/rhythm_check.py solve.py`; it prints the profile line by line. Within tolerance is a pass; off by more means reshape that line only.
+
 ## Scope
 
 This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
@@ -131,7 +150,7 @@ Activate this skill only when the user explicitly names sonnet, requests a 14-li
 Write code that:
 - is fourteen lines in three quatrains and a couplet
 - builds the argument in the quatrains, one movement per four lines
-- turns with a volta near line 9-12 — the "but" that changes the reading
+- turns with a volta near line 9-12: the "but" that changes the reading
 - resolves in the final couplet, two lines that settle the case
 - keeps every line ~10 tokens, the steady iambic beat
 - imports only what the lines need
@@ -168,7 +187,7 @@ fn main() {                                      // ceremony, free
     let vals = [4, 8, 15, 16, 23, 42];           // quatrain 1
     let total: i32 = vals.iter().sum();          // quatrain 1
     let mean = total as f64 / vals.len() as f64; // quatrain 2
-    let big = vals.iter().map(|v| (*v as f64 - mean).abs()).fold(0.0, f64::max);  // quatrain 2
+    let big = vals.iter().map(|v| (*v as f64 - mean).abs()).fold(0.0, f64:max);  // quatrain 2
     println!("mean {mean:.1}");                  // quatrain 3
     println!("max dev {big:.1}");                // quatrain 3
     let skewed = big > mean / 2.0;               // the volta

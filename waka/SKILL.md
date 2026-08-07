@@ -15,14 +15,14 @@ A waka is the classical Japanese verse of the imperial anthologies: five lines, 
 The waka mindset:
 1. **Five lines**: 5-7-5-7-7 tokens, or fewer, never pad
 2. **The scene (lines 1-3)**: the state of things, established with clarity and restraint
-3. **The turn (line 4)**: the pivot — the observation that changes the reading
+3. **The turn (line 4)**: the pivot: the observation that changes the reading
 4. **The resolve (line 5)**: the quiet conclusion the turn earned
 5. **The restraint**: nothing loud, nothing padded; the elegance is in the economy
 6. **Actually works**: if it doesn't run, the court has no patience for it
 
 ## The Turn: what counts
 
-Line 4 must pivot the poem — a change of angle, a hidden fact, a shift in scale — and line 5 resolves it. The turn in a waka is quiet, not dramatic: the anthologies prized the pivot that re-reads the scene. Good code-waka turns:
+Line 4 must pivot the poem: a change of angle, a hidden fact, a shift in scale: and line 5 resolves it. The turn in a waka is quiet, not dramatic: the anthologies prized the pivot that re-reads the scene. Good code-waka turns:
 
 - **The scale shift**: the individual number, then the pattern behind it
 - **The hidden fact**: the value the setup didn't reveal
@@ -62,7 +62,7 @@ import re, sys
 text = sys.stdin.read()                      # scene: the source
 words = re.findall(r"\S+", text)             # scene: the words
 longest = max(words, key=len)                # scene: the longest
-rev = longest[::-1]                          # the turn: the mirror
+rev = longest[:-1]                          # the turn: the mirror
 print(f"'{longest}' reversed: '{rev}'")      # the resolve: the echo
 ```
 
@@ -72,6 +72,25 @@ print(f"'{longest}' reversed: '{rev}'")      # the resolve: the echo
 2. **Shape the rhythm.** Rewrite in the waka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
+
+
+## Counting Tokens (the exact procedure)
+
+The rhythm is the number of whitespace-separated groups per logic line: exactly what `len(line.split())` returns, exactly what `scripts/rhythm_check.py` counts. Count mechanically, not by feel:
+
+1. **Split on spaces.** Each space-separated group is one token. `x = 1` is 3 tokens (`x`, `=`, `1`); `x=1` is 1 token.
+2. **Brackets and parens glue when there is no space.** `sum(nums)` is 1 token; `sum(nums) / len(nums)` is 3; `[int(x) for x in data]` is 5 (`[int(x)`, `for`, `x`, `in`, `data]`).
+3. **A space inside a call or a string splits.** `print("a", b)` is 2 tokens (`print("a",`, `b)`); `"two words"` is 2 tokens.
+4. **Inline comments count; full-line comments and imports are free.** `total = sum(data)  # the total sum` is 7 tokens.
+5. **Names are always one token.** `total = x` and `t = x` are both 3 tokens. Renaming never changes the count; the budget is changed by expression shape, not word length.
+
+Adjust honestly:
+
+- **Under the target:** grow a real step, never a filler statement. `sum(data)` (1 token) becomes `sum(data) / len(data)` (3), then a print that must happen anyway can carry more real words. A comprehension is worth 5-7 tokens of real work.
+- **Over the target:** shrink real steps. Drop words from prints that only narrate, prefer `f(a,b)` over `f(a, b)`, replace a spread-out expression with a tighter one. Remove nothing the task needs.
+- **Never pad:** no dead assignments, no `* 1`, no placeholder statements, no splitting one line into two to reach a count. A line carrying real work at the wrong count is fixed by reshaping it, not by faking it.
+
+After adjusting, run `scripts/rhythm_check.py solve.py`; it prints the profile line by line. Within tolerance is a pass; off by more means reshape that line only.
 
 ## Scope
 
@@ -105,7 +124,7 @@ Activate this skill only when the user explicitly names waka, requests classical
 Write code that:
 - is five lines, no padding
 - establishes the scene in the first three lines, with restraint
-- turns quietly on line 4 — a scale shift, a hidden fact, a re-read
+- turns quietly on line 4: a scale shift, a hidden fact, a re-read
 - resolves on line 5 with the verdict the turn earned
 - uses a kigo-like seasonal name on the turn line
 - imports only what the lines need

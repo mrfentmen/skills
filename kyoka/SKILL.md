@@ -6,7 +6,7 @@ description: >-
 
 # Kyoka Skill
 
-A kyoka is a tanka that laughs. Same five lines, same 5-7-5-7-7 shape, but the soul is comic: the upper phrase sets up something perfectly ordinary, the lower phrase lands a punchline that punctures it. A code kyoka is a five-line program that computes something real and then delivers the joke — the absurd edge case, the embarrassing truth of the data, the self-aware comment on the code itself.
+A kyoka is a tanka that laughs. Same five lines, same 5-7-5-7-7 shape, but the soul is comic: the upper phrase sets up something perfectly ordinary, the lower phrase lands a punchline that punctures it. A code kyoka is a five-line program that computes something real and then delivers the joke: the absurd edge case, the embarrassing truth of the data, the self-aware comment on the code itself.
 
 ## Philosophy
 
@@ -15,7 +15,7 @@ A kyoka is a tanka that laughs. Same five lines, same 5-7-5-7-7 shape, but the s
 The kyoka mindset:
 1. **Five lines**: 5-7-5-7-7 tokens, or fewer, never pad
 2. **The setup (lines 1-3)**: the real computation, done honestly, with a straight face
-3. **The punchline (lines 4-5)**: the comic turn — satire, absurdity, parody, deflation
+3. **The punchline (lines 4-5)**: the comic turn: satire, absurdity, parody, deflation
 4. **The joke is true**: the funniest kyoka are the ones the data confirms; the punchline must follow from the computation, not be bolted on
 5. **Actually works**: if it doesn't run, the joke dies with it
 
@@ -72,6 +72,25 @@ print("O(n) pipeline complete, n was 1")    # punchline: the scale
 2. **Shape the rhythm.** Rewrite in the kyoka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
+
+
+## Counting Tokens (the exact procedure)
+
+The rhythm is the number of whitespace-separated groups per logic line: exactly what `len(line.split())` returns, exactly what `scripts/rhythm_check.py` counts. Count mechanically, not by feel:
+
+1. **Split on spaces.** Each space-separated group is one token. `x = 1` is 3 tokens (`x`, `=`, `1`); `x=1` is 1 token.
+2. **Brackets and parens glue when there is no space.** `sum(nums)` is 1 token; `sum(nums) / len(nums)` is 3; `[int(x) for x in data]` is 5 (`[int(x)`, `for`, `x`, `in`, `data]`).
+3. **A space inside a call or a string splits.** `print("a", b)` is 2 tokens (`print("a",`, `b)`); `"two words"` is 2 tokens.
+4. **Inline comments count; full-line comments and imports are free.** `total = sum(data)  # the total sum` is 7 tokens.
+5. **Names are always one token.** `total = x` and `t = x` are both 3 tokens. Renaming never changes the count; the budget is changed by expression shape, not word length.
+
+Adjust honestly:
+
+- **Under the target:** grow a real step, never a filler statement. `sum(data)` (1 token) becomes `sum(data) / len(data)` (3), then a print that must happen anyway can carry more real words. A comprehension is worth 5-7 tokens of real work.
+- **Over the target:** shrink real steps. Drop words from prints that only narrate, prefer `f(a,b)` over `f(a, b)`, replace a spread-out expression with a tighter one. Remove nothing the task needs.
+- **Never pad:** no dead assignments, no `* 1`, no placeholder statements, no splitting one line into two to reach a count. A line carrying real work at the wrong count is fixed by reshaping it, not by faking it.
+
+After adjusting, run `scripts/rhythm_check.py solve.py`; it prints the profile line by line. Within tolerance is a pass; off by more means reshape that line only.
 
 ## Scope
 

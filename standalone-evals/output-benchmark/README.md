@@ -131,10 +131,18 @@ body + 3-line landing) when given the skill.
   and 28/28 E3 references pass their own checkers (somonka's E3 reference is
   a single file with two stanzas and is checked inline).
 
+## Token-counting procedure (done)
+
+Every SKILL.md now carries a `## Counting Tokens (the exact procedure)`
+section: how to count whitespace groups mechanically (bracket/paren gluing,
+space-splitting inside calls and strings, inline comments count, names are
+always one token) and how to adjust a line's budget honestly (grow real
+steps under the target, shrink real steps over it, never pad). This is the
+"models cannot count tokens" gap closed: the skill now teaches the counting
+procedure instead of just asserting the rhythm.
+
 ## Open work
 
 - Re-run the independent model arms on the full 28-item manifest
   (`run_model_arms.py` picks up all items automatically) and re-grade to
   measure with-skill shape convergence across the newer forms.
-- Add a concrete token-counting procedure to the skills so one-shot models
-  can reach exact rhythm without a checker feedback loop.

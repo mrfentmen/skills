@@ -6,17 +6,17 @@ description: >-
 
 # Somonka Skill
 
-A somonka is a courtship in verse: two tanka, exchanged, the second a reply to the first. In code, a somonka is two five-line programs — the opening voice and the answering voice — where the second takes the first's output, mirrors its structure, and answers it: agreement, deflection, escalation, or reversal.
+A somonka is a courtship in verse: two tanka, exchanged, the second a reply to the first. In code, a somonka is two five-line programs: the opening voice and the answering voice: where the second takes the first's output, mirrors its structure, and answers it: agreement, deflection, escalation, or reversal.
 
 ## Philosophy
 
-"A somonka is a conversation with a meter. The first voice states, the second voice replies — same shape, new truth."
+"A somonka is a conversation with a meter. The first voice states, the second voice replies: same shape, new truth."
 
 The somonka mindset:
 1. **Two tanka**: two programs, each five logic lines shaped 5-7-5-7-7
 2. **The opening voice (first tanka)**: the statement, the offer, the claim
 3. **The answering voice (second tanka)**: the reply, built on the first's actual output, not a script
-4. **The mirror**: the second echoes the first's structure — same inputs, same rhythm, a changed verdict
+4. **The mirror**: the second echoes the first's structure: same inputs, same rhythm, a changed verdict
 5. **The exchange is real**: the second program must consume what the first produced, or reproduce it and answer it
 6. **Both actually run**: a somonka with a silent half is a monologue
 
@@ -29,7 +29,7 @@ The second tanka must genuinely respond to the first, not merely repeat it. Good
 - **The escalation**: the second raises the stakes (the average, then the worst case)
 - **The reversal**: the second overturns the first (the sorted order, then the truth it hid)
 
-The reply must reference the first's result — the two halves are one poem.
+The reply must reference the first's result: the two halves are one poem.
 
 ## Core Patterns
 
@@ -80,6 +80,25 @@ print("two nodes carry the load")  # the escalation
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+
+## Counting Tokens (the exact procedure)
+
+The rhythm is the number of whitespace-separated groups per logic line: exactly what `len(line.split())` returns, exactly what `scripts/rhythm_check.py` counts. Count mechanically, not by feel:
+
+1. **Split on spaces.** Each space-separated group is one token. `x = 1` is 3 tokens (`x`, `=`, `1`); `x=1` is 1 token.
+2. **Brackets and parens glue when there is no space.** `sum(nums)` is 1 token; `sum(nums) / len(nums)` is 3; `[int(x) for x in data]` is 5 (`[int(x)`, `for`, `x`, `in`, `data]`).
+3. **A space inside a call or a string splits.** `print("a", b)` is 2 tokens (`print("a",`, `b)`); `"two words"` is 2 tokens.
+4. **Inline comments count; full-line comments and imports are free.** `total = sum(data)  # the total sum` is 7 tokens.
+5. **Names are always one token.** `total = x` and `t = x` are both 3 tokens. Renaming never changes the count; the budget is changed by expression shape, not word length.
+
+Adjust honestly:
+
+- **Under the target:** grow a real step, never a filler statement. `sum(data)` (1 token) becomes `sum(data) / len(data)` (3), then a print that must happen anyway can carry more real words. A comprehension is worth 5-7 tokens of real work.
+- **Over the target:** shrink real steps. Drop words from prints that only narrate, prefer `f(a,b)` over `f(a, b)`, replace a spread-out expression with a tighter one. Remove nothing the task needs.
+- **Never pad:** no dead assignments, no `* 1`, no placeholder statements, no splitting one line into two to reach a count. A line carrying real work at the wrong count is fixed by reshaping it, not by faking it.
+
+After adjusting, run `scripts/rhythm_check.py solve.py`; it prints the profile line by line. Within tolerance is a pass; off by more means reshape that line only.
+
 ## Scope
 
 This file is self-contained. Apply it only when the request explicitly names this skill or matches the exact form, structural contract, or persona described here. Do not search for, load, import, or assume any companion skill, repository path, helper file, or external routing document. If the request does not match this contract, answer normally without activating this skill.
@@ -92,7 +111,7 @@ Every deliverable produced with this skill must be gradeable. You must include A
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`, no fake output
 - both programs actually run and produce correct results
 - each program is shaped 5-7-5-7-7 tokens with ±2 tolerance per line
-- the reply program consumes, reproduces, or directly answers the opening's output — the exchange is real, not two unrelated snippets
+- the reply program consumes, reproduces, or directly answers the opening's output: the exchange is real, not two unrelated snippets
 - every line is a real statement or expression, semicolons, lambdas, chained calls, and comprehensions are the medium
 - no mock, fake, or pseudo code: every line is real, runs, and does the actual work
 
@@ -128,7 +147,7 @@ Write code that:
 
 ## The Somonka Promise
 
-Remember: "A somonka is a courtship in code: two tanka, the second answering the first — same shape, new truth, both running."
+Remember: "A somonka is a courtship in code: two tanka, the second answering the first: same shape, new truth, both running."
 
 ## Cross-Language Examples
 
@@ -166,7 +185,7 @@ fn main() {
     let nums = [2, 4, 6];
     let total: i32 = nums.iter().sum();
     let avg = total as f64 / nums.len() as f64;
-    let drift = nums.iter().map(|n| (*n as f64 - avg).abs()).fold(0.0, f64::max);
+    let drift = nums.iter().map(|n| (*n as f64 - avg).abs()).fold(0.0, f64:max);
     println!("drift {drift:.1}");
     println!("one value pulls the mean");
 }
