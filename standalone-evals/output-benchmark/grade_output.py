@@ -14,8 +14,8 @@ def logic_lines(path):
         s = line.strip()
         if not s or s.startswith('#') or s.startswith('"""') or s.startswith("'''"):
             continue
-        if re.match(r'^(import|from) ', s):
-            continue  # imports are ceremony, free per the skill docs
+        if re.match(r'^(import|from) ', s) and ';' not in s:
+            continue  # pure imports are ceremony; inline import+logic is countable
         out.append(s)
     return out
 
@@ -81,6 +81,8 @@ def check_form(pid, path):
             need(m in src, f'missing god marker: {m}')
     elif pid == 'gogyohka':
         need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
+        need(not any(';' in line for line in lines),
+             'each breath must be one visible statement; split semicolon-packed lines')
     elif pid == 'haibun':
         comments = sum(1 for l in Path(path).read_text().splitlines() if l.strip().startswith('#'))
         need(comments >= 2, f'need narrative comments, got {comments}')

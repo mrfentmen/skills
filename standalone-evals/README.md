@@ -30,11 +30,18 @@ From the skills repository root:
 
 ```bash
 EVALS_INFRA_ROOT="/Users/del/Desktop/skills 3 /evals-infra" \
+HISTORICAL_HARNESS="/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh" \
   bash standalone-evals/run_current_ci.sh
 # The historical suite is separate. Always set SKILLS_ROOT so it validates
-# THIS tree (11/11 PASS); without it the relocated harness validates its own
-# frozen parent directory and reports known frozen-artifact failures:
+# THIS tree. For the current 28-skill scope it reports 9/11 checks passed in the isolated compatibility scope (the raw host-tree invocation reports 8/11 because of old workspace artifacts) and
+# exits 1 because the frozen historical dataset predates the newer forms and
+# relocated persona skills; the exact current mismatches are documented below:
 # SKILLS_ROOT="$PWD" bash "/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh"
+# When HISTORICAL_HARNESS is set, the current gate also runs a safe compatibility
+# assertion for the frozen harness; it passes only when the documented isolated
+# 9/11 mismatch is reproduced. Without that variable, compatibility is explicitly
+# skipped and the current-scope result is 36/36 rather than a historical result.
+# With HISTORICAL_HARNESS configured, the current-scope result is 37/37.
 # See standalone-evals/HISTORICAL_REGRESSION.md for the frozen-artifact record.
 # Or run the individual checks below:
 python3 standalone-evals/validate_standalone_benchmark.py --root .
@@ -149,24 +156,29 @@ PY
 
 ## Release boundary
 
-This is an evaluation foundation, **not a release report**. The current-scope
-command reports 100% only for its mechanical checks; that does not prove perfect
-AI behavior or independent generalization. The old 180-query set and its
+This is an evaluation foundation, **not a release report**. The current-scope command reports 100% for its mechanical checks, including
+`check_current_scope_regressions.py`, which validates the current 250-query
+trigger set, the frozen 54-record held-out comparison set, 28 executable gold
+references, and the expected frozen 1/28 same-author control baseline. When `HISTORICAL_HARNESS` is
+configured, it also runs an exact compatibility assertion for the frozen
+historical harness; when it is not configured, that check is explicitly
+skipped. Neither result proves
+perfect AI behavior or independent generalization. The self-contained current historical-style suite is available as
+`bash standalone-evals/run_current_historical_ci.sh`; it validates the current
+28-skill tree without reading frozen external artifacts. The old 180-query set and its
 recorded results remain frozen historical regression data; they are not rewritten
 or silently replaced by this current standalone dataset. Run the external
 `evals-infra/run_ci_checks.sh` separately (with `SKILLS_ROOT` set) when you
 intentionally want historical regression checks too. As recorded on 2026-08-06,
-the **13-skill public scope satisfies the historical suite 9/11 (exit 1)** when
-`SKILLS_ROOT` points at this repository - the 2 failures are the expected frozen
-18-skill-harness dataset entries for god/smoker/terry-davis/psych/no-bullshit
-(which moved to the skills-2 repo) and are recorded in
-`standalone-evals/HISTORICAL_REGRESSION.md`; at the earlier 18-skill scope the
-suite was 11/11. With the 2026-08-06 expansion the repo now contains 28 form
-skills (the 15 new ones - kyoka, somonka, bussokusekika, imayo, kanshi, zappai,
-waka, renshi, sonnet, villanelle, cinquain, ryuka, fibonacci, limerick,
-etheree - are not part of the frozen 18-skill historical harness, which still
-applies unchanged to the 13-skill form scope). The known default-root frozen-artifact failures only appear in
-the default-root invocation and are also recorded there.
-`standalone-evals/HISTORICAL_REGRESSION.md`; at the earlier 18-skill scope the
-suite was 11/11. The known default-root frozen-artifact failures only appear in
-the default-root invocation and are also recorded there.
+the **current 28-skill scope satisfies 9/11 isolated historical checks (exit 1)** when
+`SKILLS_ROOT` points at the isolated compatibility tree. The raw host-tree
+invocation is 8/11 because it also sees old workspace variance artifacts. The
+frozen dataset also predates the
+15 newer forms and records one gogyohka description drift; the exact mismatches
+are recorded in `standalone-evals/HISTORICAL_REGRESSION.md`. At the earlier
+18-skill scope the suite was 11/11. With the 2026-08-06 expansion the repo now contains 28 form
+skills. The 15 newer forms are not part of the frozen historical harness, and
+five persona skills moved to skills-2; therefore the historical command is an
+informational compatibility check, not a current release gate. The known
+frozen-artifact failures are recorded in
+`standalone-evals/HISTORICAL_REGRESSION.md`.

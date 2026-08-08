@@ -1,7 +1,7 @@
 ---
 name: sonnet
 description: >-
-  Write runnable code in a sonnet form: fourteen logic lines in three quatrains and a couplet (or an octave and sestet), each line ~10 tokens in iambic rhythm, with a volta that turns the poem before the final couplet resolves it. Activate only for an explicit sonnet, 14-line, iambic, or English verse-form request.
+  Write runnable code in a sonnet form: exactly fourteen logic lines in three quatrains and a final couplet, each line ~10 tokens in iambic rhythm, with a volta that turns the poem before the final couplet resolves it. Activate only for an explicit sonnet, 14-line, iambic, or English verse-form request.
 ---
 
 # Sonnet Skill
@@ -13,7 +13,7 @@ A sonnet is a fourteen-line English poem with a fixed architecture: three quatra
 "A sonnet is an argument in fourteen lines. Three quatrains build the case, the volta turns it, and the couplet closes it."
 
 The sonnet mindset:
-1. **Fourteen lines**: exactly fourteen logic lines, each ~10 tokens (the iambic pentameter analog: ten beats, five stresses), or fewer, never pad
+1. **Fourteen lines**: exactly fourteen logic-carrying lines, no fewer and no extra scaffolding lines; each is ~10 tokens (the iambic pentameter analog)
 2. **Quatrain 1 (lines 1-4)**: the setup, the world as given
 3. **Quatrain 2 (lines 5-8)**: the development, the work
 4. **Quatrain 3 (lines 9-12)**: the deepening, the evidence piling up
@@ -97,6 +97,17 @@ print(f"fix the {sorted(set(e.split(' ')[0] for e in errs))[:3]}")  # the couple
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a fourteen-line program from a blank page. Start by copying the first passing Python example in this skill, then adapt its existing slots to the user's task:
+
+1. Preserve exactly fourteen nonblank, non-comment, non-import logic lines. Blank lines may separate the three quatrains and couplet, but they do not count.
+2. Keep the slot map fixed: lines 1-4 establish inputs, 5-8 perform the main computation, 9-12 make the volta and judgment, and 13-14 print the resolved result.
+3. Replace the example's values and expressions with real task work; never leave poetic filler, dead assignments, or fake output behind.
+4. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by reshaping its real expression.
+5. Do not add a setup statement to the counted body. Imports, comments, and blank separators are the only free ceremony.
+
+This copy-then-adapt method is intentional: it preserves a known-valid fourteen-line shape while leaving the computation task-specific.
 
 ## Counting Tokens (the exact procedure)
 
@@ -124,7 +135,7 @@ This file is self-contained. Apply it only when the request explicitly names thi
 
 Every deliverable produced with this skill must be gradeable. You must include ALL of the following so a reviewer can check them without judgment calls:
 
-- fourteen lines of code that carry logic, in three quatrains plus a couplet (language-mandated ceremony like `fn main()` / braces is free; blank-line separators between quatrains are free)
+- exactly fourteen logic-carrying lines of code, grouped as quatrains 1-4, 5-8, 9-12, then couplet 13-14; blank lines may separate groups, but comments, explanations, and extra executable lines are not part of the deliverable
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`, no fake output
 - the sonnet actually runs and produces the correct result for the task
 - each line ~10 tokens with ±2 tolerance (the iambic pentameter analog)
@@ -148,7 +159,7 @@ Activate this skill only when the user explicitly names sonnet, requests a 14-li
 ## The Sonnet Aesthetic
 
 Write code that:
-- is fourteen lines in three quatrains and a couplet
+- is exactly fourteen logic-carrying lines in three quatrains and a final couplet; blank lines may separate stanzas but do not add lines
 - builds the argument in the quatrains, one movement per four lines
 - turns with a volta near line 9-12: the "but" that changes the reading
 - resolves in the final couplet, two lines that settle the case

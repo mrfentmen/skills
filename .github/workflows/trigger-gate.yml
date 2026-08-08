@@ -38,8 +38,9 @@ jobs:
       # The checks are stdlib-only (json/re/pathlib/subprocess), so no pip
       # install is needed. The gate runs the repo's self-contained current
       # harness: standalone benchmark contract, per-skill contract checks,
-      # example syntax smoke, one-skill package isolation, and the vendored
-      # static SKILL.md audit (quality floor). Any check that exits non-zero
+      # example syntax smoke, current-scope regression artifacts, one-skill
+      # package isolation, and the vendored static SKILL.md audit (quality
+      # floor). Any check that exits non-zero
       # fails the job and blocks merge.
       - name: Run CI gate (standalone contracts + isolation + static audit)
         run: sh standalone-evals/run_current_ci.sh

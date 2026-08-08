@@ -44,12 +44,17 @@ with tempfile.TemporaryDirectory() as td:
             fails.append(f'{skill}: no python example block in SKILL.md')
             continue
         if skill == 'somonka':
-            if len(blocks) < 2:
-                fails.append('somonka: needs two python blocks (solve + reply)')
+            # Somonka is one deliverable with two blank-line-separated
+            # stanzas. Prefer the embedded ten-slot template, which is the
+            # first example block containing two non-empty stanza groups.
+            candidate = next((block for block in blocks
+                              if 'data = input().split()' in block
+                              and len([g for g in block.split('\n\n') if g.strip()]) >= 2), None)
+            if candidate is None:
+                fails.append('somonka: needs one two-stanza python template block')
                 continue
-            (td / 'solve.py').write_text(blocks[0])
-            (td / 'reply.py').write_text(blocks[1])
-            ok, msg = run_checker(skill, ['solve.py', 'reply.py'], td)
+            (td / 'somonka.py').write_text(candidate)
+            ok, msg = run_checker(skill, ['somonka.py'], td)
         else:
             (td / f'{skill}.py').write_text(blocks[0])
             ok, msg = run_checker(skill, [f'{skill}.py'], td)

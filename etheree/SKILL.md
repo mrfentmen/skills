@@ -13,7 +13,7 @@ An etheree is a ten-line poem whose syllable counts climb from one to ten: 1-2-3
 "An etheree is a ladder: ten lines, one to ten. Each rung grows the thought until the top rung lands it."
 
 The etheree mindset:
-1. **Ten lines**: exactly ten logic lines, token counts 1-2-3-4-5-6-7-8-9-10 (±1 tolerance per line)
+1. **Ten lines**: exactly ten logic-carrying lines, no preamble or explanatory executable lines; their measured counts must match 1,2,3,4,5,6,7,8,9,10 within ±1 per line
 2. **Line 1, 1 token**: the seed :  a single variable or call that states the theme
 3. **Lines 2-9**: the climb :  each line grows the computation by one token
 4. **Line 10, 10 tokens**: the landing :  the largest line, the result
@@ -22,7 +22,7 @@ The etheree mindset:
 
 ## The Climb: what counts
 
-The token count must climb monotonically :  each line one token longer than the last. The growth must be real (longer expressions, more chained work), not padding. Good code-etheree climbs:
+The token count must follow the fixed ten-rung sequence, not merely increase: line 1 targets 1 token, line 2 targets 2, and so on through line 10 targeting 10, each within ±1. A monotonic but otherwise arbitrary profile is not an etheree. The growth must be real, not padding. Good code-etheree climbs:
 
 - **The seed**: `nums` (1) → `nums = [...]` (2-4) → `sorted(nums)` (5+) → `sum(sorted(nums))` → `print(f"mean {sum(sorted(nums)) / len(nums):.1f}")` (10)
 - **The filter**: `lines` (1) → `errors = [...]` (3) → `[l for l in lines if "ERR" in l]` (8) → the full report (10)
@@ -35,16 +35,17 @@ The top rung is the whole point: a ten-token line that resolves everything the l
 A ladder that grows the mean, one rung at a time:
 
 ```python
-pass
-x = 0
-x = 1
-total = x
-print(x, "and", total, "is")
-print("sum", x + total, "of")
-print("count", "of", "the", "lines", "is", "here")
-print("the", "ladder", "climbs", "from", "one", "to", "eight")
-print("and", "the", "poem", "grows", "with", "every", "single", "line")
-print("the", "final", "line", "lands", "with", "the", "result", "of", "the", "sum")
+import sys
+sys.stdin
+data=[]
+data += sys.stdin.read().split()
+n = len(data)
+total = sum(map(len, data))
+avg = total / max(1, n)
+long = max(map(len, data), default = 0)
+summary = ("count", n, "total", total, "average", avg)
+report = (*summary, "score", n + total, "ok")
+print("report", report, "items", len(report), "score", n+total, "status", "ok", "done", "valid")
 ```
 
 ### The Health Etheree
@@ -86,6 +87,17 @@ print(f"{len(errors)} errors in {total} lines")  # 10: the landing
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a ten-rung etheree from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly ten nonblank, non-comment, non-import logic lines. Blank lines do not count.
+2. Keep one rung per line and preserve the target profile `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` within the checker tolerance. Adapt real expressions rather than adding separate setup lines.
+3. Make the climb real: each rung must load, transform, measure, or report the task. Remove `pass`, dead assignments, and poetic-only output when adapting the template.
+4. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged rung by reshaping its real expression.
+5. Do not add a setup statement to the counted body. Imports, comments, and blank separators are the only free ceremony.
+
+This copy-then-adapt method is intentional: it preserves a known-valid ten-rung shape while leaving the computation task-specific.
 
 ## Counting Tokens (the exact procedure)
 
@@ -113,7 +125,7 @@ This file is self-contained. Apply it only when the request explicitly names thi
 
 Every deliverable produced with this skill must be gradeable. You must include ALL of the following so a reviewer can check them without judgment calls:
 
-- exactly ten lines of code that carry logic (language-mandated ceremony like `fn main()` / braces is free)
+- exactly ten logic-carrying lines of code, no fewer and no more; language-mandated ceremony like `fn main()` / braces may surround them but does not replace or add to the ten rungs
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`, no fake output
 - the etheree actually runs and produces the correct result for the task
 - ten lines whose token counts climb 1-2-3-4-5-6-7-8-9-10 (±1 tolerance per line)
@@ -122,7 +134,7 @@ Every deliverable produced with this skill must be gradeable. You must include A
 - every line is a real statement or expression, semicolons, lambdas, chained calls, and comprehensions are the medium
 - no mock, fake, or pseudo code: every line is real, runs, and does the actual work
 
-Benchmark signature: report the ten visible logic-line token counts against `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` with ±1 tolerance, and confirm the top rung lands the result; diagnostics must never reward padding.
+Benchmark signature: report the ten visible logic-line token counts against `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` with ±1 tolerance, and confirm the top rung lands the result. The bundled checker verifies line count and token shape; the real climb and landing semantics remain checks that the author must confirm. Diagnostics must never reward padding.
 
 These requirements exist because a theme without a spec produces vibes, not output. An etheree without its ladder is ten lines of code.
 
@@ -137,7 +149,7 @@ Activate this skill only when the user explicitly names etheree, requests a ten-
 ## The Etheree Aesthetic
 
 Write code that:
-- is ten lines, token counts climbing 1-2-3-4-5-6-7-8-9-10
+- is exactly ten logic-carrying lines, with the fixed 1-2-3-4-5-6-7-8-9-10 target profile
 - starts from a one-token seed and grows the computation rung by rung
 - lands the result on the ten-token top rung
 - makes the growth real :  longer expressions, more work, never padding

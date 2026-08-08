@@ -13,7 +13,7 @@ A somonka is a courtship in verse: two tanka, exchanged, the second a reply to t
 "A somonka is a conversation with a meter. The first voice states, the second voice replies: same shape, new truth."
 
 The somonka mindset:
-1. **Two tanka**: two programs, each five logic lines shaped 5-7-5-7-7
+1. **Two tanka**: one file containing exactly two blank-line-separated stanzas, each exactly five logic lines shaped 5-7-5-7-7
 2. **The opening voice (first tanka)**: the statement, the offer, the claim
 3. **The answering voice (second tanka)**: the reply, built on the first's actual output, not a script
 4. **The mirror**: the second echoes the first's structure: same inputs, same rhythm, a changed verdict
@@ -29,7 +29,7 @@ The second tanka must genuinely respond to the first, not merely repeat it. Good
 - **The escalation**: the second raises the stakes (the average, then the worst case)
 - **The reversal**: the second overturns the first (the sorted order, then the truth it hid)
 
-The reply must reference the first's result: the two halves are one poem.
+The reply must reference the first's result: the two halves are one poem. The deliverable is exactly two blank-line-separated five-line stanzas, with no executable setup stanza before them. Put any shared input/read/setup inside one of those ten counted lines, and make the reply consume a named result established by the opening.
 
 ## Core Patterns
 
@@ -75,10 +75,31 @@ print("two nodes carry the load")  # the escalation
 
 ## Workflow
 
-1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
-2. **Shape the rhythm.** Rewrite in the somonka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
-3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
-4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
+1. **Write it plainly.** Implement the task ordinarily and run it until the output is right. No form pressure yet.
+2. **Start from the ten-slot template.** Copy the proven two-stanza template below before adapting the task. Keep exactly five logic lines in the opening stanza, one blank line, and exactly five logic lines in the reply stanza. Do not invent the stanza boundary while solving the task.
+3. **Fill real work into the slots.** Preserve the line breaks and keep each stanza near `[5, 7, 5, 7, 7]` whitespace tokens. Change expressions or string contents only when needed for the task; never delete a slot, merge lines, or add filler.
+4. **Verify the form and result.** Run the program with the real input, then run `scripts/rhythm_check.py solve.py`. If the checker fails, use its reported two profiles to revise the specific lines while preserving the ten-slot structure. Repeat until both the output and form pass.
+5. **Report the counts.** State both five-line token profiles and explain how the reply uses the opening result.
+
+## Proven Ten-Slot Template
+
+This template is intentionally concrete because models reliably preserve a demonstrated shape better than they invent ten exact rhythmic lines. Replace the expressions with task-specific real work, but preserve the two stanzas, line count, and approximate token profile:
+
+```python
+data = input().split()
+nums = [int(x) for x in data]
+total = sum(nums)
+first = f"count {len(nums)} numbers arrive"
+print(first, "count", len(nums), "now", total)
+
+reply = f"sum {total}"
+mirror = total + len(nums)
+answer = f"sum {total} now"
+result = f"{reply} and {answer}"
+print(result, "reply", mirror, "done", total)
+```
+
+The template's profiles are approximately `[3, 7, 3, 6, 5]` and `[4, 5, 5, 5, 5]`, all within the documented ±2 tolerance. The first stanza establishes a named result; the second stanza reuses it and answers it. If a task needs different data, retain the same role sequence: read, parse, compute, state, print; then reference, transform, answer, combine, print.
 
 
 ## Counting Tokens (the exact procedure)
@@ -107,7 +128,7 @@ This file is self-contained. Apply it only when the request explicitly names thi
 
 Every deliverable produced with this skill must be gradeable. You must include ALL of the following so a reviewer can check them without judgment calls:
 
-- exactly two programs (opening and reply), each at most 5 lines of code that carry logic (language-mandated ceremony like `fn main()` / braces is free)
+- exactly two blank-line-separated stanzas in one deliverable file: an opening stanza and a reply stanza, each exactly 5 logic-carrying lines; language-mandated ceremony may surround a stanza but cannot replace, add to, or merge its five lines
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`, no fake output
 - both programs actually run and produce correct results
 - each program is shaped 5-7-5-7-7 tokens with ±2 tolerance per line

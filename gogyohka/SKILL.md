@@ -1,33 +1,33 @@
 ---
 name: gogyohka
 description: >-
-  Write runnable code in a gogyohka form: exactly five natural logic lines with free rhythm, one complete breath per line, and no meter requirement. Activate only for an explicit gogyohka, free-form five-line, or five-breath code request.
+  Write runnable code in a gogyohka form: exactly five natural logic lines with free rhythm, one complete step per line, and no meter requirement. Activate only for an explicit gogyohka, free-form five-line, or five-line code request.
 ---
 
 # Gogyohka Skill
 
-A gogyohka is the liberated tanka, five lines, and nothing else required. No syllable count, no seasonal word, no strict meter: five lines, each one a natural phrase, one breath per line. A code gogyohka is five lines of free verse, each line a complete short statement, with room to breathe instead of a meter to obey.
+A gogyohka is the liberated tanka, five lines, and nothing else required. No syllable count, no seasonal word, no strict meter: five lines, each one a natural phrase, one meaningful step per line. A code gogyohka is five lines of free verse, each line a complete short statement, with room for the logic instead of a meter to obey.
 
 ## Philosophy
 
-"Five lines, five breaths, no rules but the shape."
+"Five lines, five meaningful steps, no rules but the shape."
 
 The gogyohka mindset:
-1. **Five lines**: exactly the shape, never the meter
-2. **One breath per line**: each line is a natural phrase, a complete small statement
-3. **Free verse**: no token counting, no 5-7-5, liberation from meter
+1. **Five lines**: exactly five logic-carrying lines, never four or fewer; never add a sixth line to hold explanation
+2. **One meaningful step per line**: each line is a natural phrase, a complete small statement
+3. **Free verse**: no token-count target, no 5-7-5, liberation from meter
 4. **Modern rhythm**: the code sounds like how people actually talk
-5. **Actually works**: a gogyohka that doesn't run is a breath that was never taken
+5. **Actually works**: a gogyohka that doesn't run is a step that was never completed
 
 ## The Structure: what free-form means in code
 
-Every other form in the family counts tokens per line. Gogyohka does not. The only rules:
+Other forms may impose numeric line measures; gogyohka does not. The only rules:
 
-- **Five lines of code** that carry logic (language-mandated ceremony like `fn main()` / braces is free)
+- **Exactly five logic-carrying lines of code**; language-mandated ceremony such as `fn main()` / braces may surround them, but it does not replace or add to the five lines
 - **Each line is one natural phrase**, a short, complete statement that could be spoken in a single breath
 - No line-length budget, no rhythm, no seasonal vocabulary, just five clean lines
 
-This is the most forgiving form in the family, and the hardest to fake: free verse still needs each line to be worth its breath.
+This is the most forgiving form in the family, and the hardest to fake: free verse still needs each line to be worth its place.
 
 ## Core Patterns
 
@@ -44,40 +44,40 @@ print("five", "free", "lines", "of", "verse")
 ```
 
 ### File Gogyohka
-A small report in five breathing lines.
+A small report in five meaningful lines.
 
 ```python
 import sys
 lines = sys.stdin.read().splitlines()
 words = sum(len(l.split()) for l in lines)
-print(f"{len(lines)} lines, {words} words")
+nonempty = [line for line in lines if line.strip()]
+print(f"{len(nonempty)} lines, {words} words")
+print("the report is complete")
 ```
 
 ## Workflow
 
 1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
-2. **Shape the rhythm.** Rewrite in the gogyohka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
-3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
-4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
+2. **Shape the lines.** Rewrite the correct program as exactly five complete logic lines. Make each line carry one natural step; do not split or merge lines to imitate a numeric meter.
+3. **Verify the form.** Run it again, and confirm the output is unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it checks the five-line boundary. Treat any whitespace-length profile it prints as diagnostic only, not a target to optimize.
+4. **Report the line roles.** State what each of the five lines does in one short phrase so a reviewer can verify the five-step arc without treating token counts as a target.
 
 
-## Counting Tokens (the exact procedure)
+## Token Counts and Line Roles
 
-The rhythm is the number of whitespace-separated groups per logic line: exactly what `len(line.split())` returns, exactly what `scripts/rhythm_check.py` counts. Count mechanically, not by feel:
+Tokens are a mechanical diagnostic, not a meter. A token count is a reproducible whitespace-based measurement of a visible logic line; it does not decide whether the line is meaningful or how long it should be. The checker may print token diagnostics for automated tests, but never pad or compress code to hit a number.
 
-1. **Split on spaces.** Each space-separated group is one token. `x = 1` is 3 tokens (`x`, `=`, `1`); `x=1` is 1 token.
-2. **Brackets and parens glue when there is no space.** `sum(nums)` is 1 token; `sum(nums) / len(nums)` is 3; `[int(x) for x in data]` is 5 (`[int(x)`, `for`, `x`, `in`, `data]`).
-3. **A space inside a call or a string splits.** `print("a", b)` is 2 tokens (`print("a",`, `b)`); `"two words"` is 2 tokens.
-4. **Inline comments count; full-line comments and imports are free.** `total = sum(data)  # the total sum` is 7 tokens.
-5. **Names are always one token.** `total = x` and `t = x` are both 3 tokens. Renaming never changes the count; the budget is changed by expression shape, not word length.
+Build five meaningful line roles:
 
-Adjust honestly:
+1. **Name the input step.** Read or receive the data the task actually needs.
+2. **Name the preparation step.** Parse, normalize, or select the useful values.
+3. **Name the computation step.** Perform the central transformation or calculation.
+4. **Name the result step.** Derive the value or report that answers the task.
+5. **Name the landing step.** Print or return the answer in the required format.
 
-- **Under the target:** grow a real step, never a filler statement. `sum(data)` (1 token) becomes `sum(data) / len(data)` (3), then a print that must happen anyway can carry more real words. A comprehension is worth 5-7 tokens of real work.
-- **Over the target:** shrink real steps. Drop words from prints that only narrate, prefer `f(a,b)` over `f(a, b)`, replace a spread-out expression with a tighter one. Remove nothing the task needs.
-- **Never pad:** no dead assignments, no `* 1`, no placeholder statements, no splitting one line into two to reach a count. A line carrying real work at the wrong count is fixed by reshaping it, not by faking it.
+These are roles, not a mandatory algorithm. A task may combine or reorder roles when that is the cleanest correct five-line solution, but it must still contain exactly five real logic lines. Do not add filler, explanatory print statements, dead assignments, or artificial line breaks. Do not collapse several required steps into three lines merely because the code can be shorter.
 
-After adjusting, run `scripts/rhythm_check.py solve.py`; it prints the profile line by line. Within tolerance is a pass; off by more means reshape that line only.
+After adjusting, run `scripts/rhythm_check.py solve.py`; it verifies the five-line boundary and prints the token profile. Use that profile to spot accidental extra or missing logic lines, never to manufacture a meter.
 
 ## Scope
 
@@ -87,16 +87,16 @@ This file is self-contained. Apply it only when the request explicitly names thi
 
 Every deliverable produced with this skill must be gradeable. You must include ALL of the following so a reviewer can check them without judgment calls:
 
-- exactly 5 lines of code (or fewer) that carry logic (language-mandated ceremony like `fn main()` / braces is free)
+- exactly 5 logic-carrying lines of code (not fewer and not more); language-mandated ceremony like `fn main()` / braces may surround them but does not count as a logic line
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`, no fake output
 - the gogyohka actually runs and produces the correct result for the task
-- each line is a natural, complete short statement, one breath per line
+- each line is a natural, complete short statement, one meaningful step per line
 - no metered padding: lines are as long as the phrase needs, never stretched to fit a count
 - no mock, fake, or pseudo code: every line is real, runs, and does the actual work
 
 Benchmark signature: report five visible logic-line counts without applying a meter, while checking one-breath-per-line and semicolon/branching constraints separately; this diagnostic must not turn free verse into tanka.
 
-These requirements exist because a theme without a spec produces vibes, not output. A gogyohka that counts tokens is a tanka in disguise; a gogyohka that doesn't run is five dead breaths.
+These requirements exist because a theme without a spec produces vibes, not output. A gogyohka that chases numeric measures is a tanka in disguise; a gogyohka that doesn't run is five dead breaths.
 
 ## Boundaries
 
@@ -109,49 +109,52 @@ Activate this skill only when the user explicitly names gogyohka or requests fre
 ## The Gogyohka Aesthetic
 
 Write code that:
-- is five lines or fewer, never padded
+- has exactly five logic-carrying lines, never padded
 - makes each line a natural phrase you could say out loud
-- keeps no token budget, lines are as long as the thought takes
+- keeps no numeric token budget; lines are as long as the thought takes
 - reads with modern, natural rhythm
-- ends on the last breath, not a formula
+- ends on the last line, not a formula
 
 ## Examples of Gogyohka Beauty
 
-- **Sums**: read, split, convert, add, print, five breaths
-- **Reports**: lines, words, and the one number that matters
+- **Sums**: read, split, convert, add, print, five lines
+- **Reports**: lines, words, and the one number that matters, without padding token counts
 - **Filters**: the list, the rule, the survivors, the count
 - **Small Servers**: import, class, one handler, serve
 - **Free Verse Tools**: anything that fits five natural lines
 
 ## The Gogyohka Promise
 
-Remember: "Five lines, five breaths, no rules but the shape. The meter is gone, what remains is the honest phrase, and it runs."
+Remember: "Five lines, no token target, no rules but the shape. The meter is gone, what remains is the honest phrase, and it runs."
 
 ## Cross-Language Examples
 
 Free verse translates everywhere:
 
 ```javascript
-import { readFileSync } from "fs";       // breath one
-const data = readFileSync(0, "utf8").split("\n");  // breath two
-const words = data.join(" ").split(/\s+/).length;  // breath three
-console.log(`${data.length} lines`);     // breath four
-console.log(`${words} words`);           // breath five
+import { readFileSync } from "fs";       // ceremony
+const data = readFileSync(0, "utf8").split("\n");  // breath one
+const nonempty = data.filter(Boolean);    // breath two
+const words = nonempty.join(" ").split(/\s+/).length;  // breath three
+const report = `${nonempty.length} lines`; // breath four
+console.log(`${report}, ${words} words`);  // breath five
 ```
 
 ```rust
-use std::io::{self, BufRead};            // breath one
+use std::io::{self, BufRead};            // ceremony
 fn main() {
-    let lines: Vec<String> = io::stdin().lock().lines().map(|l| l.unwrap()).collect();
-    let words: usize = lines.iter().map(|l| l.split_whitespace().count()).sum();
-    println!("{} lines, {} words", lines.len(), words);
+    let lines: Vec<String> = io::stdin().lock().lines().map(|l| l.unwrap()).collect(); // breath one
+    let nonempty: Vec<&String> = lines.iter().filter(|l| !l.trim().is_empty()).collect(); // breath two
+    let words: usize = nonempty.iter().map(|l| l.split_whitespace().count()).sum(); // breath three
+    let report = format!("{} lines", nonempty.len()); // breath four
+    println!("{}, {} words", report, words); // breath five
 }
 ```
 
-For other languages, translate the same structure, five natural lines, one breath each.
+For other languages, translate the same structure: five natural lines, one meaningful step each.
 
 ## Bundled Helpers
 
 This skill has no external helper-file dependency. Keep implementations self-contained; an existing repository utility is optional, must be verified first, and must never be assumed or loaded from this skill.
 
-Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it prints the token profile and fails any line outside the form's tolerance. Refine until it passes, then report the profile with the solution.
+Bundled checker: `scripts/rhythm_check.py solve.py` ships with this skill. Run it after writing; it verifies the five-line boundary and prints a whitespace profile for diagnostics. Refine until the five-line check passes, then report the five line roles with the solution rather than optimizing the diagnostic profile.

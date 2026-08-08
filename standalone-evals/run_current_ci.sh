@@ -31,6 +31,12 @@ check() {
 check "standalone benchmark contract" \
   "$PYTHON" "$ROOT/standalone-evals/validate_standalone_benchmark.py" --root "$ROOT"
 
+check "current-scope regression artifacts" \
+  "$PYTHON" "$ROOT/standalone-evals/check_current_scope_regressions.py" --root "$ROOT"
+
+check "current historical-style regression suite" \
+  bash "$ROOT/standalone-evals/run_current_historical_ci.sh"
+
 check "standalone Python compilation" \
   "$PYTHON" -m py_compile "$ROOT"/standalone-evals/*.py "$ROOT"/*/scripts/contract_check.py
 
@@ -48,6 +54,14 @@ check "example syntax smoke" \
 check "rhythm examples pass their own checkers" \
   "$PYTHON" "$ROOT/standalone-evals/check_rhythm_examples.py"
 
+if [ -n "${HISTORICAL_HARNESS:-}" ]; then
+  check "frozen historical compatibility" \
+    "$PYTHON" "$ROOT/standalone-evals/check_historical_compatibility.py" --root "$ROOT"
+else
+  printf '\n[skip] frozen historical compatibility: set HISTORICAL_HARNESS to the external frozen harness\n'
+  printf '[info] current-scope gate remains valid; historical compatibility was not run\n'
+fi
+
 check "one-skill package isolation" \
   "$PYTHON" "$ROOT/standalone-evals/check_skill_isolation.py" --root "$ROOT"
 
@@ -64,7 +78,7 @@ else
 fi
 
 printf '\nCURRENT-SCOPE RESULT: %d/%d mechanical checks passed (%d failed)\n' "$passed" "$total" "$failed"
-printf 'NOTE: historical regression suite is not included; run the external harness separately.\n'
+printf 'NOTE: the raw historical regression suite remains separate; run the external harness separately.\n'
 if [ "$failed" -eq 0 ]; then
   printf 'CURRENT-SCOPE GATE: 100%% mechanical validation\n'
   printf 'NOTE: blind routing quality and generated-code correctness are separate evaluations.\n'

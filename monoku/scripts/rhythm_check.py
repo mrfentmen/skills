@@ -34,7 +34,7 @@ def logic_lines(path):
         s = line.strip()
         if not s or s.startswith("#") or s.startswith('"""') or s.startswith(chr(39) * 3):
             continue
-        if re.match(r"^(import|from) ", s):
+        if re.match(r"^(import|from) ", s) and ";" not in s:
             continue
         out.append(s)
     return out

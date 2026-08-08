@@ -11,7 +11,7 @@ Every form graded across the gold set, the no-form control, and all model arms. 
 | haiku | ROF | RO | --- | RO | RO | RO | RO | RO | --- | RO | --- | RO | Y | - | CONVERGED (skill effect) |
 | katauta | ROF | RO | RO | --- | RO | --- | RO | RO | RO | --- | --- | RO | Y | - | CONVERGED (skill effect) |
 | lunes | ROF | RO | RO | R | RO | --- | R | R | RO | RO | --- | RO | Y | - | CONVERGED (skill effect) |
-| monoku | ROF | ROF | RO | --- | RO | --- | RO | R | RO | --- | --- | RO | - | - | NEEDS CONTRACT WORK |
+| monoku | ROF | ROF | ROF | --- | ROF | --- | ROF | RF | ROF | --- | --- | ROF | Y | Y | inherently concise / agentic PASS |
 | renga | ROF | RO | R | R | R | R | RF | RO | R | R | --- | R | Y | Y | inherently concise |
 | sedoka | ROF | RO | RO | --- | RO | --- | --- | R | RO | --- | --- | RO | Y | - | CONVERGED (skill effect) |
 | senryu | ROF | RO | R | R | RO | R | RO | R | RO | RO | --- | RO | Y | - | CONVERGED (skill effect) |
@@ -36,9 +36,9 @@ Every form graded across the gold set, the no-form control, and all model arms. 
 ## Summary
 
 - **Converged with skill** (17): dodoitsu, haiku, katauta, lunes, sedoka, senryu, sijo, tanka, kyoka, bussokusekika, imayo, zappai, waka, cinquain, ryuka, fibonacci, limerick
-- **Inherently concise** (shape hit with AND without skill, 4): choka, haibun, renga, renshi
-- **NEEDS CONTRACT WORK** (shape missed even with skill, 7): gogyohka, monoku, somonka, kanshi, sonnet, villanelle, etheree
-- **Agentic strict passes** (1): haibun
+- **Inherently concise** (shape hit with AND without skill, 5): choka, haibun, monoku, renga, renshi
+- **NEEDS CONTRACT WORK** (shape missed even with skill, 6): gogyohka, somonka, kanshi, sonnet, villanelle, etheree
+- **Agentic strict passes** (2): haibun, monoku
 
 ## Read this honestly
 

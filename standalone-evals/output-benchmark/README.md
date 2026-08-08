@@ -184,9 +184,11 @@ body + 3-line landing, correct output, runs clean) when given the skill.
    the shape-convergence gap is the proof the skill is steering output.
 8. **Per-skill breakdown** (which forms converge, which are inherently
    concise, which contracts need work): see `per_skill_results.md`, generated
-   by `gen_per_skill_report.py`. 16/28 forms converge with the skill, 4 are
-   inherently concise, and 8 need contract work (gogyohka, monoku, somonka,
-   kanshi, sonnet, villanelle, fibonacci, etheree).
+   by `gen_per_skill_report.py`. 16/28 forms converge with the skill, 4 are    inherently concise, and 6 need contract work (gogyohka, somonka, kanshi,
+    sonnet, villanelle, etheree). Monoku moved out of this list after the
+    shape/grader logic was corrected to count an inline import plus executable
+    statement as its one physical logic line; fibonacci was already converged
+    in the regenerated report.
 
 ## Agentic upgrade (done)
 
@@ -228,6 +230,9 @@ procedure instead of just asserting the rhythm.
   **DONE 2026-08-07 (Mistral)** — `run_feedback_arms.py`; Mistral's loop
   produced its first strict-form pass (haibun). Groq's loop is quota-bound
   (100k tokens/day org cap); re-run with `--sweeps 6` once the window frees.
-- Inspect the 8 "NEEDS CONTRACT WORK" forms from `per_skill_results.md`
-  (gogyohka, monoku, somonka, kanshi, sonnet, villanelle, fibonacci, etheree)
-  for ambiguity — candidates for the next skill-improvement round.
+- Inspect the 6 remaining "NEEDS CONTRACT WORK" forms from
+  `per_skill_results.md` (gogyohka, somonka, kanshi, sonnet, villanelle,
+  etheree) for ambiguity — candidates for the next skill-improvement round.
+  The 2026-08-07 contract-hardening pass tightened these six and corrected the
+  monoku inline-import measurement; the existing model-arm files were not
+  regenerated, so their shape rows remain pre-hardening evidence.

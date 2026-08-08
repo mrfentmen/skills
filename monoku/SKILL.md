@@ -12,7 +12,7 @@ A monoku is a haiku compressed to a single line, one breath, one image, one line
 "A haiku captures a moment in three lines. A monoku captures it in one. A code monoku captures an entire task in one line that runs."
 
 The monoku mindset:
-1. **One line**: the complete program lives on a single line of code. No exceptions, no ceremony.
+1. **One physical line**: the complete program body, including any inline import and final output, lives on exactly one nonblank physical line. Do not put a standalone import or setup line above it.
 2. **One breath**: ~17 tokens is the natural budget, the code analog of a monoku's ~17 syllables. Rhythm, not law: ±4 slack, and never pad.
 3. **Actually runs**: a one-line program that doesn't execute is just a string of symbols.
 4. **The kigo**: one name on the line that names the moment, the seasonal word of the program.
@@ -22,7 +22,7 @@ The monoku mindset:
 
 Everything a normal program spreads across lines happens ON the single line:
 
-- **Imports** join the line: `import sys;` or `__import__("json")` inline
+- **Imports** join the line: use `import sys;` or `__import__("json")` inline on the same physical line as the transformation and output; a separate import line is not allowed
 - **Statements** join with `;`, the semicolon is the breath between beats
 - **The main logic** is one dense expression: comprehension, lambda, chain, or walrus
 - **Output** ends the line: `print(...)`, `sys.stdout.write(...)`, `console.log(...)`
@@ -93,7 +93,7 @@ This file is self-contained. Apply it only when the request explicitly names thi
 
 Every deliverable produced with this skill must be gradeable. You must include ALL of the following:
 
-- exactly 1 line of code that carries logic (language-mandated ceremony like a shell shebang line or `package main` is free, but the program body is one line)
+- exactly 1 nonblank physical line containing the complete program body, including input, transformation, and output; a shebang or language wrapper may be required by another language, but Python imports/setup must remain on that same line
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`
 - the line actually runs and produces the correct result for the task
 - roughly one breath: ~17 tokens (natural budget, ±4 slack, never padded)
@@ -113,7 +113,7 @@ Activate this skill only when the user explicitly names monoku or requests the e
 ## The Monoku Aesthetic
 
 Write code that:
-- is one line, the entire program
+- is one nonblank physical line, including imports, setup, computation, and output
 - reads like a single breath: nothing wasted, nothing missing
 - uses a kigo, one name that captures the moment
 - prefers the densest honest expression (walrus, comprehension, `__import__`, `;`)

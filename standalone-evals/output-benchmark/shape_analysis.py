@@ -56,7 +56,10 @@ def logic_lines(src: str):
         if not line or line.startswith("#"):
             continue
         if line.startswith("import ") or line.startswith("from "):
-            continue
+            # A pure import is ceremony; an inline import plus executable code
+            # is the monoku's single logic line and must remain countable.
+            if ";" not in line:
+                continue
         # collapse block strings? The grader strips them via ast; approximate:
         lines.append(line)
     return lines

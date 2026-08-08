@@ -13,7 +13,7 @@ A villanelle is a nineteen-line Western poem: five tercets (three-line stanzas) 
 "A villanelle is a song of two refrains. Nineteen lines, and two lines keep coming back, changed each time by what happened between them."
 
 The villanelle mindset:
-1. **Nineteen lines**: five tercets (1-15) plus a quatrain (16-19), each line ~10 tokens (the iambic pentameter analog)
+1. **Nineteen lines**: exactly five tercets (logic lines 1-15) plus one closing quatrain (logic lines 16-19); no preamble or explanatory executable lines are allowed in the counted body
 2. **Refrain A (lines 1, 6, 12, 18)**: the same expression, repeated four times, each time seeing new state
 3. **Refrain B (lines 3, 9, 15, 19)**: the second expression, repeated four times, evolving with it
 4. **The space between**: the non-refrain lines transform the data so the refrain means something new each visit
@@ -115,6 +115,17 @@ print(f"final peak {peak}")         # line 19: the closing word
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a nineteen-line villanelle from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly nineteen nonblank, non-comment, non-import logic lines. Blank lines may separate the five tercets and closing quatrain, but they do not count.
+2. Keep the refrain slots fixed: A at lines 1, 6, 12, and 18; B at lines 3, 9, 15, and 19. Reuse the same expression shape at each slot, with state changed only by the intervening real work.
+3. Replace the example's data and transformations with real task work; never leave poetic filler, dead assignments, or fake output.
+4. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by reshaping its real expression.
+5. Do not add a setup statement to the counted body. Imports, comments, and blank separators are the only free ceremony.
+
+This copy-then-adapt method is intentional: it preserves a known-valid nineteen-line shape and exact refrain positions while leaving the computation task-specific.
 
 ## Counting Tokens (the exact procedure)
 
@@ -142,16 +153,16 @@ This file is self-contained. Apply it only when the request explicitly names thi
 
 Every deliverable produced with this skill must be gradeable. You must include ALL of the following so a reviewer can check them without judgment calls:
 
-- nineteen lines of code that carry logic, arranged as five tercets and a closing quatrain (language-mandated ceremony like `fn main()` / braces is free; blank-line separators between stanzas are free)
+- exactly nineteen logic-carrying lines of code, arranged as five tercets and a closing quatrain; imports or language wrappers may be required outside the counted body, but no extra setup, explanation, or output line may be added to the 19-line body
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`, no fake output
 - the villanelle actually runs and produces the correct result for the task
-- two refrain expressions, each recognizably repeated four times at the canonical positions: Refrain A at lines 1, 6, 12, 18; Refrain B at lines 3, 9, 15, 19 (with ±1 line tolerance)
+- two refrain expressions, each recognizably repeated exactly at the canonical positions: Refrain A at logic lines 1, 6, 12, 18; Refrain B at logic lines 3, 9, 15, 19; do not shift either refrain
 - the non-refrain lines evolve the state so each refrain return sees new data
 - each line ~10 tokens with ±3 tolerance (the iambic pentameter analog)
 - every line is a real statement or expression, semicolons, lambdas, chained calls, and comprehensions are the medium
 - no mock, fake, or pseudo code: every line is real, runs, and does the actual work
 
-Benchmark signature: report nineteen logic-line token counts (~10 each), confirm the two refrains repeat at the canonical positions, and confirm the state evolves between returns; diagnostics must never reward padding.
+Benchmark signature: report nineteen logic-line token counts (~10 each), confirm the two refrains repeat at the canonical positions, and confirm the state evolves between returns. The bundled checker verifies line count, token shape, and refrain-position token consistency; expression identity and state evolution remain semantic checks that the author must confirm. Diagnostics must never reward padding.
 
 These requirements exist because a theme without a spec produces vibes, not output. A villanelle without its refrains is nineteen loose lines.
 
@@ -166,7 +177,7 @@ Activate this skill only when the user explicitly names villanelle, requests a 1
 ## The Villanelle Aesthetic
 
 Write code that:
-- is nineteen lines in five tercets and a quatrain
+- is exactly nineteen logic-carrying lines in five tercets and a closing quatrain; blank lines may separate stanzas but do not add lines
 - repeats two refrain expressions at the canonical positions
 - makes every refrain return land differently, because the state between changed
 - uses the closing quatrain to resolve what the refrains kept circling

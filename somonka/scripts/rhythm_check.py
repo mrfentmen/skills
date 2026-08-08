@@ -166,6 +166,28 @@ def check_one(path):
         sizes = stanza_sizes(path)
         need(3 <= len(sizes) <= 6, f"need 3-6 stages, got {len(sizes)}")
         need(all(s in (2, 3) for s in sizes), f"stage sizes not 2-3 lines: {sizes}")
+    elif KIND == "somonka":
+        groups = []
+        for group in src.split("\n\n"):
+            stanza = []
+            for raw in group.splitlines():
+                s = raw.strip()
+                if not s or s.startswith("#") or s.startswith('"""') or s.startswith(chr(39) * 3):
+                    continue
+                if re.match(r"^(import|from) ", s) and ";" not in s:
+                    continue
+                stanza.append(s)
+            if stanza:
+                groups.append(stanza)
+        need(len(groups) == 2, f"need exactly two stanzas, got {len(groups)}")
+        for i, stanza in enumerate(groups, 1):
+            stanza_profile = [tok(line) for line in stanza]
+            need(len(stanza) == LINES,
+                 f"stanza {i}: need exactly {LINES} logic lines, got {len(stanza)}")
+            if len(stanza) == LINES:
+                for line_no, (actual, target) in enumerate(zip(stanza_profile, TARGET), 1):
+                    need(within(actual, target),
+                         f"stanza {i} line {line_no}: {actual} tokens, target {target} +/-{TOL}")
     return fails, lines, profile
 
 
@@ -191,16 +213,6 @@ def main():
     paths = args.paths
     if len(paths) == 1:
         paths = [paths[0]]
-    if KIND == "somonka":
-        if len(paths) < 2:
-            paths = [paths[0], "reply.py"]
-            print("somonka: checking solve.py and reply.py")
-        rc = 0
-        for p in paths:
-            fails, lines, profile = check_one(p)
-            rc = max(rc, report(p, lines, profile, fails))
-        sys.exit(rc)
-
     fails, lines, profile = check_one(paths[0])
     sys.exit(report(paths[0], lines, profile, fails))
 

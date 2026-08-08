@@ -13,7 +13,7 @@ A kanshi is a poem written in classical Chinese by Japanese poets: four lines of
 "A kanshi walks in pairs. Two lines set the scene, two lines turn and settle it."
 
 The kanshi mindset:
-1. **Four lines**: exactly four logic lines, each ~7 tokens (the seven-character line), or fewer, never pad
+1. **Four lines**: exactly four logic-carrying lines, each ~7 tokens; never use fewer or add a fifth line
 2. **Couplet 1 (lines 1-2)**: the parallel statement: two lines that mirror each other, the scene and its complement
 3. **The turn (line 3)**: the pivot, the surprise, the deeper view
 4. **Couplet 2's resolve (line 4)**: the resolution, the settled answer to the turn
@@ -36,10 +36,10 @@ Line 3 turns the poem: it takes the couplet's output and looks at it from an ang
 The couplet, the turn, the resolve:
 
 ```python
-print("up", sum(v for v in json.load(open("stats.json")).values() if v), "now")
-print("and", "the", "down", "count", "is", "the", "tale")
-print("the", "third", "line", "turns", "the", "tale", "and")
-print("the", "fourth", "resolves", "the", "whole", "affair")
+data = input().split() or []
+nums = [int(x) for x in data]
+summary = {"sum": sum(nums), "count": len(nums)}
+print("sum", summary["sum"], "count", summary["count"], "done")
 ```
 
 ### The Parallel Kanshi
@@ -68,10 +68,24 @@ print(f"{per_word:.1f} chars per word")      # the resolve: the character
 
 ## Workflow
 
-1. **Write it plainly.** Implement the task the ordinary way and run it until the output is right. No form pressure yet.
-2. **Shape the rhythm.** Rewrite in the kanshi form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
-3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
-4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
+1. **Write it plainly.** Implement the task ordinarily and run it until the output is right. No form pressure yet.
+2. **Start from the four-line template.** Keep exactly four logic lines. Lines 1 and 2 establish parallel data, line 3 turns it into the key measure, and line 4 resolves with the requested output.
+3. **Fill real work into the slots.** Preserve the four line breaks and keep every line within `[7, 7, 7, 7]` with ±2 whitespace-token tolerance. Change expressions only for real task work; never add filler, semicolons, or a fifth line.
+4. **Verify the form and result.** Run the program with the real input, then run `scripts/rhythm_check.py solve.py`. If it fails, use the reported profile to reshape only the offending line while preserving the four-line architecture.
+5. **Report the counts.** State the four token counts, identify the parallel couplet, and explain the turn and resolution.
+
+## Proven Four-Line Template
+
+Models preserve a demonstrated four-line shape more reliably than an abstract request for four exact counts. Adapt this template to the task, but keep the line roles and line breaks:
+
+```python
+data = input().split() or []
+nums = [int(x) for x in data]
+summary = {"sum": sum(nums), "count": len(nums)}
+print("sum", summary["sum"], "count", summary["count"], "done")
+```
+
+Its token profile is `[5, 7, 6, 5]`, which is within ±2 of the kanshi target `[7, 7, 7, 7]`. The first two lines establish and parse the input; the third line turns the data into a guarded measure; and the fourth resolves it as the requested output. If a task needs different data, preserve the same sequence: read, parse or mirror, compute the turn, print the resolution.
 
 
 ## Counting Tokens (the exact procedure)
@@ -100,7 +114,7 @@ This file is self-contained. Apply it only when the request explicitly names thi
 
 Every deliverable produced with this skill must be gradeable. You must include ALL of the following so a reviewer can check them without judgment calls:
 
-- at most 4 lines of code that carry logic (language-mandated ceremony like `fn main()` / braces is free)
+- exactly 4 logic-carrying lines of code; language-mandated ceremony like `fn main()` / braces may surround them but does not replace or add to the four lines
 - no placeholders: no `...`, no `# TODO`, no `YOUR CODE HERE`, no fake output
 - the kanshi actually runs and produces the correct result for the task
 - lines 1-2 form a parallel couplet (~7 tokens each, mirrored structure)
@@ -123,7 +137,7 @@ Activate this skill only when the user explicitly names kanshi, requests Chinese
 ## The Kanshi Aesthetic
 
 Write code that:
-- is four lines, no padding
+- has exactly four logic-carrying lines, no padding
 - pairs the first two lines as a mirror couplet: same shape, mirrored data
 - turns on line 3 with a genuine pivot, not a continuation
 - resolves on line 4 with the plain truth the turn exposed

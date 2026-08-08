@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Rhythm checker for the {skill} skill.
+"""Token-profile checker for the {skill} skill.
 
-Prints the token profile of a code {skill} and fails any line outside the
-form's target with the documented tolerance. Mirrors the benchmark grader's
-counting convention exactly (whitespace tokens; imports, comments, and
-docstring openers are free ceremony), so a pass here means a pass in the
-mechanical form check. Rhythm is adjusted honestly: never pad with filler
-statements to hit a count.
+Prints the token profile of a code {skill} and fails any file outside the
+five-line form boundary. The profile is a diagnostic list of whitespace groups
+per logic line, not a poetic target. Imports, comments, and docstring openers
+are free ceremony; never pad with filler statements to make a profile look
+balanced.
 
 Usage:
     python3 scripts/rhythm_check.py solve.py          # check a file
@@ -26,9 +25,7 @@ TOL = 0
 
 
 def logic_lines(path):
-    """Logic-carrying lines only: blank, full-line comments, docstring openers,
-    and imports are free; inline trailing comments count as tokens, mirroring
-    the benchmark grader exactly."""
+    """Return visible logic lines; imports and comments are free ceremony."""
     out = []
     for line in Path(path).read_text(encoding="utf-8", errors="replace").splitlines():
         s = line.strip()
@@ -80,6 +77,8 @@ def check_one(path):
     elif KIND == "lines":
         need(len(lines) == LINES,
              f"need exactly {LINES} logic lines, got {len(lines)}")
+        need(not any(";" in line for line in lines),
+             "each logic line must be one visible statement; split semicolon-packed lines")
     elif KIND == "silhouette":
         need(0 < len(profile) <= 3,
              f"need 1-3 logic lines, got {len(profile)}")
@@ -174,16 +173,16 @@ def report(path, lines, profile, fails):
     for i, line in enumerate(lines, 1):
         print(f"  line {i}: {len(line.split())} tokens  | {line.strip()}")
     if fails:
-        print(f"FAIL rhythm ({SKILL}): {'; '.join(fails)}")
+        print(f"FAIL token profile ({SKILL}): {'; '.join(fails)}")
         print(f"profile {profile}")
         return 1
-    print(f"PASS rhythm ({SKILL}): profile {profile}")
+    print(f"PASS token profile ({SKILL}): profile {profile}")
     return 0
 
 
 def main():
     ap = argparse.ArgumentParser(
-        description=f"Check the {SKILL} rhythm (token profile) of a Python file.")
+        description=f"Check the {SKILL} token profile and five-line boundary of a Python file.")
     ap.add_argument("paths", nargs="+", default=["solve.py"],
                     help="file(s) to check (default: solve.py)")
     args = ap.parse_args()
