@@ -50,7 +50,7 @@ does not require downloading or loading any other skill or repository file.
 
 ```bash
 cd skills
-python3 package_skills.py            # writes dist/<name>.skill for all 18
+python3 package_skills.py            # writes dist/<name>.skill for all 28
 python3 package_skills.py --target .agents/skills   # or install directly
 ```
 
@@ -70,7 +70,7 @@ cp -r skills/terry-davis ~/.agents/skills/   # repeat for each skill
 skill({ name: "terry-davis" })
 skill({ name: "psych" })
 skill({ name: "haiku" })
-// ... any of the 18 current skills
+// ... any of the 28 current skills
 ```
 
 `COMPREHENSIVE_DOCUMENTATION.md` is a historical four-skill reference; use each current `SKILL.md` as the source of truth for activation and examples.
@@ -79,9 +79,17 @@ skill({ name: "haiku" })
 
 - `static_skill_audit.py`, objective SKILL.md quality audit
   (frontmatter, scope, requirements, language coverage, helper policy, and no-mock-code integrity).
-  The latest local validation score is **0.79 overall** (all 18 skills above the
-  0.75 release floor); earlier **0.80** and **1.00** results are generated
+  The latest validation run scores **1.00 on all 28 skills** (see
+  `CURRENT_SCOPE_RELEASE_REPORT.md`); earlier **0.79-0.80** results are
   historical snapshots.
+- **Latest evaluation (2026-08-19)** — see `CURRENT_SCOPE_RELEASE_REPORT.md`:
+  post-hardening model arms lifted same-model (Mistral) shape convergence
+  15 → 20/28 and strict one-shot passes 0 → 3/28; the agentic loop reached
+  3/28 strict and 19/28 shape (ceiling confirmed at 6 generations); the
+  independent blind-routing score is **244/250 (0.976)**; a hands-on
+  skill-test-kit pass solved 13/13 tasks with correct output and
+  form-checker passes; current CI is 36/36 and the current historical suite
+  7/7.
 - The external `evals-infra/` repository contains the with-skill vs. baseline
   harness (scaffold → grade → aggregate → viewer). Installed skills do not
   require the harness at runtime. See its `HOW_TO_RUN_EVALS.md` when validating
@@ -114,7 +122,7 @@ monorepo (`skills/`) and inside a per-skill repo (`SKILL.md` at the root).
 
 > **Deploy:** existing repos were seeded before CI existed, so re-run
 > `GITHUB_TOKEN=<pat> bash push_all_skills.sh` once to install the workflow
-> + scripts into all 18 skill repos (the "name already exists" message is expected
+> + scripts into all 28 skill repos (the "name already exists" message is expected
 > and harmless; it still pushes the new `.github/` files).
 
 ## The infra repo (`mrfentmen/skills-infra`)
