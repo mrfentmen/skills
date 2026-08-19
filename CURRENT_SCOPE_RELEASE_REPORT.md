@@ -72,7 +72,8 @@ prompts the descriptions were not tuned on. Recorded numbers:
 |---|---:|---|
 | Mechanical token-overlap baseline | 34/54 (12/18 paraphrase, 13/18 boundary, 9/9 trap, 0/9 none) | Lower bound (floor) |
 | Same-author self-score | 54/54 | Upper bound (consistency, not independence) |
-| Independent blind scorer (current 250-record set) | **244/250 (0.976)** | Recorded 2026-08-19 — see below |
+| Independent blind scorer (strong, current 250-record set) | **244/250 (0.976)** | Recorded 2026-08-19 — see below |
+| Independent blind scorer (weak, Mistral-small) | **171/250 (0.684)** | Recorded 2026-08-19 — see below |
 
 **Independent blind score (2026-08-19).** The blind protocol was brought to
 the current 28-skill scope: `make_blind_sheet.py` / `score_blind_decisions.py`
@@ -97,6 +98,18 @@ cinquain↔gogyohka, ryuka↔dodoitsu, limerick↔kyoka/gogyohka) — 3-line and
 persona-wrapper / generic records were all correctly abstained (`none`).
 This is a real independent measurement: the scorer never saw the benchmark's
 targets, only the shuffled sheet.
+
+**Second independent scorer (2026-08-19, Mistral-small via API):** the blind
+protocol was repeated with a different shuffle (seed 777) and an automated
+router that saw only descriptions + prompts — **171/250 = 0.684**
+(`blind_score_decisions_model_v1.json` / `blind_score_report_model_v1.json`):
+explicit 68/84, signature 30/56, boundary 19/56, none 36/36, trap 18/18.
+The routing score is therefore bounded **[0.684, 0.976]** depending on scorer
+strength. The weaker router's misses are all over-abstention (gold → none:
+kanshi ×6, haiku ×5, lunes ×5, cinquain ×5, senryu ×4, kyoka ×4,
+villanelle ×4, monoku ×3) — name-free signature prompts — while its negative
+precision is perfect (none 36/36, trap 18/18), so the descriptions never
+false-positive regardless of scorer.
 
 ## Output-correctness benchmark (E-007 / E3)
 
@@ -294,7 +307,8 @@ token-arithmetic forms — though the agentic loop on a stronger model
 forms** (gogyohka, kanshi, somonka), leaving sonnet, villanelle, and
 etheree as the open arithmetic cases (qwen's think-block outputs broke
 runtime parsing; the runner now strips them, and the daily org cap hit
-mid-run). And a second independent blind scorer to confirm the 0.976 (the
-current score is one fresh scorer on the 250-record set; a second scorer
-would bound it). The frozen legacy runner stays red as documented
-historical evidence.
+mid-run). The blind-routing score is now bounded by a second independent
+scorer — a weaker router scores 0.684 vs the strong scorer's 0.976, so the
+true routing quality sits in [0.684, 0.976] with perfect negative precision
+at both ends (none 36/36, trap 18/18). The frozen legacy runner stays red
+as documented historical evidence.

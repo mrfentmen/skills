@@ -76,8 +76,20 @@ sheet; gold never revealed) returned decisions for all 250 records
 (`blind_score_report_v1.json`): explicit 84/84, signature 56/56, boundary
 50/56, ordinary→none 36/36, trap→none 18/18. The six boundary misses are
 close form-silhouette calls (haiku↔zappai, cinquain↔gogyohka,
-ryuka↔dodoitsu, limerick↔kyoka/gogyohka). A second independent scorer would
-bound this number; the tooling below makes that a copy-paste exercise.
+ryuka↔dodoitsu, limerick↔kyoka/gogyohka).
+
+**Second independent scorer (2026-08-19):** `run_second_blind_scorer.py`
+scored a fresh shuffled sheet (seed 777, `blind_sheet_v2.json`) with
+Mistral-small over the API — the router saw only descriptions + prompts, never
+the gold — producing 250/250 decisions (`blind_score_decisions_model_v1.json`)
+scoring **171/250 = 0.684** (`blind_score_report_model_v1.json`): explicit
+68/84, signature 30/56, boundary 19/56, ordinary→none 36/36, trap→none 18/18.
+That bounds the routing score to [0.684, 0.976]: the strong scorer (human or
+stronger model) reads the form signatures well, while a weaker router
+over-abstains on name-free prompts (top confusions are all gold → none:
+kanshi ×6, haiku ×5, lunes ×5, cinquain ×5, senryu ×4, kyoka ×4,
+villanelle ×4, monoku ×3) yet is perfect on negative precision (none 36/36,
+trap 18/18) — the descriptions never false-positive.
 
 ## Current-scope held-out workflow
 

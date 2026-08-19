@@ -62,6 +62,16 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "MISTRAL_API_KEY",
         "model": "mistral-small-latest",
     },
+    "mistral-large": {
+        "url": "https://api.mistral.ai/v1/chat/completions",
+        "key_env": "MISTRAL_API_KEY",
+        "model": "mistral-large-latest",
+    },
+    "mistral-codestral": {
+        "url": "https://api.mistral.ai/v1/chat/completions",
+        "key_env": "MISTRAL_API_KEY",
+        "model": "codestral-latest",
+    },
 }
 
 WITH_SKILL_SYSTEM = (

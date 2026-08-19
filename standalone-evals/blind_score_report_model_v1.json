@@ -1,0 +1,350 @@
+{
+  "version": "standalone-trigger-v1-scored",
+  "total": 250,
+  "correct": 171,
+  "accuracy": 0.684,
+  "by_type": {
+    "boundary": {
+      "correct": 19,
+      "total": 56,
+      "accuracy": 0.3392857142857143
+    },
+    "explicit": {
+      "correct": 68,
+      "total": 84,
+      "accuracy": 0.8095238095238095
+    },
+    "none": {
+      "correct": 36,
+      "total": 36,
+      "accuracy": 1.0
+    },
+    "signature": {
+      "correct": 30,
+      "total": 56,
+      "accuracy": 0.5357142857142857
+    },
+    "trap": {
+      "correct": 18,
+      "total": 18,
+      "accuracy": 1.0
+    }
+  },
+  "by_target": {
+    "bussokusekika": {
+      "correct": 5,
+      "total": 7,
+      "accuracy": 0.7142857142857143
+    },
+    "choka": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "cinquain": {
+      "correct": 2,
+      "total": 7,
+      "accuracy": 0.2857142857142857
+    },
+    "dodoitsu": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "etheree": {
+      "correct": 4,
+      "total": 7,
+      "accuracy": 0.5714285714285714
+    },
+    "fibonacci": {
+      "correct": 4,
+      "total": 7,
+      "accuracy": 0.5714285714285714
+    },
+    "gogyohka": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "haibun": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "haiku": {
+      "correct": 2,
+      "total": 7,
+      "accuracy": 0.2857142857142857
+    },
+    "imayo": {
+      "correct": 4,
+      "total": 7,
+      "accuracy": 0.5714285714285714
+    },
+    "kanshi": {
+      "correct": 1,
+      "total": 7,
+      "accuracy": 0.14285714285714285
+    },
+    "katauta": {
+      "correct": 5,
+      "total": 7,
+      "accuracy": 0.7142857142857143
+    },
+    "kyoka": {
+      "correct": 3,
+      "total": 7,
+      "accuracy": 0.42857142857142855
+    },
+    "limerick": {
+      "correct": 4,
+      "total": 7,
+      "accuracy": 0.5714285714285714
+    },
+    "lunes": {
+      "correct": 2,
+      "total": 7,
+      "accuracy": 0.2857142857142857
+    },
+    "monoku": {
+      "correct": 4,
+      "total": 7,
+      "accuracy": 0.5714285714285714
+    },
+    "none": {
+      "correct": 54,
+      "total": 54,
+      "accuracy": 1.0
+    },
+    "renga": {
+      "correct": 4,
+      "total": 7,
+      "accuracy": 0.5714285714285714
+    },
+    "renshi": {
+      "correct": 5,
+      "total": 7,
+      "accuracy": 0.7142857142857143
+    },
+    "ryuka": {
+      "correct": 4,
+      "total": 7,
+      "accuracy": 0.5714285714285714
+    },
+    "sedoka": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "senryu": {
+      "correct": 3,
+      "total": 7,
+      "accuracy": 0.42857142857142855
+    },
+    "sijo": {
+      "correct": 5,
+      "total": 7,
+      "accuracy": 0.7142857142857143
+    },
+    "somonka": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "sonnet": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "tanka": {
+      "correct": 5,
+      "total": 7,
+      "accuracy": 0.7142857142857143
+    },
+    "villanelle": {
+      "correct": 3,
+      "total": 7,
+      "accuracy": 0.42857142857142855
+    },
+    "waka": {
+      "correct": 2,
+      "total": 7,
+      "accuracy": 0.2857142857142857
+    },
+    "zappai": {
+      "correct": 3,
+      "total": 7,
+      "accuracy": 0.42857142857142855
+    }
+  },
+  "confusion": [
+    {
+      "gold": "kanshi",
+      "predicted": "none",
+      "count": 6
+    },
+    {
+      "gold": "haiku",
+      "predicted": "none",
+      "count": 5
+    },
+    {
+      "gold": "lunes",
+      "predicted": "none",
+      "count": 5
+    },
+    {
+      "gold": "cinquain",
+      "predicted": "none",
+      "count": 5
+    },
+    {
+      "gold": "senryu",
+      "predicted": "none",
+      "count": 4
+    },
+    {
+      "gold": "kyoka",
+      "predicted": "none",
+      "count": 4
+    },
+    {
+      "gold": "villanelle",
+      "predicted": "none",
+      "count": 4
+    },
+    {
+      "gold": "monoku",
+      "predicted": "none",
+      "count": 3
+    },
+    {
+      "gold": "renga",
+      "predicted": "none",
+      "count": 3
+    },
+    {
+      "gold": "zappai",
+      "predicted": "none",
+      "count": 3
+    },
+    {
+      "gold": "waka",
+      "predicted": "gogyohka",
+      "count": 3
+    },
+    {
+      "gold": "fibonacci",
+      "predicted": "none",
+      "count": 3
+    },
+    {
+      "gold": "limerick",
+      "predicted": "none",
+      "count": 3
+    },
+    {
+      "gold": "etheree",
+      "predicted": "none",
+      "count": 3
+    },
+    {
+      "gold": "katauta",
+      "predicted": "none",
+      "count": 2
+    },
+    {
+      "gold": "sijo",
+      "predicted": "none",
+      "count": 2
+    },
+    {
+      "gold": "tanka",
+      "predicted": "none",
+      "count": 2
+    },
+    {
+      "gold": "bussokusekika",
+      "predicted": "none",
+      "count": 2
+    },
+    {
+      "gold": "imayo",
+      "predicted": "none",
+      "count": 2
+    },
+    {
+      "gold": "renshi",
+      "predicted": "none",
+      "count": 2
+    },
+    {
+      "gold": "ryuka",
+      "predicted": "none",
+      "count": 2
+    },
+    {
+      "gold": "choka",
+      "predicted": "none",
+      "count": 1
+    },
+    {
+      "gold": "dodoitsu",
+      "predicted": "none",
+      "count": 1
+    },
+    {
+      "gold": "gogyohka",
+      "predicted": "none",
+      "count": 1
+    },
+    {
+      "gold": "sedoka",
+      "predicted": "somonka",
+      "count": 1
+    },
+    {
+      "gold": "somonka",
+      "predicted": "none",
+      "count": 1
+    },
+    {
+      "gold": "imayo",
+      "predicted": "ryuka",
+      "count": 1
+    },
+    {
+      "gold": "zappai",
+      "predicted": "haiku",
+      "count": 1
+    },
+    {
+      "gold": "waka",
+      "predicted": "none",
+      "count": 1
+    },
+    {
+      "gold": "waka",
+      "predicted": "tanka",
+      "count": 1
+    },
+    {
+      "gold": "sonnet",
+      "predicted": "none",
+      "count": 1
+    },
+    {
+      "gold": "ryuka",
+      "predicted": "dodoitsu",
+      "count": 1
+    }
+  ],
+  "interpretation": {
+    "explicit": "explicit-name rows measure contract recall",
+    "signature": "signature rows measure contract recognition without a name",
+    "boundary": "semantic boundary discrimination",
+    "trap": "negative semantic precision under a nearby request",
+    "none": "ordinary-request abstention"
+  },
+  "independent_scorer_required": true
+}

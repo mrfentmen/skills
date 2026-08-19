@@ -1,0 +1,1121 @@
+{
+  "version": "standalone-trigger-v1-blind",
+  "seed": 777,
+  "skills": [
+    {
+      "name": "choka",
+      "description": "Write runnable code in a choka form: a multi-line program with alternating short and long logic lines and a final 7-7 closing couplet that resolves the computation. Activate only for an explicit choka, long metered verse, or alternating-line program request."
+    },
+    {
+      "name": "dodoitsu",
+      "description": "Write runnable code in a dodoitsu form: exactly four logic lines shaped 7-7-7-5, with three working lines and a plain, shorter settlement line. Activate only for an explicit dodoitsu, folk verse, or 7-7-7-5 request."
+    },
+    {
+      "name": "gogyohka",
+      "description": "Write runnable code in a gogyohka form: exactly five natural logic lines with free rhythm, one complete step per line, and no meter requirement. Activate only for an explicit gogyohka, free-form five-line, or five-line code request."
+    },
+    {
+      "name": "haibun",
+      "description": "Write a runnable haibun: a short narrative program with diary-like processing and a distinct three-line poetic landing that summarizes the journey. Activate only for an explicit haibun, prose-and-verse program, or narrated code journey request."
+    },
+    {
+      "name": "haiku",
+      "description": "Write runnable code in a haiku form: a compact nature-or-moment program with a 5-7-5 token rhythm, at most three logic lines, and a setup, turn, and landing. Activate only when the user explicitly requests a code haiku, 5-7-5 structure, or a three-line moment program."
+    },
+    {
+      "name": "katauta",
+      "description": "Write runnable code in a katauta form: one three-line, 5-7-7 program that addresses its subject directly and ends with a heavy two-line tail. Activate only for an explicit katauta, 5-7-7 half-poem, or directly addressed fragment request."
+    },
+    {
+      "name": "lunes",
+      "description": "Write runnable code in a lune form: three logic lines shaped 5-3-5, with a single decisive middle operation that is visibly shorter than its setup and landing. Activate only for an explicit lune, lunes, or 5-3-5 request."
+    },
+    {
+      "name": "monoku",
+      "description": "Write a complete runnable monoku: the entire program body on one physical line, with a single continuous transformation and no line breaks in the logic. Activate only for an explicit monoku, one-line program, or single-line code request."
+    },
+    {
+      "name": "renga",
+      "description": "Write runnable code in a renga form: at least three linked stanzas that alternate 5-7-5 and 7-7 units, with each stage handing a visible pivot to the next. Activate only for an explicit renga, linked verse, stanza pipeline, or chained-stanza request."
+    },
+    {
+      "name": "sedoka",
+      "description": "Write runnable code in a sedoka form: two distinct three-line stanzas shaped 5-7-7 / 5-7-7, with the second stanza mirroring or answering the first. Activate only for an explicit sedoka, two-stanza response, or 5-7-7 / 5-7-7 request."
+    },
+    {
+      "name": "senryu",
+      "description": "Write runnable code in a senryu form: at most three logic lines with a 5-7-5 rhythm, a human subject, and a working humorous landing. Activate only for an explicit senryu, human-nature code joke, or 5-7-5 human-comedy request."
+    },
+    {
+      "name": "sijo",
+      "description": "Write runnable code in a sijo form: exactly three deliberately long logic lines, with the third line delivering a genuine twist, inversion, or reframe of the first two. Activate only for an explicit sijo, Korean verse, or three-line twist-ending request."
+    },
+    {
+      "name": "tanka",
+      "description": "Write runnable code in a tanka form: exactly five logic lines shaped 5-7-5-7-7, where the first three complete the immediate result and the final two expand or reflect on it. Activate only for an explicit tanka, 5-7-5-7-7, or five-line expansion request."
+    },
+    {
+      "name": "kyoka",
+      "description": "Write runnable code in a kyoka form: a comic tanka, exactly five logic lines shaped 5-7-5-7-7, where the first three complete the immediate result and the final two land the joke, the parody, or the satirical reframe. Activate only for an explicit kyoka, comic tanka, mad verse, or humorous 5-7-5-7-7 request."
+    },
+    {
+      "name": "somonka",
+      "description": "Write runnable code in a somonka form: a paired exchange of two tanka, two programs each shaped 5-7-5-7-7, where the second answers, mirrors, or counters the first. Activate only for an explicit somonka, paired exchange, love-verse, or two-tanka reply request."
+    },
+    {
+      "name": "bussokusekika",
+      "description": "Write runnable code in a bussokusekika form: exactly six logic lines shaped 5-7-5-7-7-7, a meditation that builds through three long closing lines to a settled, final truth. Activate only for an explicit bussokusekika, 5-7-5-7-7-7, footprint verse, or six-line meditation request."
+    },
+    {
+      "name": "imayo",
+      "description": "Write runnable code in an imayo form: four long logic lines, each shaped 7-5-7-5, a rolling rhythmic song that alternates a long breath and a short breath four times. Activate only for an explicit imayo, 7-5-7-5, Heian song, or four-line rolling rhythm request."
+    },
+    {
+      "name": "kanshi",
+      "description": "Write runnable code in a kanshi form: Japanese verse in the classical Chinese style, four logic lines of paired 7-7 couplets (or 5-5), where the third line turns and the fourth resolves. Activate only for an explicit kanshi, Chinese-style verse, or four-line couplet request."
+    },
+    {
+      "name": "zappai",
+      "description": "Write runnable code in a zappai form: a haiku-shaped poem freed from haiku's rules: no seasonal kigo required, no cutting word required, just three lines of roughly 5-7-5 tokens that land a single vivid moment. Activate only for an explicit zappai, free haiku, or unconstrained three-line moment request."
+    },
+    {
+      "name": "waka",
+      "description": "Write runnable code in a waka form: the classical five-line 5-7-5-7-7 verse of the imperial anthologies, where the upper three lines establish the scene and the lower two lines turn and resolve it with courtly grace. Activate only for an explicit waka, 5-7-5-7-7 classical verse, or imperial anthology request."
+    },
+    {
+      "name": "renshi",
+      "description": "Write runnable code in a renshi form: a chain of linked verses, multiple short stages each passing a torch to the next, the output of one stage feeding the next in a modern collaborative chain. Activate only for an explicit renshi, linked verse chain, or relay-style multi-stage request."
+    },
+    {
+      "name": "sonnet",
+      "description": "Write runnable code in a sonnet form: exactly fourteen logic lines in three quatrains and a final couplet, each line ~10 tokens in iambic rhythm, with a volta that turns the poem before the final couplet resolves it. Activate only for an explicit sonnet, 14-line, iambic, or English verse-form request."
+    },
+    {
+      "name": "villanelle",
+      "description": "Write runnable code in a villanelle form: nineteen lines in five tercets and a closing quatrain, where two refrain lines each repeat four times, framing the whole computation. Activate only for an explicit villanelle, 19-line, or repeating-refrain request."
+    },
+    {
+      "name": "cinquain",
+      "description": "Write runnable code in a cinquain form: five lines shaped 2-4-6-8-2 tokens, a pyramid that builds to a wide middle and lands on a two-token closing word. Activate only for an explicit cinquain, 2-4-6-8-2, or pyramid-shaped request."
+    },
+    {
+      "name": "ryuka",
+      "description": "Write runnable code in a ryuka form: the Okinawan four-line verse shaped 8-8-8-6 tokens, three long lines and a short closing line that lands the song. Activate only for an explicit ryuka, Okinawan verse, or 8-8-8-6 request."
+    },
+    {
+      "name": "fibonacci",
+      "description": "Write runnable code in a fibonacci poem form: lines whose token counts follow the Fibonacci sequence (1, 1, 2, 3, 5, 8, 13...), each line the sum of the two before it, growing until the computation resolves. Activate only for an explicit fibonacci poem, golden-ratio verse, or growing-sequence request."
+    },
+    {
+      "name": "limerick",
+      "description": "Write runnable code in a limerick form: five lines in an AABBA rhyme scheme with a long-short-short-long token rhythm (roughly 8-8-5-5-8) that lands a comic twist in the final line. Activate only for an explicit limerick, five-line comic verse, or AABBA request."
+    },
+    {
+      "name": "etheree",
+      "description": "Write runnable code in an etheree form: ten lines whose token counts climb 1-2-3-4-5-6-7-8-9-10, a ladder of growing expressions that ascends to the result. Activate only for an explicit etheree, ten-line ladder, or 1-2-3-4-5-6-7-8-9-10 request."
+    }
+  ],
+  "records": [
+    {
+      "id": "standalone-v1-093",
+      "prompt": "Build a program that hands a data transformation from one stage to the next, using linked program stanzas with visible handoff pivots between processing stages."
+    },
+    {
+      "id": "standalone-v1-058",
+      "prompt": "Implement a computation that checks a submitted form directly, shaped as a spoken appeal to the operator in three runnable lines."
+    },
+    {
+      "id": "standalone-v1-034",
+      "prompt": "Write a haibun program that recovers a failed background job."
+    },
+    {
+      "id": "standalone-v1-161",
+      "prompt": "Build a bussokusekika that checks config completeness and ends on a threshold judgment"
+    },
+    {
+      "id": "standalone-v1-005",
+      "prompt": "Implement a computation that warms a cache while checking each dependency, shaped as alternating meter with a final paired resolution."
+    },
+    {
+      "id": "standalone-v1-209",
+      "prompt": "Write a villanelle-shaped program: 19 lines in five tercets and a closing quatrain, with two refrain expressions repeated at lines 1,6,12,18 and 3,9,15,19, computing the total and error count of a log while the log changes between refrains"
+    },
+    {
+      "id": "standalone-v1-081",
+      "prompt": "Implement parses a URL with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-124",
+      "prompt": "Implement a computation that explains an architecture and turns at the end, shaped as two extended setup lines followed by a surprising third-line turn."
+    },
+    {
+      "id": "standalone-v1-236",
+      "prompt": "Write a six-to-eight line program that formats a report of uptimes"
+    },
+    {
+      "id": "standalone-v1-199",
+      "prompt": "Compose a relay-style multi-stage verse that passes a value from parse to verdict"
+    },
+    {
+      "id": "standalone-v1-040",
+      "prompt": "Build a story-shaped program whose processing diary resolves in a separate three-line ending."
+    },
+    {
+      "id": "standalone-v1-029",
+      "prompt": "Implement exactly five free-rhythm logic lines, each carrying one complete step without fixed meter."
+    },
+    {
+      "id": "standalone-v1-007",
+      "prompt": "Implement a pipeline whose work alternates in line length and closes with a resolving pair of equally weighted lines that settle the output."
+    },
+    {
+      "id": "standalone-v1-133",
+      "prompt": "Write a tanka program that reports a query result and reflects on it."
+    },
+    {
+      "id": "standalone-v1-238",
+      "prompt": "Build a limerick-shaped program that computes an average load and lands a dry deflation joke about the answer"
+    },
+    {
+      "id": "standalone-v1-185",
+      "prompt": "Compose a three-line unconstrained moment program that prints the unique keys of a JSON object"
+    },
+    {
+      "id": "standalone-v1-048",
+      "prompt": "Implement a computation that calculates a checksum, shaped as a runnable three-line form with five units, seven units, then five."
+    },
+    {
+      "id": "standalone-v1-065",
+      "prompt": "Write a lunes program that checks a service and prints status."
+    },
+    {
+      "id": "standalone-v1-052",
+      "prompt": "Build a maintainable service that calculates a checksum and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-015",
+      "prompt": "Implement a computation that cleans a list of incoming records, shaped as three full work lines and a shorter folk-style close."
+    },
+    {
+      "id": "standalone-v1-206",
+      "prompt": "Compose a fourteen-line iambic-flavored verse that reports a statistic then turns on the ninth line"
+    },
+    {
+      "id": "standalone-v1-024",
+      "prompt": "Write a gogyohka program that transforms records through five natural steps."
+    },
+    {
+      "id": "standalone-v1-224",
+      "prompt": "Build a ryuka-shaped program with the 8-8-8-6 Okinawan song shape that computes a mean"
+    },
+    {
+      "id": "standalone-v1-200",
+      "prompt": "A chain of short computation stages where each stage visibly transforms the previous output"
+    },
+    {
+      "id": "standalone-v1-233",
+      "prompt": "Write a growing-sequence fibonacci program with token counts 1,1,2,3,5,8 that computes the average load"
+    },
+    {
+      "id": "standalone-v1-217",
+      "prompt": "Build a cinquain-shaped program with the pyramid silhouette 2-4-6-8-2 that computes mean and spread"
+    },
+    {
+      "id": "standalone-v1-227",
+      "prompt": "Compose an Okinawan song program: three long lines of work and one short closing line"
+    },
+    {
+      "id": "standalone-v1-105",
+      "prompt": "Write two mirrored three-line stanzas, each shaped 5-7-7, responding to the same input."
+    },
+    {
+      "id": "standalone-v1-194",
+      "prompt": "Implement a five-line verse with a restrained turn that re-reads the earlier computation"
+    },
+    {
+      "id": "standalone-v1-062",
+      "prompt": "Build a maintainable service that checks a submitted form directly and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-221",
+      "prompt": "Write a pyramid-shaped verse program that tallies words in a file"
+    },
+    {
+      "id": "standalone-v1-108",
+      "prompt": "Build a maintainable service that answers an input with two matching code stanzas and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-125",
+      "prompt": "Write three long logic lines whose final line twists or reframes the first two."
+    },
+    {
+      "id": "standalone-v1-244",
+      "prompt": "Write an etheree program: ten lines whose token counts climb 1-2-3-4-5-6-7-8-9-10, computing the mean and landing the result on the ten-token final line"
+    },
+    {
+      "id": "standalone-v1-091",
+      "prompt": "Write a renga program that chains small functions through deliberate turns."
+    },
+    {
+      "id": "standalone-v1-120",
+      "prompt": "Write a sijo program that reveals a surprising bug in the final line."
+    },
+    {
+      "id": "standalone-v1-156",
+      "prompt": "Write a paired exchange of two five-line programs where the second mirrors and answers the first result"
+    },
+    {
+      "id": "standalone-v1-159",
+      "prompt": "Implement two short verse programs in conversation, the second escalating on the first finding"
+    },
+    {
+      "id": "standalone-v1-053",
+      "prompt": "Explain how to reads standard input and prints one result in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-143",
+      "prompt": "Implement prints system status in a direct low-level utility with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-158",
+      "prompt": "A pair of five-line programs where the second reads the first output file and issues a different judgment"
+    },
+    {
+      "id": "standalone-v1-089",
+      "prompt": "Explain how to makes an emergent generative canvas in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-041",
+      "prompt": "Implement recovers a failed background job with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-063",
+      "prompt": "Explain how to processes a request as an addressed appeal in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-183",
+      "prompt": "Write a zappai: a three-line verse program free of season words that prints a config summary"
+    },
+    {
+      "id": "standalone-v1-247",
+      "prompt": "Write a 1-2-3-4-5-6-7-8-9-10 shaped etheree program that sums a list and reports on the top rung"
+    },
+    {
+      "id": "standalone-v1-016",
+      "prompt": "Write a four-line program with three full work lines and a distinctly shorter final settlement."
+    },
+    {
+      "id": "standalone-v1-228",
+      "prompt": "Write a song-shaped verse program that reports the number of running services"
+    },
+    {
+      "id": "standalone-v1-179",
+      "prompt": "A four-line program whose first couplet mirrors two counts and whose closing couplet turns and resolves"
+    },
+    {
+      "id": "standalone-v1-152",
+      "prompt": "Implement a five-line verse whose third line lands the real result and whose closing lines reveal the joke"
+    },
+    {
+      "id": "standalone-v1-051",
+      "prompt": "Implement classifies a stream with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-203",
+      "prompt": "Build a sonnet that computes the error rate of a log with a volta judging health and a couplet resolving the fix"
+    },
+    {
+      "id": "standalone-v1-084",
+      "prompt": "Implement diagnoses a slow API with evidence and a verified fix with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-235",
+      "prompt": "Write a verse program that grows like nature's proportions to report log statistics"
+    },
+    {
+      "id": "standalone-v1-075",
+      "prompt": "Write a monoku program that sums numbers from standard input."
+    },
+    {
+      "id": "standalone-v1-098",
+      "prompt": "Build a maintainable service that chains small functions through deliberate turns and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-106",
+      "prompt": "Build a paired code response where the second 5-7-7 block reflects the first."
+    },
+    {
+      "id": "standalone-v1-198",
+      "prompt": "Write a linked chain of short program stages where every stage names what it received"
+    },
+    {
+      "id": "standalone-v1-153",
+      "prompt": "Write a somonka: an opening five-line verse computing a mean, and a reply verse answering with the spread"
+    },
+    {
+      "id": "standalone-v1-094",
+      "prompt": "Implement a computation that chains small functions through deliberate turns, shaped as small code sections where each result becomes the next section's turn."
+    },
+    {
+      "id": "standalone-v1-250",
+      "prompt": "Write a ten-line program that validates an input schema"
+    },
+    {
+      "id": "standalone-v1-122",
+      "prompt": "Write a sijo program that makes the third long line change the result."
+    },
+    {
+      "id": "standalone-v1-117",
+      "prompt": "Implement mocks a confusing API gently with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-180",
+      "prompt": "Implement a four-line verse in two matching pairs, the final line settling the third line pivot"
+    },
+    {
+      "id": "standalone-v1-111",
+      "prompt": "Write a senryu program that jokes about a failing cache."
+    },
+    {
+      "id": "standalone-v1-208",
+      "prompt": "Implement a fourteen-line verse with a volta that reframes the computation before the final pair"
+    },
+    {
+      "id": "standalone-v1-219",
+      "prompt": "Write a 2-4-6-8-2 shaped cinquain program that checks service health and lands the down-count"
+    },
+    {
+      "id": "standalone-v1-132",
+      "prompt": "Explain how to designs a resilient job queue and its tests in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-067",
+      "prompt": "Build a program that sums a list, using three logic lines shaped 5-3-5 with a distinctly short middle."
+    },
+    {
+      "id": "standalone-v1-036",
+      "prompt": "Write a haibun program that debugs a missing event and lands on the fix."
+    },
+    {
+      "id": "standalone-v1-077",
+      "prompt": "Build a program that parses a URL, using the complete runnable program on exactly one physical line."
+    },
+    {
+      "id": "standalone-v1-043",
+      "prompt": "Explain how to debugs a missing event and lands on the fix in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-164",
+      "prompt": "Compose a six-line meditation program that counts words and seals with the dominant token name"
+    },
+    {
+      "id": "standalone-v1-207",
+      "prompt": "A fourteen-line program whose argument shifts near the tenth line and closes with a two-line verdict"
+    },
+    {
+      "id": "standalone-v1-061",
+      "prompt": "Implement validates a password while speaking to the operator with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-210",
+      "prompt": "Build a villanelle program with the two-refrain architecture: a health verdict and an up-count, each returning four times as services go up and down"
+    },
+    {
+      "id": "standalone-v1-008",
+      "prompt": "Implement reads a queue, validates each item, and reports the first failure with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-212",
+      "prompt": "Write a nineteen-line villanelle program with repeating refrain expressions and a closing quatrain that resolves the computation"
+    },
+    {
+      "id": "standalone-v1-047",
+      "prompt": "Build a program that classifies a stream, using three compact logic lines shaped 5-7-5."
+    },
+    {
+      "id": "standalone-v1-064",
+      "prompt": "Write a lunes program that sums a list."
+    },
+    {
+      "id": "standalone-v1-119",
+      "prompt": "Explain how to turns a human habit into a small debugging punchline in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-137",
+      "prompt": "Implement a computation that computes a result and states its consequence, shaped as three compact action lines followed by two longer consequence lines."
+    },
+    {
+      "id": "standalone-v1-019",
+      "prompt": "Build a maintainable service that cleans a list of incoming records and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-168",
+      "prompt": "Build an imayo that reads a log and rolls through parse, filter, count, and a refrain"
+    },
+    {
+      "id": "standalone-v1-174",
+      "prompt": "Write a kanshi: a four-line verse program in parallel couplets that count up and down services and resolve with uptime"
+    },
+    {
+      "id": "standalone-v1-163",
+      "prompt": "Write a six-line verse program whose last line settles the computation without new machinery"
+    },
+    {
+      "id": "standalone-v1-006",
+      "prompt": "Build a long multi-step program with alternating short and long logic lines, ending in a resolving pair of result lines."
+    },
+    {
+      "id": "standalone-v1-195",
+      "prompt": "Write a renshi: a chain of short stages where each stage consumes the previous output and transforms it"
+    },
+    {
+      "id": "standalone-v1-147",
+      "prompt": "Build a kyoka that computes the average load and lands a satirical jab about the high-performance system"
+    },
+    {
+      "id": "standalone-v1-245",
+      "prompt": "Build an etheree-shaped program with the 1-to-10 ladder that checks service health and lands the verdict"
+    },
+    {
+      "id": "standalone-v1-184",
+      "prompt": "Write a three-line verse program shaped five-seven-five that reports the cache state in a snapshot"
+    },
+    {
+      "id": "standalone-v1-186",
+      "prompt": "A three-line program with the three-line silhouette that lands an observation as its final line"
+    },
+    {
+      "id": "standalone-v1-085",
+      "prompt": "Build a maintainable service that reviews a deployment plan with tests and rollback and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-110",
+      "prompt": "Write a senryu program that mocks a confusing API gently."
+    },
+    {
+      "id": "standalone-v1-201",
+      "prompt": "Implement a multi-stage verse program whose links are traceable from source to final line"
+    },
+    {
+      "id": "standalone-v1-149",
+      "prompt": "Write a five-line program whose final two lines deliver a comic deflation of a real computation"
+    },
+    {
+      "id": "standalone-v1-146",
+      "prompt": "Write a kyoka program that reads health checks and prints the failure count with a comedic punchline"
+    },
+    {
+      "id": "standalone-v1-083",
+      "prompt": "Explain how to validates a token without a line break in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-176",
+      "prompt": "Write a kanshi: four lines of paired seven-token couplets, the third turning and the fourth resolving"
+    },
+    {
+      "id": "standalone-v1-211",
+      "prompt": "Write a 19-line verse program where two key expressions recur every few lines and the state between them changes each time"
+    },
+    {
+      "id": "standalone-v1-026",
+      "prompt": "Write a gogyohka program that validates a configuration."
+    },
+    {
+      "id": "standalone-v1-196",
+      "prompt": "Build a renshi relay from raw JSON text to parsed events to failed ids to a final report"
+    },
+    {
+      "id": "standalone-v1-078",
+      "prompt": "Implement a computation that sums numbers from standard input, shaped as all control flow and output kept on a single physical line."
+    },
+    {
+      "id": "standalone-v1-230",
+      "prompt": "Write a fibonacci poem program: lines whose token counts follow 1,1,2,3,5,8, summing a list and sealing the result on the final line"
+    },
+    {
+      "id": "standalone-v1-050",
+      "prompt": "Implement a runnable three-line moment: five units, seven units, then five, without added prose."
+    },
+    {
+      "id": "standalone-v1-013",
+      "prompt": "Write a dodoitsu program that reads input and returns a compact status."
+    },
+    {
+      "id": "standalone-v1-202",
+      "prompt": "Write a sonnet: a fourteen-line verse program in three quatrains and a couplet that analyze request loads"
+    },
+    {
+      "id": "standalone-v1-010",
+      "prompt": "Explain how to parses a configuration and prints a verified summary in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-232",
+      "prompt": "Write a golden-ratio verse program that grows its lines 1,1,2,3,5,8 and lands the verdict"
+    },
+    {
+      "id": "standalone-v1-060",
+      "prompt": "Implement a spoken three-line appeal with five units followed by two seven-unit lines."
+    },
+    {
+      "id": "standalone-v1-012",
+      "prompt": "Write a dodoitsu program that cleans a list of incoming records."
+    },
+    {
+      "id": "standalone-v1-022",
+      "prompt": "Build a maintainable service that creates a deployment system with explicit laws and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-073",
+      "prompt": "Explain how to parses a compact configuration in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-057",
+      "prompt": "Build a program that validates a password while speaking to the operator, using a directly addressed three-line fragment shaped 5-7-7."
+    },
+    {
+      "id": "standalone-v1-076",
+      "prompt": "Write a monoku program that validates a token without a line break."
+    },
+    {
+      "id": "standalone-v1-175",
+      "prompt": "Build a kanshi whose first couplet mirrors min and max and whose turn and resolve report the range"
+    },
+    {
+      "id": "standalone-v1-189",
+      "prompt": "Build a waka that counts users and admin share, turning on line four with the hidden fact"
+    },
+    {
+      "id": "standalone-v1-127",
+      "prompt": "Implement reveals a surprising bug in the final line with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-055",
+      "prompt": "Write a katauta program that checks a submitted form directly."
+    },
+    {
+      "id": "standalone-v1-136",
+      "prompt": "Build a program that reports a query result and reflects on it, using five logic lines shaped 5-7-5-7-7, ending in result and reflection."
+    },
+    {
+      "id": "standalone-v1-035",
+      "prompt": "Write a haibun program that migrates records while narrating each stage."
+    },
+    {
+      "id": "standalone-v1-037",
+      "prompt": "Build a program that recovers a failed background job, using a short narrative of the computation followed by a distinct three-line landing."
+    },
+    {
+      "id": "standalone-v1-118",
+      "prompt": "Build a maintainable service that jokes about a failing cache and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-240",
+      "prompt": "Write an 8-8-5-5-8 shaped limerick program that parses a log and delivers a punchline about the error count"
+    },
+    {
+      "id": "standalone-v1-042",
+      "prompt": "Build a maintainable service that migrates records while narrating each stage and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-018",
+      "prompt": "Implement counts failed login attempts with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-021",
+      "prompt": "Implement designs a reliable service architecture and verifies its boundaries with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-241",
+      "prompt": "Compose a five-line humorous program with two short middle lines and a long closing punchline"
+    },
+    {
+      "id": "standalone-v1-182",
+      "prompt": "Build a zappai that counts errors in a log and lands the small truth as the third line moment"
+    },
+    {
+      "id": "standalone-v1-134",
+      "prompt": "Write a tanka program that computes a result and states its consequence."
+    },
+    {
+      "id": "standalone-v1-072",
+      "prompt": "Build a maintainable service that checks a service and prints status and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-004",
+      "prompt": "Build a program that reads a queue, validates each item, and reports the first failure, using alternating long and short logic lines, followed by a resolving couplet."
+    },
+    {
+      "id": "standalone-v1-102",
+      "prompt": "Write a sedoka program that processes a request and mirrors it in a second stanza."
+    },
+    {
+      "id": "standalone-v1-126",
+      "prompt": "Implement a three-line program with extended setup and a surprising closing turn."
+    },
+    {
+      "id": "standalone-v1-173",
+      "prompt": "Implement a four-line verse that counts failures and closes on a short chorus line"
+    },
+    {
+      "id": "standalone-v1-039",
+      "prompt": "Tell the computation as a short narrative, then land in a separate three-line poetic code ending."
+    },
+    {
+      "id": "standalone-v1-112",
+      "prompt": "Write a senryu program that turns a human habit into a small debugging punchline."
+    },
+    {
+      "id": "standalone-v1-131",
+      "prompt": "Build a maintainable service that optimizes database queries without hand-waving and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-216",
+      "prompt": "Write a cinquain program: five lines shaped 2-4-6-8-2 tokens that counts errors in a log and lands on a two-token print of the count"
+    },
+    {
+      "id": "standalone-v1-096",
+      "prompt": "Implement a chained workflow whose blocks pivot deliberately from the previous block's output."
+    },
+    {
+      "id": "standalone-v1-166",
+      "prompt": "Implement a six-line verse whose closing line confirms the threshold the earlier lines measured"
+    },
+    {
+      "id": "standalone-v1-014",
+      "prompt": "Build a program that counts failed login attempts, using a four-line routine shaped 7-7-7-5, with a shorter fourth line."
+    },
+    {
+      "id": "standalone-v1-130",
+      "prompt": "Implement reviews a production WebSocket rollout with failure handling with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-139",
+      "prompt": "Implement five logic lines: three compact action lines followed by two longer consequence lines."
+    },
+    {
+      "id": "standalone-v1-092",
+      "prompt": "Write a renga program that links processing stages with visible pivots."
+    },
+    {
+      "id": "standalone-v1-222",
+      "prompt": "Write a five-line program that builds a small lookup table"
+    },
+    {
+      "id": "standalone-v1-088",
+      "prompt": "Build a maintainable service that evolves particles through user interaction and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-114",
+      "prompt": "Implement a computation that jokes about a failing cache, shaped as a small human-nature punchline carried by three measured runnable lines."
+    },
+    {
+      "id": "standalone-v1-103",
+      "prompt": "Build a program that validates a form in two reflective blocks, using two mirrored three-line stanzas, each shaped 5-7-7."
+    },
+    {
+      "id": "standalone-v1-109",
+      "prompt": "Explain how to processes a request and mirrors it in a second stanza in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-104",
+      "prompt": "Implement a computation that answers an input with two matching code stanzas, shaped as a paired response in which the second three-line block reflects the first."
+    },
+    {
+      "id": "standalone-v1-155",
+      "prompt": "Write a somonka: paired verses where the second program consumes the first output and counters it"
+    },
+    {
+      "id": "standalone-v1-167",
+      "prompt": "Write an imayo: a four-line verse program where each line carries a long-short seven-five pulse"
+    },
+    {
+      "id": "standalone-v1-181",
+      "prompt": "Write a zappai: a three-line verse program that reads health data and prints which services are down"
+    },
+    {
+      "id": "standalone-v1-192",
+      "prompt": "Compose a five-line courtly verse that reads a log and ends with the peak-to-average verdict"
+    },
+    {
+      "id": "standalone-v1-229",
+      "prompt": "Write a four-line program that validates JSON config"
+    },
+    {
+      "id": "standalone-v1-188",
+      "prompt": "Write a waka: a five-line verse program where the first three set the scene and the last two turn and resolve"
+    },
+    {
+      "id": "standalone-v1-187",
+      "prompt": "Implement a three-line verse without seasonal requirements that reports a single system fact"
+    },
+    {
+      "id": "standalone-v1-214",
+      "prompt": "Write a repeating-refrain verse program that computes a moving average"
+    },
+    {
+      "id": "standalone-v1-068",
+      "prompt": "Implement a computation that checks a service and prints status, shaped as a runnable form whose first and last lines carry five units and center carries three."
+    },
+    {
+      "id": "standalone-v1-205",
+      "prompt": "Write a fourteen-line verse program where three four-line movements build and a final couplet resolves"
+    },
+    {
+      "id": "standalone-v1-121",
+      "prompt": "Write a sijo program that explains an architecture and turns at the end."
+    },
+    {
+      "id": "standalone-v1-002",
+      "prompt": "Write a choka program that warms a cache while checking each dependency."
+    },
+    {
+      "id": "standalone-v1-204",
+      "prompt": "Write a sonnet: fourteen lines of about ten tokens each with a turn before the closing pair"
+    },
+    {
+      "id": "standalone-v1-223",
+      "prompt": "Write a ryuka program: four lines shaped 8-8-8-6 tokens, three long lines of checking and a short six-token landing line, reading health booleans"
+    },
+    {
+      "id": "standalone-v1-142",
+      "prompt": "Explain how to summarizes a file transformation and its lesson in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-032",
+      "prompt": "Build a maintainable service that aggregates sensor readings and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-045",
+      "prompt": "Write a haiku program that calculates a checksum."
+    },
+    {
+      "id": "standalone-v1-191",
+      "prompt": "Write a five-line verse program that establishes a scene then pivots on line four and resolves on five"
+    },
+    {
+      "id": "standalone-v1-049",
+      "prompt": "Write three compact logic lines shaped 5-7-5, with setup, turn, and result."
+    },
+    {
+      "id": "standalone-v1-079",
+      "prompt": "Put the complete runnable program on exactly one physical line, including its output."
+    },
+    {
+      "id": "standalone-v1-082",
+      "prompt": "Build a maintainable service that sums numbers from standard input and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-144",
+      "prompt": "Build a maintainable service that inspects a device-flavored value and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-101",
+      "prompt": "Write a sedoka program that answers an input with two matching code stanzas."
+    },
+    {
+      "id": "standalone-v1-242",
+      "prompt": "Write a joke-shaped verse program that reports how many services are down"
+    },
+    {
+      "id": "standalone-v1-017",
+      "prompt": "Implement a four-line folk-rhythm routine whose first three lines carry the computation and whose shorter fourth line lands briefly."
+    },
+    {
+      "id": "standalone-v1-123",
+      "prompt": "Build a program that reveals a surprising bug in the final line, using three long logic lines with a final twist that changes the reading."
+    },
+    {
+      "id": "standalone-v1-046",
+      "prompt": "Write a haiku program that reads standard input and prints one result."
+    },
+    {
+      "id": "standalone-v1-097",
+      "prompt": "Implement hands a data transformation from one stage to the next with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-023",
+      "prompt": "Explain how to refactors a payment workflow and proves the result in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-099",
+      "prompt": "Explain how to links processing stages with visible pivots in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-145",
+      "prompt": "Explain how to writes a small HolyC-style service loop in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-169",
+      "prompt": "Write an imayo: four lines, each with the seven-five beat, ending on a chorus hook"
+    },
+    {
+      "id": "standalone-v1-056",
+      "prompt": "Write a katauta program that processes a request as an addressed appeal."
+    },
+    {
+      "id": "standalone-v1-066",
+      "prompt": "Write a lunes program that parses a compact configuration."
+    },
+    {
+      "id": "standalone-v1-113",
+      "prompt": "Build a program that mocks a confusing API gently, using three humorous logic lines shaped 5-7-5 and focused on human behavior."
+    },
+    {
+      "id": "standalone-v1-003",
+      "prompt": "Write a choka program that parses a configuration and prints a verified summary."
+    },
+    {
+      "id": "standalone-v1-044",
+      "prompt": "Write a haiku program that classifies a stream."
+    },
+    {
+      "id": "standalone-v1-116",
+      "prompt": "Build a compact program with a human-nature punchline in a measured three-line shape, 5-7-5."
+    },
+    {
+      "id": "standalone-v1-239",
+      "prompt": "Write a five-line comic verse program in AABBA rhythm that ends on the real result as the joke"
+    },
+    {
+      "id": "standalone-v1-025",
+      "prompt": "Write a gogyohka program that aggregates sensor readings."
+    },
+    {
+      "id": "standalone-v1-128",
+      "prompt": "Build a maintainable service that explains an architecture and turns at the end and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-177",
+      "prompt": "Write a four-line verse program where the first two lines are a structural mirror and the last two turn and settle"
+    },
+    {
+      "id": "standalone-v1-071",
+      "prompt": "Implement sums a list with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-170",
+      "prompt": "Write a four-line song-like program whose every line alternates a long and short phrase"
+    },
+    {
+      "id": "standalone-v1-197",
+      "prompt": "Write a renshi: linked verse stages that evolve numbers through sum, mean, and deviation"
+    },
+    {
+      "id": "standalone-v1-140",
+      "prompt": "Implement reports a query result and reflects on it with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-226",
+      "prompt": "Write an 8-8-8-6 shaped ryuka program that parses a log and prints the error count on the short line"
+    },
+    {
+      "id": "standalone-v1-135",
+      "prompt": "Write a tanka program that summarizes a file transformation and its lesson."
+    },
+    {
+      "id": "standalone-v1-218",
+      "prompt": "Write a five-line pyramid program that swells to an eight-token line and closes on two tokens"
+    },
+    {
+      "id": "standalone-v1-038",
+      "prompt": "Implement a computation that migrates records while narrating each stage, shaped as diary-like processing that resolves in three final poetic code lines."
+    },
+    {
+      "id": "standalone-v1-157",
+      "prompt": "Compose two five-line verse programs in dialogue, the second overturning the first verdict"
+    },
+    {
+      "id": "standalone-v1-090",
+      "prompt": "Write a renga program that hands a data transformation from one stage to the next."
+    },
+    {
+      "id": "standalone-v1-009",
+      "prompt": "Build a maintainable service that warms a cache while checking each dependency and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-151",
+      "prompt": "A five-line program that honestly computes a statistic and then undercuts its own importance in the last two lines"
+    },
+    {
+      "id": "standalone-v1-107",
+      "prompt": "Implement validates a form in two reflective blocks with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-033",
+      "prompt": "Explain how to validates a configuration in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-129",
+      "prompt": "Explain how to makes the third long line change the result in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-080",
+      "prompt": "Implement all control flow and result handling without a line break."
+    },
+    {
+      "id": "standalone-v1-054",
+      "prompt": "Write a katauta program that validates a password while speaking to the operator."
+    },
+    {
+      "id": "standalone-v1-171",
+      "prompt": "Compose a four-line rolling verse that sums prices and lands the total as a refrain"
+    },
+    {
+      "id": "standalone-v1-162",
+      "prompt": "Write a bussokusekika: six lines where the final line names the conclusion the earlier lines earned"
+    },
+    {
+      "id": "standalone-v1-028",
+      "prompt": "Implement a computation that aggregates sensor readings, shaped as five natural lines with flexible lengths and complete runnable steps."
+    },
+    {
+      "id": "standalone-v1-069",
+      "prompt": "Build three logic lines shaped 5-3-5, with a distinctly short center."
+    },
+    {
+      "id": "standalone-v1-150",
+      "prompt": "Compose a five-line humorous verse program that parses a config and ends on an absurd observation"
+    },
+    {
+      "id": "standalone-v1-231",
+      "prompt": "Build a fibonacci-shaped program where each line's token count is the sum of the previous two, checking service health"
+    },
+    {
+      "id": "standalone-v1-243",
+      "prompt": "Write a five-line program that counts words in a config file"
+    },
+    {
+      "id": "standalone-v1-246",
+      "prompt": "Write a ten-line ladder program growing one token per line that counts log errors"
+    },
+    {
+      "id": "standalone-v1-165",
+      "prompt": "A six-line program where lines one through five build evidence and line six issues the verdict"
+    },
+    {
+      "id": "standalone-v1-215",
+      "prompt": "Write a nineteen-line program that formats a report table"
+    },
+    {
+      "id": "standalone-v1-001",
+      "prompt": "Write a choka program that reads a queue, validates each item, and reports the first failure."
+    },
+    {
+      "id": "standalone-v1-190",
+      "prompt": "Write a waka: five lines in the classical five-seven-five-seven-seven shape with a quiet turn"
+    },
+    {
+      "id": "standalone-v1-220",
+      "prompt": "Compose a five-line poem program with a two-token closing word that seals the result"
+    },
+    {
+      "id": "standalone-v1-027",
+      "prompt": "Build a program that transforms records through five natural steps, using exactly five free-rhythm logic lines, each carrying one complete breath."
+    },
+    {
+      "id": "standalone-v1-086",
+      "prompt": "Explain how to hardens an authentication endpoint in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-020",
+      "prompt": "Explain how to reads input and returns a compact status in a straightforward implementation with no special presentation."
+    },
+    {
+      "id": "standalone-v1-178",
+      "prompt": "Compose a four-line parallel verse that counts characters and words and resolves with the density"
+    },
+    {
+      "id": "standalone-v1-030",
+      "prompt": "Write a five-line program with flexible line lengths and one natural breath of computation per line."
+    },
+    {
+      "id": "standalone-v1-031",
+      "prompt": "Implement transforms records through five natural steps with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-225",
+      "prompt": "Write a four-line verse program whose last line is shorter than the first three and lands the result"
+    },
+    {
+      "id": "standalone-v1-074",
+      "prompt": "Write a monoku program that parses a URL."
+    },
+    {
+      "id": "standalone-v1-154",
+      "prompt": "Build a somonka exchange where the first verse sorts users and the reply reveals the admins outside the sort"
+    },
+    {
+      "id": "standalone-v1-100",
+      "prompt": "Write a sedoka program that validates a form in two reflective blocks."
+    },
+    {
+      "id": "standalone-v1-141",
+      "prompt": "Build a maintainable service that computes a result and states its consequence and records useful diagnostics."
+    },
+    {
+      "id": "standalone-v1-160",
+      "prompt": "Write a bussokusekika: a six-line verse program that reads latencies and seals with a verdict line"
+    },
+    {
+      "id": "standalone-v1-172",
+      "prompt": "A four-line program with a repeating long-short rhythm inside each statement line"
+    },
+    {
+      "id": "standalone-v1-234",
+      "prompt": "Compose a poem program whose line lengths follow the growing sequence and carry a real computation"
+    },
+    {
+      "id": "standalone-v1-248",
+      "prompt": "Compose a ten-rung poem program where each line is one token longer than the last and the final line carries the answer"
+    },
+    {
+      "id": "standalone-v1-237",
+      "prompt": "Write a limerick program: five lines shaped 8-8-5-5-8 with a comic punchline on the final line, reading health booleans"
+    },
+    {
+      "id": "standalone-v1-011",
+      "prompt": "Write a dodoitsu program that counts failed login attempts."
+    },
+    {
+      "id": "standalone-v1-193",
+      "prompt": "A five-line program whose first three lines describe a state and whose last two reveal its hidden pattern"
+    },
+    {
+      "id": "standalone-v1-138",
+      "prompt": "Write five logic lines shaped 5-7-5-7-7, ending with a result and reflection."
+    },
+    {
+      "id": "standalone-v1-087",
+      "prompt": "Implement grows unexpected color patterns from feedback loops with clear errors, tests, and a small command-line interface."
+    },
+    {
+      "id": "standalone-v1-213",
+      "prompt": "Compose a five-tercet plus quatrain program whose two repeated lines are real expressions over shifting data"
+    },
+    {
+      "id": "standalone-v1-070",
+      "prompt": "Implement a compact three-line form whose first and last lines carry five units and whose middle carries three."
+    },
+    {
+      "id": "standalone-v1-148",
+      "prompt": "Write a kyoka: a five-line comic verse program that counts log errors and ends with a self-aware joke"
+    },
+    {
+      "id": "standalone-v1-095",
+      "prompt": "Link multiple program sections so each result becomes the next section's input, with visible handoff turns."
+    },
+    {
+      "id": "standalone-v1-249",
+      "prompt": "Write a ladder-shaped verse program that reports the average response time"
+    },
+    {
+      "id": "standalone-v1-115",
+      "prompt": "Write three humorous logic lines shaped 5-7-5 about a human habit or foible."
+    },
+    {
+      "id": "standalone-v1-059",
+      "prompt": "Write a directly addressed three-line fragment shaped 5-7-7, speaking to the operator."
+    }
+  ],
+  "gold": "omitted; score with score_blind_decisions.py after independent decisions are complete"
+}
