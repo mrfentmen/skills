@@ -220,11 +220,21 @@ hit mid-run. Re-run once the daily window resets:
 model-outputs-posthardening-qwen-agentic --resume --skills
 sonnet,villanelle,etheree --max-iters 6`.
 
+**Mistral-large and Codestral full-set agentic (2026-08-19):** the loop on
+the full 28 at 4 generations landed **2/28 strict (haibun, monoku) and
+17/28 shape** for `mistral-large-latest` (`model-outputs-posthardening-mistral-large-agentic/`)
+and 0/3 on the three open weak forms for `codestral-latest` — slightly
+*below* Mistral-small's 3/28 strict / 19/28 shape. Bigger is not better for
+exact-token rhythm: the qwen3.6-27b arm is the only one that closed
+formerly-weak forms, so the model matters more than its size.
+
 Other provider probes on the same day: Z.ai GLM-4.7-flash answered a full
 prompt once but then returned 1305 "service temporarily overloaded" on
 every call (unusable for a loop); NVIDIA keys 403 on real prompts (tiny
 probes pass — model-scoped keys); Cerebras free quota was exhausted
-(payment_required); GitHub Models 404s on every endpoint with this token.
+(payment_required); GitHub Models 404s on every endpoint with this token;
+OVH's anonymous tier serves gpt-oss-120b but the reasoning budget is eaten
+by thinking and the tier is heavily rate-limited (every real call blocked).
 
 ### The measurable with-skill effect: shape convergence
 

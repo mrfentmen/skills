@@ -1,0 +1,113 @@
+{
+ "sonnet": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   }
+  ],
+  "ts": "2026-08-19 07:38:10"
+ },
+ "villanelle": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "missing ['1']"
+   }
+  ],
+  "ts": "2026-08-19 07:38:51"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 5', 'ladder not 1-10 pm1: [1, 3, 3, 2, 5]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 5', 'ladder not 1-10 pm1: [1, 3, 3, 2, 5]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 12', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 2, 2, 3, 6, 6, 6, 6]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 4', 'ladder not 1-10 pm1: [1, 3, 3, 2]']"
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "missing ['sum']"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "missing ['sum']"
+   }
+  ],
+  "ts": "2026-08-19 07:39:07"
+ }
+}

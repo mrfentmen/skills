@@ -1,0 +1,17 @@
+import sys
+nums = [int(n) for n in sys.stdin]
+total = sum(nums)
+print(f"the sum is {total}")
+print(f"of {len(nums)} numbers")
+print(f"the first is {nums[0]}")
+print(f"the last is {nums[-1]}")
+print(f"the middle is {nums[len(nums)//2]}")
+print(f"the sum is {total}")
+print(f"of {len(nums)} numbers")
+print(f"the first is {nums[0]}")
+print(f"the last is {nums[-1]}")
+print(f"the middle is {nums[len(nums)//2]}")
+print(f"the sum is {total}")
+print(f"of {len(nums)} numbers")
+print(f"the first is {nums[0]}")
+print(f"the last is {nums[-1]}")
