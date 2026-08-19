@@ -173,11 +173,18 @@ Mistral-small, which is the honest ceiling.
 **Groq agentic (gpt-oss-120b):** started the same loop (6 gens); dodoitsu
 passed on gen 1 from its post-hardening one-shot, then the Groq org hit its
 daily `gpt-oss-120b` token cap and every further call returned
-"Rate limit reached for model" (retries 40-200s). Partial, quota-bound —
-same as the pre-hardening Groq agentic situation; re-run with
-`--providers groq-gpt-oss-120b --out-dir model-outputs-posthardening-agentic
---max-iters 6 --resume` once the window frees (the provider is now
-registered in `run_feedback_arms.py`).
+"Rate limit reached for model" (retries 40-200s). A re-attempt after the
+window rolled over showed the cap is org-wide and nearly exhausted — tiny
+probes pass, real calls still fail — so the Groq agentic arm stays partial
+and quota-bound (same as the pre-hardening Groq agentic situation). Re-run
+with `--providers groq-gpt-oss-120b --out-dir
+model-outputs-posthardening-agentic --max-iters 6 --resume` once the daily
+window fully frees (provider now registered in `run_feedback_arms.py`).
+
+**Mistral agentic at 6 generations (full 28, 2026-08-19):** giving every
+skill the full 6-generation budget (not just the weak forms) confirmed the
+ceiling: still **3/28 strict** (haibun, imayo, monoku) — the extra
+generations move shapes, not the ±2-token arithmetic, on Mistral-small.
 
 ### The measurable with-skill effect: shape convergence
 
