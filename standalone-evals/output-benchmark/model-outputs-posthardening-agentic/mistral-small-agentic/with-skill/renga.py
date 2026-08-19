@@ -9,5 +9,7 @@ count = len(nums)
 avg = total / count if count else 0
 
 print(total)
+
 print(count)
+
 print(avg)

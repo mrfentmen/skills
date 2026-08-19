@@ -2,15 +2,23 @@ import sys
 
 nums = [int(line) for line in sys.stdin if line.strip()]
 total = sum(nums)
-print("the", "first", "quatrain", "reads", "the", "numbers", "in")
-print("the", "second", "quatrain", "turns", "them", "to", "a", "sum")
-print("the", "third", "quatrain", "deepens", "the", "count", "now")
-print("the", "volta", "turns", "the", "stream", "to", "the", "result")
-print("the", "sum", "of", "all", "the", "numbers", "is", "the", "truth")
-print("the", "final", "value", "is", "the", "answer", "now")
-print("the", "lines", "are", "read", "and", "the", "sum", "is", "done")
-print("the", "sonnet", "prints", "the", "result", "in", "one", "line")
-print("the", "sum", "is", total)
-print("the", "sonnet", "ends", "with", "the", "resolve", "done")
-print("the", "task", "is", "complete", "and", "the", "code", "is", "run")
-print("the", "numbers", "are", "read", "and", "the", "sum", "is", "shown")
+print(total)
+
+count = len(nums)
+mean = total / max(1, count)
+print(mean)
+
+above = [n for n in nums if n > mean]
+below = [n for n in nums if n < mean]
+print(len(above), len(below))
+
+median = sorted(nums)[len(nums)//2]
+print(median)
+
+if len(nums) % 2 == 1:
+    print("odd count yields exact median")
+else:
+    print("even count yields midpoint")
+
+print("the sum is", total)
+print("done")

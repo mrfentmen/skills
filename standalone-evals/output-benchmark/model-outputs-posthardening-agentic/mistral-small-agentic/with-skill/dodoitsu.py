@@ -1,5 +1,4 @@
 import sys
-nums = [int(x) for x in sys.stdin.read().split()]
-total = sum(nums)
-n = len(nums)
-print(total // n if n else 0)
+nums = list(map(int, sys.stdin.read().split()))
+avg = sum(nums) // len(nums) if nums else 0
+print(avg)

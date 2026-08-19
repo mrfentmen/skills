@@ -185,6 +185,20 @@ and shape convergence **15 → 19/28** vs the pre-hardening agentic run. The
 ±2-token strict for gogyohka/villanelle/etheree remains beyond
 Mistral-small one-shot or loop — the documented ceiling.
 
+**Agentic loop (2026-08-19, Groq qwen3.6-27b — three of the six weak forms
+close):** after gpt-oss-120b's 200k-token/day org cap was exhausted, the
+arm switched to `qwen/qwen3.6-27b` and ran the same checker-feedback loop
+(6 gens) on the six formerly-weak forms
+(`model-outputs-posthardening-qwen-agentic/`): **gogyohka PASS (gen 1),
+kanshi PASS (gen 1), somonka PASS (gen 5)** — the first-ever strict
+±2-token passes for gogyohka and somonka on any provider, and the first
+agentic passes for any of the six beyond Mistral's haibun-style wins.
+The stronger model + hardened contract + checker feedback is what lands
+exact rhythm. sonnet/villanelle/etheree did not pass: qwen emitted
+`<think>` blocks and stray tokens that broke Python parsing (the runner
+now strips `<think>` blocks in `extract_code`), and the daily cap hit
+mid-run. Re-run command documented in the output-benchmark README.
+
 ## Release gates (all green)
 
 | Gate | Result |
@@ -275,7 +289,12 @@ perfect abstention on ordinary/trap prompts, and every deterministic gate
 is green.
 
 What is honestly not proven: exact ±2-token rhythm one-shot for the
-token-arithmetic forms (reachable only via the agentic checker loop), and a
-second independent blind scorer to confirm the 0.976 (the current score is
-one fresh scorer on the 250-record set; a second scorer would bound it).
-The frozen legacy runner stays red as documented historical evidence.
+token-arithmetic forms — though the agentic loop on a stronger model
+(qwen3.6-27b) has now strict-passed **three of the six formerly-weak
+forms** (gogyohka, kanshi, somonka), leaving sonnet, villanelle, and
+etheree as the open arithmetic cases (qwen's think-block outputs broke
+runtime parsing; the runner now strips them, and the daily org cap hit
+mid-run). And a second independent blind scorer to confirm the 0.976 (the
+current score is one fresh scorer on the 250-record set; a second scorer
+would bound it). The frozen legacy runner stays red as documented
+historical evidence.

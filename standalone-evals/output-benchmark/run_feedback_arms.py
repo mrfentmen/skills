@@ -47,6 +47,16 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "GROQ_API_KEY",
         "model": "openai/gpt-oss-120b",
     },
+    "groq-qwen3.6-27b": {
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "key_env": "GROQ_API_KEY",
+        "model": "qwen/qwen3.6-27b",
+    },
+    "zai-glm-4.7-flash": {
+        "url": "https://api.z.ai/api/paas/v4/chat/completions",
+        "key_env": "ZAI_API_KEY",
+        "model": "glm-4.7-flash",
+    },
     "mistral-small": {
         "url": "https://api.mistral.ai/v1/chat/completions",
         "key_env": "MISTRAL_API_KEY",
@@ -79,7 +89,12 @@ def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
         "temperature": 0.2,
         "max_tokens": max_tokens,
     })
-    auth = key or provider['key']
+    # round-robin across comma-joined keys so a per-key rate limit does not stall a run
+    if 'keys' in provider and provider['keys']:
+        auth = provider['keys'][provider.get('_ki', 0) % len(provider['keys'])]
+        provider['_ki'] = provider.get('_ki', 0) + 1
+    else:
+        auth = key or provider['key']
     for attempt in range(retries):
         try:
             proc = subprocess.run(
@@ -106,8 +121,13 @@ def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
             return data["choices"][0]["message"]["content"].strip()
         err = data.get("error", {})
         msg = str(err.get("message", proc.stdout))[:140]
-        if "rate" in msg.lower() or "limit" in msg.lower() or "429" in str(err.get("code", "")):
-            wait = base_wait * (attempt + 1) * 2
+        if ("rate" in msg.lower() or "limit" in msg.lower() or "overload" in msg.lower()
+                or "temporar" in msg.lower() or "1305" in str(err.get("code", ""))
+                or "429" in str(err.get("code", "")) or "5" == str(err.get("code", ""))[:1]):
+            # flat sleep: Groq's per-minute TPM window resets in ~60s, so a flat
+            # wait lands the next attempt just after the window refills; Z.ai's
+            # 1305 overload errors also clear in tens of seconds
+            wait = base_wait
             print(f"      [{attempt}] rate-limited ({msg[:60]}); sleeping {wait}s", flush=True)
             time.sleep(min(wait, 240))
             continue
@@ -119,7 +139,10 @@ def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
 def extract_code(text: str) -> str:
     blocks = re.findall(r"```(?:python|py)?\s*\n(.*?)```", text, re.DOTALL)
     if blocks:
-        return blocks[-1].strip()
+        text = blocks[-1]
+    # reasoning models (qwen3.6) emit <think>...</think> blocks that are not valid
+    # Python; drop them and any prose before the first statement
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
     return text.strip()
 
 
@@ -179,7 +202,7 @@ def main() -> int:
         if not keys:
             print(f'provider {name}: no env {prov["key_env"]}; skipping')
             continue
-        prov = dict(prov, key=keys[0])
+        prov = dict(prov, key=keys[0], keys=keys, _ki=0)
         out_dir = BASE / args.out_dir / f'{name}-agentic' / 'with-skill'
         work_dir = BASE / f'.agentic-work-{name}'
         work_dir.mkdir(parents=True, exist_ok=True)
@@ -215,7 +238,7 @@ def main() -> int:
 
             passed = False
             attempts = []
-            while gens <= args.max_iters:
+            while gens <= args.max_iters and budget_left():
                 if cur is None:
                     print(f'  [{idx}/{len(items)}] {skill:12s} gen {gens + 1}/{args.max_iters} ...', flush=True)
                     cur = generate(prov, system, task)
@@ -247,6 +270,9 @@ def main() -> int:
                           'attempts': attempts, 'ts': time.strftime('%Y-%m-%d %H:%M:%S')}
             log_path.write_text(json.dumps(log, indent=1))
             time.sleep(3)
+            if not budget_left():
+                print('--- wall-clock budget exhausted; run --resume to continue ---', flush=True)
+                break
 
         # sweeps: keep re-attempting quota-limited skills while the window frees tokens
         for sweep in range(args.sweeps):

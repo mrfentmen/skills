@@ -186,6 +186,46 @@ skill the full 6-generation budget (not just the weak forms) confirmed the
 ceiling: still **3/28 strict** (haibun, imayo, monoku) — the extra
 generations move shapes, not the ±2-token arithmetic, on Mistral-small.
 
+### Groq qwen3.6-27b agentic — three of the six weak forms close (2026-08-19)
+
+Groq no longer served llama-3.3-70b on the account, and `gpt-oss-120b`'s
+200k-token/day org cap was already exhausted, so the arm switched to
+`qwen/qwen3.6-27b` (registered as `groq-qwen3.6-27b` in
+`run_feedback_arms.py`). The checker-feedback loop ran the six formerly-weak
+forms at 6 generations, starting from the post-hardening one-shots
+(`model-outputs-posthardening-qwen-agentic/`):
+
+| Skill (was: needs contract work) | Result | Generations |
+|---|---|---|
+| gogyohka | **PASS** | 1 |
+| kanshi | **PASS** | 1 |
+| somonka | **PASS** | 5 |
+| sonnet | fail | 6 |
+| villanelle | fail | 2-6 |
+| etheree | fail | 2-6 |
+
+**3/6 strict passes — the first-ever strict passes for gogyohka and somonka
+on any provider**, and kanshi joins them (its Mistral convergence was
+shape-only). The loop closed two forms the hardening pass alone could not
+(Mistral's 6-gen push only converged shapes); the stronger model + the
+hardened contract + checker feedback is what landed exact ±2-token rhythm.
+
+Failure modes for the remaining three, read off the actual outputs: qwen
+emits `<think>` blocks and stray tokens that are invalid Python (sonnet's
+output opened with `<think>`, etheree's with a bare `data` line), so the
+programs died at runtime before refinement could converge; the runner now
+strips `<think>` blocks in `extract_code`, and the 200k-token/day org cap
+hit mid-run. Re-run once the daily window resets:
+`python3 run_feedback_arms.py --providers groq-qwen3.6-27b --out-dir
+model-outputs-posthardening-qwen-agentic --resume --skills
+sonnet,villanelle,etheree --max-iters 6`.
+
+Other provider probes on the same day: Z.ai GLM-4.7-flash answered a full
+prompt once but then returned 1305 "service temporarily overloaded" on
+every call (unusable for a loop); NVIDIA keys 403 on real prompts (tiny
+probes pass — model-scoped keys); Cerebras free quota was exhausted
+(payment_required); GitHub Models 404s on every endpoint with this token.
+
 ### The measurable with-skill effect: shape convergence
 
 Strict form compliance is ~0 one-shot because **models cannot count Python
@@ -329,3 +369,10 @@ procedure instead of just asserting the rhythm.
   1 → 3/28, shape 15 → 19/28. The 6-gen push converged kanshi/somonka/
   sonnet shape; exact-token strict for gogyohka/villanelle/etheree stays
   beyond Mistral-small's reach.
+- Close the exact-token gap on the remaining weak forms with a stronger
+  model. **PARTIALLY DONE 2026-08-19** — the Groq qwen3.6-27b agentic loop
+  strict-passed gogyohka, kanshi, and somonka (first-ever passes for
+  gogyohka/somonka; see the qwen section above). sonnet, villanelle, and
+  etheree remain open: qwen's `<think>`-block outputs broke runtime parsing
+  (runner now strips them) and the 200k-token/day org cap hit mid-run.
+  Re-run command documented above.

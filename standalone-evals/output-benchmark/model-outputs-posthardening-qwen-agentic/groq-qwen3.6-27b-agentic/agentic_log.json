@@ -1,0 +1,109 @@
+{
+ "gogyohka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-19 06:41:25"
+ },
+ "somonka": {
+  "final_pass": true,
+  "generations": 5,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['need two blank-line-separated stanzas, got 1']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['stanza 1 profile [3, 7, 3, 4, 6] != [5,7,5,7,7] pm2', 'stanza 2 has 4 lines, need 5']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['14', '5', 'count', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['19']"
+   },
+   {
+    "gen": 5,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-19 06:55:03"
+ },
+ "kanshi": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-19 06:47:05"
+ },
+ "sonnet": {
+  "final_pass": false,
+  "generations": 5,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['need exactly 14 logic lines, got 3', 'lines not ~10 tokens pm2 (iambic pentameter analog): [7, 3, 3]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['00', '2', '4', '5', '80'] ['need exactly 14 logic lines, got 12', 'lines not ~10 tokens pm2 (iambic pentameter analog): [7, 3, 3, 6, 9, 2, 2, 2, 8, 3, 4, 6]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   }
+  ],
+  "ts": "2026-08-19 07:07:12"
+ },
+ "villanelle": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   }
+  ],
+  "ts": "2026-08-19 07:09:17"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['5', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   }
+  ],
+  "ts": "2026-08-19 07:11:25"
+ }
+}

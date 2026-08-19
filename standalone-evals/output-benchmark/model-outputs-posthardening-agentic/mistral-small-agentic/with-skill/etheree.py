@@ -1,12 +1,7 @@
-pass
-import sys
-lines = sys.stdin.read().splitlines()
-words = [w for l in lines for w in l.split()]
+words = input().split()
 n = len(words)
-print(n)
 total = sum(len(w) for w in words)
-print(total)
-report = f"tokens {n} total {total}"
+avg = total / max(1, n)
+long = max(len(w) for w in words)
+report = f"tokens {total} words {n} avg {avg:.1f} max {long}"
 print(report)
-print(f"mean {total / max(1, n):.1f}")
-print(f"total tokens {total} in {n} words")

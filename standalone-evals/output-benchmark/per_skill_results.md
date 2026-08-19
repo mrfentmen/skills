@@ -93,6 +93,13 @@ villanelle 22/19) — near-misses the agentic checker loop closes. See
 generations — strict 3/28 (haibun, imayo, monoku), shape 19/28; the 6-gen
 push converged kanshi/somonka/sonnet shape, and 6 generations across all 28
 confirmed the ceiling (extra gens move shapes, not ±2-token arithmetic).
-Groq's loop passed dodoitsu on gen 1 then hit the org's daily gpt-oss-120b
-cap (per-key budgets now cover only tiny probes) — partial, quota-bound;
-re-run once the daily window frees.
+Groq's gpt-oss-120b loop passed dodoitsu on gen 1 then hit the org's daily
+cap (per-key budgets now cover only tiny probes) — partial, quota-bound.
+
+**Agentic, stronger model (2026-08-19, Groq qwen3.6-27b, 6 gens on the six
+weak forms, `model-outputs-posthardening-qwen-agentic/`):** three of the
+six formerly-weak forms now strict-pass — **gogyohka (gen 1), kanshi
+(gen 1), somonka (gen 5)** — the first-ever strict passes for gogyohka and
+somonka on any provider. sonnet, villanelle, etheree did not pass: qwen's
+`<think>` blocks broke Python parsing (runner now strips them in
+`extract_code`) and the 200k-token/day org cap hit mid-run.
