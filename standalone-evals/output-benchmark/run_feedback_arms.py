@@ -186,6 +186,9 @@ def main() -> int:
     parser.add_argument('--max-iters', type=int, default=4,
                         help='total generations per skill including the starting one')
     parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--skip-logged', action='store_true',
+                        help='skip any skill already present in the log (passed or not); '
+                             'for wall-clock chunked runs so completed attempts are not re-done')
     parser.add_argument('--sweeps', type=int, default=0,
                         help='re-attempt quota-limited skills this many extra passes (helps rolling TPD windows)')
     parser.add_argument('--out-dir', default='model-outputs',
@@ -225,6 +228,9 @@ def main() -> int:
         for idx, item in enumerate(items, 1):
             skill = item['skill']
             entry = log.get(skill)
+            if args.skip_logged and entry:
+                print(f'  {skill:12s} already in log (skip-logged)', flush=True)
+                continue
             if args.resume and entry and entry.get('final_pass'):
                 print(f'  {skill:12s} already passed in log', flush=True)
                 continue
