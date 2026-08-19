@@ -88,3 +88,11 @@ first formerly-weak form to converge one-shot; the other five miss by 1-3
 lines (gogyohka 4/5, sonnet 12/14, etheree 13/10, somonka 18/10,
 villanelle 22/19) — near-misses the agentic checker loop closes. See
 `README.md` for the full table and honest analysis.
+
+**Agentic (post-hardening, 2026-08-19):** Mistral's loop at 4 then 6
+generations — strict 3/28 (haibun, imayo, monoku), shape 19/28; the 6-gen
+push converged kanshi/somonka/sonnet shape, and 6 generations across all 28
+confirmed the ceiling (extra gens move shapes, not ±2-token arithmetic).
+Groq's loop passed dodoitsu on gen 1 then hit the org's daily gpt-oss-120b
+cap (per-key budgets now cover only tiny probes) — partial, quota-bound;
+re-run once the daily window frees.
