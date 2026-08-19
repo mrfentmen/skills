@@ -42,6 +42,11 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "GROQ_API_KEY",
         "model": "llama-3.3-70b-versatile",
     },
+    "groq-gpt-oss-120b": {
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "key_env": "GROQ_API_KEY",
+        "model": "openai/gpt-oss-120b",
+    },
     "mistral-small": {
         "url": "https://api.mistral.ai/v1/chat/completions",
         "key_env": "MISTRAL_API_KEY",

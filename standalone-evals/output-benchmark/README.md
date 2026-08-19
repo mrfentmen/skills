@@ -170,6 +170,15 @@ villanelle, etheree — land within one line of target); exact ±2-token
 strict passes for those five still require a stronger model than
 Mistral-small, which is the honest ceiling.
 
+**Groq agentic (gpt-oss-120b):** started the same loop (6 gens); dodoitsu
+passed on gen 1 from its post-hardening one-shot, then the Groq org hit its
+daily `gpt-oss-120b` token cap and every further call returned
+"Rate limit reached for model" (retries 40-200s). Partial, quota-bound —
+same as the pre-hardening Groq agentic situation; re-run with
+`--providers groq-gpt-oss-120b --out-dir model-outputs-posthardening-agentic
+--max-iters 6 --resume` once the window frees (the provider is now
+registered in `run_feedback_arms.py`).
+
 ### The measurable with-skill effect: shape convergence
 
 Strict form compliance is ~0 one-shot because **models cannot count Python
