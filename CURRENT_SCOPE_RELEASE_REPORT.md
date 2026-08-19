@@ -178,6 +178,13 @@ formerly-weak forms, **kanshi now converges one-shot**; the other five
 passes vs 1 without repeats the pattern on a newer 120B model (model
 change noted; not a same-model before/after).
 
+**Agentic loop (post-hardening, Mistral small, 4 gens then a 6-gen push on
+the six weak forms):** strict passes **1 → 3/28** (haibun, monoku, imayo)
+and shape convergence **15 → 19/28** vs the pre-hardening agentic run. The
+6-gen push converged the *shape* of kanshi, somonka, and sonnet; exact
+±2-token strict for gogyohka/villanelle/etheree remains beyond
+Mistral-small one-shot or loop — the documented ceiling.
+
 ## Release gates (all green)
 
 | Gate | Result |
@@ -258,12 +265,14 @@ python3 grade_output.py --dir model-outputs-posthardening/mistral-small/with-ski
 
 What is proven: the 28 form contracts are satisfiable and gradeable
 (28/28 gold references), the skills steer output shape at ~3-4x the control
-rate across independent model providers (and the 2026-08-19 post-hardening
-re-run shows the hardened contracts lift same-model shape convergence
-15 → 20/28 and strict one-shot passes 0 → 3/28), routing datasets are
-structurally valid and leak-free, **independent blind routing now scores
-244/250 (0.976)** with perfect abstention on ordinary/trap prompts, and
-every deterministic gate is green.
+rate across independent model providers (the 2026-08-19 post-hardening
+re-run: same-model shape convergence 15 → 20/28 and strict one-shot passes
+0 → 3/28; agentic loop strict passes 1 → 3/28 and shape 15 → 19/28), a
+hands-on skill-test-kit pass solved all 13 tasks with correct output AND
+form-checker passes, routing datasets are structurally valid and
+leak-free, **independent blind routing now scores 244/250 (0.976)** with
+perfect abstention on ordinary/trap prompts, and every deterministic gate
+is green.
 
 What is honestly not proven: exact ±2-token rhythm one-shot for the
 token-arithmetic forms (reachable only via the agentic checker loop), and a

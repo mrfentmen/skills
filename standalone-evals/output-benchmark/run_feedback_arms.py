@@ -150,6 +150,9 @@ def main() -> int:
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--sweeps', type=int, default=0,
                         help='re-attempt quota-limited skills this many extra passes (helps rolling TPD windows)')
+    parser.add_argument('--out-dir', default='model-outputs',
+                        help='output base under output-benchmark/ (default model-outputs; '
+                             'use a fresh name to preserve prior agentic evidence)')
     parser.add_argument('--max-minutes', type=float, default=0,
                         help='optional wall-clock budget; 0 = unlimited')
     args = parser.parse_args()
@@ -172,11 +175,11 @@ def main() -> int:
             print(f'provider {name}: no env {prov["key_env"]}; skipping')
             continue
         prov = dict(prov, key=keys[0])
-        out_dir = BASE / 'model-outputs' / f'{name}-agentic' / 'with-skill'
+        out_dir = BASE / args.out_dir / f'{name}-agentic' / 'with-skill'
         work_dir = BASE / f'.agentic-work-{name}'
         work_dir.mkdir(parents=True, exist_ok=True)
         out_dir.mkdir(parents=True, exist_ok=True)
-        log_path = BASE / 'model-outputs' / f'{name}-agentic' / 'agentic_log.json'
+        log_path = BASE / args.out_dir / f'{name}-agentic' / 'agentic_log.json'
         log = json.loads(log_path.read_text()) if log_path.is_file() else {}
         print(f'\n=== agentic {name} ({prov["model"]}) — {len(items)} skills, max {args.max_iters} gens ===')
 
@@ -190,7 +193,8 @@ def main() -> int:
             final_file = out_dir / f'{skill}.py'
             skill_dir = work_dir / skill
             skill_dir.mkdir(parents=True, exist_ok=True)
-            start_file = BASE / 'model-outputs' / name / 'with-skill' / f'{skill}.py'
+            start_base = BASE / (args.out_dir if args.out_dir != 'model-outputs' else 'model-outputs')
+            start_file = start_base / name / 'with-skill' / f'{skill}.py'
             cur = None
             if start_file.is_file() and start_file.read_text(encoding='utf-8').strip() != '# MODEL CALL FAILED':
                 cur = start_file.read_text(encoding='utf-8')

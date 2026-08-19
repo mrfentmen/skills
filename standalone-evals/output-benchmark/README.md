@@ -151,6 +151,25 @@ etheree 13/10, somonka 18/10 (two stanzas run together), villanelle 22/19.
 No strict ±2-token passes among the six yet, as expected: that arithmetic is
 still iteration-only for these models.
 
+### Post-hardening agentic loop (2026-08-19, Mistral small, write→check→refine)
+
+`run_feedback_arms.py --out-dir model-outputs-posthardening-agentic` re-ran
+the agentic loop against the **hardened** contracts, starting from the
+post-hardening one-shots, 4 generations per skill (then a 6-generation push
+on the six formerly-weak forms):
+
+| Metric | Pre-hardening agentic | Post-hardening agentic |
+|---|---|---|
+| Strict form passes | 1/28 (haibun) | **3/28** (haibun, monoku, imayo) |
+| Shape convergence | 15/28 | **19/28** |
+
+Both the one-shot (0 → 3 strict) and the agentic (1 → 3 strict, 15 → 19
+shape) ceilings moved with the hardening. The 6-generation push converged
+the *shape* of kanshi, somonka, and sonnet (the other three — gogyohka,
+villanelle, etheree — land within one line of target); exact ±2-token
+strict passes for those five still require a stronger model than
+Mistral-small, which is the honest ceiling.
+
 ### The measurable with-skill effect: shape convergence
 
 Strict form compliance is ~0 one-shot because **models cannot count Python
@@ -288,3 +307,9 @@ procedure instead of just asserting the rhythm.
   above). OpenRouter/Z.ai/NVIDIA were not runnable with the keys on hand
   (no credits / dead keys), so the four-provider matrix from 2026-08-07 was
   not reproduced.
+- Re-run the agentic checker-feedback loop against the hardened contracts.
+  **DONE 2026-08-19** — `model-outputs-posthardening-agentic/` (Mistral
+  small, 4 gens/skill, +6-gen push on the six weak forms): strict passes
+  1 → 3/28, shape 15 → 19/28. The 6-gen push converged kanshi/somonka/
+  sonnet shape; exact-token strict for gogyohka/villanelle/etheree stays
+  beyond Mistral-small's reach.

@@ -86,3 +86,17 @@ happen by accident — haiku, monoku, senryu — are noted in their `expected.md
   varied the model, the stronger the evidence.
 - The automated version of this idea (with a mechanical grader) lives in
   `standalone-evals/output-benchmark/`.
+
+## Hands-on pass record (2026-08-19)
+
+All 13 tasks were solved in this repo with `solve.py` in each task folder,
+verified against `expected.md`, and checked through each skill's own
+`rhythm_check.py` (run from the repo root as
+`python3 <skill>/scripts/rhythm_check.py skill-test-kit/<skill>/solve.py`):
+
+**13/13 correct output AND form-checker pass.** The pass caught and fixed
+seven real form gaps through the write→check→refine loop (sedoka missing
+blank-line stanza separation; choka alternation + closing couplet; dodoitsu
+7-7-7-5 profile; haiku 5-7-5 silhouette; lunes 5-3-5 profile; renga 3-2-3
+stanza alternation; sijo third-line twist marker) — the checkers and the
+loop worked as designed.
