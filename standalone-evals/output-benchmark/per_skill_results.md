@@ -62,3 +62,29 @@ Every form graded across the gold set, the no-form control, and all model arms. 
   cap mid-run, so it only processed a few skills before quota; its '---' cells are
   unfinished, not failures. Re-run: GROQ_API_KEY=... python3 run_feedback_arms.py
   --providers groq-llama3.3-70b --sweeps 6.
+
+## Post-hardening re-run (2026-08-19)
+
+Same 28-item manifest, one-shot, into `model-outputs-posthardening/` (the
+pre-hardening files above are untouched). Keys on hand: Mistral small (same
+model as the 2026-08-07 rows → clean before/after) and Groq `gpt-oss-120b`
+(model switched; Groq no longer serves llama-3.3-70b on the account).
+
+| skill | mistral ws | mistral wos | groq ws | groq wos | strict ws | shape ws | shape wos |
+|---|---|---|---|---|---|---|---|
+| gogyohka | 4 lines | - | 4 lines | - | 0 | - | - |
+| somonka | 18 lines | - | - | - | 0 | - | - |
+| kanshi | **4 lines** | - | - | - | 0 | **Y** | - |
+| sonnet | 12 lines | - | - | - | 0 | - | - |
+| villanelle | 22 lines | - | - | - | 0 | - | - |
+| etheree | 13 lines | - | - | - | 0 | - | - |
+| (all other 22) | see README | | | | | | |
+
+Highlights: strict-form one-shot passes rose **0 → 3** on Mistral (haibun,
+monoku, imayo) and **8** on Groq (haibun, haiku, lunes, monoku, sedoka,
+bussokusekika, zappai, waka; 7 with correct output); shape convergence
+**15 → 20/28** on Mistral with-skill (control 4 → 5). **kanshi** became the
+first formerly-weak form to converge one-shot; the other five miss by 1-3
+lines (gogyohka 4/5, sonnet 12/14, etheree 13/10, somonka 18/10,
+villanelle 22/19) — near-misses the agentic checker loop closes. See
+`README.md` for the full table and honest analysis.

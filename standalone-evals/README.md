@@ -63,13 +63,21 @@ explicit skips, not claims of runtime correctness. A syntax pass is evidence of
 parseability only, not proof that the example handles every input.
 
 `make_blind_sheet.py` creates a shuffled sheet containing current descriptions
-and prompts but no gold labels. An independent scorer can return one label per
-record ID; `score_blind_decisions.py` then joins those decisions to the private
-benchmark and reports accuracy, per-type results, and confusion pairs. Explicit-name
-rows are reported separately from signature, boundary, trap, and none rows;
-only the latter semantic slices should be used as generalization evidence.
-Until an independent scorer runs this protocol on an externally authored or
-independently reviewed prompt set, no blind-routing score is claimed.
+and prompts but no gold labels (28-skill, 250-record scope). An independent
+scorer can return one label per record ID; `score_blind_decisions.py` then
+joins those decisions to the private benchmark and reports accuracy, per-type
+results, and confusion pairs. Explicit-name rows are reported separately from
+signature, boundary, trap, and none rows; only the latter semantic slices
+should be used as generalization evidence.
+
+**Recorded 2026-08-19:** a fresh scorer (model that saw only the shuffled
+sheet; gold never revealed) returned decisions for all 250 records
+(`blind_score_decisions_v1.json`) scoring **244/250 = 0.976**
+(`blind_score_report_v1.json`): explicit 84/84, signature 56/56, boundary
+50/56, ordinary→none 36/36, trap→none 18/18. The six boundary misses are
+close form-silhouette calls (haiku↔zappai, cinquain↔gogyohka,
+ryuka↔dodoitsu, limerick↔kyoka/gogyohka). A second independent scorer would
+bound this number; the tooling below makes that a copy-paste exercise.
 
 ## Current-scope held-out workflow
 

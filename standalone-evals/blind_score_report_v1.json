@@ -1,0 +1,220 @@
+{
+  "version": "standalone-trigger-v1-scored",
+  "total": 250,
+  "correct": 244,
+  "accuracy": 0.976,
+  "by_type": {
+    "boundary": {
+      "correct": 50,
+      "total": 56,
+      "accuracy": 0.8928571428571429
+    },
+    "explicit": {
+      "correct": 84,
+      "total": 84,
+      "accuracy": 1.0
+    },
+    "none": {
+      "correct": 36,
+      "total": 36,
+      "accuracy": 1.0
+    },
+    "signature": {
+      "correct": 56,
+      "total": 56,
+      "accuracy": 1.0
+    },
+    "trap": {
+      "correct": 18,
+      "total": 18,
+      "accuracy": 1.0
+    }
+  },
+  "by_target": {
+    "bussokusekika": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "choka": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "cinquain": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "dodoitsu": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "etheree": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "fibonacci": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "gogyohka": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "haibun": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "haiku": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "imayo": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "kanshi": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "katauta": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "kyoka": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "limerick": {
+      "correct": 5,
+      "total": 7,
+      "accuracy": 0.7142857142857143
+    },
+    "lunes": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "monoku": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "none": {
+      "correct": 54,
+      "total": 54,
+      "accuracy": 1.0
+    },
+    "renga": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "renshi": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "ryuka": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    },
+    "sedoka": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "senryu": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "sijo": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "somonka": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "sonnet": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "tanka": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "villanelle": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "waka": {
+      "correct": 7,
+      "total": 7,
+      "accuracy": 1.0
+    },
+    "zappai": {
+      "correct": 6,
+      "total": 7,
+      "accuracy": 0.8571428571428571
+    }
+  },
+  "confusion": [
+    {
+      "gold": "haiku",
+      "predicted": "zappai",
+      "count": 1
+    },
+    {
+      "gold": "zappai",
+      "predicted": "haiku",
+      "count": 1
+    },
+    {
+      "gold": "cinquain",
+      "predicted": "gogyohka",
+      "count": 1
+    },
+    {
+      "gold": "ryuka",
+      "predicted": "dodoitsu",
+      "count": 1
+    },
+    {
+      "gold": "limerick",
+      "predicted": "kyoka",
+      "count": 1
+    },
+    {
+      "gold": "limerick",
+      "predicted": "gogyohka",
+      "count": 1
+    }
+  ],
+  "interpretation": {
+    "explicit": "explicit-name rows measure contract recall",
+    "signature": "signature rows measure contract recognition without a name",
+    "boundary": "semantic boundary discrimination",
+    "trap": "negative semantic precision under a nearby request",
+    "none": "ordinary-request abstention"
+  },
+  "independent_scorer_required": true
+}

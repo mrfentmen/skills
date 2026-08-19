@@ -17,18 +17,22 @@ from pathlib import Path
 from typing import Any
 
 SKILLS = {
-    "choka", "dodoitsu", "god", "gogyohka", "haibun", "haiku", "katauta",
-    "lunes", "monoku", "no-bullshit", "psych", "renga", "sedoka", "senryu",
-    "sijo", "smoker", "tanka", "terry-davis", "none",
+    "bussokusekika", "choka", "cinquain", "dodoitsu", "etheree",
+    "fibonacci", "gogyohka", "haibun", "haiku", "imayo", "kanshi",
+    "katauta", "kyoka", "limerick", "lunes", "monoku", "renga",
+    "renshi", "ryuka", "sedoka", "senryu", "sijo", "somonka",
+    "sonnet", "tanka", "villanelle", "waka", "zappai", "none",
 }
 EXPECTED_TYPES = {"explicit_or_signature", "boundary", "none", "trap"}
 EXPECTED_FIELDS = {"id", "prompt", "target", "type"}
 EXPECTED_SKILLS = [
-    "choka", "dodoitsu", "god", "gogyohka", "haibun", "haiku", "katauta",
-    "lunes", "monoku", "no-bullshit", "psych", "renga", "sedoka", "senryu",
-    "sijo", "smoker", "tanka", "terry-davis",
+    "choka", "dodoitsu", "gogyohka", "haibun", "haiku", "katauta",
+    "lunes", "monoku", "renga", "sedoka", "senryu", "sijo", "tanka",
+    "kyoka", "somonka", "bussokusekika", "imayo", "kanshi", "zappai",
+    "waka", "renshi", "sonnet", "villanelle", "cinquain", "ryuka",
+    "fibonacci", "limerick", "etheree",
 ]
-EXPECTED_TYPE_COUNTS = {"explicit_or_signature": 90, "boundary": 36, "none": 36, "trap": 18}
+EXPECTED_TYPE_COUNTS = {"explicit_or_signature": 140, "boundary": 56, "none": 36, "trap": 18}
 
 
 def read_json(path: Path, label: str) -> Any:
@@ -49,9 +53,9 @@ def validate_benchmark(value: Any) -> list[str]:
     records = value.get("records")
     if not isinstance(records, list) or not records:
         return errors + ["benchmark records must be a non-empty list"]
-    if len(records) != 180:
-        errors.append(f"benchmark must contain exactly 180 records, found {len(records)}")
-    expected_ids = {f"standalone-v1-{index:03d}" for index in range(1, 181)}
+    if len(records) != 250:
+        errors.append(f"benchmark must contain exactly 250 records, found {len(records)}")
+    expected_ids = {f"standalone-v1-{index:03d}" for index in range(1, 251)}
     ids: set[str] = set()
     type_counts: Counter[str] = Counter()
     for index, record in enumerate(records, 1):
@@ -77,7 +81,7 @@ def validate_benchmark(value: Any) -> list[str]:
         else:
             type_counts[kind] += 1
     if ids != expected_ids:
-        errors.append("benchmark IDs must be standalone-v1-001 through standalone-v1-180")
+        errors.append("benchmark IDs must be standalone-v1-001 through standalone-v1-250")
     if dict(type_counts) != EXPECTED_TYPE_COUNTS:
         errors.append(f"benchmark type counts are {dict(type_counts)}, expected {EXPECTED_TYPE_COUNTS}")
     return errors

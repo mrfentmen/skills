@@ -1,0 +1,5 @@
+words = open("input/words.txt").read().split()
+unique = set(words)
+common = max(set(words), key=words.count)
+longest = max(words, key=len)
+print(len(words), "words", len(unique), "unique", common, "common", longest, "longest")

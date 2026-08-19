@@ -38,6 +38,11 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "GROQ_API_KEY",
         "model": "llama-3.3-70b-versatile",
     },
+    "groq-gpt-oss-120b": {
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "key_env": "GROQ_API_KEY",
+        "model": "openai/gpt-oss-120b",
+    },
     "mistral-small": {
         "url": "https://api.mistral.ai/v1/chat/completions",
         "key_env": "MISTRAL_API_KEY",
@@ -47,6 +52,16 @@ PROVIDERS: dict[str, dict] = {
         "url": "https://api.cerebras.ai/v1/chat/completions",
         "key_env": "CEREBRAS_API_KEY",
         "model": "llama-3.3-70b",
+    },
+    "cerebras-gpt-oss-120b": {
+        "url": "https://api.cerebras.ai/v1/chat/completions",
+        "key_env": "CEREBRAS_API_KEY",
+        "model": "gpt-oss-120b",
+    },
+    "github-models-llama3.3-70b": {
+        "url": "https://models.inference.ai.azure.com/chat/completions",
+        "key_env": "GITHUB_MODELS_API_KEY",
+        "model": "Meta-Llama-3.3-70B-Instruct",
     },
     "xai-grok-4.5": {
         "url": "https://api.x.ai/v1/chat/completions",
@@ -76,6 +91,11 @@ PROVIDERS: dict[str, dict] = {
         "url": "https://openrouter.ai/api/v1/chat/completions",
         "key_env": "OPENROUTER_API_KEY",
         "model": "meta-llama/llama-3.3-70b-instruct",
+    },
+    "zai-glm-5.2": {
+        "url": "https://api.z.ai/api/paas/v4/chat/completions",
+        "key_env": "ZAI_API_KEY",
+        "model": "glm-5.2",
     },
 }
 
@@ -162,6 +182,9 @@ def main() -> int:
                              "(use multiple keys to multiply per-key rate limits)")
     parser.add_argument("--resume", action="store_true",
                         help="skip arms whose output already exists")
+    parser.add_argument("--out-dir", default="model-outputs",
+                        help="output directory under output-benchmark/ (default model-outputs; "
+                             "use a fresh name to preserve prior evidence)")
     args = parser.parse_args()
 
     providers = [p.strip() for p in args.providers.split(",") if p.strip()]
@@ -193,7 +216,7 @@ def main() -> int:
             with_sys = (WITH_SKILL_SYSTEM.format(skill_text=skill_file.read_text(encoding="utf-8"))
                         if skill_file.is_file() else "You are a coding agent.")
             for arm, system in (("with-skill", with_sys), ("without-skill", WITHOUT_SKILL_SYSTEM)):
-                out_file = BASE / "model-outputs" / name / arm / f"{skill}.py"
+                out_file = BASE / args.out_dir / name / arm / f"{skill}.py"
                 if args.resume and out_file.is_file() \
                         and out_file.read_text(encoding="utf-8").strip() != "# MODEL CALL FAILED":
                     print(f"  {skill:12s} {arm:14s} cached", flush=True)
@@ -203,7 +226,7 @@ def main() -> int:
         def do_job(job, key):
             item, arm, system = job
             skill = item["skill"]
-            out_dir = BASE / "model-outputs" / name / arm
+            out_dir = BASE / args.out_dir / name / arm
             out_dir.mkdir(parents=True, exist_ok=True)
             out_file = out_dir / f"{skill}.py"
             content = call_chat(dict(prov, key=key), system,

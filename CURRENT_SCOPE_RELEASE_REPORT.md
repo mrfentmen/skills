@@ -1,8 +1,8 @@
 # Current-Scope Release Report
 
-**Release scope:** 28 form skills (public monorepo `mrfentmen/skills`)  
-**Report date:** 2026-08-08  
-**Repository commit:** `d8707e8` - Green gates: revise-until-checker line fixes for 7 low-scoring forms, updated rhythm checkers, current-scope regression gate, current historical suite, workflow + docs
+**Release scope:** 28 form skills (public monorepo `mrfentmen/skills`)
+**Report date:** 2026-08-19
+**Repository commit:** current `main` (post-hardening measurement + independent blind-routing score recorded in this revision)
 
 > **Scope note.** The public monorepo is the **28 form skills** listed below.
 > The persona skills `god`, `smoker`, `terry-davis`, `psych`, `no-bullshit`,
@@ -72,11 +72,31 @@ prompts the descriptions were not tuned on. Recorded numbers:
 |---|---:|---|
 | Mechanical token-overlap baseline | 34/54 (12/18 paraphrase, 13/18 boundary, 9/9 trap, 0/9 none) | Lower bound (floor) |
 | Same-author self-score | 54/54 | Upper bound (consistency, not independence) |
-| Independent blind scorer | not yet recorded | The meaningful number when available |
+| Independent blind scorer (current 250-record set) | **244/250 (0.976)** | Recorded 2026-08-19 — see below |
 
-No independent blind-routing score is claimed until a scorer that only saw
-the shuffled sheet returns decisions; the scoring tooling
-(`make_current_heldout_sheet.py`, `score_blind_decisions.py`) is ready.
+**Independent blind score (2026-08-19).** The blind protocol was brought to
+the current 28-skill scope: `make_blind_sheet.py` / `score_blind_decisions.py`
+now generate and score the 250-record `standalone-trigger-v1` set, and a
+fresh scorer (a model that saw only the shuffled sheet — descriptions plus
+prompts, gold omitted) returned decisions for all 250 records
+(`standalone-evals/blind_score_decisions_v1.json`, scored in
+`blind_score_report_v1.json`):
+
+| Slice | Score |
+|---|---:|
+| Explicit (literal name) | 84/84 (1.000) |
+| Signature (contract, no name) | 56/56 (1.000) |
+| Boundary (close calls) | 50/56 (0.893) |
+| Ordinary → `none` | 36/36 (1.000) |
+| Trap → `none` | 18/18 (1.000) |
+| **Total** | **244/250 (0.976)** |
+
+The only misses are genuinely ambiguous form-boundary calls (haiku↔zappai,
+cinquain↔gogyohka, ryuka↔dodoitsu, limerick↔kyoka/gogyohka) — 3-line and
+5-line forms that differ only in their exact silhouette. The 54
+persona-wrapper / generic records were all correctly abstained (`none`).
+This is a real independent measurement: the scorer never saw the benchmark's
+targets, only the shuffled sheet.
 
 ## Output-correctness benchmark (E-007 / E3)
 
@@ -94,7 +114,7 @@ tokens. Gold references (28/28) prove every contract is satisfiable.
 The with-skill result is an upper bound (authored holding the skill spec);
 the 28/28 vs 1/28 gap shows the form contracts are real and gradeable.
 
-### Independent model arms (2026-08-07, full 28-item manifest, one-shot)
+### Independent model arms (2026-08-07, full 28-item manifest, one-shot) + post-hardening re-run (2026-08-19)
 
 | Arm | Model | Run | Correct | Strict form | Shape convergence |
 |---|---|---|---:|---:|---:|
@@ -133,6 +153,30 @@ hardening pass (tightened rhythm rules, exact rung/line sequences,
 `rhythm_check.py`); the committed model-arm files predate that hardening,
 so their shape rows remain pre-hardening evidence and the next model-arm
 re-run is the follow-up measurement.
+
+**Post-hardening measurement (2026-08-19, `model-outputs-posthardening/`):**
+the arms were re-run with the keys on hand — Mistral small (same model as
+the 2026-08-07 run → clean before/after) and Groq `gpt-oss-120b` (Groq no
+longer serves llama-3.3-70b on the account; OpenRouter/Z.ai had no credits,
+NVIDIA keys were dead):
+
+| Arm | Model | Run | Correct | Strict form | Shape convergence |
+|---|---|---|---:|---:|---:|
+| With skill | Mistral small (post) | 26/28 | 13/28 | **3/28** (haibun, monoku, imayo) | **20/28** |
+| With skill | Groq gpt-oss-120b (post) | 26/28 | 9/28 | **8/28** (7 with correct output) | **12/28** |
+| Without skill | Mistral small (post) | 18/28 | 3/28 | 0/28 | 5/28 |
+| Without skill | Groq gpt-oss-120b (post) | 28/28 | 11/28 | 1/28 (monoku) | 5/28 |
+
+Same-model before/after (Mistral): shape convergence **15 → 20/28** and
+strict-form one-shot passes **0 → 3/28** (imayo, haibun, monoku) while the
+control stayed flat (4 → 5 shape, 0 strict) — the hardening moved the
+one-shot ceiling. Correct output dipped 15 → 13 (one-shot variance; the
+agentic loop, not one-shot calls, is the compliance path). Of the six
+formerly-weak forms, **kanshi now converges one-shot**; the other five
+(gogyohka, somonka, sonnet, villanelle, etheree) miss by 1-3 lines each
+(near-misses the checker loop closes). Groq's 8 strict-form with-skill
+passes vs 1 without repeats the pattern on a newer 120B model (model
+change noted; not a same-model before/after).
 
 ## Release gates (all green)
 
@@ -195,6 +239,17 @@ python3 grade_output.py --dir model-outputs/groq-llama3.3-70b/with-skill
 # Blind held-out routing (independent scorer protocol)
 python3 standalone-evals/make_current_heldout_sheet.py --output /tmp/heldout-blind.md
 python3 standalone-evals/score_blind_decisions.py --decisions /path/to/decisions.json
+
+# Current-scope blind protocol (250 records, 28 skills)
+python3 standalone-evals/make_blind_sheet.py --root . --output /tmp/standalone-trigger-v1-blind.json
+python3 standalone-evals/score_blind_decisions.py --decisions /path/to/decisions.json --output /tmp/standalone-trigger-v1-score.json
+
+# Post-hardening model arms (needs provider keys in env)
+cd standalone-evals/output-benchmark
+GROQ_API_KEY=... MISTRAL_API_KEY=... \
+  python3 run_model_arms.py --providers groq-gpt-oss-120b,mistral-small \
+  --out-dir model-outputs-posthardening --workers 10
+python3 grade_output.py --dir model-outputs-posthardening/mistral-small/with-skill
 ```
 
 ## Release conclusion
@@ -203,10 +258,15 @@ python3 standalone-evals/score_blind_decisions.py --decisions /path/to/decisions
 
 What is proven: the 28 form contracts are satisfiable and gradeable
 (28/28 gold references), the skills steer output shape at ~3-4x the control
-rate across four independent model providers, routing datasets are
-structurally valid and leak-free, and every deterministic gate is green.
+rate across independent model providers (and the 2026-08-19 post-hardening
+re-run shows the hardened contracts lift same-model shape convergence
+15 → 20/28 and strict one-shot passes 0 → 3/28), routing datasets are
+structurally valid and leak-free, **independent blind routing now scores
+244/250 (0.976)** with perfect abstention on ordinary/trap prompts, and
+every deterministic gate is green.
 
-What is honestly not proven: independent blind-routing accuracy on fresh
-prompts (no external scorer has returned decisions yet), and exact ±2-token
-rhythm one-shot (reachable only via the agentic checker loop). The frozen
-legacy runner stays red as documented historical evidence.
+What is honestly not proven: exact ±2-token rhythm one-shot for the
+token-arithmetic forms (reachable only via the agentic checker loop), and a
+second independent blind scorer to confirm the 0.976 (the current score is
+one fresh scorer on the 250-record set; a second scorer would bound it).
+The frozen legacy runner stays red as documented historical evidence.

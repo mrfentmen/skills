@@ -14,9 +14,11 @@ import re
 from pathlib import Path
 
 SKILL_NAMES = [
-    "choka", "dodoitsu", "god", "gogyohka", "haibun", "haiku",
-    "katauta", "lunes", "monoku", "no-bullshit", "psych", "renga",
-    "sedoka", "senryu", "sijo", "smoker", "tanka", "terry-davis",
+    "choka", "dodoitsu", "gogyohka", "haibun", "haiku", "katauta",
+    "lunes", "monoku", "renga", "sedoka", "senryu", "sijo", "tanka",
+    "kyoka", "somonka", "bussokusekika", "imayo", "kanshi", "zappai",
+    "waka", "renshi", "sonnet", "villanelle", "cinquain", "ryuka",
+    "fibonacci", "limerick", "etheree",
 ]
 
 
@@ -43,8 +45,8 @@ def main() -> int:
     args = parser.parse_args()
     root = args.root.resolve()
     data = json.loads(args.benchmark.resolve().read_text(encoding="utf-8"))
-    if data.get("skills") != SKILL_NAMES or len(data.get("records", [])) != 180:
-        raise SystemExit("benchmark is not the expected standalone-trigger-v1 dataset")
+    if data.get("skills") != SKILL_NAMES or len(data.get("records", [])) != 250:
+        raise SystemExit("benchmark is not the expected standalone-trigger-v1 dataset (28 skills, 250 records)")
     descriptions = []
     for skill in SKILL_NAMES:
         path = root / skill / "SKILL.md"
