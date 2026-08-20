@@ -228,6 +228,23 @@ and 0/3 on the three open weak forms for `codestral-latest` — slightly
 exact-token rhythm: the qwen3.6-27b arm is the only one that closed
 formerly-weak forms, so the model matters more than its size.
 
+**Kilo step-3.7-flash agentic (2026-08-19, the three open forms):** the free
+Kilo gateway (`kilo-auto/free`, no auth) routes to stepfun/step-3.7-flash —
+a reasoning model whose thinking can consume the whole output budget, so
+the runner was extended to (a) budget 8000 tokens, (b) extract the answer
+from the `reasoning` field's trailing fenced code block when `content` is
+empty, and (c) cap the curl timeout per provider. The loop produced the
+best structural villanelle of any model all day — a **19-line villanelle
+shape** (target 19, refrains placed but not verbatim, token profile mostly
+6-11 vs ~10) — but could not hold it through refinement: later generations
+collapsed to 1-4 lines and the task (stdin statistics) was consistently
+misread (the model invented its own data). No strict pass on any of the
+three forms. This closes the provider sweep: six models across five hosts
+(Mistral-small, Mistral-large, Codestral, qwen3.6-27b, gpt-oss-120b via
+Groq, step-3.7-flash) have now failed to close sonnet/villanelle/etheree
+within loop budgets — the exact-token arithmetic for these three remains
+beyond today's free-tier models.
+
 Other provider probes on the same day: Z.ai GLM-4.7-flash answered a full
 prompt once but then returned 1305 "service temporarily overloaded" on
 every call (unusable for a loop); NVIDIA keys 403 on real prompts (tiny

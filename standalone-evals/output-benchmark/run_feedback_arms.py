@@ -72,6 +72,19 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "MISTRAL_API_KEY",
         "model": "codestral-latest",
     },
+    "kilo-step3.7": {
+        "url": "https://api.kilo.ai/api/gateway/v1/chat/completions",
+        "key_env": "KILO_API_KEY",
+        "model": "kilo-auto/free",
+        "no_auth": True,
+        # step-3.7-flash reasons before answering; a small max_tokens leaves
+        # empty content (finish_reason=length), so budget 8000 tokens
+        "max_tokens": 8000,
+        # reasoning calls are slow; cap the curl timeout so a hung free-tier
+        # request cannot stall an entire chunked run
+        "timeout": 100,
+        "retries": 3,
+    },
 }
 
 WITH_SKILL_SYSTEM = (
@@ -84,12 +97,14 @@ REFINE_INSTRUCTION = (
     "{feedback}\n\n"
     "Fix the code so it runs, prints exactly the expected result (no extra "
     "numbers), and satisfies every form requirement listed. Output only the "
-    "final, complete Python program in a single code block, no explanations."
+    "final, complete Python program in a single code block, no explanations, "
+    "no chain-of-thought."
 )
 
 
 def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
               key: str = '', retries: int = 6, base_wait: int = 20) -> str | None:
+    budget = provider.get("max_tokens") or max_tokens
     payload = json.dumps({
         "model": provider["model"],
         "messages": [
@@ -97,7 +112,7 @@ def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
             {"role": "user", "content": user},
         ],
         "temperature": 0.2,
-        "max_tokens": max_tokens,
+        "max_tokens": budget,
     })
     # round-robin across comma-joined keys so a per-key rate limit does not stall a run
     if 'keys' in provider and provider['keys']:
@@ -105,14 +120,15 @@ def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
         provider['_ki'] = provider.get('_ki', 0) + 1
     else:
         auth = key or provider['key']
+    curl_timeout = provider.get("timeout", 240)
+    retries = provider.get("retries", retries)
     for attempt in range(retries):
+        cmd = ["curl", "-sS", "--max-time", str(curl_timeout), provider["url"],
+               "-H", "Content-Type: application/json", "-d", payload]
+        if not provider.get("no_auth"):
+            cmd += ["-H", f"Authorization: Bearer {auth}"]
         try:
-            proc = subprocess.run(
-                ["curl", "-sS", "--max-time", "240", provider["url"],
-                 "-H", f"Authorization: Bearer {auth}",
-                 "-H", "Content-Type: application/json",
-                 "-d", payload],
-                capture_output=True, text=True, timeout=260)
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=curl_timeout + 20)
         except subprocess.TimeoutExpired:
             print(f"      [{attempt}] timeout", flush=True)
             time.sleep(base_wait)
@@ -128,7 +144,21 @@ def call_chat(provider: dict, system: str, user: str, max_tokens: int = 1800,
             time.sleep(base_wait)
             continue
         if "choices" in data and data["choices"]:
-            return data["choices"][0]["message"]["content"].strip()
+            message = data["choices"][0]["message"]
+            content = (message.get("content") or "").strip()
+            if content:
+                return content
+            # reasoning models (step-3.7-flash) can burn the whole budget on
+            # thinking and leave content empty; the answer usually sits at the
+            # tail of the reasoning field as a fenced code block
+            reasoning = message.get("reasoning") or message.get("reasoning_content") or ""
+            blocks = re.findall(r"```(?:python|py)?\s*\n(.*?)```", reasoning, re.DOTALL)
+            if blocks:
+                print(f"      [{attempt}] extracted code from reasoning field", flush=True)
+                return blocks[-1].strip()
+            print(f"      [{attempt}] empty content; retrying", flush=True)
+            time.sleep(base_wait)
+            continue
         err = data.get("error", {})
         msg = str(err.get("message", proc.stdout))[:140]
         if ("rate" in msg.lower() or "limit" in msg.lower() or "overload" in msg.lower()

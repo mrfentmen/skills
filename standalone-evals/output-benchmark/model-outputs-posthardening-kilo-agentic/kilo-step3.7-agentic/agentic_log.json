@@ -1,0 +1,56 @@
+{
+ "sonnet": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['MODEL CALL FAILED']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   }
+  ],
+  "ts": "2026-08-19 09:48:21"
+ },
+ "villanelle": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['need exactly 19 logic lines, got 4', 'lines not ~10 tokens pm3: [2, 4, 3, 2]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['need exactly 19 logic lines, got 1', 'lines not ~10 tokens pm3: [5]']"
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['need exactly 19 logic lines, got 2', 'lines not ~10 tokens pm3: [1, 1]']"
+   }
+  ],
+  "ts": "2026-08-19 10:47:23"
+ }
+}
