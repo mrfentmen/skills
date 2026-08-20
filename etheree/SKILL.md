@@ -52,32 +52,34 @@ print("report", report, "items", len(report), "score", n+total, "status", "ok", 
 A ladder that grows the verdict:
 
 ```python
-pass                            # 1: the seed
-import json                     # 2: the tool
-h = json.load(open("health.json"))  # 3: the load
-down = [k for k, v in h.items() if not v]  # 4: the check
-print(f"{len(down)} down")      # 5: the report
-clean = len(h) - len(down)      # 6: the clean
-report = f"up {clean} down {len(down)}"  # 7: the report
-print(report)                   # 8: the verdict
-print(f"healthy: {len(down) == 0}")  # 9: the seal
-print(f"{len(down)} of {len(h)} services down")  # 10: the landing
+import json
+json
+h = json.load(open("health.json"))
+up = sum(h.values())
+down = len(h) - up
+print("up", up, "down", down)
+print("the", "fleet", "is", "up", "now")
+print("healthy", down == 0, "of", "the", "fleet")
+print("fleet", "is", "healthy" if down == 0 else "degraded")
+print("report", "up", up, "down", down, "of", "the", "fleet")
+print("the", "final", "report", "is", "up", up, "and", "down", down, "now")
 ```
 
 ### The Log Etheree
 A ladder that grows the count:
 
 ```python
-pass                            # 1: the seed
-import sys                      # 2: the tool
-lines = sys.stdin.read().splitlines()  # 3: the source
-errors = [l for l in lines if "ERR" in l]  # 4: the filter
-print(f"{len(errors)} errors")  # 5: the report
-total = len(lines)              # 6: the total
-rate = len(errors) / max(1, total)  # 7: the rate
-print(f"rate {rate:.0%}")       # 8: the verdict
-print(f"clean {total - len(errors)}")  # 9: the seal
-print(f"{len(errors)} errors in {total} lines")  # 10: the landing
+import sys
+sys.stdin
+lines = sys.stdin.read().splitlines()
+total = len(lines)
+print("errors", "in", "the", "log")
+print("count", "of", "lines", "now")
+print("the", "ladder", "climbs", "up", "now")
+e=sum("ERR" in l for l in lines)
+print("errors", e, "of", "the", "lines", "seen", "now")
+print("rate", round(e / max(1, total), 2), "per", "line")
+print("clean", total - e, "lines", "of", "the", "tale", "now")
 ```
 
 ## Workflow

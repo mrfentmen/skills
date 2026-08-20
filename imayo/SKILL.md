@@ -47,10 +47,10 @@ Each line a stanza of the pipeline:
 
 ```python
 import re
-text = open("log.txt").read()        # verse 1: the source
-lines = text.splitlines()            # verse 2: the split
+text = open("log.txt").read()  # verse 1: the source
+lines = text.splitlines()  # verse 2: the split
 errors = [l for l in lines if "ERR" in l]  # verse 3: the filter
-print(f"errors: {len(errors)}")      # verse 4: the chorus
+print(f"errors: {len(errors)}")  # verse 4: the chorus line
 ```
 
 ### The Rolling Median Imayo
@@ -58,10 +58,10 @@ The song of the middle value:
 
 ```python
 import statistics as st
-nums = [3, 1, 4, 1, 5, 9, 2, 6]      # verse 1: the numbers
-med = st.median(nums)                # verse 2: the middle
+nums = [3, 1, 4, 1, 5, 9, 2, 6]  # verse 1: the numbers
+med = st.median(nums)  # verse 2: the middle
 low = sum(1 for n in nums if n < med)  # verse 3: the under-side
-print(f"median: {med}")              # verse 4: the refrain
+print(f"median: {med}")  # verse 4: the refrain line
 ```
 
 ## Workflow

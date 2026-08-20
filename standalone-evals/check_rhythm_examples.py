@@ -45,23 +45,39 @@ with tempfile.TemporaryDirectory() as td:
             continue
         if skill == 'somonka':
             # Somonka is one deliverable with two blank-line-separated
-            # stanzas. Prefer the embedded ten-slot template, which is the
-            # first example block containing two non-empty stanza groups.
-            candidate = next((block for block in blocks
-                              if 'data = input().split()' in block
-                              and len([g for g in block.split('\n\n') if g.strip()]) >= 2), None)
-            if candidate is None:
-                fails.append('somonka: needs one two-stanza python template block')
+            # stanzas. Every python block with two non-empty stanza groups
+            # must pass the checker; single-stanza fragments are not full
+            # somonka and are skipped (the ten-slot template is one of the
+            # two-stanza blocks).
+            block_fails = []
+            two_stanza = [b for b in blocks
+                          if len([g for g in b.split('\n\n') if g.strip()]) >= 2]
+            if not two_stanza:
+                fails.append('somonka: needs at least one two-stanza python block')
                 continue
-            (td / 'somonka.py').write_text(candidate)
-            ok, msg = run_checker(skill, ['somonka.py'], td)
+            for i, block in enumerate(two_stanza):
+                (td / 'somonka.py').write_text(block)
+                ok, msg = run_checker(skill, ['somonka.py'], td)
+                if not ok:
+                    block_fails.append(f'two-stanza block {i}: {msg}')
+            if block_fails:
+                fails.append(f'somonka example(s): ' + ' | '.join(block_fails))
+            else:
+                print(f'PASS example {skill} ({len(two_stanza)} two-stanza blocks)')
         else:
-            (td / f'{skill}.py').write_text(blocks[0])
-            ok, msg = run_checker(skill, [f'{skill}.py'], td)
-        if ok:
-            print(f'PASS example {skill}')
-        else:
-            fails.append(f'{skill} example: {msg}')
+            # Every documented example block must pass its own checker, not
+            # just the first: a model told to copy an example inherits the
+            # shape it demonstrates, so a broken example teaches a broken form.
+            block_fails = []
+            for i, block in enumerate(blocks):
+                (td / f'{skill}.py').write_text(block)
+                ok, msg = run_checker(skill, [f'{skill}.py'], td)
+                if not ok:
+                    block_fails.append(f'block {i}: {msg}')
+            if block_fails:
+                fails.append(f'{skill} example(s): ' + ' | '.join(block_fails))
+            else:
+                print(f'PASS example {skill} ({len(blocks)} blocks)')
 
     refdir = ROOT / 'standalone-evals' / 'output-benchmark' / 'references'
     for skill in E3_SKILLS:

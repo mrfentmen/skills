@@ -212,6 +212,36 @@ exact rhythm. sonnet/villanelle/etheree did not pass: qwen emitted
 now strips `<think>` blocks in `extract_code`), and the daily cap hit
 mid-run. Re-run command documented in the output-benchmark README.
 
+**Example-contract hardening pass (2026-08-20):** a full-block audit of
+every documented example in all 28 SKILL.md files exposed a systemic gap:
+43 example blocks across 21 skills failed their own `rhythm_check.py`
+because inline annotation comments count as tokens (and several forms'
+later examples were simply at the wrong line count) — the CI rhythm gate
+only validated the *first* python block per skill, so the gap was
+invisible. A model told to copy an example inherits the shape it
+demonstrates, so broken examples taught the exact failure modes measured
+in the model arms. Fixed: all 40 genuinely-broken blocks rewritten as
+verified pass-candidates (each shaped to its exact target, annotations
+moved to free full-line comments); the sonnet Reveal/Reframe examples
+rebuilt as genuine 14-line sonnets; the etheree Health/Log examples
+rebuilt as real 1-10 rung ladders (no `pass` seeds); the villanelle
+Evolving/Threshold examples rebuilt with correctly-placed verbatim
+refrains in 19 passing lines; and the somonka single-stanza fragments
+rewritten as complete two-stanza ask+reply somonka (the checker requires
+two 5-line stanzas, so the old fragments taught an incomplete form). The
+CI rhythm gate now checks **every** python block per skill (somonka: every
+two-stanza block) plus all 28 E3 references — 28/28 skills pass, 100% of
+documented examples verified against their own checkers.
+
+**Refrain-text enforcement (villanelle):** the failure data showed
+refrains placed at the right positions but not repeated verbatim, so
+`villanelle/scripts/rhythm_check.py` and the benchmark grader now verify
+refrain **text** overlap (≥0.6 token Jaccard per refrain across its four
+occurrences) in addition to token-count repetition, and require the two
+refrains to stay distinct. The strengthened checker passes all examples
+and E3 references and catches genuine refrain drift while tolerating
+minor wording variation.
+
 ## Release gates (all green)
 
 | Gate | Result |

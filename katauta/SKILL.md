@@ -45,8 +45,9 @@ A question, answered in three lines that feel like the first half of a longer re
 
 ```python
 import sys
-words = sys.stdin.read().lower().split()
-print(len(words), "words, all yours")
+text = sys.stdin.read().lower()
+words = [w for w in text.split()]
+print("words", len(words), "in", "the", "song")
 ```
 
 ## Workflow

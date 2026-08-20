@@ -49,23 +49,29 @@ The chain that transforms:
 
 ```python
 import json
-raw = open("events.json").read()        # stage 1: the raw
-events = json.loads(raw)                # stage 2: the parse
-failed = [e for e in events if not e.get("ok")]  # stage 3: the filter
-ids = [e["id"] for e in failed]         # stage 4: the extract
-print(f"failed: {ids}")                 # stage 5: the verse
+raw = open("events.json").read()
+events = json.loads(raw)
+
+failed = [e for e in events if not e.get("ok")]
+ids = [e["id"] for e in failed]
+
+print("failed:", ids)
+print("and", "the", "verse", "ends", "here")
 ```
 
 ### The Relay Renshi
 The chain that accumulates:
 
 ```python
-import statistics as st
-nums = [3, 1, 4, 1, 5, 9, 2, 6]         # stage 1: the values
-total = sum(nums)                       # stage 2: the sum
-mean = total / len(nums)                # stage 3: the mean
-deviations = [abs(n - mean) for n in nums]  # stage 4: the spread
-print(f"mean {mean:.1f}, dev {st.pstdev(nums):.1f}")  # stage 5: the verse
+nums = [3, 1, 4, 1, 5, 9, 2, 6]
+total = sum(nums)
+mean = total / len(nums)
+
+devs = [abs(n - mean) for n in nums]
+spread = sum(devs) / len(devs)
+
+print(f"mean {mean:.1f}, dev {spread:.1f}")
+print("and", "the", "verse", "ends", "here")
 ```
 
 ## Workflow

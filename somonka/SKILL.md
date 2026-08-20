@@ -38,10 +38,16 @@ The first counts, the second explains:
 
 ```python
 nums = [3, 1, 4, 1, 5]
-total = sum(nums) / len(nums)
-print("mean", total, "now")
-print("five", "nums", "one", "mean", "is", "the", "ask")
-print("solve", "the", "mean", "and", "reply", "the", "sum")
+mean = sum(nums) / len(nums)
+print("count", len(nums), "nums", "arrive")
+print("mean", mean, "is", "the", "ask")
+print("reply", "with", "the", "spread", "now")
+
+spread = max(nums) - min(nums)
+answer = f"mean {mean} and spread {spread}"
+print("one", "value", "pulls", "the", "mean")
+print("the", "rest", "huddle", "near", "the", "sum")
+print("reply", answer, "and", "done", "now")
 ```
 
 ### The Reversal Somonka
@@ -49,28 +55,34 @@ The first sorts, the second reveals the lie:
 
 ```python
 nums = [3, 1, 4, 1, 5]
-total = sum(nums) / len(nums)
-print("mean", total, "is", "the", "reply")
-print("and", "the", "sum", "of", "all", "is", "here")
-print("reply", "with", "the", "mean", "and", "the", "sum")
+order = sorted(nums); low = order[0]
+print("sorted", "clean", "from", "low")
+print("ascending", "all", "the", "way", "down")
+print("order", order, "tells", "the", "tale")
+
+rev = order[::-1]
+print("reverse", "the", "order", "reveals", "the", "lie")
+print("the", "mean", "hides", "the", "tails")
+print("sorted", "clean", "is", "the", "first", "act")
+print("now", "descending", "states", "the", "truth")
 ```
 
 ### The Escalation Somonka
 The first reports the average, the second the worst case:
 
 ```python
-# opening: the baseline
 import statistics as st
 loads = [3, 7, 2, 9, 4]
-avg = st.mean(loads)
-print(f"avg {avg:.1f}")            # the calm number
-print(f"peak {max(loads)}")        # the first alarm
+avg = st.mean(loads); peak = max(loads)
+print("avg", f"{avg:.1f}", "now")
+print("peak", peak, "is", "the", "first", "alarm")
+print("count", len(loads), "loads", "arrive", "now")
 
-# reply: the worst case
-sorted_loads = sorted(loads)
-worst = sorted_loads[-2:]
-print(worst)                       # the tail risk
-print("two nodes carry the load")  # the escalation
+worst = sorted(loads)[-2:]
+tail = sum(worst) / len(worst)
+print("worst", worst, "the", "tail")
+print("two", "nodes", "carry", "the", "load")
+print("reply", "with", "the", "worst", "case")
 ```
 
 ## Workflow

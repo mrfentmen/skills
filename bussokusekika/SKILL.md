@@ -49,12 +49,12 @@ The measure, then the judgment against the line:
 
 ```python
 import json
-cfg = json.load(open("config.json"))     # setup: the configuration
-required = {"host", "port", "token"}     # turn: the contract
-present = required & set(cfg)            # landing: the overlap
-missing = required - present             # deepening: the gaps
-ratio = len(present) / len(required)     # deepening: the score
-print(f"config {ratio:.0%} complete, missing {sorted(missing)}")  # the seal: the judgment
+cfg = json.load(open("config.json"))  # the configuration
+required = {"host", "port", "token"}  # the contract
+present = required & set(cfg)
+missing = required - present
+ratio = len(present) / len(required)  # the score
+print(f"config {ratio:.0%} complete, missing {sorted(missing)}")
 ```
 
 ### The Naming Bussokusekika
@@ -62,13 +62,13 @@ The pattern, then the name:
 
 ```python
 import re, sys
-text = sys.stdin.read().lower()          # setup: the corpus
-words = re.findall(r"[a-z']+", text)     # turn: the tokens
 from collections import Counter
-counts = Counter(words)                  # landing: the tally
-top = counts.most_common(1)[0]           # deepening: the leader
-share = top[1] / max(1, len(words))      # deepening: the weight
-print(f"'{top[0]}' is {share:.0%} of all words")  # the seal: the name
+text = sys.stdin.read().lower()  # the corpus
+words = re.findall(r"[a-z']+", text)  # the tokens
+counts = Counter(words)  # the tally
+top = counts.most_common(1)[0]  # the leader
+share = top[1] / max(1, len(words))  # the weight
+print(f"'{top[0]}' is {share:.0%} of all words")
 ```
 
 ## Workflow

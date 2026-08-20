@@ -56,9 +56,9 @@ The find, the truth:
 
 ```python
 import json
-cfg = json.load(open("config.json"))        # the load
-keys = set(cfg)
-print(f"keys: {sorted(keys)}")              # the moment: what's really there
+cfg = json.load(open("config.json"))  # the load
+keys = set(cfg.keys())  # the keys
+print(f"keys: {sorted(keys)}")  # the moment
 ```
 
 ## Workflow

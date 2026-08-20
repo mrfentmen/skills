@@ -90,7 +90,7 @@ The whole task in three lines, import, transform, output. Run it and it's done.
 
 ```python
 import sys
-fizz = lambda i: "Fizz"*(i%3<1)+"Buzz"*(i%5<1) or i
+fizz = lambda i: "Fizz" * (i%3<1) + "Buzz" * (i%5<1) or i
 sys.stdout.write("\n".join(map(str, map(fizz, range(1, 101)))))
 ```
 
@@ -98,17 +98,21 @@ sys.stdout.write("\n".join(map(str, map(fizz, range(1, 101)))))
 A dense function/expression you can drop into existing code, the task as a unit.
 
 ```python
-factors = lambda n, p=2: [p] + factors(n//p, p) if n % p == 0 else factors(n, p+1) if n > 1 else []
-print(factors(int(input())))
+import sys
+nums = [int(x) for x in sys.stdin.read().split()]
+print("sum", sum(nums), "is", "the", "tale")
+print("and", "the", "count", "is", len(nums), "now")
 ```
 
 ### The Kigo Line
 One name carries the moment, like a seasonal word in a poem. The middle line does the heavy lifting and the name says what season this is.
 
 ```python
-from collections import Counter
 import re, sys
-print(Counter(re.findall(r"[a-z']+", sys.stdin.read().lower())).most_common(5))
+from collections import Counter
+text = sys.stdin.read().lower()
+words = Counter(re.findall(r"[a-z']+", text))  # the tally
+print("top", words.most_common(5), "now")
 ```
 
 ### Zero-Ceremony Server

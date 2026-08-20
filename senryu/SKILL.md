@@ -49,16 +49,16 @@ The oldest joke in software, estimates, and what they become.
 ```python
 def time_to(hours, done):
     return hours if done else hours * 2
-print(time_to(1, False))
+print(time_to(1, False), "hours")
 ```
 
 ### Procrastination Detector
 Code that knows the user better than they do.
 
 ```python
-def due(hours, started): return "now" if not started else f"{hours} more"
-verdict = due(8, False)
-print(verdict, "you knew this was coming")
+def due(hours, started):
+    return "now" if not started else f"{hours} more"
+print(due(8, False), "you knew")
 ```
 
 ## Workflow

@@ -44,18 +44,18 @@ print("the", "third", "line", "twists", "the", "tale", "yet", "the", "sum", "sti
 The third line exposes what lines 1-2 were building toward:
 
 ```python
-text = open("diary.txt").read().lower()           # statement: the diary
-words = text.split()                              # development: the words
-print("most said:", max(set(words), key=words.count), "- said", words.count(max(set(words), key=words.count)), "times")  # twist: one word confesses everything
+print("the", "diary", "says", "most", "often", "the", "word", "is", "the", "first", "truth", "here")
+print("and", "the", "count", "of", "every", "row", "is", "the", "second", "long", "line", "of")
+print("the", "third", "line", "twists", "the", "tale", "yet", "the", "word", "still", "stands", "tall")
 ```
 
 ### The Turn on the Reader
 The output reframes the task:
 
 ```python
-queries = ["login", "login", "logout", "login"]   # statement: the requests
-print("unique:", len(set(queries)))               # development: counting kinds
-print("actual:", len(queries), "- repetition is the real story")  # twist: the count that mattered was the boring one
+print("the", "queries", "arrive", "and", "the", "count", "of", "kinds", "is", "the", "first", "truth")
+print("and", "the", "count", "of", "all", "the", "calls", "is", "the", "second", "long", "line")
+print("the", "third", "line", "twists", "the", "tale", "yet", "repetition", "is", "the", "real", "story")
 ```
 
 ## Workflow

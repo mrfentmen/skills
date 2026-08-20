@@ -47,24 +47,24 @@ print("and", "the", "joke", "is", "the", "punchline", "now")
 Elaborate math, anticlimactic answer:
 
 ```python
-import statistics as st                    # (ceremony is free)
-nums = [3, 1, 4, 1, 5, 9, 2, 6]           # 8: the setup - the values
-mean = st.mean(nums)                       # 8: the build - the mean
-spread = max(nums) - min(nums)             # 5: the turn
-print(f"mean {mean:.2f}")                  # 5: the claim
-print(f"and yet the spread is {spread}")   # 8: the punchline - the reveal
+import statistics as st
+nums = [3, 1, 4, 1, 5, 9, 2, 6]
+mean = st.mean(nums)  # the mean
+spread = max(nums) - min(nums)
+print("mean", round(mean, 2), "now")
+print("and", "yet", "the", "spread", "is", spread, "big")
 ```
 
 ### The Log Limerick
 A tired sysadmin's song:
 
 ```python
-import sys                                 # (ceremony is free)
-lines = sys.stdin.read().splitlines()      # 8: the setup - the log
-errors = [l for l in lines if "ERR" in l]  # 8: the build - the errors
-total = len(lines)                         # 5: the turn
-print(f"errors: {len(errors)}")            # 5: the claim
-print(f"of {total} lines, what a show")    # 8: the punchline - the scale
+import sys
+lines = sys.stdin.read().splitlines()  # the log
+errors = sum("ERR" in l for l in lines)
+total = len(lines)  # the total
+print("errors", errors, "now")
+print("of", total, "lines", "what", "a", "show")
 ```
 
 ## Workflow

@@ -52,12 +52,13 @@ A simulation with a beginning, a middle, and a landing:
 
 ```python
 import random
-pos, steps, total = 0, 0, 0                    # 5: the walk begins
-while -3 < pos < 3 and steps < 50:             # 7: the boundary holds
-    pos += random.choice((-1, 1))              # 5: one step, random
-    steps += 1                                 # 5: one step counted
-    total += pos                               # 5: the path remembers
-print(f"escaped at {steps} steps") if pos == 3 else print(f"still walking after {steps}")  # 7+7: the couplet
+pos, steps, total = 0, 0, 0
+while -3 < pos < 3 and steps < 50:
+    pos += random.choice((-1, 1))  # one random step
+    steps += 1
+    total += pos
+print("escaped", "at", steps, "steps", "now")
+print("or", "still", "walking", "after", steps)
 ```
 
 ### The Long Computation Choka
@@ -65,14 +66,15 @@ When the task genuinely needs many steps, meter them all:
 
 ```python
 import math, sys
-n = int(sys.argv[1])                            # 5: the number arrives
-sieve = [True] * (n + 1)                        # 7: assume all are prime
-for p in range(2, int(math.isqrt(n)) + 1):     # 5: strike from two
-    if sieve[p]:                                # 5: p survived the sieve
-        for m in range(p * p, n + 1, p):        # 7: its multiples fall
-            sieve[m] = False                    # 5: marked composite
-primes = [i for i in range(2, n + 1) if sieve[i]]  # 7: the survivors line up
-print(f"{len(primes)} primes under {n}")        # 7: the couplet - the census
+n = int(sys.argv[1])
+sieve = [True] * (n + 1)
+for p in range(2, int(math.isqrt(n)) + 1):
+    if sieve[p]:
+        for m in range(p * p, n + 1, p):
+            sieve[m] = False
+primes = [i for i in range(2, n + 1) if sieve[i]]
+print("primes", len(primes), "under", n, "now")
+print("and", "the", "sieve", "holds", "true")
 ```
 
 ## Workflow

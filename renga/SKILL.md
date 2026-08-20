@@ -51,24 +51,32 @@ print("of", "all", "the", "numbers")
 Each stanza reshapes the pivot:
 
 ```python
-text = open("notes.txt").read().lower()         # 5: the diary speaks
-tokens = text.split()                           # 7: the words break free
-seen = set(tokens)                              # 5: the kinds are known
-freq = sorted(((tokens.count(w), w) for w in seen), reverse=True)  # 7: the loudest first
-top = freq[:5]                                  # 7: the five who shout
-print("leaders:", " ".join(w for _, w in top))  # 7: the couplet crowns them
+text = open("notes.txt").read().lower()
+tokens = text.split()
+seen = set(tokens)
+
+freq = sorted(((tokens.count(w), w) for w in seen), reverse=True)
+top = freq[:5]
+
+print("leaders:", " ".join(w for _, w in top))
+print("of", "the", "notes", "today")
+print("the", "loudest", "voices", "win")
 ```
 
 ### The Long Renga
 Four stanzas when the task needs four stages:
 
 ```python
-nums = [int(x) for x in input().split()]        # 5: the numbers march in
-total = sum(nums)                               # 7: the tally swells
-n = len(nums)                                   # 5: and its count
-mean = total / n                                # 7: the center appears
-above = sum(1 for x in nums if x > mean)        # 7: the outliers vote
-print(f"mean {mean:.1f}, {above} above it")     # 7: the couplet - the verdict
+nums = [int(x) for x in input().split()]
+total = sum(nums)
+n = len(nums)
+
+mean = total / n
+above = sum(1 for x in nums if x > mean)
+
+print(f"mean {mean:.1f}, {above} above it")
+print("the", "few", "high", "ones", "pull")
+print("the", "whole", "average", "up")
 ```
 
 ## Workflow

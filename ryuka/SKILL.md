@@ -45,22 +45,22 @@ print("down", down, "and", "done")
 Three lines of math, one line of result:
 
 ```python
-import statistics as st                    # (ceremony is free)
-nums = [3, 1, 4, 1, 5, 9, 2, 6]           # 8: the values
-mean = st.mean(nums)                       # 8: the mean
-spread = max(nums) - min(nums)             # 8: the spread
-print(f"mean {mean:.1f} spread {spread}")  # 6: the landing
+import statistics as st
+nums = [3, 1, 4, 1, 5, 9, 2, 6]
+mean = st.mean(nums)  # the mean
+spread = max(nums) - min(nums)  # the spread
+print("mean", round(mean, 1), "spread", spread, "now")
 ```
 
 ### The Log Ryuka
 Three lines of parsing, one line of truth:
 
 ```python
-import re, sys                             # (ceremony is free)
-lines = sys.stdin.read().splitlines()      # 8: the source
-errors = [l for l in lines if "ERR" in l]  # 8: the filter
-total = len(lines)                         # 8: the total
-print(f"{len(errors)} errors")             # 6: the landing
+import re, sys
+lines = sys.stdin.read().splitlines()  # the source
+errors = sum("ERR" in l for l in lines)
+total = len(lines)  # the total
+print("errors", errors, "in", "all")
 ```
 
 ## Workflow

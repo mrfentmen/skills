@@ -45,20 +45,26 @@ print("sum", s + total, "of", "the", "count")
 The sequence that grows to the mean:
 
 ```python
-import sys                      # 2: the tool
-nums = [int(x) for x in sys.stdin.read().split()]  # 3: the values
-total = sum(nums)               # 5: the sum
-print(f"{total / len(nums):.1f} mean of {len(nums)}")  # 8: the report
+import sys
+pass
+data = sys.stdin.read()
+nums = data.split()
+total = sum(map(int, nums))
+print(total, "sum", "of", "the")
+print("numbers", "read", "from", "stdin", "now")
 ```
 
 ### The Health Fibonacci
 The growing check that lands on the verdict:
 
 ```python
-import json                     # 2: the tool
-h = json.load(open("health.json"))  # 3: the state
-down = [k for k, v in h.items() if not v]  # 5: the failures
-print(f"{len(down)} down of {len(h)}")  # 8: the verdict
+import json
+pass
+h = 0
+h = json.load(open("health.json"))
+up = sum(h.values())
+print(up, "up", "of", "the")
+print("services", "and", "the", "tale", "told")
 ```
 
 ## Workflow

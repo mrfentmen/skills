@@ -241,6 +241,20 @@ def check_form(pid, path):
                  f'refrain B not repeated at {b_pos}: {b_toks}')
             need(abs(sum(a_toks) / 4 - sum(b_toks) / 4) >= 2,
                  f'refrains A and B not distinct ({a_toks} vs {b_toks})')
+            # The refrains must be the same expression each return, not just
+            # similar-sized lines: require heavy token overlap with the first
+            # occurrence at each position (comments stripped).
+            def norm(l):
+                return l.split('#', 1)[0].split()
+            a_lines = [norm(lines[i - 1]) for i in a_pos]
+            b_lines = [norm(lines[i - 1]) for i in b_pos]
+            a0, b0 = set(a_lines[0]), set(b_lines[0])
+            need(all(len(a0 & set(ln)) / max(1, len(a0)) >= 0.6
+                     for ln in a_lines[1:]),
+                 f'refrain A text drifts across {a_pos}: {a_lines}')
+            need(all(len(b0 & set(ln)) / max(1, len(b0)) >= 0.6
+                     for ln in b_lines[1:]),
+                 f'refrain B text drifts across {b_pos}: {b_lines}')
     elif pid == 'cinquain':
         toks = [tok(l) for l in lines]
         need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')

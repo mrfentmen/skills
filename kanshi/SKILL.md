@@ -47,11 +47,10 @@ Two mirrored lines, then the turn:
 
 ```python
 import statistics as st
-nums = [4, 8, 15, 16, 23, 42]               # couplet: the values
-lo = min(nums)                               # couplet: the floor
-hi = max(nums)                               # couplet: the ceiling
-span = hi - lo                               # the turn: the distance
-print(f"range {span}")                       # the resolve: the measure
+nums = [4, 8, 15, 23, 42]
+lo = min(nums)  # the floor
+hi = max(nums)  # the ceiling
+print("range", hi - lo, "of", "the", "tale")
 ```
 
 ### The Echo Kanshi
@@ -59,11 +58,10 @@ The pair that reveals:
 
 ```python
 import re, sys
-text = sys.stdin.read()                      # couplet: the source
-chars = len(text)                            # couplet: the characters
-words = len(re.findall(r"\S+", text))        # couplet: the words
-per_word = chars / max(1, words)             # the turn: the density
-print(f"{per_word:.1f} chars per word")      # the resolve: the character
+text = sys.stdin.read()  # the source
+chars = len(text)  # the characters
+words = len(re.findall(r"\S+", text))  # the words
+print(f"{chars / max(1, words):.1f} chars per word")
 ```
 
 ## Workflow

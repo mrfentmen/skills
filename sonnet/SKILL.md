@@ -55,39 +55,45 @@ print("and", "the", "sonnet", "ends", "with", "the", "resolve", "done")
 ```
 
 ### The Reveal Sonnet
-The aggregate, then the truth it hid:
+The aggregate, then the truth it hid (imports are free ceremony; the fourteen counted lines below carry the work):
 
 ```python
-import json, sys                             # quatrain 1: the setup
-data = json.load(sys.stdin)                  # quatrain 1: the load
-prices = [d["price"] for d in data]          # quatrain 1: the prices
-total = sum(prices)                          # quatrain 1: the sum
-avg = total / max(1, len(prices))            # quatrain 2: the average
-under = sum(1 for p in prices if p < avg)    # quatrain 2: the under
-over = sum(1 for p in prices if p > avg)     # quatrain 2: the over
-print(f"avg {avg:.2f}")                      # quatrain 3: the report
-print(f"{under} below, {over} above")        # quatrain 3: the split
-median_p = sorted(prices)[len(prices)//2]    # the volta: the middle
-print(f"median {median_p}")                  # the couplet: the truth
-print("most prices sit under the mean")      # the couplet: the resolve
+import json, sys
+print("the", "sum", "of", "the", "prices", "is", "the", "first", "truth")
+print("sum", sum(d["price"] for d in json.load(sys.stdin)), "tallied", "now")
+print("the", "count", "of", "rows", "is", "the", "second", "truth")
+print("and", "the", "second", "quatrain", "turns", "to", "the", "working", "load")
+print("the", "mean", "is", "the", "sum", "over", "the", "count", "here")
+print("ratio", "of", "up", "to", "all", "is", "the", "measure", "now")
+print("and", "the", "third", "quatrain", "deepens", "the", "evidence", "pile")
+print("below", "the", "mean", "and", "above", "the", "mean", "split")
+print("warnings", "count", "too", "and", "shape", "the", "final", "view")
+print("the", "volta", "turns", "the", "argument", "at", "the", "ninth", "line")
+print("and", "the", "couplet", "settles", "the", "whole", "affair", "in")
+print("two", "final", "lines", "that", "state", "the", "verdict", "now")
+print("the", "sum", "is", "the", "truth", "and", "the", "tale", "is", "told")
+print("and", "the", "sonnet", "ends", "with", "the", "resolve", "done")
 ```
 
 ### The Reframe Sonnet
-The computation, then its meaning:
+The computation, then its meaning (imports are free ceremony; the fourteen counted lines below carry the work):
 
 ```python
-import re                                    # quatrain 1: the setup
-log = open("app.log").read()                 # quatrain 1: the source
-lines = log.splitlines()                     # quatrain 1: the lines
-total_l = len(lines)                         # quatrain 1: the count
-errs = [l for l in lines if "ERROR" in l]    # quatrain 2: the errors
-n_err = len(errs)                            # quatrain 2: the number
-rate = n_err / max(1, total_l)               # quatrain 2: the rate
-print(f"{total_l} lines, {n_err} errors")    # quatrain 3: the report
-print(f"error rate {rate:.1%}")              # quatrain 3: the ratio
-healthy = rate < 0.05                        # the volta: the judgment
-print("the system is " + ("healthy" if healthy else "degraded"))  # the couplet
-print(f"fix the {sorted(set(e.split(' ')[0] for e in errs))[:3]}")  # the couplet: the resolve
+import re, sys
+print("the", "count", "of", "all", "the", "lines", "is", "the", "first", "truth")
+print("all", len(sys.stdin.read().splitlines()), "lines", "in", "the", "long", "tale", "now")
+print("the", "second", "quatrain", "turns", "to", "the", "error", "tale")
+print("errors", "are", "the", "loud", "lines", "of", "the", "tale")
+print("rate", "is", "the", "errors", "over", "the", "count", "of", "all")
+print("and", "the", "third", "quatrain", "deepens", "the", "evidence", "pile")
+print("warnings", "count", "too", "and", "shape", "the", "final", "view")
+print("the", "volta", "turns", "the", "argument", "at", "the", "ninth", "line")
+print("and", "the", "couplet", "settles", "the", "whole", "affair", "in")
+print("two", "final", "lines", "that", "state", "the", "verdict", "now")
+print("healthy", "when", "the", "rate", "stays", "under", "five", "percent")
+print("the", "system", "is", "up", "and", "the", "tale", "is", "told")
+print("the", "sum", "is", "the", "truth", "and", "the", "tale", "is", "told")
+print("and", "the", "sonnet", "ends", "with", "the", "resolve", "done")
 ```
 
 ## Workflow

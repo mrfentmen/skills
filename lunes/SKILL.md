@@ -44,9 +44,9 @@ print("sum", total, "now")
 The punchline middle: one expression that finds the answer.
 
 ```python
-xs = [1, 2, 2, 3, 2, 4]
-mode = max(set(xs), key=xs.count)  # the strike
-print(mode)
+xs = [1, 2, 2, 3]
+mode = max(set(xs), key=xs.count)
+print(mode, "repeats", "the", "most")
 ```
 
 ### Line-Count Lune
@@ -54,8 +54,9 @@ A tiny tool with a 3-token strike in the middle.
 
 ```python
 import sys
-lines = sys.stdin.read().splitlines()
-print(len(lines))
+nums = [int(x) for x in sys.stdin.read().split()]
+total = sum(nums)
+print(total, "is", "the", "sum")
 ```
 
 ## Workflow

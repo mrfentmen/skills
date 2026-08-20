@@ -45,12 +45,13 @@ print("five", "lines", "and", "the", "poem", "is", "done")
 The image (most common words) expanded by its mirror (the rarest words).
 
 ```python
-from collections import Counter
 import re, sys
-words = Counter(re.findall(r"[a-z']+", sys.stdin.read().lower()))
-common = words.most_common(3)
-rare = sorted(words, key=words.get)[:3]
-print(common, rare)
+from collections import Counter
+text = sys.stdin.read().lower()
+words = Counter(re.findall(r"[a-z']+", text))  # the tally
+common = words.most_common(3)  # the top three
+rare = sorted(words, key=words.get)[:3]  # the tail
+print("common", common, "and", "rare", rare, "now")
 ```
 
 ### Journey Tanka
@@ -58,10 +59,11 @@ The distance, then the path that made it, result, then provenance.
 
 ```python
 from math import sqrt
-x1, y1, x2, y2 = 0, 0, 3, 4
-dist = sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-steps = abs(x2 - x1) + abs(y2 - y1)
-print(f"straight {dist:.1f} manhattan {steps}")
+p1, p2 = (0, 0), (3, 4)
+dx = p2[0] - p1[0]
+dy = p2[1] - p1[1]
+dist = sqrt(dx ** 2 + dy ** 2)
+print("straight", round(dist, 1), "manhattan", dx + dy)
 ```
 
 ## Workflow

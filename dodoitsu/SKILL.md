@@ -46,20 +46,20 @@ print("mean", mean, "of", "all")
 No drama, just the number:
 
 ```python
-nums = [int(x) for x in input().split()]         # 7: the numbers arrive
-total = sum(nums)                                # 7: the tally grows
-n = len(nums)                                    # 7: and its count
-print(total // n if n else "empty")              # 5: the plain answer
+nums = [int(x) for x in input().split()]
+total = sum(nums)  # the tally grows
+n = len(nums)  # and its count
+print(total // n if n else "empty")
 ```
 
 ### The Household Ledger
 A two-step transform with a short verdict:
 
 ```python
-prices = {"milk": 3, "bread": 2, "eggs": 4}      # 7: the pantry prices
-cart = ["milk", "bread", "bread"]                # 7: what we took
-due = sum(prices[i] for i in cart)               # 7: what we owe
-print(due, "dollars, cash or card")              # 5: settle up
+prices = {"milk": 3, "bread": 2, "eggs": 4}
+cart = ["milk", "bread", "bread"]
+due = sum(prices[i] for i in cart)
+print(due, "dollars, cash or card")
 ```
 
 ## Workflow

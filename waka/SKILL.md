@@ -47,11 +47,11 @@ The setup, then the fact it hid:
 
 ```python
 import json
-users = json.load(open("users.json"))        # scene: the users
-total = len(users)                           # scene: the count
-admins = sum(1 for u in users if u["role"] == "admin")  # scene: the roles
-share = admins / max(1, total)               # the turn: the share
-print(f"{admins} admins, {share:.0%} of users")  # the resolve: the surprise
+users = json.load(open("users.json"))  # the users
+total = len(users)  # the count
+roles = [u["role"] for u in users]
+admins = roles.count("admin")  # the admins
+print(admins, "of", total, "users", "are", "admins")
 ```
 
 ### The Re-Read Waka
@@ -59,11 +59,11 @@ The data, seen twice:
 
 ```python
 import re, sys
-text = sys.stdin.read()                      # scene: the source
-words = re.findall(r"\S+", text)             # scene: the words
-longest = max(words, key=len)                # scene: the longest
-rev = longest[:-1]                          # the turn: the mirror
-print(f"'{longest}' reversed: '{rev}'")      # the resolve: the echo
+text = sys.stdin.read()  # the source
+words = re.findall(r"\S+", text)  # the words
+longest = max(words, key=len)  # the longest
+rev = longest[:-1]  # the mirror
+print(f"'{longest}' reversed is '{rev}' now")
 ```
 
 ## Workflow

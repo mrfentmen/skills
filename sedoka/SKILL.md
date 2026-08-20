@@ -47,12 +47,13 @@ print(backward, "is", "the", "mirror", "sum")
 The first stanza counts; the second answers with what was almost missed.
 
 ```python
-from collections import Counter
-import sys
-counts = Counter(sys.stdin.read().lower().split())
-common = counts.most_common(1)
-rare = min(counts, key=counts.get)
-print(common, "and rarely:", rare)
+nums = [int(x) for x in input().split()]
+total = sum(nums)  # the tally
+print("sum", total, "of", "the", "tale")
+
+rev = nums[::-1]
+total2 = sum(rev)  # the mirror sum
+print("mirror", "sum", total2, "still", "same")
 ```
 
 ## Workflow

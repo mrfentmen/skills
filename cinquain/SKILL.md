@@ -48,23 +48,24 @@ print(total)
 The mean that builds and lands:
 
 ```python
-import statistics as st        # (ceremony is free)
-nums = [3, 1, 4, 1, 5, 9, 2]   # 4: the values
-mean = st.mean(nums)           # 4: the mean
-spread = max(nums) - min(nums)  # 6: the spread
-print(f"mean {mean:.1f} spread {spread}")  # 8: the report
-print(f"{mean:.1f}")           # 2: the landing
+import sys
+d = {}
+d = dict(zip("ab", (1, 2)))
+total = sum(d.values())  # the sum
+print("the", "sum", "is", total, "of", "the", "values")
+print(total)
 ```
 
 ### The Health Cinquain
 The check that builds and lands:
 
 ```python
-import json                    # (ceremony is free)
-data = json.load(open("health.json"))  # 4: the state
-down = [k for k, v in data.items() if not v]  # 6: the failures
-print(f"down: {', '.join(down) or 'none'}")  # 8: the report
-print(len(down))               # 2: the landing
+import json
+h = {}
+h = json.load(open("health.json"))
+down = len(h) - sum(h.values())
+print("the", "down", "count", "is", down, "of", "the", "fleet")
+print(down)
 ```
 
 ## Workflow

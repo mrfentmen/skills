@@ -47,23 +47,22 @@ print("load", "balancer", "at", "the", "edge", "of", "fun")
 The validator that validates nothing:
 
 ```python
-import re
-password = "password"                       # setup: the credential
-checks = [len(password) > 8, any(c.isdigit() for c in password)]
-ok = all(checks)                            # landing: the "secure" gate
+password = "password"  # the credential
+checks = [len(password)>8, any(c.isdigit() for c in password)]
+ok = all(checks)  # the gate
 print(f"password strength: {'strong' if ok else 'weak'}")
-print("entropy: 2.1 bits, feel free to reuse it")
+print("entropy: 2.1 bits, feel free")
 ```
 
 ### The Self-Aware Kyoka
 The over-engineering confesses:
 
 ```python
-nums = [4]                                  # setup: the dataset
-total = sum(nums)                           # turn: the aggregation
-avg = total / len(nums)                     # landing: the analytics
-print(f"mean: {avg:.2f}")                   # expansion: the report
-print("O(n) pipeline complete, n was 1")    # punchline: the scale
+nums = [4]  # the dataset
+total = sum(nums)  # the aggregation
+avg = total / len(nums)
+print(f"mean {avg:.2f} over the set")
+print("O(n) pipeline complete, n was 1")
 ```
 
 ## Workflow

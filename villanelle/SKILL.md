@@ -57,55 +57,55 @@ print("errors", sum(1 for l in data if "ERR" in l), "and", "more")
 ```
 
 ### The Evolving Villanelle
-The health check that changes meaning:
+The health check that changes meaning (refrains A and B are the narration prints that frame the changing state; the assignments between them do the real work):
 
 ```python
-import json                         # (ceremony is free)
-services = json.load(open("health.json"))   # line 1: refrain A - the state
-up = sum(1 for s in services.values() if s)  # line 2: the up count
-healthy = all(services.values())    # line 3: refrain B - the verdict
-services["cache"] = True            # line 4: the cache recovers
-up = sum(1 for s in services.values() if s)  # line 5: the count rises
-healthy = all(services.values())    # line 6: refrain A returns
-print(f"up {up}")                   # line 7: the state
-services["db"] = False              # line 8: the db fails
-up = sum(1 for s in services.values() if s)  # line 9: refrain B returns
-services["db"] = True               # line 10: the db recovers
-up = sum(1 for s in services.values() if s)  # line 11: the count returns
-healthy = all(services.values())    # line 12: refrain A returns
-print(f"healthy {healthy}")         # line 13: the report
-up = sum(1 for s in services.values() if s)  # line 14: the count settles
-healthy = all(services.values())    # line 15: refrain B returns
-final = "all up" if healthy else f"{len(services)-up} down"  # line 16
-print(final)                        # line 17: the verdict
-up = sum(1 for s in services.values() if s)  # line 18: refrain A returns
-print(f"final: {up} up")            # line 19: the closing word
+import json
+print("the", "services", "turn", "and", "the", "state", "unfolds")
+services = {k: v for k, v in json.load(open("health.json")).items()}
+print("and", "the", "verdict", "echoes", "deep", "through", "the", "long", "dark", "tale")
+services["cache"] = True  # the cache recovers
+print("cache", "wakes", "and", "the", "fleet", "stirs", "now")
+print("the", "services", "turn", "and", "the", "state", "unfolds")
+services["db"] = False  # the db fails
+print("the", "db", "falls", "and", "the", "count", "drops")
+print("and", "the", "verdict", "echoes", "deep", "through", "the", "long", "dark", "tale")
+up = sum(1 for s in services.values() if s)
+print("up", up, "of", "the", "services", "are", "up")
+print("the", "services", "turn", "and", "the", "state", "unfolds")
+services["db"] = True  # the db returns
+print("the", "db", "returns", "and", "the", "count", "rises")
+print("and", "the", "verdict", "echoes", "deep", "through", "the", "long", "dark", "tale")
+down = sum(1 for s in services.values() if not s)
+print("down", down, "of", "the", "services", "still", "remain")
+print("the", "services", "turn", "and", "the", "state", "unfolds")
+print("and", "the", "verdict", "echoes", "deep", "through", "the", "long", "dark", "tale")
 ```
 
 ### The Threshold Villanelle
-The load check as traffic shifts:
+The load check as traffic shifts (refrains A and B are the narration prints; the assignments between them do the real work):
 
 ```python
-import statistics as st             # (ceremony is free)
-loads = [3, 7, 2, 9, 4]             # line 1: refrain A - the data
-peak = max(loads)                   # line 2: the peak
-avg = st.mean(loads)                # line 3: refrain B - the mean
-loads.append(11)                    # line 4: the spike
-peak = max(loads)                   # line 5: the new peak
-avg = st.mean(loads)                # line 6: refrain A returns
-print(f"peak {peak}")               # line 7: the state
-loads.pop(0)                        # line 8: the old drops
-peak = max(loads)                   # line 9: refrain B returns
-loads.append(2)                     # line 10: the calm
-peak = max(loads)                   # line 11: the peak falls
-avg = st.mean(loads)                # line 12: refrain A returns
-print(f"avg {avg:.1f}")             # line 13: the report
-peak = max(loads)                   # line 14: the peak settles
-avg = st.mean(loads)                # line 15: refrain B returns
-spread = peak - avg                 # line 16: the gap
-print(f"spread {spread:.1f}")       # line 17: the verdict
-peak = max(loads)                   # line 18: refrain A returns
-print(f"final peak {peak}")         # line 19: the closing word
+import statistics as st
+print("the", "loads", "shift", "and", "the", "tale", "unfolds")
+loads = [int(x) for x in "3 7 2 9 4".split()]
+print("and", "the", "mean", "echoes", "deep", "through", "the", "long", "dark", "tale")
+loads.append(11)  # the spike lands here now
+print("the", "spike", "lands", "and", "the", "peak", "rises")
+print("the", "loads", "shift", "and", "the", "tale", "unfolds")
+peak = max(loads)  # the new peak
+print("peak", peak, "of", "the", "current", "load", "now")
+print("and", "the", "mean", "echoes", "deep", "through", "the", "long", "dark", "tale")
+loads.pop(0)  # the old line drops off
+print("the", "old", "line", "drops", "and", "the", "mean", "falls")
+print("the", "loads", "shift", "and", "the", "tale", "unfolds")
+avg = sum(loads) / len(loads)  # the mean
+print("avg", avg, "of", "the", "current", "load", "now")
+print("and", "the", "mean", "echoes", "deep", "through", "the", "long", "dark", "tale")
+loads.append(2)  # the calm arrives here now
+print("the", "calm", "arrives", "and", "the", "mean", "holds")
+print("the", "loads", "shift", "and", "the", "tale", "unfolds")
+print("and", "the", "mean", "echoes", "deep", "through", "the", "long", "dark", "tale")
 ```
 
 ## Workflow
@@ -162,7 +162,7 @@ Every deliverable produced with this skill must be gradeable. You must include A
 - every line is a real statement or expression, semicolons, lambdas, chained calls, and comprehensions are the medium
 - no mock, fake, or pseudo code: every line is real, runs, and does the actual work
 
-Benchmark signature: report nineteen logic-line token counts (~10 each), confirm the two refrains repeat at the canonical positions, and confirm the state evolves between returns. The bundled checker verifies line count, token shape, and refrain-position token consistency; expression identity and state evolution remain semantic checks that the author must confirm. Diagnostics must never reward padding.
+Benchmark signature: report nineteen logic-line token counts (~10 each), confirm the two refrains repeat at the canonical positions with the same expression each return, and confirm the state evolves between returns. The bundled checker verifies line count, token shape, refrain-position token consistency, and refrain-text overlap (each return must share most of its tokens with the first occurrence, comments stripped); state evolution remains a semantic check that the author must confirm. Diagnostics must never reward padding.
 
 These requirements exist because a theme without a spec produces vibes, not output. A villanelle without its refrains is nineteen loose lines.
 
