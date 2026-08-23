@@ -1,0 +1,47 @@
+{
+ "sonnet": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['MODEL CALL FAILED']"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 00:50:00"
+ },
+ "villanelle": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['MODEL CALL FAILED']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['1'] ['need exactly 19 logic lines, got 4', 'lines not ~10 tokens pm3: [7, 7, 12, 1]']"
+   }
+  ],
+  "ts": "2026-08-23 01:27:16"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 01:42:51"
+ }
+}
