@@ -307,6 +307,22 @@ def main() -> int:
                     passed = ok
                     break
                 feedback = detail or 'the code did not pass'
+                # Sharpen the feedback with an explicit line-count directive when
+                # the grader reports one: the measured failure mode across all
+                # arms is a 1-2 line over/undershoot that plain "fix it"
+                # feedback cannot steer. Making the count an explicit, scoped
+                # instruction is cheap and deterministic.
+                m = re.search(r'need exactly (\d+) logic lines, got (\d+)', feedback)
+                if m:
+                    target, current = int(m.group(1)), int(m.group(2))
+                    op = 'remove' if current > target else 'add'
+                    feedback += (f"\nLINE-COUNT DIRECTIVE: your program currently has "
+                                 f"{current} logic lines but the contract requires "
+                                 f"exactly {target}. {op.upper()} {abs(current - target)} "
+                                 f"logic line(s) — merge or split print statements "
+                                 f"(not comments/imports) so the final count is "
+                                 f"exactly {target}. Count every non-import, "
+                                 f"non-comment, non-blank line before submitting.")
                 print(f'    refining: {feedback[:140]}', flush=True)
                 cur = generate(prov, system, task + REFINE_INSTRUCTION.format(feedback=feedback))
                 gens += 1

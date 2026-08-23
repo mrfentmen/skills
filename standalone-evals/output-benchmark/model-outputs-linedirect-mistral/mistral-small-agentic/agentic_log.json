@@ -1,0 +1,76 @@
+{
+ "villanelle": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['1'] ['need exactly 19 logic lines, got 25', 'lines not ~10 tokens pm3: [7, 8, 11, 9, 9, 8, 9, 9, 8, 3, 9, 7, 8, 7, 9, 8, 5, 9, 12, 8, 12, 9, 8, 5, 9]', 'refrain B not repeated at [3, 9, 15, 19]: [11, 8, 9, 12]', 'refrain A text drifts across [1, 6, 12, 18]: [[\\'lines\\', \\'=\\', \"[line.rstri"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 19 logic lines, got 14', 'lines not ~10 tokens pm3: [7, 7, 11, 8, 7, 7, 11, 8, 9, 7, 8, 6, 7, 8]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['1'] ['need exactly 19 logic lines, got 18', 'lines not ~10 tokens pm3: [7, 8, 11, 8, 8, 3, 7, 8, 11, 7, 8, 8, 3, 8, 8, 8, 8, 7]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['1'] ['need exactly 19 logic lines, got 25', 'lines not ~10 tokens pm3: [7, 8, 11, 7, 9, 8, 3, 7, 11, 8, 7, 7, 7, 8, 11, 7, 7, 8, 9, 7, 7, 8, 3, 7, 7]', 'refrain A text drifts across [1, 6, 12, 18]: [[\\'lines\\', \\'=\\', \\'[line.rstrip(\"\\\\\\\\n\")\\', \\'for\\', \\'line\\', \\'in\\', \\'sys.stdin]\\'], ["
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "missing ['1', '3', 'total'] ['need exactly 19 logic lines, got 16']"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "unexpected numbers ['0', '2'] ['need exactly 19 logic lines, got 20', 'lines not ~10 tokens pm3: [7, 7, 11, 4, 12, 7, 7, 11, 4, 9, 7, 7, 11, 4, 9, 7, 7, 11, 4, 7]', 'refrain A not repeated at [1, 6, 12, 18]: [7, 7, 7, 11]', 'refrain B not repeated at [3, 9, 15, 19]: [11, 4, 9, 4]', 'refrains A and B"
+   }
+  ],
+  "ts": "2026-08-23 03:25:16"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 13', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 3, 3, 4, 5, 6, 7, 6, 6]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "RUNTIME stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-mistral-small/etheree/etheree.py\", line 2, in <module>\\n    words\\nNameError: name \\'words\\' is not defined'] | missing ['5', 'sum'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "RUNTIME stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-mistral-small/etheree/etheree.py\", line 4, in <module>\\n    n\\nNameError: name \\'n\\' is not defined'] | missing ['5', 'sum'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 11', 'ladder not 1-10 pm1: [1, 1, 1, 5, 1, 1, 2, 4, 5, 5, 6]']"
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 13', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 3, 5, 5, 5, 6, 6, 6, 3]']"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 13', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 4, 5, 6, 7, 7, 6, 5, 6]']"
+   }
+  ],
+  "ts": "2026-08-23 03:25:29"
+ }
+}

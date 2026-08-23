@@ -511,3 +511,18 @@ open forms with the runner's own retry/sweep logic riding the window:
 
     bash catch_zai_window.sh            # etheree,villanelle, 7 min
     bash catch_zai_window.sh sonnet 5    # custom skills + budget
+
+### 2026-08-23 — line-count-directive A/B (mistral-small)
+
+`REFINE_INSTRUCTION` gained an explicit `LINE-COUNT DIRECTIVE` (scoped
+"remove/add N line(s)" parsed from the grader's `need exactly N logic
+lines, got M`) to attack the one-line-shy oscillation. A/B arm
+(`model-outputs-linedirect-mistral/`): **no improvement — worse stability**.
+Villanelle line counts swung 25,14,18,25 (vs a stable 20-21 without the
+directive) and etheree stayed 11-13 lines. Both still passed run + output
+gates; a short explicit directive over-corrects small models. The
+directive remains (harmless for stronger models, e.g. the glm arm that
+closed sonnet) but the evidence says prompt sharpening is not the lever —
+model-level text-iteration discipline is. The etheree outputs also show
+the semantic trap: models satisfy the ladder shape while computing a
+*count* instead of the required **sum** (`missing ['sum']` every gen).
