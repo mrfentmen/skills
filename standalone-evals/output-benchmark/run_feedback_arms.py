@@ -204,6 +204,14 @@ def grade_skill(skill: str, workdir: Path) -> tuple[bool, str]:
         if line.startswith(f'{skill} '):
             ok = ' run=True out=True form=True' in line
             detail = line.split('|', 1)[1].strip() if '|' in line else ''
+            # For runtime failures the actionable part is the stderr TAIL
+            # (actual error), not the leading file path or the missing-tokens
+            # list at the head. Reorder: stderr first, then the rest, capped
+            # so the 300-char store keeps the useful part.
+            m = re.search(r'stderr: (.+?)(?: \[|$)', detail, re.DOTALL)
+            if m:
+                rest = (detail[:m.start()] + detail[m.end():]).strip()
+                detail = f"RUNTIME stderr: {m.group(1).strip()} | {rest}"
             # trim repeated form messages
             return ok, re.sub(r"(\[.*?\])( \1)+", r"\1", detail)[:900]
     return False, 'grader produced no row for this skill'

@@ -428,3 +428,42 @@ procedure instead of just asserting the rhythm.
   etheree remain open: qwen's `<think>`-block outputs broke runtime parsing
   (runner now strips them) and the 200k-token/day org cap hit mid-run.
   Re-run command documented above.
+
+## Feedback-path fixes + 2026-08-22 stderrfix arms (sonnet/villanelle/etheree)
+
+Two runner bugs were found while re-running the qwen/mistral agentic loops on
+sonnet, villanelle, and etheree — both silently starved the model of the
+information it needed to refine:
+
+1. **Runtime stderr was truncated to the head, not the tail.**
+   `grade_output.py` capped stderr at the first 700 chars — a traceback's
+   leading `File "..."` path is pure noise, and the actual error
+   (`NameError: name 'x' is not defined`) lives at the tail. Now capped at the
+   last 700 chars. Verified: models now receive `NameError`/`ValueError`
+   details instead of just a file path.
+2. **The refine feedback kept the head of the grade row, dropping stderr.**
+   `grade_skill()` returned `detail[:900]` in row order (`missing [...]` first,
+   stderr last), and the log stored `detail[:300]` — so the runner's
+   refinement prompt (and the stored evidence) cut the stderr off entirely.
+   `run_feedback_arms.py` now reorders: `RUNTIME stderr: <tail> | <rest>`.
+
+**Arms** (both after the fixes):
+- `model-outputs-stderrfix-mistral/` — mistral-small, 6 gens/skill, full-error
+  feedback: 0/3 strict passes; models correctly pivoted from runtime crashes
+  to pure shape errors (line-count/token-band), i.e. the feedback reached them
+  but the ±1-token exact forms stay beyond small-model reach (same conclusion
+  as the 08-19 run).
+- `model-outputs-stderrfix2-mistral/` — same provider after the stderr-first
+  reorder; identical outcome (0/3 strict; all form violations now pure
+  line-count + token-band, no runtime crashes).
+- `model-outputs-qwen3-fixedkey/` — qwen3.6-27b re-run; a polluted (683-char)
+  `GROQ_API_KEY` in `.env.benchmark` had silently broken the 08-21 chunk; the
+  key is now a clean round-robin list of the org's 12 keys. Calls reach the
+  API but the org-wide 200k-token/day cap still blocks most gens.
+
+**Takeaway:** with the feedback path fixed, these three forms converge to
+within one line and the token band, but the exact 14/19/10-logic-line
++ ±1/±2 contracts remain the honest ceiling of open-weight refinement loops —
+0/9 strict passes across the three new arms, consistent with every prior arm
+(Mistral small/large/codestral, Groq gpt-oss-120b, qwen3.6-27b, Kilo
+step-3.7-flash).
