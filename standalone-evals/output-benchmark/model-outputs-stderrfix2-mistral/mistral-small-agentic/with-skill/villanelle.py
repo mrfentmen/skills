@@ -1,21 +1,21 @@
 import sys
 
-lines = [line.rstrip("\n") for line in sys.stdin]
-print("the", "total", "lines", "read", "from", "the", "stream", "now")
-errors = [line for line in lines if "ERR" in line]
-print("the", "error", "lines", "stand", "out", "in", "the", "dark")
-lines = [line for line in lines if line.strip()]
-print("the", "total", "lines", "read", "from", "the", "stream", "now")
-errors = [line for line in errors if line.strip()]
-print("the", "error", "lines", "stand", "out", "in", "the", "dark")
-print("the", "total", "lines", "read", "from", "the", "stream", "now")
-print("the", "error", "lines", "stand", "out", "in", "the", "dark")
-lines = [line.lower() for line in lines]
-print("the", "total", "lines", "read", "from", "the", "stream", "now")
-errors = [line.lower() for line in errors]
-print("the", "error", "lines", "stand", "out", "in", "the", "dark")
-print("the", "total", "lines", "read", "from", "the", "stream", "now")
-print("the", "error", "lines", "stand", "out", "in", "the", "dark")
-lines = [line for line in lines if line]
-print("the", "total", "lines", "read", "from", "the", "stream", "now")
-print("the", "error", "lines", "stand", "out", "in", "the", "dark")
+lines = [line.rstrip('\n') for line in sys.stdin]
+print("total", len(lines), "lines", "in", "the", "long", "tale")
+errors = [l for l in lines if "ERR" in l]
+print("errors", len(errors), "and", "more")
+lines = [line for line in lines if "WARN" not in line]
+print("filtered", "out", "the", "noise", "from", "the", "stream")
+print("total", len(lines), "lines", "in", "the", "long", "tale")
+errors = [l for l in lines if "ERR" in l]
+print("errors", len(errors), "and", "more")
+lines = [line.lower() for line in lines if line.strip()]
+print("the", "lines", "are", "lower", "and", "trimmed", "now")
+print("total", len(lines), "lines", "in", "the", "long", "tale")
+errors = [l for l in lines if "err" in l]
+print("errors", len(errors), "and", "more")
+lines = [line.strip() for line in lines if line]
+print("the", "final", "count", "is", "the", "last", "refrain")
+print("total", len(lines), "lines", "in", "the", "long", "tale")
+errors = [l for l in lines if "err" in l]
+print("errors", len(errors), "and", "more")
