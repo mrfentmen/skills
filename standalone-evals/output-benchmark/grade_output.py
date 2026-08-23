@@ -305,7 +305,14 @@ for item in MANIFEST['items']:
     oo, omsg = out_ok(pid, so)
     form = check_form(pid, path) if rc == 0 else [f'RUNTIME FAIL ({rc})']
     if se.strip():
-        form.append('stderr: ' + se.strip()[:80])
+        # The actionable part of a traceback is the tail (failing line + error
+        # type/message), not the leading file path; the agentic loop feeds this
+        # straight back to the model, so truncating to the head made runtime
+        # errors invisible. Cap at the last ~700 chars instead.
+        se = se.strip()
+        if len(se) > 700:
+            se = '...' + se[-700:]
+        form.append('stderr: ' + se)
     results.append((pid, rc == 0, oo, not form, omsg, form))
 
 ok_all = 0

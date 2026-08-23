@@ -1,0 +1,61 @@
+{
+ "sonnet": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0', '2', '5', '8'] ['need exactly 14 logic lines, got 13', 'lines not ~10 tokens pm2 (iambic pentameter analog): [3, 7, 3, 9, 3, 3, 7, 7, 5, 5, 7, 5, 6]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['need exactly 14 logic lines, got 13', 'lines not ~10 tokens pm2 (iambic pentameter analog): [3, 7, 3, 3, 9, 9, 7, 6, 7, 6, 7, 5, 6]']"
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "missing ['14', 'sum'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "unexpected numbers ['0', '2', '5', '8'] ['need exactly 14 logic lines, got 13', 'lines not ~10 tokens pm2 (iambic pentameter analog): [3, 7, 3, 3, 9, 7, 6, 6, 5, 7, 5, 7, 5]']"
+   }
+  ],
+  "ts": "2026-08-22 20:10:19"
+ },
+ "villanelle": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['RUNTIME FAIL (1)', 'stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['1', '3', 'errors', 'total'] ['RUNTIME FAIL (1)', 'stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-']"
+   }
+  ],
+  "ts": "2026-08-22 20:14:03"
+ }
+}

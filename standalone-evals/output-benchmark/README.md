@@ -253,6 +253,31 @@ probes pass — model-scoped keys); Cerebras free quota was exhausted
 OVH's anonymous tier serves gpt-oss-120b but the reasoning budget is eaten
 by thinking and the tier is heavily rate-limited (every real call blocked).
 
+### Runner bug fixed: runtime stderr was invisible to the refine loop (2026-08-22)
+
+Auditing the qwen3.6-27b re-run exposed a bug that had been silently
+crippling the agentic loop on **every** provider: `grade_output.py`
+truncated runtime stderr to its **first 80 characters** (`se.strip()[:80]`),
+which for a Python traceback is just the file path — the actual error
+(`NameError: name 'data' is not defined`, etc.) never reached the model.
+The loop therefore refined against a wall of identical "RUNTIME FAIL"
+messages with no actionable cause, which is why every model kept repeating
+the same runtime bug across all generations. The grader now sends the
+**tail** of the stderr (last ~700 chars, where the failing line and error
+type live). Verified: the same villanelle file that previously reported
+only a file path now reports `NameError: name 'data' is not defined`, and
+the references still grade 28/28.
+
+**qwen3.6-27b re-run with the fix** (`model-outputs-qwen3/`, 2026-08-22,
+new UTC day so the Groq daily budget had freed): sonnet got 6 generations
+and villanelle 5 before the per-minute TPM wall froze the org again. The
+fix's effect is visible — gen 1 of villanelle **ran without a runtime
+error** (previously every gen died at runtime) and gen 4 reached a full
+19-line profile, but the exact-token arithmetic (sonnet stuck at 13 lines,
+villanelle refrain repetition + output tokens) still did not converge
+within the loop budget. The three open forms remain open; the runner fix
+is the durable win — every future agentic run now gets real error feedback.
+
 ### The measurable with-skill effect: shape convergence
 
 Strict form compliance is ~0 one-shot because **models cannot count Python
