@@ -501,3 +501,13 @@ produced 12-line ladders with near-correct 1..N token ramps (needs exactly
 loop + feedback now get models to within one line of the strictest
 contracts; landing the final line count is the remaining ceiling.
 
+
+### Catching the Z.ai window
+
+The free-tier quota that closed sonnet is per-minute and short-lived; probes
+consume it too. `catch_zai_window.sh` waits silently (no probes), and the
+moment a generation-sized call returns 200, fires the agentic arm on the
+open forms with the runner's own retry/sweep logic riding the window:
+
+    bash catch_zai_window.sh            # etheree,villanelle, 7 min
+    bash catch_zai_window.sh sonnet 5    # custom skills + budget
