@@ -144,18 +144,26 @@ Remember: "An imayo breathes twice per line: seven in, five out, four times over
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const data = JSON.parse(process.stdin.read());  // wave 1: the load
-const prices = data.map(d => d.price);          // wave 2: the extract
-const total = prices.reduce((a, b) => a + b, 0); // wave 3: the sum
-console.log(`total: ${total}`);                  // wave 4: the refrain
+// wave 1: the load
+const data = JSON.parse(process.stdin.read() || "{}");
+// wave 2: the extract
+const prices = data.map(d => d.price);
+// wave 3: the sum
+const total = prices.reduce((a, b) => a + b);
+// wave 4: the refrain
+console.log(`the final total is ${total}`);
 ```
 
 ```rust
-fn main() {                                     // ceremony, free
-    let nums = [3, 1, 4, 1, 5, 9, 2, 6];        // wave 1: the values
-    let total: i32 = nums.iter().sum();         // wave 2: the sum
-    let mean = total as f64 / nums.len() as f64;  // wave 3: the mean
-    println!("mean: {mean:.2}");                 // wave 4: the refrain
+fn main() {
+    // wave 1: the values
+    let nums = [3, 1, 4, 1, 5];
+    // wave 2: the sum
+    let total: i32 = nums.iter().sum();
+    // wave 3: the mean
+    let mean = f64::from(total) / 5.0;
+    // wave 4: the refrain
+    println!("the final mean is {mean:.2}");
 }
 ```
 

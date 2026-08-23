@@ -142,15 +142,22 @@ Remember: "The moon is haiku's business; people are senryu's. Three lines, human
 The rhythm and the human subject translate everywhere:
 
 ```javascript
-const blame = ["the dog", "the wifi", "mercury retrograde"];
-const excuse = blame[Math.floor(Math.random() * blame.length)];
+// the blame
+const excuses = ["the dog", "the wifi"];
+// the pick
+const excuse = excuses[Math.floor(Math.random() * excuses.length)];
+// the sting
 console.log(`${excuse} ate my commit`);
 ```
 
 ```rust
-fn main() {                              // ceremony, free
-    let estimate = |h: u32, done: bool| if done { h } else { h * 2 };
-    println!("{}", estimate(1, false));
+fn main() {
+    // the delay
+    let delay = 3;
+    // the excuse
+    let story = format!("wifi was down for {delay} hours");
+    // the sting
+    println!("{story} one more time");
 }
 ```
 

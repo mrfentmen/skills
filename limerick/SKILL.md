@@ -146,20 +146,30 @@ Remember: "A limerick is a joke in five lines: two long, two short, one long lan
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5, 9, 2, 6];       // 8: the setup - the values
-const total = nums.reduce((a, b) => a + b, 0); // 8: the build - the sum
-const mean = total / nums.length;            // 5: the turn
-console.log(`mean ${mean.toFixed(2)}`);      // 5: the claim
-console.log(`but the max is ${Math.max(...nums)}`); // 8: the punchline
+// 8: the setup - the values
+const nums = [3, 1, 4, 1, 5, 9, 2];
+// 8: the build - the sum
+const total = nums.reduce((a, b) => a + b, 0);
+// 5: the turn
+const mean = total / nums.length;
+// 5: the claim
+console.log(`mean is ${mean.toFixed(2)}`);
+// 8: the punchline
+console.log(`but the max value is ${Math.max(...nums)}`);
 ```
 
 ```rust
-fn main() {                                  // ceremony, free
-    let nums = [3, 1, 4, 1, 5, 9, 2, 6];     // 8: the setup - the values
-    let total: i32 = nums.iter().sum();      // 8: the build - the sum
-    let mean = total as f64 / nums.len() as f64;  // 5: the turn
-    println!("mean {mean:.2}");              // 5: the claim
-    println!("but the max is {}", nums.iter().max().unwrap());  // 8: the punchline
+fn main() {
+    // 8: the setup - the values
+    let nums = [3, 1, 4, 1, 5, 9, 2];
+    // 8: the build - the sum
+    let total: i32 = nums.iter().fold(0, |a, &b| a + b);
+    // 5: the turn
+    let mean = f64::from(total) / 7.0;
+    // 5: the claim
+    println!("mean is {mean:.2}");
+    // 8: the punchline
+    println!("but the max is {}", nums.iter().max().unwrap());
 }
 ```
 

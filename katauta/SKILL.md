@@ -129,16 +129,22 @@ Remember: "Three lines, heavy at the end, spoken directly to you. A fragment tha
 The 5-7-7 rhythm and the direct address translate everywhere:
 
 ```javascript
-const counts = new Map();               // opening
-[1, 2, 2, 3, 2, 4].forEach(x => counts.set(x, (counts.get(x) ?? 0) + 1));  // the work
-console.log("to you:", [...counts].sort((a, b) => b[1] - a[1])[0][0]);     // the falling answer
+// opening
+const counts = {};
+// the work
+[1, 2, 2].forEach(x => counts[x] = ++counts[x] || 1);
+// the falling answer
+console.log("to you:", [...Object.entries(counts)].sort((a, b) => b[1] - a[1])[0][0]);
 ```
 
 ```rust
-fn main() {                              // ceremony, free
-    let data = [1, 2, 2, 3, 2, 4];
+fn main() {
+    // opening
+    let data = [1, 2, 2, 3];
+    // the work
     let mode = data.iter().max_by_key(|x| data.iter().filter(|y| y == x).count()).unwrap();
-    println!("to you: {mode}");          // the falling answer
+    // the falling answer
+    println!("to you: the mode is {mode}");
 }
 ```
 

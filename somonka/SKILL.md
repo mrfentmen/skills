@@ -188,39 +188,77 @@ The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
 // opening: the score
-const scores = [3, 1, 4, 1, 5];
-const total = scores.reduce((a, b) => a + b, 0);
+const scores = [3, 1, 4];
+// the sum
+const total = scores.reduce((a, b) => a + b);
+// the average
 const avg = total / scores.length;
-console.log(`avg ${avg.toFixed(1)}`);
-console.log(`n=${scores.length}`);
+// the report
+console.log(`the final average is ${avg.toFixed(1)}`);
+// the scale
+console.log(`the final sample count n=${scores.length}`);
 
 // reply: the variance
-const devs = scores.map(s => Math.abs(s - avg));
-const spread = Math.max(...devs);
-console.log(`max dev ${spread}`);
-console.log("one score carries the mean");
+const devs = scores.map(s=> Math.abs(s - avg));
+// the spread
+const spread = Math.max(...devs) + 0;
+// the ratio
+const ratio = spread / avg;
+// the claim
+console.log(`the max dev is ${spread.toFixed(1)}`);
+// the turn
+console.log(`the spread ratio is ${ratio.toFixed(1)}`);
 ```
 
 ```rust
 // opening: the total
 fn main() {
     let nums = [2, 4, 6];
+    // the sum
     let total: i32 = nums.iter().sum();
-    let avg = total as f64 / nums.len() as f64;
-    println!("avg {avg:.1}");
-    println!("n={}", nums.len());
+    // the average
+    let avg = f64::from(total) / 3.0;
+    // the report
+    println!("the final average is {avg:.1}");
+    // the scale
+    println!("the sample count n={}", nums.len());
+
+    // reply: the drift
+    let devs = nums.iter().map(|n| (f64::from(*n) - avg).abs()).collect();
+    // the spread
+    let maxdev = devs.iter().cloned().fold(0.0, f64::max);
+    // the ratio
+    let ratio = maxdev / avg;
+    // the claim
+    println!("the max drift is {maxdev:.1}");
+    // the turn
+    println!("one value pulls the mean");
 }
 ```
 
 ```rust
-// reply: the drift
+// opening: the tally
 fn main() {
-    let nums = [2, 4, 6];
+    let nums = [5, 3, 9];
+    // the sum
     let total: i32 = nums.iter().sum();
-    let avg = total as f64 / nums.len() as f64;
-    let drift = nums.iter().map(|n| (*n as f64 - avg).abs()).fold(0.0, f64:max);
-    println!("drift {drift:.1}");
-    println!("one value pulls the mean");
+    // the average
+    let avg = f64::from(total) / 3.0;
+    // the report
+    println!("the final average is {avg:.1}");
+    // the scale
+    println!("the sample count n={}", nums.len());
+
+    // reply: the balance
+    let lo = *nums.iter().min().unwrap();
+    // the gap
+    let gap = avg - f64::from(lo);
+    // the spread
+    let hi = *nums.iter().max().unwrap();
+    // the claim
+    println!("the max gap is {gap:.1}");
+    // the turn
+    println!("one value tips the balance");
 }
 ```
 

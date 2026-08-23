@@ -140,21 +140,34 @@ Write code that:
 ## Cross-Language Examples
 
 ```javascript
-const fs = require("fs");                       // 5: the file awaits
-const text = fs.readFileSync("data.txt", "utf8");  // 7: the words arrive
-const lines = text.split("\n").filter(Boolean); // 5: the rows stand
-const nums = lines.map(Number);                 // 5: the numbers form
-const mean = nums.reduce((a, b) => a + b, 0) / nums.length;  // 7: the center holds
-console.log(`mean ${mean.toFixed(2)} over ${nums.length} rows`);  // 7+7: the couplet
+// 5: the file awaits
+const raw = fs.readFileSync("data.txt", "utf8");
+// 7: the words arrive
+const lines = raw.split("\n").filter(Boolean);
+// 5: the rows stand
+const nums = lines.map(Number);
+// 5: the numbers form
+const total = nums.reduce((a, b) => a + b, 0);
+// 7: the center holds
+const mean = total / nums.length;
+// 7: the couplet
+console.log(`mean ${mean.toFixed(2)} over ${nums.length} rows`);
 ```
 
 ```bash
 #!/bin/bash
-total=0; count=0                                # 5: the tally begins
-while read -r n; do                             # 5: each number arrives
-  total=$((total + n)); count=$((count + 1))    # 7: the sum and its count
-done < nums.txt                                 # 5: the stream ends
-echo "sum=$total over $count numbers"           # 7+7: the couplet
+# 5: the tally begins
+total=0; count=0
+# 5: each number arrives
+while read -r n; do
+# 7: the sum and its count
+total=$((total + n)); count=$((count + 1))
+# 5: the stream ends
+done < nums.txt
+# 5: the tally holds
+echo "the tally: $count lines"
+# 7: the couplet
+printf "sum=%s over %s numbers" "$total" "$count"
 ```
 
 ## Bundled Helpers

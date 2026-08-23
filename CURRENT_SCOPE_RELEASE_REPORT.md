@@ -13,7 +13,7 @@
 
 The current scope is **fully green on every active gate**. All 28 skills
 pass the static audit at 1.00, the 250-query trigger benchmark validates
-clean, the current-scope CI is 36/36 (37/37 with the frozen-historical
+clean, the current-scope CI is 37/37 (38/38 with the frozen-historical
 compatibility assertion configured), the self-contained current historical
 suite is 7/7, and the rhythm gate passes 28 documented examples plus 28 E3
 gold references through each skill's own checker.
@@ -246,9 +246,10 @@ minor wording variation.
 
 | Gate | Result |
 |---|---:|
-| Current-scope CI (`run_current_ci.sh`) | **36/36** (37/37 with `HISTORICAL_HARNESS` configured) |
+| Current-scope CI (`run_current_ci.sh`) | **37/37** (38/38 with `HISTORICAL_HARNESS` configured) |
 | Current historical suite (`run_current_historical_ci.sh`) | **7/7 GREEN** |
 | Rhythm gate (28 documented examples + 28 E3 references) | **PASS** |
+| Cross-language gate (60 JS/Rust/Go/bash examples) | **PASS** |
 | Trigger benchmark validation (250 records) | **PASS** |
 | Static skill audit | **1.00** all 28 skills |
 | Python compilation | PASS |
@@ -257,6 +258,33 @@ minor wording variation.
 | Repeated stability runs | PASS (3 consecutive full matrix runs) |
 | Clean-copy run | PASS |
 | Code review | no critical issues |
+
+## Cross-language example hardening (2026-08-22)
+
+A full audit of the cross-language (JavaScript/Rust/Go/bash) example blocks
+in all 28 SKILL.md files exposed the same class of bug the Python-block audit
+caught earlier, but never gated: **52 of 60 blocks failed their own form**.
+Root causes:
+
+- **Inline `// N:` annotations count as tokens** — every annotated line was
+  pushed off its target token count, exactly like the Python audit.
+- **Structural gaps** — sonnet JS/Rust were 9 lines (need 14), villanelle
+  were 11 (need 19), etheree were 5-6 (need 10), so models copying them
+  inherited wrong skeletons.
+- **Refrains not verbatim** — the villanelle JS/Rust refrains were
+  re-declarations (`let total = ...` then `total = ...`), not the same
+  expression each return, so they could not satisfy the refrain-text check.
+
+**Fixed:** all 52 blocks rewritten and verified against a new
+`standalone-evals/check_cross_lang_examples.py` gate that mirrors each
+skill's real `rhythm_check.py` (per-skill tolerance: sonnet ±2, villanelle
+±3, etheree/cinquain/fibonacci ±1, imayo ±4, rest ±2) plus the villanelle
+refrain-text repetition check. Cross-language villanelles now use repeated
+narration `console.log`/`println!` refrains with state changing between
+returns — the same architecture as the Python examples. All 28 JS blocks
+pass `node --check`, all Go blocks pass `gofmt -e`, and all bash blocks
+pass `bash -n`. The gate is wired into `run_current_ci.sh`, so this
+regression class is now CI-enforced.
 
 ## Known red: frozen historical runner (by design)
 
@@ -275,10 +303,10 @@ authoritative green gate for the current scope.
 ```bash
 cd /Users/del/Desktop/skills
 
-# Current CI (unconfigured: 36/36)
+# Current CI (unconfigured: 37/37)
 bash standalone-evals/run_current_ci.sh
 
-# Current CI with frozen-historical compatibility assertion (37/37)
+# Current CI with frozen-historical compatibility assertion (38/38)
 EVALS_INFRA_ROOT="/Users/del/Desktop/skills 3 /evals-infra" \
 HISTORICAL_HARNESS="/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh" \
   bash standalone-evals/run_current_ci.sh
@@ -288,6 +316,9 @@ HISTORICAL_HARNESS="/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh" \
 
 # Rhythm gate
 python3 standalone-evals/check_rhythm_examples.py
+
+# Cross-language example gate
+python3 standalone-evals/check_cross_lang_examples.py
 
 # Trigger benchmark + static audit
 python3 standalone-evals/validate_standalone_benchmark.py --root .

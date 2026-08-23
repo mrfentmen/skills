@@ -125,17 +125,26 @@ Write code that:
 ## Cross-Language Examples
 
 ```javascript
-const text = require("fs").readFileSync("t.txt", "utf8");  // 7: the words arrive
-const words = text.toLowerCase().match(/[a-z']+/g) || [];  // 7: the words stand
-const unique = new Set(words);                             // 7: the kinds are known
-console.log(`${unique.size} distinct words`);              // 5: the verdict
+// 7: the words arrive
+const text = fs.readFileSync("t.txt", "utf8");
+// 7: the words stand
+const words = text.toLowerCase().match(/[a-z']+/g) || [];
+// 7: the kinds are known
+const unique = new Set(words);
+// 5: the verdict
+console.log(`${unique.size} distinct words`);
 ```
 
 ```bash
 #!/bin/bash
-while read -r n; do total=$((total + n)); count=$((count + 1)); done < nums.txt  # 7: the tally
-# (the loop above carries lines 1-3's load in folk-shell fashion)
-echo "sum=$total over $count numbers"                                            # 5: the settlement
+# 7: the tally
+total=0; count=0; echo tally ready
+# 7: the loop
+while read -r n; do
+# 7: the sum and its count
+total=$((total + n)); count=$((count + 1)); done < nums.txt
+# 5: the settlement
+echo "sum=$total over $count numbers"
 ```
 
 ## Bundled Helpers

@@ -40,7 +40,7 @@ HISTORICAL_HARNESS="/Users/del/Desktop/skills 3 /evals-infra/run_ci_checks.sh" \
 # When HISTORICAL_HARNESS is set, the current gate also runs a safe compatibility
 # assertion for the frozen harness; it passes only when the documented isolated
 # 9/11 mismatch is reproduced. Without that variable, compatibility is explicitly
-# skipped and the current-scope result is 36/36 rather than a historical result.
+# skipped and the current-scope result is 37/37 rather than a historical result.
 # With HISTORICAL_HARNESS configured, the current-scope result is 37/37.
 # See standalone-evals/HISTORICAL_REGRESSION.md for the frozen-artifact record.
 # Or run the individual checks below:

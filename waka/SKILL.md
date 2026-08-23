@@ -145,20 +145,30 @@ Remember: "A waka is a tanka with courtly manners: five lines, the scene in thre
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const reqs = [12, 45, 30, 9, 400, 22];         // scene: the requests
-const avg = reqs.reduce((a, b) => a + b, 0) / reqs.length;  // scene: the average
-const peak = Math.max(...reqs);                // scene: the loudest
-const rate = peak / avg;                       // the turn: the ratio
-console.log(`peak ${peak}, ${rate.toFixed(1)}x average`);  // the resolve
+// scene: the requests
+const reqs = [12, 45, 30];
+// scene: the sum
+const sum = reqs.reduce((a, b) => a + b);
+// scene: the average
+const avg = sum / reqs.length;
+// the turn: the peak
+const peak = reqs.reduce((a, b) => Math.max(a, b));
+// the resolve
+console.log(`peak ${peak} and avg ${avg.toFixed(1)}`);
 ```
 
 ```rust
-fn main() {                                    // ceremony, free
-    let reqs = [12, 45, 30, 9, 400, 22];       // scene: the requests
-    let total: i32 = reqs.iter().sum();        // scene: the sum
-    let avg = total as f64 / reqs.len() as f64; // scene: the average
-    let peak = *reqs.iter().max().unwrap();    // the turn: the peak
-    println!("peak {peak}, {:.1}x average", peak as f64 / avg);  // the resolve
+fn main() {
+    // scene: the requests
+    let reqs = [12, 45, 30];
+    // scene: the sum
+    let sum: i32 = reqs.iter().sum();
+    // scene: the average
+    let avg = f64::from(sum) / 3.0;
+    // the turn: the peak
+    let peak: i32 = *reqs.iter().max().unwrap();
+    // the resolve
+    println!("peak {peak} and avg {avg:.1}");
 }
 ```
 

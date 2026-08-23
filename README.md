@@ -88,7 +88,7 @@ skill({ name: "haiku" })
   3/28 strict and 19/28 shape (ceiling confirmed at 6 generations); the
   independent blind-routing score is **244/250 (0.976)**; a hands-on
   skill-test-kit pass solved 13/13 tasks with correct output and
-  form-checker passes; current CI is 36/36 and the current historical suite
+  form-checker passes; current CI is 37/37 and the current historical suite
   7/7.
 - The external `evals-infra/` repository contains the with-skill vs. baseline
   harness (scaffold → grade → aggregate → viewer). Installed skills do not

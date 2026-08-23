@@ -142,18 +142,26 @@ Remember: "A ryuka is an Okinawan song: three long lines, one short landing. The
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5, 9, 2, 6];       // 8: the values
-const total = nums.reduce((a, b) => a + b, 0); // 8: the sum
-const mean = total / nums.length;            // 8: the mean
-console.log(`mean ${mean.toFixed(1)}`);      // 6: the landing
+// 8: the values
+const nums = [3, 1, 4, 1, 5, 9];
+// 8: the sum
+const total = nums.reduce((a, b) => a + b, 0);
+// 8: the mean
+const mean = total / nums.length;
+// 8: the landing
+console.log(`the final mean value is ${mean.toFixed(1)}`);
 ```
 
 ```rust
-fn main() {                                  // ceremony, free
-    let nums = [3, 1, 4, 1, 5, 9, 2, 6];     // 8: the values
-    let total: i32 = nums.iter().sum();      // 8: the sum
-    let mean = total as f64 / nums.len() as f64;  // 8: the mean
-    println!("mean {mean:.1}");              // 6: the landing
+fn main() {
+    // 8: the values
+    let nums = [3, 1, 4, 1, 5, 9];
+    // 8: the sum
+    let total: i32 = nums.iter().fold(0, |a, &b| a + b);
+    // 8: the mean
+    let mean = f64::from(total) / 6.0;
+    // 8: the landing
+    println!("the final mean value is {mean:.1}");
 }
 ```
 

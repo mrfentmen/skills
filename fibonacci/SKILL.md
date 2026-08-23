@@ -147,12 +147,18 @@ Remember: "A fibonacci poem grows the way nature grows :  one, one, two, three, 
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5];                 // 3: the values
-const total = nums.reduce((a, b) => a + b, 0); // 5: the sum
-const mean = total / nums.length;             // 5: the mean
-console.log(`mean ${mean.toFixed(1)}`);       // 8: the report
-console.log("settled");                       // 3: the seal
-console.log("done");                          // 2: the close
+// 3: the values
+const nums = [3, 1, 4];
+// 5: the sum
+const total = nums.reduce((a, b) => a + b);
+// 5: the mean
+const mean = total / nums.length;
+// 8: the report
+console.log(`mean ${mean.toFixed(1)}`);
+// 3: the seal
+console.log("settled");
+// 2: the close
+console.log("done");
 ```
 
 ```rust

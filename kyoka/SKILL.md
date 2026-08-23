@@ -145,20 +145,30 @@ Remember: "A kyoka is a tanka that laughs. Five lines, a real computation, and a
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [7];                                  // setup: the workload
-const total = nums.reduce((a, b) => a + b, 0);     // turn: the total
-const avg = total / nums.length;                   // landing: the mean
-console.log(`mean ${avg.toFixed(2)}`);             // expansion: the report
-console.log("audited 1 value, variance undefined"); // punchline: the scale
+// setup: the workload
+const nums = [7];
+// turn: the total
+const total = nums.reduce((a, b) => a + b);
+// landing: the mean
+const avg = total / nums.length;
+// expansion: the report
+console.log(`the final mean is ${avg.toFixed(2)}`);
+// punchline: the scale
+console.log("audited 1 value, variance undefined");
 ```
 
 ```rust
-fn main() {                                 // ceremony, free
-    let nums = [42];                        // setup: the dataset
-    let total: i32 = nums.iter().sum();     // turn: the sum
-    let avg = total as f64 / nums.len() as f64;  // landing: the mean
-    println!("mean {avg:.2}");              // expansion: the report
-    println!("sample size: 1, p-value: vibes"); // punchline: the stats
+fn main() {
+    // setup: the dataset
+    let nums = [42];
+    // turn: the sum
+    let total: i32 = nums.iter().sum();
+    // landing: the mean
+    let avg = f64::from(total) / 1.0;
+    // expansion: the report
+    println!("the mean is {avg:.2} exactly");
+    // punchline: the stats
+    println!("sample size 1, variance undefined");
 }
 ```
 

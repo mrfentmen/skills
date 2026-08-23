@@ -133,7 +133,9 @@ tr ' ' '\n' < file.txt | sort | uniq -c | sort -rn | head -5
 ```go
 package main
 import "fmt"
-func main() { m := map[int]string{}; for i := 1; i <= 100; i++ { s := ""; if i%3 == 0 { s += "Fizz" }; if i%5 == 0 { s += "Buzz" }; if s == "" { s = fmt.Sprint(i) }; m[i] = s }; fmt.Println(m) }
+func main() {
+    m := map[int]string{}; for i := 1; i <= 100; i++ { s := ""; if i%3 == 0 { s += "Fizz" }; if i%5 == 0 { s += "Buzz" }; if s == "" { s = fmt.Sprint(i) }; m[i] = s }; fmt.Println(m)
+}
 ```
 
 For other languages, translate the same structure: everything on one line, the program runs.

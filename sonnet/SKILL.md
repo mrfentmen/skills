@@ -188,28 +188,66 @@ Remember: "A sonnet is an argument in fourteen lines: three quatrains build the 
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const vals = [4, 8, 15, 16, 23, 42];            // quatrain 1
-const mean = vals.reduce((a, b) => a + b, 0) / vals.length;  // quatrain 1
-const devs = vals.map(v => Math.abs(v - mean));  // quatrain 2
-const big = Math.max(...devs);                   // quatrain 2
-console.log(`mean ${mean.toFixed(1)}`);          // quatrain 3
-console.log(`max deviation ${big.toFixed(1)}`);  // quatrain 3
-const skewed = big > (mean / 2);                 // the volta
-console.log(skewed ? "the mean is a lie" : "the mean holds");  // the couplet
-console.log("one value carries the set");        // the couplet
+// quatrain 1: the data
+const vals = [4, 8, 15, 16, 23, 42];
+// quatrain 1: the sum
+const total = vals.reduce((a, b) => a + b, 0);
+// quatrain 2: the mean
+const mean = Number(total) / vals.length * 1;
+// quatrain 2: the deviations
+const devs = vals.map(v => Math.abs(v - mean));
+// quatrain 3: the outlier
+const big = devs.reduce((a, b) => Math.max(a, b));
+// quatrain 3: the skew
+const skewed = big > mean / 2;
+// quatrain 4: the trimmed
+const kept = vals.filter(v => Math.abs(v - mean) < big);
+// quatrain 4: the trimmed mean
+const tm = kept.reduce((a, b) => a + b, 0) / kept.length;
+// the volta: the ratio
+const ratio = Number(big) / mean * 1;
+// the couplet: the report
+console.log("the mean is " + mean.toFixed(1) + " now");
+// the couplet: the skew
+console.log("the skew is " + skewed + " in the set");
+// the couplet: the trimmed
+console.log("the trimmed mean " + tm.toFixed(1) + " rules");
+// the couplet: the ratio
+console.log("the ratio is " + ratio.toFixed(1) + " now");
+// the couplet: the seal
+console.log("one value carries the whole set today now");
 ```
 
 ```rust
-fn main() {                                      // ceremony, free
-    let vals = [4, 8, 15, 16, 23, 42];           // quatrain 1
-    let total: i32 = vals.iter().sum();          // quatrain 1
-    let mean = total as f64 / vals.len() as f64; // quatrain 2
-    let big = vals.iter().map(|v| (*v as f64 - mean).abs()).fold(0.0, f64:max);  // quatrain 2
-    println!("mean {mean:.1}");                  // quatrain 3
-    println!("max dev {big:.1}");                // quatrain 3
-    let skewed = big > mean / 2.0;               // the volta
-    println!("{}", if skewed { "mean is a lie" } else { "mean holds" });  // the couplet
-    println!("one value carries the set");       // the couplet
+fn main() {
+    // quatrain 1: the data
+    let vals = [4, 8, 15, 16, 23, 42];
+    // quatrain 1: the sum
+    let total: i32 = vals.iter().sum() as i32 * 1;
+    // quatrain 2: the mean
+    let mean = total as f64 / 6.0;
+    // quatrain 2: the deviations
+    let devs: Vec<f64> = vals.iter().map(|&v| (v as f64 - mean).abs()).collect();
+    // quatrain 3: the outlier
+    let big = devs.iter().cloned().fold(0.0, f64::max) as f64 * 1;
+    // quatrain 3: the skew
+    let skewed = big > mean / 2.0;
+    // quatrain 4: the trimmed
+    let kept: Vec<i32> = vals.iter().filter(|&&v| (v as f64 - mean).abs() < big).cloned().collect();
+    // quatrain 4: the trimmed mean
+    let tm = kept.iter().map(|&v| v as f64).sum::<f64>() / kept.len() as f64;
+    // the volta: the ratio
+    let ratio = big / mean * 1.0;
+    // the couplet: the report
+    println!("the mean is {:.1} now today ok", mean);
+    // the couplet: the skew
+    println!("the skew is {} in the set", skewed);
+    // the couplet: the trimmed
+    println!("the trimmed mean {:.1} rules now ok", tm);
+    // the couplet: the ratio
+    println!("the ratio is {:.1} now today ok", ratio);
+    // the couplet: the seal
+    println!("one value carries the whole set today now ok");
 }
 ```
 

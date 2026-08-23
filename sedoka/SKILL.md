@@ -135,21 +135,34 @@ Remember: "Two voices, one song. The first stanza acts, the second answers, and 
 The two-voice structure translates everywhere:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5];            // stanza one: the question
-const total = nums.reduce((a, b) => a + b, 0);
+// stanza one: the question
+const nums = [3, 1, 4];
+// the forward sum
+const total = nums.reduce((a, b) => a + b);
+// the forward view
 const forward = `sum ${total}`;
-const rev = [...nums].reverse();         // stanza two: the answer
-const total2 = rev.reduce((a, b) => a + b, 0);
-console.log(forward, "reverse", total2);
+// stanza two: the answer
+const rev = [3, 1, 4].reverse();
+// the mirrored sum
+const total2 = rev.reduce((a, b) => a + b);
+// the mirrored view
+console.log(forward, "then the reverse", total2);
 ```
 
 ```rust
-fn main() {                              // ceremony, free
-    let nums = [3, 1, 4, 1, 5];
+fn main() {
+    // stanza one: the question
+    let nums = [3, 1, 4];
+    // the forward sum
     let total: i32 = nums.iter().sum();
+    // the forward view
     let forward = format!("sum {total}");
-    let rev: i32 = nums.iter().rev().sum();   // the mirror
-    println!("{forward} reverse {rev}");
+    // stanza two: the answer
+    let rev: i32 = nums.iter().rev().sum();
+    // the mirrored sum
+    let pair = format!("{forward} reverse {rev}");
+    // the mirrored view
+    println!("and the mirrored view: {pair}");
 }
 ```
 

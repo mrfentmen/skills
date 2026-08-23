@@ -153,9 +153,16 @@ console.log(`mean ${mean.toFixed(2)}, spread ${devs.reduce((a, b) => a + b, 0).t
 
 ```bash
 #!/bin/bash
-words=$(tr '[:upper:]' '[:lower:]' < notes.txt | tr -cs '[:alpha:]' '\n' | grep -v '^$')  # 5-7: the words
-top=$(echo "$words" | sort | uniq -c | sort -rn | head -1)                                # 7: the loudest
-echo "winner: $top"                                                                       # 7: the couplet
+# 5: the door opens
+words=$(tr '[:upper:]' '[:lower:]' < notes.txt | tr -cs '[:alpha:]' '\n' | grep -v '^$')
+# 7: the words arrive
+echo "$words" | sort | uniq -c | sort -rn | head -1
+# 5: the loudest
+top=$(echo "$words" | sort | uniq -c | sort -rn | head -1)
+# 7: the crowd
+echo "the loudest word"
+# 7: the couplet
+echo "winner: $top"
 ```
 
 ## Bundled Helpers

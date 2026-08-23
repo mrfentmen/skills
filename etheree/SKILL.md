@@ -173,20 +173,50 @@ Remember: "An etheree is a ladder: ten lines, one to ten. Each rung grows the th
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5];         // 1: the seed
-let s = nums.reduce((a, b) => a + b, 0);  // 2: the sum
-let avg = s / nums.length;            // 3: the mean
-console.log(`mean ${avg.toFixed(1)}`);    // 4: the report
-console.log(`mean ${nums.reduce((a, b) => a + b, 0) / nums.length}`);  // 5: the landing
+// 1: the seed
+a=1;
+// 2: the sum
+a += 2;
+// 3: the mean
+m = a/2;
+// 4: the report
+console.log("mean " + m);
+// 5: the double
+d = m * 2;
+// 6: the square
+q = d * d;
+// 7: the landing
+console.log("and the square is " + q);
+// 8: the balance
+const b = q - d + 0;
+// 9: the verdict
+console.log("and the final balance is now " + b);
+// 10: the seal
+console.log("and the final seal is now truly done today");
 ```
 
 ```rust
-fn main() {                            // ceremony, free
-    let nums = [3, 1, 4, 1, 5];        // 1: the seed
-    let s: i32 = nums.iter().sum();    // 2: the sum
-    let avg = s as f64 / nums.len() as f64;  // 3: the mean
-    println!("mean {avg:.1}");         // 4: the report
-    println!("mean {}", nums.iter().sum::<i32>() as f64 / nums.len() as f64);  // 5: the landing
+fn main() {
+// 1: the seed
+let a=1;
+// 2: the sum
+let b=a+2;
+// 3: the mean
+let m=b/2;
+// 4: the report
+println!("mean is {m}");
+// 5: the double
+let d = m * 2;
+// 6: the square
+let q = d * d;
+// 7: the landing
+println!("and the square is now {q}");
+// 8: the balance
+let b2: i32 = q - d;
+// 9: the verdict
+println!("and now the final balance is now {b2}");
+// 10: the seal
+println!("and the final seal is now truly done today");
 }
 ```
 

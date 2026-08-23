@@ -151,22 +151,34 @@ Remember: "A bussokusekika is a tanka that refuses to end. Five lines build the 
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const vals = [5, 3, 9, 1, 7];              // setup: the values
-const total = vals.reduce((a, b) => a + b, 0);  // turn: the sum
-const mean = total / vals.length;          // landing: the mean
-const hi = Math.max(...vals);              // deepening: the peak
-const gap = hi - mean;                     // deepening: the gap
-console.log(`mean ${mean.toFixed(1)}, peak gap ${gap.toFixed(1)}`);  // the seal
+// setup: the values
+const vals = [5, 3, 9];
+// turn: the sum
+const total = vals.reduce((a, b) => a + b);
+// landing: the mean
+const mean = total / vals.length;
+// deepening: the peak
+const hi = vals.reduce((a, b) => Math.max(a, b));
+// deepening: the gap
+const gap = hi - mean;
+// the seal
+console.log(`mean ${mean.toFixed(1)} and gap ${gap.toFixed(1)}`);
 ```
 
 ```rust
-fn main() {                                // ceremony, free
-    let vals = [5, 3, 9, 1, 7];            // setup: the values
-    let total: i32 = vals.iter().sum();    // turn: the sum
-    let mean = total as f64 / vals.len() as f64;  // landing: the mean
-    let hi = *vals.iter().max().unwrap();  // deepening: the peak
-    let gap = hi as f64 - mean;            // deepening: the gap
-    println!("mean {mean:.1}, gap {gap:.1}");     // the seal
+fn main() {
+    // setup: the values
+    let vals = [5, 3, 9];
+    // turn: the sum
+    let total: i32 = vals.iter().sum();
+    // landing: the mean
+    let mean = f64::from(total) / 3.0;
+    // deepening: the peak
+    let hi: i32 = *vals.iter().max().unwrap();
+    // deepening: the gap
+    let gap = f64::from(hi) - mean;
+    // the seal
+    println!("the mean {mean:.1}, gap {gap:.1}");
 }
 ```
 

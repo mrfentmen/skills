@@ -125,9 +125,12 @@ console.log(total - Math.max(...nums), "without the largest");  // twist: the to
 
 ```bash
 #!/bin/bash
-words=$(tr '[:upper:]' '[:lower:]' < notes.txt | tr -cs '[:alpha:]' '\n' | grep -v '^$')  # statement
-counts=$(echo "$words" | sort | uniq -c | sort -rn | head -1)                            # development
-echo "winner: $counts - the rest are noise"                                               # twist
+# statement: the counts
+words=$(tr '[:upper:]' '[:lower:]' < notes.txt | tr -cs '[:alpha:]' '\n' | grep -v '^$')
+# development: the loudest
+counts=$(echo "$words" | sort | uniq -c | sort -rn | head -1)
+# twist: the outlier wins
+echo "the winner is $counts, and all of the rest is noise"
 ```
 
 ## Bundled Helpers

@@ -145,20 +145,30 @@ Remember: "A haiku shows a moment. A tanka shows the moment and then what it mea
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5, 9, 2, 6];      // setup
-const mean = nums.reduce((a, b) => a + b, 0) / nums.length;  // turn
-const sorted = [...nums].sort((a, b) => a - b);              // landing
-const median = sorted[Math.floor(sorted.length / 2)];        // expansion
-console.log(`mean ${mean.toFixed(2)} median ${median}`);     // reflection
+// setup
+const nums = [3, 1, 4];
+// turn
+const total = nums.reduce((a, b) => a + b);
+// landing
+const mean = total / nums.length;
+// expansion
+const max = nums.reduce((a, b) => Math.max(a, b));
+// reflection
+console.log(`mean ${mean.toFixed(2)} and max ${max}`);
 ```
 
 ```rust
-fn main() {                                // ceremony, free
-    let nums = [3, 1, 4, 1, 5, 9, 2, 6];
-    let sum: i32 = nums.iter().sum();
-    let mean = sum as f64 / nums.len() as f64;
-    let max = *nums.iter().max().unwrap();
-    println!("mean {mean:.2} max {max}");
+fn main() {
+    // setup
+    let nums = [3, 1, 4];
+    // turn
+    let total: i32 = nums.iter().sum();
+    // landing
+    let mean = f64::from(total) / 3.0;
+    // expansion
+    let max: i32 = *nums.iter().max().unwrap();
+    // reflection
+    println!("the mean {mean:.2} max {max}");
 }
 ```
 

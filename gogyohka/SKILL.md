@@ -132,22 +132,32 @@ Remember: "Five lines, no token target, no rules but the shape. The meter is gon
 Free verse translates everywhere:
 
 ```javascript
-import { readFileSync } from "fs";       // ceremony
-const data = readFileSync(0, "utf8").split("\n");  // breath one
-const nonempty = data.filter(Boolean);    // breath two
-const words = nonempty.join(" ").split(/\s+/).length;  // breath three
-const report = `${nonempty.length} lines`; // breath four
-console.log(`${report}, ${words} words`);  // breath five
+import { readFileSync } from "fs";
+// breath one
+const data = readFileSync(0, "utf8").split("\n");
+// breath two
+const nonempty = data.filter(line => Boolean(line));
+// breath three
+const words = nonempty.join(" ").split(/\s+/).length;
+// breath four
+const report = `${nonempty.length} lines`;
+// breath five
+console.log(`final report ${report}, ${words} words`);
 ```
 
 ```rust
-use std::io::{self, BufRead};            // ceremony
+use std::io::{self, BufRead};
 fn main() {
-    let lines: Vec<String> = io::stdin().lock().lines().map(|l| l.unwrap()).collect(); // breath one
-    let nonempty: Vec<&String> = lines.iter().filter(|l| !l.trim().is_empty()).collect(); // breath two
-    let words: usize = nonempty.iter().map(|l| l.split_whitespace().count()).sum(); // breath three
-    let report = format!("{} lines", nonempty.len()); // breath four
-    println!("{}, {} words", report, words); // breath five
+// breath one
+let lines: Vec<String> = io::stdin().lock().lines().map(|l| l.unwrap()).collect();
+// breath two
+let nonempty: Vec<&String> = lines.iter().filter(|l| !l.trim().is_empty()).collect();
+// breath three
+let words: usize = nonempty.iter().map(|l| l.split_whitespace().count()).sum();
+// breath four
+let report = format!("{} lines", nonempty.len());
+// breath five
+println!("count {}, {} words", report, words);
 }
 ```
 

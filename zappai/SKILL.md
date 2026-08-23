@@ -141,16 +141,22 @@ Remember: "A zappai is a haiku off duty: three lines, a moment, no season requir
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const data = JSON.parse(process.stdin.read());  // the load
-const down = Object.entries(data).filter(([, v]) => !v).map(([k]) => k);  // the check
-console.log(`down: ${down.join(', ') || 'none'}`);  // the moment
+// the load
+const data = JSON.parse(process.stdin.read() || "{}");
+// the check
+const down = Object.entries(data).filter(([, v]) => !v).map(([k]) => k);
+// the moment
+console.log(`down: ${down.join(", ") || "none"}`);
 ```
 
 ```rust
-fn main() {                                 // ceremony, free
-    let vals = [3, 1, 4, 1, 5];             // the values
-    let total: i32 = vals.iter().sum();     // the sum
-    println!("total: {total}");             // the moment
+fn main() {
+    // the values
+    let vals = [3, 1, 4];
+    // the sum
+    let total: i32 = vals.iter().sum();
+    // the moment
+    println!("the total is {total}");
 }
 ```
 

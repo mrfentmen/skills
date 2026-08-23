@@ -199,28 +199,86 @@ Remember: "A villanelle is a song of two refrains: nineteen lines, and two lines
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5];               // refrain A: the data
-let total = nums.reduce((a, b) => a + b, 0); // the sum
-let avg = total / nums.length;               // refrain B: the mean
-nums.push(9);                                // the spike
-total = nums.reduce((a, b) => a + b, 0);     // refrain A returns
-avg = total / nums.length;                   // refrain B returns
-console.log(`total ${total}`);               // the report
-nums.shift();                                // the old drops
-total = nums.reduce((a, b) => a + b, 0);     // refrain A returns
-avg = total / nums.length;                   // refrain B returns
-console.log(`avg ${avg.toFixed(1)}`);        // the verdict
+// refrain A: the total
+console.log("the", "total", "is", total, "in", "the", "long", "tale", "of", "old");
+// the data
+const nums = [3, 1, 4, 1, 5];
+// refrain B: the mean
+console.log("the", "mean", "is", avg, "and", "still", "more");
+// the sum
+let total = nums.reduce((a, b) => a + b, 0);
+// the mean
+let avg = total / nums.length * 1;
+// refrain A returns
+console.log("the", "total", "is", total, "in", "the", "long", "tale", "of", "old");
+// the spike
+const spike = 9; nums.push(spike); nums.sort(); nums.reverse();
+// the sum returns
+total = nums.reduce((a, b) => a + b, 0);
+// refrain B returns
+console.log("the", "mean", "is", avg, "and", "still", "more");
+// the old drops
+const first = nums.shift(); nums.unshift(first); nums.sort(); nums.reverse();
+// the mean returns
+avg = total / nums.length * 1;
+// refrain A returns
+console.log("the", "total", "is", total, "in", "the", "long", "tale", "of", "old");
+// the clean pass
+const clean = nums.filter(n => n < 10);
+// the sum returns
+total = clean.reduce((a, b) => a + b, 0);
+// refrain B returns
+console.log("the", "mean", "is", avg, "and", "still", "more");
+// the mean returns
+avg = total / clean.length * 1;
+// the seal
+console.log("the", "final", "count", "is", "the", "last", "refrain");
+// refrain A returns
+console.log("the", "total", "is", total, "in", "the", "long", "tale", "of", "old");
+// refrain B returns
+console.log("the", "mean", "is", avg, "and", "still", "more");
 ```
 
 ```rust
-fn main() {                                  // ceremony, free
-    let mut nums = vec![3, 1, 4, 1, 5];      // refrain A: the data
-    let mut total: i32 = nums.iter().sum();  // the sum
-    let mut avg = total as f64 / nums.len() as f64;  // refrain B: the mean
-    nums.push(9);                            // the spike
-    total = nums.iter().sum();               // refrain A returns
-    avg = total as f64 / nums.len() as f64;  // refrain B returns
-    println!("total {total}");               // the report
+fn main() {
+    // refrain A: the total
+    println!("the total is {} in the long tale of old", total);
+    // the data
+    let mut nums = vec![3, 1, 4, 1, 5];
+    // refrain B: the mean
+    println!("the mean is {} and more", avg);
+    // the sum
+    let mut total: i32 = nums.iter().sum() as i32;
+    // the mean
+    let mut avg = total as f64 / nums.len() as f64;
+    // refrain A returns
+    println!("the total is {} in the long tale of old", total);
+    // the spike
+    let spike = 9; nums.push(spike); nums.sort_unstable(); nums.reverse();
+    // the sum returns
+    total = nums.iter().fold(0, |a, &b| a + b);
+    // refrain B returns
+    println!("the mean is {} and more", avg);
+    // the old drops
+    let first = nums.remove(0); nums.push(first); nums.sort_unstable(); nums.reverse();
+    // the mean returns
+    avg = total as f64 / nums.len() as f64;
+    // refrain A returns
+    println!("the total is {} in the long tale of old", total);
+    // the clean pass
+    let clean: Vec<i32> = nums.iter().filter(|&&n| n < 10).cloned().collect();
+    // the sum returns
+    total = clean.iter().fold(0, |a, &b| a + b);
+    // refrain B returns
+    println!("the mean is {} and more", avg);
+    // the mean returns
+    avg = total as f64 / clean.len() as f64;
+    // the seal
+    println!("the final count is the last refrain");
+    // refrain A returns
+    println!("the total is {} in the long tale of old", total);
+    // refrain B returns
+    println!("the mean is {} and more", avg);
 }
 ```
 

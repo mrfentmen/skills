@@ -136,15 +136,22 @@ Remember: "The lune says it in five, then three, then five, the middle is the st
 The 5-3-5 rhythm translates everywhere, keep the middle short:
 
 ```javascript
-const add = (a, b) => a + b;            // setup
-const total = [3, 1, 4, 1, 5].reduce(add);  // punch (short)
-console.log(total);                     // landing
+// setup
+const add = (a,b) => a+b;
+// punch (short)
+const total = [3,1,4].reduce(add, 0);
+// landing
+console.log(`sum is ${total}`);
 ```
 
 ```rust
-fn main() {                              // ceremony, free
-    let sum: i32 = [3, 1, 4].iter().sum();  // the punch
-    println!("{sum}");                   // landing
+fn main() {
+    // setup
+    let nums = [3, 1, 4];
+    // punch (short)
+    let s: i32 = nums.iter().sum();
+    // landing
+    println!("sum is {s}");
 }
 ```
 

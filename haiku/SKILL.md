@@ -180,15 +180,22 @@ Remember: "A haiku captures a single moment. A code haiku captures a single task
 The syllable rule is language-agnostic. Same spirit, translated:
 
 ```javascript
-const sum = (a, b) => a + b;          // setup: the add
-const total = [1, 2, 3, 4].reduce(sum, 0);  // turn: the fold
-console.log(total);                    // landing: the number
+// setup: the add
+const nums = [1, 2, 3, 4];
+// turn: the fold
+const total = nums.reduce((a, b) => a + b);
+// landing: the number
+console.log(`sum is ${total}`);
 ```
 
 ```rust
-fn main() {                            // ceremony, free
-    let fib = |n: u64| (0..n).fold((0, 1), |(a, b), _| (b, a + b)).0;  // turn
-    println!("{}", fib(10));           // landing
+fn main() {
+    // setup: the fold
+    let nums = [1, 2, 3, 4];
+    // turn: the running sum
+    let total: i32 = nums.iter().sum();
+    // landing: the number
+    println!("sum is {total}");
 }
 ```
 
@@ -196,17 +203,23 @@ fn main() {                            // ceremony, free
 package main
 import "fmt"
 func main() {
-    total := 0                                       // setup: the empty ledger
-    for _, n := range []int{3, 1, 4, 1, 5} { total += n }  // turn: the tally
-    fmt.Println(total)                               // landing: the answer
+    // setup: the empty ledger
+    total := 0
+    // turn: the tally
+    for _, n := range []int{3,1,4,1,5} { total+=n }
+    // landing: the answer
+    fmt.Println("sum is", total)
 }
 ```
 
 ```bash
 #!/bin/bash
-nums=(3 1 4 1 5)                                # setup: the flock
-for n in "${nums[@]}"; do ((total += n)); done  # turn: the tally
-printf '%s\n' "$total"                          # landing: 14
+# setup: the flock
+nums=(3 1 4 1 5)
+# turn: the tally
+for n in "${nums[@]}"; do ((total += n)); done
+# landing: 14
+printf '%s\n' "$total"
 ```
 
 For other languages (C...), translate the same structure, imports/setup, the dense turn, the landing output.

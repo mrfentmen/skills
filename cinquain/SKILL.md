@@ -146,20 +146,30 @@ Remember: "A cinquain is a pyramid in five lines: it swells to eight, then lands
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [3, 1, 4, 1, 5];                    // 4: the values
-const total = nums.reduce((a, b) => a + b, 0);   // 4: the sum
-const mean = total / nums.length;                // 6: the mean
-console.log(`mean ${mean.toFixed(1)}`);          // 8: the report
-console.log(mean.toFixed(1));                    // 2: the landing
+// 2: the values
+const nums=[3];
+// 4: the sum
+const total = nums[0]+nums[0];
+// 6: the mean
+const mean = total / nums.length;
+// 8: the report
+console.log("the final mean value is " + mean.toFixed(1));
+// 2: the landing
+console.log(mean.toFixed(1));
 ```
 
 ```rust
-fn main() {                                      // ceremony, free
-    let nums = [3, 1, 4, 1, 5];                  // 4: the values
-    let total: i32 = nums.iter().sum();          // 4: the sum
-    let mean = total as f64 / nums.len() as f64; // 6: the mean
-    println!("mean {mean:.1}");                  // 8: the report
-    println!("{mean:.1}");                       // 2: the landing
+fn main() {
+    // 2: the values
+    let nums=[3];
+    // 4: the sum
+    let total = nums.iter().sum::<i32>();
+    // 6: the mean
+    let mean = total as f64;
+    // 8: the report
+    println!("the final mean value is now {mean:.1}");
+    // 2: the landing
+    println!("{mean:.1}");
 }
 ```
 

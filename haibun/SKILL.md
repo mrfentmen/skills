@@ -157,12 +157,16 @@ console.log(`${nErrors} errors of ${nTotal} lines`);
 ```
 
 ```rust
-use std::io::{self, BufRead};          // prose: the road
+// the stream arrives like a morning walk
+use std::io::{self, BufRead};
 fn main() {
     let lines: Vec<String> = io::stdin().lock().lines().map(|l| l.unwrap()).collect();
+    // every line a step, every keyword a sighting
     let errors = lines.iter().filter(|l| l.contains("ERROR")).count();
-    let total = lines.len();           // haiku: the view
-    println!("{errors} errors of {total} lines");
+    let total = lines.len();
+    let clean = total - errors;
+    // the count: what the day actually held
+    println!("{errors} errors, {clean} clean of {total} lines");
 }
 ```
 

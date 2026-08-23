@@ -54,6 +54,9 @@ check "example syntax smoke" \
 check "rhythm examples pass their own checkers" \
   "$PYTHON" "$ROOT/standalone-evals/check_rhythm_examples.py"
 
+check "cross-language examples match their form" \
+  "$PYTHON" "$ROOT/standalone-evals/check_cross_lang_examples.py"
+
 if [ -n "${HISTORICAL_HARNESS:-}" ]; then
   check "frozen historical compatibility" \
     "$PYTHON" "$ROOT/standalone-evals/check_historical_compatibility.py" --root "$ROOT"

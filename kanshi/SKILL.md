@@ -158,18 +158,26 @@ Remember: "A kanshi walks in pairs. Two parallel lines set the scene, the third 
 The token rhythm is language-agnostic. Same spirit, translated:
 
 ```javascript
-const nums = [4, 8, 15, 16, 23, 42];       // couplet: the values
-const lo = Math.min(...nums);              // couplet: the floor
-const hi = Math.max(...nums);              // couplet: the ceiling
-console.log(`range ${hi - lo}`);           // the resolve: the measure
+// couplet: the values
+const nums = [4, 8, 15];
+// couplet: the floor
+const lo = nums.reduce((a, b) => Math.min(a, b));
+// couplet: the ceiling
+const hi = nums.reduce((a, b) => Math.max(a, b));
+// the resolve: the measure
+console.log(`the range ${hi - lo}`);
 ```
 
 ```rust
-fn main() {                                // ceremony, free
-    let nums = [4, 8, 15, 16, 23, 42];     // couplet: the values
-    let lo = *nums.iter().min().unwrap();  // couplet: the floor
-    let hi = *nums.iter().max().unwrap();  // couplet: the ceiling
-    println!("range {}", hi - lo);         // the resolve: the measure
+fn main() {
+    // couplet: the values
+    let nums = [4, 8, 15];
+    // couplet: the floor
+    let lo: i32 = *nums.iter().min().unwrap();
+    // couplet: the ceiling
+    let hi: i32 = *nums.iter().max().unwrap();
+    // the resolve: the measure
+    println!("the range is {}", hi - lo);
 }
 ```
 
