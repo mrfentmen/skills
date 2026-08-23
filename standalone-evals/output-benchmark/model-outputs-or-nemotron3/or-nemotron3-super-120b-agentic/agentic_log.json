@@ -1,0 +1,76 @@
+{
+ "villanelle": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "RUNTIME stderr: ...                                                                                                                                                                                                                                                                                         "
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['1']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "RUNTIME stderr: ...                                                                                                                                                                                                                                                                                         "
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "RUNTIME stderr: ...sktop/skills/standalone-evals/output-benchmark/.agentic-work-or-nemotron3-super-120b/villanelle/villanelle.py\", line 5\\n    We need to follow the skill: we must output exactly 19 lines of code (logic lines) that are not blank, not comments, not imports. Imports can be outside coun"
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "missing ['1']"
+   }
+  ],
+  "ts": "2026-08-23 03:57:47"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 6,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-or-nemotron3-super-120b/etheree/etheree.py\", line 3\\n    We need to write a ten-line etheree: exactly ten logic-carrying lines, with token counts per line climbing 1-2-3-4-5-6-7-8-9-10 (\u00b11 tolerance). The"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "RUNTIME stderr: ...otron3-super-120b/etheree/etheree.py\", line 3\\n    We need to write a ten-line etheree: exactly ten logic-carrying lines, with token counts per line climbing 1-2-3-4-5-6-7-8-9-10 (\u00b11 tolerance). No extra lines (imports, blank lines, comments are allowed but not counted as logic li"
+   },
+   {
+    "gen": 5,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-or-nemotron3-super-120b/etheree/etheree.py\", line 3\\n    Thus we need a ten-line program where each line\\'s token count matches 1..10 (within \u00b11). The program reads stdin, splits into words, counts them, "
+   },
+   {
+    "gen": 6,
+    "passed": false,
+    "detail": "missing ['sum']"
+   }
+  ],
+  "ts": "2026-08-23 04:01:35"
+ }
+}

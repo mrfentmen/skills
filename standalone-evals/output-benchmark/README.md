@@ -526,3 +526,7 @@ closed sonnet) but the evidence says prompt sharpening is not the lever —
 model-level text-iteration discipline is. The etheree outputs also show
 the semantic trap: models satisfy the ladder shape while computing a
 *count* instead of the required **sum** (`missing ['sum']` every gen).
+
+### 2026-08-23 — OpenRouter nemotron-3-super-120b arm
+
+Added an OpenRouter provider (`or-nemotron3-super-120b`, `nvidia/nemotron-3-super-120b-a12b:free`, round-robin over the `sk-or-v1-` keys) plus a `or-glm52-free` provider (`z-ai/glm-5.2:free`) for when the upstream shared pool frees. First arm (`model-outputs-or-nemotron3/`): 6 gens each on villanelle + etheree, **0/2 passes**. Nemotron-3's failure mode is distinct — it writes *prose narration* as code lines (syntax errors like `We need to follow the skill...`), so it never reaches the run gate, and when it does the form is 20+ lines. This is arm #10 at the open-weight ceiling; sonnet remains the only closed open-form (glm-4.7-flash). `z-ai/glm-5.2:free` is still upstream-429 at record time; the provider is wired so the next quota window can be caught with `catch_zai_window.sh` (extend it to the `or-glm52-free` provider) or a manual run.

@@ -72,6 +72,16 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "MISTRAL_API_KEY",
         "model": "codestral-latest",
     },
+    "or-nemotron3-super-120b": {
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "key_env": "OPENROUTER_API_KEY",
+        "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    },
+    "or-glm52-free": {
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "key_env": "OPENROUTER_API_KEY",
+        "model": "z-ai/glm-5.2:free",
+    },
     "kilo-step3.7": {
         "url": "https://api.kilo.ai/api/gateway/v1/chat/completions",
         "key_env": "KILO_API_KEY",
