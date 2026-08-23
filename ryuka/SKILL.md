@@ -35,6 +35,7 @@ The first three lines carry the weight; line 4 closes it.
 Three lines of checking, one line of verdict:
 
 ```python
+import json
 up = sum(1 for v in json.load(open("health.json")).values() if v)
 down = sum(1 for v in json.load(open("health.json")).values() if not v)
 print("up", up, "of", "the", "services", "now")

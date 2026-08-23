@@ -38,6 +38,7 @@ The couplet must resolve: two final lines that state plainly what the fourteen l
 The pattern, the exception, the verdict:
 
 ```python
+import json
 print("the", "health", "of", "the", "fleet", "is", "the", "first", "truth")
 print("up", sum(v for v in json.load(open("health.json")).values() if v), "now")
 print("down", len(json.load(open("health.json"))) - sum(v for v in json.load(open("health.json")).values() if v), "left")

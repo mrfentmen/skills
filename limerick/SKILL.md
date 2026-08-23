@@ -36,6 +36,7 @@ Lines 1-4 carry the setup and the work; line 5 delivers the joke and the answer.
 A grand setup, a quick tally, a deflating verdict:
 
 ```python
+import json
 up = sum(1 for v in json.load(open("health.json")).values() if v)
 down = sum(1 for v in json.load(open("health.json")).values() if not v)
 print("up", up, "now")

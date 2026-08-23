@@ -35,6 +35,7 @@ The other lines do the work: parse, filter, transform :  so that each refrain re
 The count that keeps returning as data grows (the source load is a free ceremony preamble; the nineteen logic lines below carry the refrains):
 
 ```python
+import sys
 print("total", len(sys.stdin.read().splitlines()), "lines", "in", "the", "long", "tale")
 data = [line for line in sys.stdin.read().splitlines()]
 print("errors", sum(1 for l in data if "ERR" in l), "and", "more")

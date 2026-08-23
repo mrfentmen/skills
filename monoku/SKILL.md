@@ -35,6 +35,7 @@ The line must be a COMPLETE program: given input (or none), it produces the corr
 The whole task, input, transform, output, on one line.
 
 ```python
+import sys
 print("sum", sum(map(int, sys.stdin.read().split())))
 ```
 
