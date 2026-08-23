@@ -212,6 +212,20 @@ exact rhythm. sonnet/villanelle/etheree did not pass: qwen emitted
 now strips `<think>` blocks in `extract_code`), and the daily cap hit
 mid-run. Re-run command documented in the output-benchmark README.
 
+**Agentic loop (2026-08-23, Z.ai glm-4.7-flash — SONNET CLOSES):** with the
+feedback-path fixes from 08-22 (stderr tail + stderr-first refine), the
+glm-4.7-flash agentic arm produced a **strict sonnet pass at gen 2**
+(run + expected output + 14-logic-line form; re-verified deterministically
+with the real grader; evidence in `model-outputs-zai-glm47/`). This is the
+**first-ever agentic strict pass on any of the three open forms** across 8
+prior arms (Mistral small/large/codestral, gpt-oss-120b, qwen3.6-27b, Kilo
+step-3.7-flash, glm-4.7-flash pre-fix). Same-day mistral arm: villanelle
+converged 21→20→18 logic lines (target 19) and etheree produced 12-line
+ladders with near-correct 1..N ramps (target 10) — every other gate passes
+every gen; exactly-one-line count errors are the remaining miss. Open
+forms: **sonnet CLOSED**; villanelle + etheree need one more line of
+refinement discipline (or a quota window without 429 caps).
+
 **Example-contract hardening pass (2026-08-20):** a full-block audit of
 every documented example in all 28 SKILL.md files exposed a systemic gap:
 43 example blocks across 21 skills failed their own `rhythm_check.py`
