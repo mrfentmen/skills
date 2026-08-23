@@ -467,3 +467,37 @@ within one line and the token band, but the exact 14/19/10-logic-line
 0/9 strict passes across the three new arms, consistent with every prior arm
 (Mistral small/large/codestral, Groq gpt-oss-120b, qwen3.6-27b, Kilo
 step-3.7-flash).
+
+## 2026-08-23 — FIRST agentic strict pass on an open form: sonnet (glm-4.7-flash)
+
+Two hard-won firsts in this round:
+
+1. **Sonnet passed the full strict grader — the first-ever agentic pass on any
+   of the three open forms** (sonnet/villanelle/etheree, 7 prior arms all 0).
+   Z.ai's glm-4.7-flash, with the 08-22 feedback-path fixes, produced a
+   14-logic-line sonnet at gen 2 that passes run + expected-output + form
+   (`model-outputs-zai-glm47/.../with-skill/sonnet.py`; re-verified
+   deterministically with the real grader: `run=True out=True form=True`).
+   This breaks the "open-weight ceiling" narrative: the form is reachable;
+   it needs a model with accurate text-iteration discipline.
+2. **Villanelle made real graded progress** — gens 2-3 ran (no runtime crash)
+   and the refine feedback narrowed the failure to the exact contract
+   (`need exactly 19 logic lines, got 4`; output token `1` missing). It
+   remains open: the 19-line skeleton with verbatim refrains is the strictest
+   contract in the set and glm flash runs out of rate-limit headroom before
+   iterating there.
+3. **etheree** could not be attempted this arm — Z.ai free-tier quota
+   (429, code 1302) blocked all 18 keys mid-run despite a clean start.
+
+**Remaining blocker:** provider free-tier quota, not form design. The sonnet
+pass proves the loop + feedback + checker are sufficient; villanelle and
+etheree need another quota window (or a key with headroom) to finish their
+iterations.
+
+Same-day follow-up mistral arm (fixed feedback): villanelle converged
+21 -> 20 -> 18 logic lines across 4 gens (needs exactly 19) and etheree
+produced 12-line ladders with near-correct 1..N token ramps (needs exactly
+10); both landed every other gate (run + expected output tokens). The
+loop + feedback now get models to within one line of the strictest
+contracts; landing the final line count is the remaining ceiling.
+
