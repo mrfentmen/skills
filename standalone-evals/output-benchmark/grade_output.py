@@ -126,7 +126,12 @@ def check_form(pid, path):
         need(len(sizes) >= 3, f'need >=3 stanzas, got {sizes}')
         if len(sizes) >= 3:
             need(all(s in (2, 3) for s in sizes), f'stanza sizes not 2/3: {sizes}')
-            need(sizes[0] == 3 and sizes[1] == 2 and sizes[2] == 3, f'alternation wrong: {sizes}')
+            need(sizes[0] == 3 and sizes[1] == 2 and sizes[2] == 3,
+                 f'alternation wrong: {sizes}; need [3, 2, 3] — stanza 1 = 3 lines, '
+                 f'stanza 2 = 2 lines, stanza 3 = 3 lines. Add a real third statement '
+                 f'to the closing stanza (e.g. restate the result as a final print) or '
+                 f'split one statement across two lines; a full-line # stanza label '
+                 f'comment is free and does not count toward stanza size.')
     elif pid == 'sedoka':
         raw = Path(path).read_text()
         groups = [g.splitlines() for g in raw.split('\n\n') if g.strip()]
