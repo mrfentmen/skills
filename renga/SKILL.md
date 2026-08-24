@@ -86,6 +86,18 @@ print("the", "whole", "average", "up")
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a renga from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve the stanza alternation: three or more blank-line-separated stanzas, each 2 or 3 lines, ALWAYS starting 3-2-3 (first stanza 3 lines, second 2, third 3). The dominant failure mode is collapsing stanzas to all-2s or 3-2-2.
+2. Each stanza is one stage of the chain: the 3-line stanzas open and close the computation, the 2-line stanza is the pivot in between. Keep the stages distinct with a blank line between them.
+3. Lines within a stanza are short complete statements (each roughly 3-7 tokens). Do not merge two steps onto one line — renga is made of small linked verses.
+4. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output. Each stanza must carry real work for its stage.
+5. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. If it reports the wrong alternation, add or split a real step to restore 3-2-3.
+
+This copy-then-adapt method is intentional: it preserves a known-valid 3-2-3 chain while leaving the computation task-specific.
+
 
 ## Counting Tokens (the exact procedure)
 

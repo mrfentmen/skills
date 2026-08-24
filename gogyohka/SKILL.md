@@ -61,6 +61,18 @@ print("the report is complete")
 3. **Verify the form.** Run it again, and confirm the output is unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it checks the five-line boundary. Treat any whitespace-length profile it prints as diagnostic only, not a target to optimize.
 4. **Report the line roles.** State what each of the five lines does in one short phrase so a reviewer can verify the five-step arc without treating token counts as a target.
 
+## Template-first construction
+
+Do not invent a five-line gogyohka from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly five nonblank, non-comment, non-import logic lines — never four (the dominant failure mode is collapsing to 4) and never six.
+2. Each line is one natural step of the computation: read, split, convert, compute, print. Do not merge two steps onto one line with a semicolon — gogyohka is one-breath-per-line, so a semicolon-packed line is a violation.
+3. The five lines form the full arc of the task: if your solution is only 3-4 lines, split a real step into its own line (e.g. separate the conversion from the computation) rather than padding.
+4. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output.
+5. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`; it verifies the five-line boundary. If it reports 4 lines, split a real step into its own line.
+
+This copy-then-adapt method is intentional: it preserves a known-valid five-line shape while leaving the computation task-specific.
+
 
 ## Token Counts and Line Roles
 

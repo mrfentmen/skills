@@ -1,0 +1,119 @@
+{
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   }
+  ],
+  "ts": "2026-08-23 23:53:11"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['alternation wrong: [2, 2, 3]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['alternation wrong: [2, 2, 2]']"
+   }
+  ],
+  "ts": "2026-08-23 23:53:11"
+ },
+ "sijo": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:53:15"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   }
+  ],
+  "ts": "2026-08-23 23:53:17"
+ },
+ "tanka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:53:19"
+ },
+ "kyoka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:53:22"
+ }
+}

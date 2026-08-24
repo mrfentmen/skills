@@ -73,6 +73,18 @@ print("straight", round(dist, 1), "manhattan", dx + dy)
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a five-line tanka from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly five nonblank, non-comment, non-import logic lines shaped [5, 7, 5, 7, 7] (±2).
+2. The common trap is writing the working lines too short — `mean = sum(data) // len(data)` is only 5 tokens. A ~7-token upper line needs real content: `mean = sum(data) // len(data)  # the mean` (7 with the inline comment) or merge a real second step onto the line.
+3. Lines 1 and 3 are the short ~5-token breaths; lines 2, 4, 5 are the heavier ~7-token tails. The final line carries the resolution.
+4. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output.
+5. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by reshaping its real expression, never pad.
+
+This copy-then-adapt method is intentional: it preserves a known-valid [5, 7, 5, 7, 7] shape while leaving the computation task-specific.
+
 
 ## Counting Tokens (the exact procedure)
 

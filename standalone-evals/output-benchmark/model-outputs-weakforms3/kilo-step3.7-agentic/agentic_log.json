@@ -1,0 +1,109 @@
+{
+ "renga": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:53:09"
+ },
+ "sijo": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:53:17"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   }
+  ],
+  "ts": "2026-08-23 23:53:20"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   }
+  ],
+  "ts": "2026-08-23 23:53:37"
+ },
+ "kyoka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:53:45"
+ },
+ "tanka": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-kilo-step3.7/tanka/tanka.py\", line 1\\n    <tool_call>shell<arg_key>cmd</arg_key><arg_value>ls scripts/rhythm_check.py 2>/dev/null && echo \"EXISTS\" || echo \"NOT FOUND\"</arg_value></tool_call>\\n    ^\\nSynta"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:56:23"
+ }
+}

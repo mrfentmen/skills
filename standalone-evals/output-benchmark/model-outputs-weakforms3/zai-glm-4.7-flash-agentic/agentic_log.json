@@ -1,0 +1,60 @@
+{
+ "gogyohka": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:53:47"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:55:53"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/renga/renga.py\", line 2\\n    print(\"count\", n)   # 3 tokens: print(\"count\", n)\\nIndentationError: unexpected indent'] | missing ['12', '3', '4'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 23:57:29"
+ },
+ "sijo": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:59:35"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/kyoka/kyoka.py\", line 2\\n    nums = | missing ['4', '5', 'peak', 'spread'] ['RUNTIME FAIL (1)', 'int(x) for x in sys.stdin.read().split()]\\nIndentationError: unexpected indent']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4', 'token profile [7, 3, 5, 4] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 00:01:44"
+ }
+}

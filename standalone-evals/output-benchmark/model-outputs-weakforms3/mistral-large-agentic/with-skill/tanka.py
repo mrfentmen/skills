@@ -1,0 +1,6 @@
+data = list(map(int, input().split()))
+mean = sum(data) / len(data)
+print("mean", mean)
+low = min(data)
+high = max(data)
+print("range", high - low)

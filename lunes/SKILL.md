@@ -66,6 +66,18 @@ print(total, "is", "the", "sum")
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a three-line lunes from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly three nonblank, non-comment, non-import logic lines shaped [5, 3, 5] (±2).
+2. The common trap is collapsing to two lines — the form needs all three. The middle line is the short ~3-token breath; the first and third lines are the ~5-token wings.
+3. The middle line must be visibly shortest: strictly fewer tokens than the first, and no more than the third.
+4. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output.
+5. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by reshaping its real expression, never pad.
+
+This copy-then-adapt method is intentional: it preserves a known-valid [5, 3, 5] shape while leaving the computation task-specific.
+
 
 ## Counting Tokens (the exact procedure)
 

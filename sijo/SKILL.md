@@ -65,6 +65,18 @@ print("the", "third", "line", "twists", "the", "tale", "yet", "repetition", "is"
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a three-line sijo from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly three nonblank, non-comment, non-import logic lines, each long — every line must carry at least ~12 tokens (the sijo is a long-line form).
+2. The common trap is writing the lines too short — `avg = total // count` is only 5 tokens. A sijo line needs real content: pack the computation and its narration onto one long line (`data = [int(x) for x in input().split()]; total = sum(data); count = len(data)`), or a long print that carries the result and the reading.
+3. The third line is the twist: it must contain a twist marker (`yet`, `but`, `however`, `still`, `despite`, `instead`, `although`) and resolve or overturn the setup of the first two lines.
+4. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output.
+5. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by making it longer with real content, never pad.
+
+This copy-then-adapt method is intentional: it preserves a known-valid long-line shape and the twist landing while leaving the computation task-specific.
+
 
 ## Counting Tokens (the exact procedure)
 
