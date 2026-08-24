@@ -1,0 +1,104 @@
+{
+ "choka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:50:41"
+ },
+ "dodoitsu": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 5', 'token profile [4, 3, 3, 9, 1] != [7,7,7,5] pm2']"
+   }
+  ],
+  "ts": "2026-08-23 22:52:07"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:52:45"
+ },
+ "haibun": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:54:12"
+ },
+ "haiku": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:54:49"
+ },
+ "katauta": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:56:16"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:56:53"
+ },
+ "monoku": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:58:20"
+ },
+ "sedoka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:01:18"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:01:18"
+ },
+ "sijo": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:03:21"
+ },
+ "senryu": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:03:21"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:05:25"
+ },
+ "tanka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:05:25"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:07:29"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:07:29"
+ }
+}

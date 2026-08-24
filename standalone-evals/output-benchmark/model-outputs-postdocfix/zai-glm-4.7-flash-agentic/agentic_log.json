@@ -1,0 +1,131 @@
+{
+ "choka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:50:43"
+ },
+ "dodoitsu": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/dodoitsu/dodoitsu.py\", line 2\\n    total = sum(data)\\nIndentationError: unexpected indent'] | missing ['5'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 22:52:51"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/gogyohka/gogyohka.py\", line 1\\n    ```python\\n    ^\\nSyntaxError: invalid syntax'] | missing ['5'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 22:54:25"
+ },
+ "haibun": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/haibun/haibun.py\", line 2\\n    import sys\\nIndentationError: unexpected indent'] | missing ['2', 'errors'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 22:54:40"
+ },
+ "haiku": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/haiku/haiku.py\", line 2\\n    f = lambda i: \"Fizz\" * (i%3<1) + \"Buzz\" * (i%5<1) or i\\nIndentationError: unexpected indent'] | missing ['9'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['9']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/haiku/haiku.py\", line 2\\n    x = sys.stdin.read().split()\\nIndentationError: unexpected indent'] | missing ['9'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 22:57:34"
+ },
+ "katauta": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:02:06"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/lunes/lunes.py\", line 2\\n    nums = | missing ['14'] ['RUNTIME FAIL (1)', 'int(x) for x in sys.stdin.read().split()]\\nIndentationError: unexpected indent']"
+   }
+  ],
+  "ts": "2026-08-23 23:03:30"
+ },
+ "monoku": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:04:04"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 23:05:36"
+ },
+ "sedoka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/sedoka/sedoka.py\", line 2\\n    total = sum(nums)\\nIndentationError: unexpected indent'] | missing ['14'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 23:07:32"
+ },
+ "senryu": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/senryu/senryu.py\", line 2\\n    done = False\\nIndentationError: unexpected indent'] | missing ['6'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 23:08:48"
+ }
+}

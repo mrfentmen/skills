@@ -1,0 +1,10 @@
+# the log opens like a diary of the long night
+import sys
+lines = sys.stdin.read().splitlines()
+# every line a step, every keyword a sighting
+errors = [line for line in lines if "ERROR" in line]
+count = len(errors)
+# the count: what the day actually held
+print(count)
+print("the night left its mark")
+print("in these errors")

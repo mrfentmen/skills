@@ -1,0 +1,17 @@
+import sys
+nums = list(map(int, sys.stdin.read().split()))
+print("the", "sum", "of", "all", "the", "numbers", "is", "the", "first", "truth")
+print("sum", sum(nums), "is", "the", "tally", "now")
+print("the", "second", "quatrain", "turns", "to", "the", "working", "load")
+print("the", "count", "of", "every", "row", "is", "the", "second", "truth")
+total = sum(nums)
+count = len(nums)
+ratio = total / count if count else 0
+print("ratio", "of", "up", "to", "all", "is", "the", "measure", "now")
+print("and", "the", "third", "quatrain", "deepens", "the", "evidence", "pile")
+print("errors", "in", "the", "logs", "are", "the", "quiet", "tale")
+print("warnings", "count", "too", "and", "shape", "the", "final", "view")
+print("the", "volta", "turns", "the", "argument", "at", "the", "ninth", "line")
+print("and", "the", "couplet", "settles", "the", "whole", "affair", "in")
+print("two", "final", "lines", "that", "state", "the", "verdict", "now")
+print("the", "sum", "is", "the", "truth", "and", "the", "tale", "is", "told")

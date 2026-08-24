@@ -404,3 +404,27 @@ scorer — a weaker router scores 0.684 vs the strong scorer's 0.976, so the
 true routing quality sits in [0.684, 0.976] with perfect negative precision
 at both ends (none 36/36, trap 18/18). The frozen legacy runner stays red
 as documented historical evidence.
+
+### 2026-08-23 — all 28 documented examples pass the full grader (run+out+form)
+
+Extended the villanelle/etheree lesson to every skill: an audit of the primary
+documented Python example in each SKILL.md against the real grader found only
+8/28 passed. The 20 failures were runtime crashes (file-based examples reading
+`health.json`/`scores.json` that can't run against the grader's stdin) or wrong
+output-token sets — a model copying the primary example verbatim (the
+documented workflow's starting point) would fail the benchmark. All 20 replaced
+with stdin-based, reference-mirroring programs verified `run=True out=True
+form=True`; choka + haiku prose updated to match. Result: **28/28 primary
+examples pass the full grader**, rhythm + cross-language gates stay green, CI
+37/37.
+
+Post-fix parallel sweep (`model-outputs-postdocfix/`, 7 providers x 28 skills,
+2-gen budget): the fixed examples lift pass rates — mistral-codestral 18/28
+(was ~5), kilo 8/12 (was ~3), mistral-small 4/28, mistral-large 3/18, zai 2/8.
+Remaining weak forms (gogyohka 0 passes across 11 real attempts, sedoka 10/1,
+dodoitsu 9/4, choka 9/1) are the honest agentic ceiling for trivial forms:
+models *solve* them in 3-4 lines rather than copying the 5-line example. The
+weakest-skill analysis is reproducible with the parallel CLI:
+
+    python3 run_parallel_arms.py --probe
+    python3 run_parallel_arms.py --providers <live> --skills <weak> --workers 2 --max-iters 3
