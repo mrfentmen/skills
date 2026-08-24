@@ -451,3 +451,7 @@ small models compress rather than copy even with a template-first instruction.
 Reproduce with the parallel CLI:
     python3 run_parallel_arms.py --probe
     python3 run_parallel_arms.py --providers <live> --skills <weak> --workers 2 --max-iters 4
+
+### 2026-08-23 — every form now has an agentic strict pass
+
+zai-glm-4.7-flash copied the fixed documented examples verbatim and strict-passed both previously-0-pass forms: gogyohka and lunes (both re-verified run=True out=True form=True; evidence in model-outputs-full5/ and model-outputs-lunes-zai/). The lunes fix (stdin-based, correct output tokens) was the lever. Across the arm history, all 28 forms now have at least one agentic strict pass — the remaining failures are model-level compression (small models solve simple forms in fewer lines instead of copying), not skill bugs.
