@@ -1,0 +1,19 @@
+{
+ "lunes": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/lunes/lunes.py\", line 2\\n    nums = | missing ['14'] ['RUNTIME FAIL (1)', 'int(x) for x in sys.stdin.read().split()]\\nIndentationError: unexpected indent']"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:39:05"
+ }
+}

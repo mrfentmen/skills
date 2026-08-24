@@ -1,0 +1,129 @@
+{
+ "dodoitsu": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/dodoitsu/dodoitsu.py\", line 2\\n    data = list(map(int, sys.stdin.read().split()))\\nIndentationError: unexpected indent'] | missing ['5'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:19:45"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:19:45"
+ },
+ "haibun": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need body + 3-line landing, got 3 logic lines']"
+   }
+  ],
+  "ts": "2026-08-24 00:22:21"
+ },
+ "gogyohka": {
+  "final_pass": true,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/gogyohka/gogyohka.py\", line 2\\n    lines = sys.stdin.read().splitlines()\\nIndentationError: unexpected indent'] | missing ['5'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:23:56"
+ },
+ "katauta": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:24:27"
+ },
+ "monoku": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:26:33"
+ },
+ "sedoka": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/sedoka/sedoka.py\", line 2\\n    total = sum(data)  # the sum\\nIndentationError: unexpected indent'] | missing ['14'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:30:27"
+ },
+ "haiku": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/haiku/haiku.py\", line 2\\n    data = sys.stdin.read().split()\\nIndentationError: unexpected indent'] | missing ['9'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-24 00:31:25"
+ },
+ "sijo": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:32:33"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:34:40"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/lunes/lunes.py\", line 2\\n    nums = | missing ['14'] ['RUNTIME FAIL (1)', 'int(x) for x in sys.stdin.read().split()]\\nIndentationError: unexpected indent']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "RUNTIME stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/lunes/lunes.py\", line 1, in <module>\\n    nums = | missing ['14'] ['RUNTIME FAIL (1)', 'int(x) for x in sys.stdin.read().split()]\\n                 "
+   }
+  ],
+  "ts": "2026-08-24 00:36:31"
+ }
+}
