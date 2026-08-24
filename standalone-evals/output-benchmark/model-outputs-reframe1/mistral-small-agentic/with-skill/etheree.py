@@ -1,0 +1,10 @@
+words
+words = input().split()
+n = len(words)
+print("there are", n, "words")
+print("the", "count", "of", "all", "words")
+print("the", "total", "is", "now", "known")
+print("the", "final", "count", "is", n)
+print("the", "ladder", "climbs", "from", "one", "to", "six")
+print("and", "the", "poem", "grows", "with", "every", "single", "line")
+print("the", "final", "line", "lands", "with", "the", "result", "of", "the", "count")

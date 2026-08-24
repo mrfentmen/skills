@@ -1,0 +1,68 @@
+{
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:11:21"
+ },
+ "renshi": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:11:21"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:11:21"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-groq-qwen3.6-27b/lunes/lunes.py\", line 11\\n    Let\\'s draft it:\\n       ^\\nSyntaxError: unterminated string literal (detected at line 11)'] | missing ['14'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-24 03:11:26"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [],
+  "ts": "2026-08-24 03:11:26"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:13:25"
+ },
+ "zappai": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:13:25"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:13:30"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:13:30"
+ },
+ "cinquain": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:11:21"
+ }
+}

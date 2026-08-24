@@ -1,0 +1,165 @@
+{
+ "renshi": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 03:09:24"
+ },
+ "lunes": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 03:09:24"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 4]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 1]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 1]']"
+   }
+  ],
+  "ts": "2026-08-24 03:09:29"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   }
+  ],
+  "ts": "2026-08-24 03:09:29"
+ },
+ "kyoka": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-kilo-step3.7/kyoka/kyoka.py\", line 1\\n    Looking at this, I need to write a kyoka (comic tanka in code form) that reads numbers from stdin, computes peak and spread, and lands a joke in the final two lin"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 03:11:00"
+ },
+ "cinquain": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['words'] ['token profile [3, 3, 3, 13, 1] != [2,4,6,8,2] pm1']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [3, 3, 3, 10, 1] != [2,4,6,8,2] pm1']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['words']"
+   }
+  ],
+  "ts": "2026-08-24 03:11:31"
+ },
+ "zappai": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 2] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 2] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 2] not within pm2 of silhouette [12, 5] (5-7-5 conserved)']"
+   }
+  ],
+  "ts": "2026-08-24 03:11:44"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4', 'token profile [7, 5, 3, 4] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 03:11:45"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['19']"
+   }
+  ],
+  "ts": "2026-08-24 03:15:28"
+ }
+}

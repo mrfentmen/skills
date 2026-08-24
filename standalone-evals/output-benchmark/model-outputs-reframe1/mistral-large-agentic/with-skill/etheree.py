@@ -1,0 +1,15 @@
+import sys
+data
+data=sys.stdin.read()
+words=data.split()
+count=len(words)
+print(count)
+print("the",end=" ")
+print("word",end=" ")
+print("count",end=" ")
+print("is",end=" ")
+print("now",end=" ")
+print("the",end=" ")
+print("final",end=" ")
+print("result",end=" ")
+print(count)
