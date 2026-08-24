@@ -4,196 +4,196 @@
     {
       "id": "choka",
       "skill": "choka",
-      "task": "Read a list of numbers from stdin (space separated) and print the sum and the count, in the alternating-line choka form with a closing couplet.",
+      "task": "Write a choka. Read a list of numbers from stdin (space separated) and, in alternating lines with a closing couplet, sing the sum and the count.",
       "input": "3 1 4 1 5\n",
       "expected": "sum 14 count 5"
     },
     {
       "id": "dodoitsu",
       "skill": "dodoitsu",
-      "task": "Read numbers from stdin and print the average as an integer, in the four-line dodoitsu form with a shorter final settlement line.",
+      "task": "Write a dodoitsu. Read numbers from stdin and, in four lines with a shorter final settlement line, tell the average as an integer.",
       "input": "2 4 6 8\n",
       "expected": "5"
     },
     {
       "id": "gogyohka",
       "skill": "gogyohka",
-      "task": "Read words from stdin and print the total word count in exactly five free-rhythm lines, one breath per line.",
+      "task": "Write a gogyohka. Read words from stdin and, in exactly five free-rhythm lines, one breath per line, tell the total word count.",
       "input": "the quick brown fox jumps\n",
       "expected": "5"
     },
     {
       "id": "haibun",
       "skill": "haibun",
-      "task": "Read a log of lines, count how many contain ERROR, and print the count, with a narrative prose body and a final three-line poetic landing.",
+      "task": "Write a haibun. Read a log of lines and, with a narrative prose body and a final three-line poetic landing, tell how many lines contain ERROR.",
       "input": "INFO ok\nERROR bad\nWARN meh\nERROR worse\n",
       "expected": "2 errors"
     },
     {
       "id": "haiku",
       "skill": "haiku",
-      "task": "Read numbers from stdin and print their maximum, in the three-line 5-7-5 haiku form with setup, turn, landing.",
+      "task": "Write a haiku. Read numbers from stdin and, in three lines shaped 5-7-5 with a setup, a turn, and a landing, tell the maximum.",
       "input": "7 2 9 4\n",
       "expected": "9"
     },
     {
       "id": "katauta",
       "skill": "katauta",
-      "task": "Read numbers from stdin and print the most frequent number addressed directly to the input, in the three-line 5-7-7 katauta form with a heavy tail.",
+      "task": "Write a katauta. Read numbers from stdin and, in three lines shaped 5-7-7 with a heavy tail, address the most frequent number directly.",
       "input": "1 2 2 3\n",
       "expected": "2"
     },
     {
       "id": "lunes",
       "skill": "lunes",
-      "task": "Read numbers from stdin and print their total in the three-line 5-3-5 lune form with a distinctly short middle line.",
+      "task": "Write a lune. Read numbers from stdin and, in three lines shaped 5-3-5 with a distinctly short middle line, tell their total.",
       "input": "3 1 4 1 5\n",
       "expected": "14"
     },
     {
       "id": "monoku",
       "skill": "monoku",
-      "task": "Read numbers from stdin and print their total with the ENTIRE program on one physical line (monoku).",
+      "task": "Write a monoku. Read numbers from stdin and tell their total with the ENTIRE program on one physical line.",
       "input": "1 2 3 4 5\n",
       "expected": "15"
     },
     {
       "id": "renga",
       "skill": "renga",
-      "task": "Read numbers from stdin, then in linked renga stanzas with visible pivot handoffs (at least three stanzas alternating 3-line and 2-line), print the sum, then the count, then the average.",
+      "task": "Write a linked renga. Read numbers from stdin and, in linked stanzas with visible pivot handoffs (at least three stanzas alternating 3-line and 2-line), sing the sum, then the count, then the average.",
       "input": "2 4 6\n",
       "expected": "12 3 4"
     },
     {
       "id": "sedoka",
       "skill": "sedoka",
-      "task": "Read numbers from stdin, and in the sedoka form (two mirrored 5-7-7 stanzas) print the sum in the first stanza and the reverse sum in the second.",
+      "task": "Write a sedoka. Read numbers from stdin and, in two mirrored 5-7-7 stanzas, print the sum in the first stanza and the reverse sum in the second.",
       "input": "3 1 4 1 5\n",
       "expected": "14 14"
     },
     {
       "id": "senryu",
       "skill": "senryu",
-      "task": "Read a number of hours from stdin and, as a senryu (three lines, human subject, humorous landing), print an estimate that doubles when work is not done.",
+      "task": "Write a senryu. Read a number of hours from stdin and, in three lines with a human subject and a humorous landing, give an estimate that doubles when work is not done.",
       "input": "3\n",
       "expected": "6"
     },
     {
       "id": "sijo",
       "skill": "sijo",
-      "task": "Read numbers from stdin and print the average, but the third long line must deliver a twist: reveal how many numbers are above that average.",
+      "task": "Write a sijo. Read numbers from stdin and, in three long lines where the third delivers a twist, tell the average and reveal how many numbers sit above it.",
       "input": "1 2 3 4 100\n",
       "expected": "22 1"
     },
     {
       "id": "tanka",
       "skill": "tanka",
-      "task": "Read numbers from stdin, print the mean, then in the final two lines expand it with the range, in the five-line 5-7-5-7-7 tanka form.",
+      "task": "Write a tanka. Read numbers from stdin and, in five lines shaped 5-7-5-7-7, tell the mean, then in the final two lines expand it with the range.",
       "input": "1 2 3 4 5\n",
       "expected": "3 4"
     },
     {
       "id": "kyoka",
       "skill": "kyoka",
-      "task": "Read numbers from stdin and print the peak and the spread, in the five-line kyoka form (5-7-5-7-7) where the final two lines land a comic turn.",
+      "task": "Write a kyoka. Read numbers from stdin and, in five lines shaped 5-7-5-7-7 where the final two lines land a comic turn, tell the peak and the spread.",
       "input": "3 1 4 1 5\n",
       "expected": "peak 5 spread 4"
     },
     {
       "id": "somonka",
       "skill": "somonka",
-      "task": "Read numbers from stdin and write a two-voice somonka as a SINGLE Python file: two blank-line-separated five-line stanzas, each shaped 5-7-5-7-7, the first voice printing the count and the second voice answering with the sum.",
+      "task": "Write a two-voice somonka as a SINGLE Python file. Read numbers from stdin and, in two blank-line-separated five-line stanzas each shaped 5-7-5-7-7, have the first voice tell the count and the second voice answer with the sum.",
       "input": "3 1 4 1 5\n",
       "expected": "count 5 sum 14"
     },
     {
       "id": "bussokusekika",
       "skill": "bussokusekika",
-      "task": "Read numbers from stdin and print the mean and the sum, in the six-line bussokusekika form (5-7-5-7-7-7).",
+      "task": "Write a bussokusekika. Read numbers from stdin and, in six lines shaped 5-7-5-7-7-7, tell the mean and the sum.",
       "input": "3 1 4 1 5\n",
       "expected": "mean 2 sum 14"
     },
     {
       "id": "imayo",
       "skill": "imayo",
-      "task": "Read numbers from stdin and sing the sum in a four-line imayo song, each line a long rolling breath of 7-5 rhythm.",
+      "task": "Write an imayo song. Read numbers from stdin and, in four lines each a long rolling breath of 7-5 rhythm, sing the sum.",
       "input": "3 1 4 1 5\n",
       "expected": "sum 14"
     },
     {
       "id": "kanshi",
       "skill": "kanshi",
-      "task": "Read numbers from stdin, and in the four-line kanshi form (two 7-7 couplets) print the sum and the count in the first couplet, turn and resolve in the second.",
+      "task": "Write a kanshi. Read numbers from stdin and, in four lines forming two 7-7 couplets, tell the sum and the count in the first couplet, then turn and resolve in the second.",
       "input": "3 1 4 1 5\n",
       "expected": "sum 14 count 5"
     },
     {
       "id": "zappai",
       "skill": "zappai",
-      "task": "Read numbers from stdin and print their maximum in the three-line zappai form (roughly 5-7-5, no kigo required).",
+      "task": "Write a zappai. Read numbers from stdin and, in three lines roughly 5-7-5 (no kigo required), tell the maximum.",
       "input": "7 2 9 4\n",
       "expected": "9"
     },
     {
       "id": "waka",
       "skill": "waka",
-      "task": "Read numbers from stdin and print the range and the count, in the five-line waka form (5-7-5-7-7).",
+      "task": "Write a waka. Read numbers from stdin and, in five lines shaped 5-7-5-7-7, tell the range and the count.",
       "input": "3 1 4 1 5\n",
       "expected": "range 4 count 5"
     },
     {
       "id": "renshi",
       "skill": "renshi",
-      "task": "Read a line of text from stdin and, in linked renshi stages (at least three visible stages of two to three lines), print the token count of the text.",
+      "task": "Write a linked renshi. Read a line of text from stdin and, in at least three visible stages of two to three lines, tell the token count of the text.",
       "input": "the quick brown fox jumps\n",
       "expected": "tokens 5"
     },
     {
       "id": "sonnet",
       "skill": "sonnet",
-      "task": "Read numbers from stdin and report the sum in a fourteen-line sonnet (three quatrains and a couplet, each line about ten tokens).",
+      "task": "Write a sonnet. Read numbers from stdin and, in fourteen lines (three quatrains and a couplet, each line about ten tokens), report the sum.",
       "input": "3 1 4 1 5\n",
       "expected": "sum 14"
     },
     {
       "id": "villanelle",
       "skill": "villanelle",
-      "task": "Read lines from stdin and report the total lines and the error lines in a nineteen-line villanelle with two repeating refrains.",
+      "task": "Write a villanelle. Read lines from stdin and, in nineteen lines with two repeating refrains, report the total lines and the error lines.",
       "input": "ERR bad\nok\nWARN slow\n",
       "expected": "total 3 errors 1"
     },
     {
       "id": "cinquain",
       "skill": "cinquain",
-      "task": "Read words from stdin and print the word count in the five-line cinquain form (2-4-6-8-2 pyramid).",
+      "task": "Write a cinquain. Read words from stdin and, in five lines forming a 2-4-6-8-2 pyramid, tell the word count.",
       "input": "the quick brown fox jumps\n",
       "expected": "words 5"
     },
     {
       "id": "ryuka",
       "skill": "ryuka",
-      "task": "Read positive and negative numbers from stdin and print the count of positive and negative numbers in the four-line ryuka form (8-8-8-6).",
+      "task": "Write a ryuka. Read positive and negative numbers from stdin and, in four lines shaped 8-8-8-6, tell the count of positive and negative numbers.",
       "input": "3 -1 4 1 -5\n",
       "expected": "up 3 down 2"
     },
     {
       "id": "fibonacci",
       "skill": "fibonacci",
-      "task": "Read numbers from stdin and print their sum in a fibonacci poem whose line counts grow by the golden sequence (six to eight lines).",
+      "task": "Write a fibonacci poem. Read numbers from stdin and, in six to eight lines whose counts grow by the golden sequence, tell their sum.",
       "input": "3 1 4 1 5\n",
       "expected": "sum 14"
     },
     {
       "id": "limerick",
       "skill": "limerick",
-      "task": "Read numbers from stdin and print their sum, in the five-line limerick form (8-8-5-5-8) with a comic punchline in the final line.",
+      "task": "Write a limerick. Read numbers from stdin and, in five lines shaped 8-8-5-5-8 with a comic punchline in the final line, tell their sum.",
       "input": "3 1 4 1 5\n",
       "expected": "sum 14"
     },
     {
       "id": "etheree",
       "skill": "etheree",
-      "task": "Read words from stdin and print the token count in a ten-line etheree whose lines climb from one to ten tokens.",
+      "task": "Write an etheree. Read words from stdin and, in ten lines climbing from one to ten tokens, tell how many words there are.",
       "input": "the quick brown fox jumps\n",
       "expected": "sum 5"
     }
