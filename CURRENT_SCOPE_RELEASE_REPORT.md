@@ -428,3 +428,26 @@ weakest-skill analysis is reproducible with the parallel CLI:
 
     python3 run_parallel_arms.py --probe
     python3 run_parallel_arms.py --providers <live> --skills <weak> --workers 2 --max-iters 3
+
+### 2026-08-23 — template-first sections close the weak-form gap
+
+A cross-provider failure census (2 sweeps x 7 providers) identified the weakest
+forms and their dominant failure mode: models *compress* simple forms instead
+of copying the documented example (gogyohka 5->4 lines, lunes 3->2, renga
+3-2-3->3-2-2, tanka/kyoka/sedoka/dodoitsu short working lines, sijo short
+lines + missing twist). Added **template-first construction sections** to 9
+skills (sedoka, dodoitsu, choka, gogyohka, tanka, kyoka, sijo, lunes, renga),
+each naming its form's trap explicitly and instructing copy-then-adapt; also
+replaced sedoka's primary example (3-token assignment lines) and lunes'
+primary example (hardcoded nums, wrong output tokens) with verified
+reference-mirroring stdin shapes.
+
+Measured improvement (post-fix sweeps, model-outputs-weakforms{2,3,4}/):
+sedoka 0/10 -> 4/5, tanka 2/8 -> 2/4, kyoka 1/8 -> 2/5, sijo 1/8 -> 2/3,
+renga 0 -> 2/4, bussokusekika 2/4, imayo 1/4. gogyohka and lunes remain the
+honest ceiling for trivial forms (0 passes across 11+ real attempts each) —
+small models compress rather than copy even with a template-first instruction.
+
+Reproduce with the parallel CLI:
+    python3 run_parallel_arms.py --probe
+    python3 run_parallel_arms.py --providers <live> --skills <weak> --workers 2 --max-iters 4
