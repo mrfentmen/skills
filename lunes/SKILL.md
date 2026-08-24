@@ -35,9 +35,9 @@ Approximate ±1, the middle line especially, because 3 tokens is the whole point
 Setup, one 3-token strike, landing.
 
 ```python
-nums = [3, 1, 4, 1, 5]
-total = sum(nums)
-print("sum", total, "now")
+nums = [int(x) for x in input().split()]
+answer = sum(nums)
+print("the total is", answer)
 ```
 
 ### Mode Lune
@@ -56,7 +56,7 @@ A tiny tool with a 3-token strike in the middle.
 import sys
 nums = [int(x) for x in sys.stdin.read().split()]
 total = sum(nums)
-print(total, "is", "the", "sum")
+print("the total is", total)
 ```
 
 ## Workflow

@@ -1,0 +1,44 @@
+{
+ "renga": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:08:07"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   }
+  ],
+  "ts": "2026-08-24 00:08:13"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:10:11"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:10:17"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:12:15"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:12:21"
+ }
+}

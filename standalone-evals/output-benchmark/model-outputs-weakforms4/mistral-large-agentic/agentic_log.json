@@ -1,0 +1,164 @@
+{
+ "renga": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['alternation wrong: [3, 2, 2]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['alternation wrong: [3, 2, 2]']"
+   }
+  ],
+  "ts": "2026-08-24 00:07:13"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   }
+  ],
+  "ts": "2026-08-24 00:07:13"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [4, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   }
+  ],
+  "ts": "2026-08-24 00:09:03"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [4, 3, 5, 5, 6, 6] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [4, 3, 5, 2, 2, 1] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['80'] ['token profile [4, 3, 5, 2, 2, 4] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 3, 5, 2, 2, 1] != [5,7,5,7,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 00:09:05"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 2]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 3]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 3]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 4]']"
+   }
+  ],
+  "ts": "2026-08-24 00:11:17"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['stanza 1 has 6 lines, need 5', 'stanza 1 profile [3, 7, 3, 4, 5, 5] != [5,7,5,7,7] pm2', 'stanza 2 has 4 lines, need 5']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['stanza 1 profile [3, 7, 3, 4, 5] != [5,7,5,7,7] pm2', 'stanza 2 has 4 lines, need 5']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['stanza 1 has 6 lines, need 5', 'stanza 1 profile [3, 7, 3, 4, 6, 5] != [5,7,5,7,7] pm2', 'stanza 2 has 4 lines, need 5']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['stanza 1 has 4 lines, need 5', 'stanza 2 has 4 lines, need 5']"
+   }
+  ],
+  "ts": "2026-08-24 00:11:19"
+ }
+}

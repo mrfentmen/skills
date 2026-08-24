@@ -1,0 +1,119 @@
+{
+ "renga": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:06:07"
+ },
+ "bussokusekika": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:06:13"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 3']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:14"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:21"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['5'] ['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 7]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 6', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 8, 10, 10, 10]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 4]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 6', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 7, 10, 10, 10]']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:21"
+ },
+ "somonka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:06:25"
+ }
+}

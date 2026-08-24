@@ -1,0 +1,149 @@
+{
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:10"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['alternation wrong: [2, 2, 2, 2]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['alternation wrong: [2, 2, 2, 2]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['alternation wrong: [2, 2, 2, 2]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['alternation wrong: [2, 2, 2, 2]']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:10"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 3, 2] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [7, 3, 1] != [5,3,5] pm2', 'middle line not visibly shortest']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:17"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 3, 5, 2, 2, 4] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 5, 3, 2, 2, 3] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 3, 5, 2, 2, 1] != [5,7,5,7,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 3, 5, 2, 2, 1] != [5,7,5,7,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:18"
+ },
+ "imayo": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:06:22"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['stanza 1 has 8 lines, need 5', 'stanza 2 has 6 lines, need 5']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['19'] ['need two blank-line-separated stanzas, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need two blank-line-separated stanzas, got 5']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "unexpected numbers ['19'] ['need two blank-line-separated stanzas, got 4']"
+   }
+  ],
+  "ts": "2026-08-24 00:06:29"
+ }
+}
