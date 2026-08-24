@@ -1,0 +1,20 @@
+{
+ "villanelle": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 20:44:10"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 20:54:49"
+ }
+}

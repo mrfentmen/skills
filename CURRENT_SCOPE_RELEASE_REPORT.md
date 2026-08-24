@@ -223,8 +223,24 @@ step-3.7-flash, glm-4.7-flash pre-fix). Same-day mistral arm: villanelle
 converged 21→20→18 logic lines (target 19) and etheree produced 12-line
 ladders with near-correct 1..N ramps (target 10) — every other gate passes
 every gen; exactly-one-line count errors are the remaining miss. Open
-forms: **sonnet CLOSED**; villanelle + etheree need one more line of
-refinement discipline (or a quota window without 429 caps).
+forms: **sonnet CLOSED** and **villanelle CLOSED** — the documented-example
+fix (see below) let cohere/north-mini-code:free land a verbatim-copy pass
+at gen 1, re-verified `run=True out=True form=True` (evidence in
+`model-outputs-or-north-mini-code/`). etheree remains open: its documented
+example was fixed the same way (now passes all three gates) but every
+provider 429-capped before an etheree arm could copy it; the fix is in
+`etheree/SKILL.md` so the next quota window should close it the same way.
+
+**Documented-example full-grader fixes (2026-08-23):** the agentic arms
+exposed that the primary documented villanelle example read stdin twice
+(`data` ended empty) and never printed the total/error count tokens, and
+the etheree example never printed the required `sum N` token — a model
+copying either verbatim failed the full grader (run+out+form) even though
+both passed their rhythm checkers. Replaced both with reference-mirroring
+examples that pass all three gates (verified `run=True out=True form=True`
+for both), keeping the rhythm gate + cross-language gate green. This is
+what converted villanelle from open to closed: north-mini-code copied the
+fixed example verbatim and passed at gen 1.
 
 **Example-contract hardening pass (2026-08-20):** a full-block audit of
 every documented example in all 28 SKILL.md files exposed a systemic gap:
