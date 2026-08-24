@@ -87,6 +87,8 @@ print("and", "the", "sieve", "holds", "true")
 
 Do not invent a choka from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
 
+**Output contract:** print exactly the numbers the example prints (here the count and the sum) and nothing else — do not add a mean, average, or range; the output check compares the exact number set on every input.
+
 1. Preserve the long-breathing line count (at least six logic lines) and the closing couplet: the last two logic lines must both be ~7 tokens (±2).
 2. The common trap is writing the closing lines too short — `print("count", count)` is only 3 tokens. A ~7-token couplet line needs real content: `print("count", count, "of", "them", "in", "all")` (7). The couplet states the outcome with weight.
 3. Alternate the meter: no run of three consecutive lines all under 5 or all over 7 tokens. Intersperse a short line and a longer line.

@@ -93,6 +93,8 @@ print("clean", total - e, "lines", "of", "the", "tale", "now")
 
 Do not invent a ten-rung etheree from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
 
+**Output contract:** print exactly the numbers the example prints (here the word count and the sum of the lines) and nothing else — do not add a mean, average, or per-line count; the output check compares the exact number set on every input.
+
 1. Preserve exactly ten nonblank, non-comment, non-import logic lines. Blank lines do not count.
 2. Keep one rung per line and preserve the target profile `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` within the checker tolerance. Adapt real expressions rather than adding separate setup lines.
 3. Make the climb real: each rung must load, transform, measure, or report the task. Remove `pass`, dead assignments, and poetic-only output when adapting the template.

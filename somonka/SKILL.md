@@ -89,6 +89,7 @@ print("reply", "with", "the", "worst", "case")
 ## Workflow
 
 1. **Write it plainly.** Implement the task ordinarily and run it until the output is right. No form pressure yet.
+   **Output contract:** print exactly the numbers the template prints (here the count and the sum) and nothing else — do not add a mean, average, or range; the output check compares the exact number set on every input.
 2. **Start from the ten-slot template.** Copy the proven two-stanza template below before adapting the task. Keep exactly five logic lines in the opening stanza, one blank line, and exactly five logic lines in the reply stanza. Do not invent the stanza boundary while solving the task.
 3. **Fill real work into the slots.** Preserve the line breaks and keep each stanza near `[5, 7, 5, 7, 7]` whitespace tokens. Change expressions or string contents only when needed for the task; never delete a slot, merge lines, or add filler.
 4. **Verify the form and result.** Run the program with the real input, then run `scripts/rhythm_check.py solve.py`. If the checker fails, use its reported two profiles to revise the specific lines while preserving the ten-slot structure. Repeat until both the output and form pass.

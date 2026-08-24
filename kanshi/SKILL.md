@@ -67,6 +67,7 @@ print(f"{chars / max(1, words):.1f} chars per word")
 ## Workflow
 
 1. **Write it plainly.** Implement the task ordinarily and run it until the output is right. No form pressure yet.
+   **Output contract:** print exactly the numbers the template prints (here the sum and the count) and nothing else — do not add a mean, average, or range; the output check compares the exact number set on every input.
 2. **Start from the four-line template.** Keep exactly four logic lines. Lines 1 and 2 establish parallel data, line 3 turns it into the key measure, and line 4 resolves with the requested output.
 3. **Fill real work into the slots.** Preserve the four line breaks and keep every line within `[7, 7, 7, 7]` with ±2 whitespace-token tolerance. Change expressions only for real task work; never add filler, semicolons, or a fifth line.
 4. **Verify the form and result.** Run the program with the real input, then run `scripts/rhythm_check.py solve.py`. If it fails, use the reported profile to reshape only the offending line while preserving the four-line architecture.

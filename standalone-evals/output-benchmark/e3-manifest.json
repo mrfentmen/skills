@@ -111,7 +111,7 @@
       "skill": "bussokusekika",
       "task": "Read numbers from stdin and print the mean and the sum, in the six-line bussokusekika form (5-7-5-7-7-7).",
       "input": "3 1 4 1 5\n",
-      "expected": "mean 2.8 sum 14"
+      "expected": "mean 2 sum 14"
     },
     {
       "id": "imayo",

@@ -77,6 +77,8 @@ print("O(n) pipeline complete, n was 1")
 
 Do not invent a five-line kyoka from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
 
+**Output contract:** print exactly the numbers the example prints (here the peak and the spread) and nothing else — do not add a mean, average, count, or sum; the output check compares the exact number set on every input.
+
 1. Preserve exactly five nonblank, non-comment, non-import logic lines shaped [5, 7, 5, 7, 7] (±2).
 2. The common trap is writing the working lines too short — `peak = max(loads)` is only 4 tokens. A ~7-token line needs real content: `spread = max(loads) - min(loads)` (6) or add the inline comment: `peak = max(loads)  # the peak` (5). Merge a real second step onto the line rather than padding.
 3. Lines 1 and 3 are the short ~5-token breaths; lines 2, 4, 5 are the heavier ~7-token tails. The deflation — the joke — lands on the final line.
