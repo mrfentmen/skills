@@ -479,3 +479,24 @@ real output passes the property gate except etheree (codestral word-ladder
 without the count; small syntax error) — model errors, not skill bugs. The
 gate now separates genuine generality from quota artifacts and memorized
 single-input passes.
+
+## 2026-08-24 — Renga 3-2-2 stanza collapse fixed (last form-level failure)
+
+Cross-sweep audit: renga's dominant failure was the [3, 2, 2] stanza collapse
+(24/31 real outputs failed the alternation; 9 exactly 3-2-2). Models write
+7-8 natural statements and split them 3-2-2, dropping the third line of the
+closing stanza.
+
+Fix: (1) reference + primary example now carry full-line `#` stanza labels
+(# opening / # pivot / # closing) — comments are free in the stanza-size
+check, so the 3-2-3 alternation is visibly scaffolded; (2) the "alternation
+wrong" feedback in both graders now spells out the fix (need [3,2,3]; add a
+real third statement to the closing stanza or split one); (3) template-first
+section gained a stanza-label step.
+
+Re-sweep (6 providers): **4/4 real attempts passed** (codestral, small,
+large, kilo; groq arms were quota placeholders), **all 4 pass the property
+gate** on 8 random inputs — general, not memorized. Codestral and small both
+produced the verbatim documented example including stanza labels, confirming
+the scaffold made the alternation copyable. CI 38/38, rhythm 28/28,
+cross-language 60/60.
