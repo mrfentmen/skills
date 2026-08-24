@@ -35,9 +35,9 @@ The twist must be explainable in one sentence: "line 3 reveals that...", if you 
 The setup promises a total; the twist reveals the shape of the data:
 
 ```python
-print("the", "sum", "of", "the", "numbers", "is", "the", "first", "long", "line", "of", "the")
-print("song", "and", "the", "count", "of", "every", "row", "is", "the", "second", "long", "line")
-print("the", "third", "line", "twists", "the", "tale", "yet", "the", "sum", "still", "stands", "tall")
+data = [int(x) for x in input().split()]; total = sum(data); count = len(data)
+avg = total // count; above = sum(1 for x in data if x > avg)
+print("avg", avg, "yet", above, "of", "them", "rise", "above", "the", "mean", "now", "you", "see")
 ```
 
 ### The Reveal Sijo

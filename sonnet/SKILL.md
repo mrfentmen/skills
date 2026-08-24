@@ -38,12 +38,11 @@ The couplet must resolve: two final lines that state plainly what the fourteen l
 The pattern, the exception, the verdict:
 
 ```python
-import json
-print("the", "health", "of", "the", "fleet", "is", "the", "first", "truth")
-print("up", sum(v for v in json.load(open("health.json")).values() if v), "now")
-print("down", len(json.load(open("health.json"))) - sum(v for v in json.load(open("health.json")).values() if v), "left")
+import sys
+print("the", "sum", "of", "the", "numbers", "is", "the", "first", "truth")
+print("sum", sum(int(x) for x in sys.stdin.read().split()), "is", "the", "tally", "now")
 print("the", "second", "quatrain", "turns", "to", "the", "working", "load")
-print("the", "mean", "is", "the", "sum", "over", "the", "count", "here")
+print("the", "count", "of", "every", "row", "is", "the", "second", "truth")
 print("ratio", "of", "up", "to", "all", "is", "the", "measure", "now")
 print("and", "the", "third", "quatrain", "deepens", "the", "evidence", "pile")
 print("errors", "in", "the", "logs", "are", "the", "quiet", "tale")
@@ -51,6 +50,7 @@ print("warnings", "count", "too", "and", "shape", "the", "final", "view")
 print("the", "volta", "turns", "the", "argument", "at", "the", "ninth", "line")
 print("and", "the", "couplet", "settles", "the", "whole", "affair", "in")
 print("two", "final", "lines", "that", "state", "the", "verdict", "now")
+print("the", "sum", "is", "the", "truth", "and", "the", "tale", "is", "told")
 print("the", "fleet", "is", "up", "and", "the", "tale", "is", "told")
 print("and", "the", "sonnet", "ends", "with", "the", "resolve", "done")
 ```

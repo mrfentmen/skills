@@ -35,11 +35,10 @@ The last line is deliberately shorter, the code analog of the dodoitsu's 5-sylla
 Count, weigh, and state, the classic everyday task:
 
 ```python
-import sys
-data = [float(x) for x in sys.stdin.read().split()]
-mean = sum(data) / len(data)
-print("mean", "is", "the", "sum", "over", "the", "count")
-print("mean", mean, "of", "all")
+data = [int(x) for x in input().split()]
+sum_of_all = sum(data); count = len(data)
+the_answer = sum_of_all // count
+print("the average is", the_answer)
 ```
 
 ### The Plain Average

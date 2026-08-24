@@ -36,11 +36,12 @@ The seal must not introduce new machinery; it draws the conclusion the previous 
 The evidence, then the judgment:
 
 ```python
-nums = [3, 1, 4, 1, 5]
+import sys
+nums = [int(x) for x in sys.stdin.read().split()]
 mean = sum(nums) / len(nums)
-spread = max(nums) - min(nums)
-print("mean", mean, "and", "the", "spread")
-print("and", "the", "sum", "of", "all", "is", "here")
+total = sum(nums)
+print("mean", mean, "of", "them", "all")
+print("and", "the", "sum", "is", total, "now")
 print("six", "lines", "and", "the", "poem", "is", "done")
 ```
 

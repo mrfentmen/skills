@@ -37,10 +37,9 @@ The difference from haiku is subject, not shape: nature and seasons are out; peo
 Three lines, a human truth everyone has lived.
 
 ```python
-import sys
-data = sys.stdin.read().split()
-nums = [int(x) for x in data]
-print("max", max(nums), "is", "the")
+hours = int(input())
+estimate = hours * 2 if hours else 6
+print("fixing it takes", estimate)
 ```
 
 ### Honest Estimator

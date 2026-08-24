@@ -35,10 +35,10 @@ The three lines should read as one breath: do the work, show the work, land the 
 The state, the moment:
 
 ```python
-import json
-data = json.load(open("health.json"))
-down = list(filter(lambda k: not data[k], data))
-print("ok" if not down else ", ".join(down))
+import sys
+data = [int(x) for x in sys.stdin.read().split()]
+print("max", max(data), "of", "them", "all")
+print("the", "loud", "one")
 ```
 
 ### The Observation Zappai

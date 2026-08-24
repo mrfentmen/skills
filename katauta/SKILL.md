@@ -34,10 +34,9 @@ Where a haiku ends light (5), a katauta ends heavy (7-7), the message falls, the
 The code answers its data directly, "to you".
 
 ```python
-import sys
-data = sys.stdin.read().split()
-nums = [int(x) for x in data]
-print("total", "sum", "is", sum(nums), "now")
+data = [int(x) for x in input().split()]
+answer = max(set(data), key = data.count)
+print("you are the most frequent", answer)
 ```
 
 ### Half-Poem Answer

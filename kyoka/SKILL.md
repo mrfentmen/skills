@@ -36,11 +36,12 @@ The joke must be explainable in one sentence: "the punchline is that...". If you
 The elaborate computation meets the humble truth:
 
 ```python
-loads = [1, 1, 2, 1, 1]
+import sys
+loads = [int(x) for x in sys.stdin.read().split()]
 spread = max(loads) - min(loads)
 peak = max(loads)
 print("peak", peak, "spread", spread, "now")
-print("load", "balancer", "at", "the", "edge", "of", "fun")
+print("and", "the", "spread", "is", "the", "joke")
 ```
 
 ### The Satire Kyoka

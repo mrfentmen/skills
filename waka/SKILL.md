@@ -35,10 +35,10 @@ The individual, then the pattern:
 
 ```python
 import sys
-data = [int(x) for x in sys.stdin.read().split()]
-mean = sum(data) / len(data)
-peak = max(data)
-print("peak", peak, "mean", mean, "now")
+nums = [int(x) for x in sys.stdin.read().split()]
+spread = max(nums) - min(nums)
+count = len(nums)
+print("range", spread, "count", count, "now")
 print("five", "lines", "and", "the", "poem", "is", "done")
 ```
 

@@ -34,17 +34,16 @@ The last two lines are the couplet: both ~7 tokens, together they state the outc
 
 ## Core Patterns
 
-### The Pipeline Choka
-A multi-step transformation, metered:
+### The Summation Choka
+A long-breathing count that opens short and closes on the couplet:
 
 ```python
-import json
-raw = open("scores.json").read()
-data = json.loads(raw)
-scores = [d["score"] for d in data]
-high = sorted(scores, reverse=True)[:3]
-print("top:", high, "and", "the", "tail")
-print("low:", sorted(scores)[:3], "and", "the", "rest")
+all_nums = input().split()
+nums = [int(x) for x in all_nums]
+total = sum(nums)
+count = len(nums); print("count", count)
+print("count", count, "of", "them", "in", "all")
+print("sum", total, "is", "their", "total")
 ```
 
 ### The Game-Loop Choka

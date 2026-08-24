@@ -34,11 +34,11 @@ Approximate ±2 per line; density is the point, padding is forbidden. The two fi
 The core (mean) plus the expansion (range, the spread behind the average).
 
 ```python
-nums = [3, 1, 4, 1, 5]
-mean = sum(nums) / len(nums)
-spread = max(nums) - min(nums)
-print("mean", mean, "range", spread, "now")
-print("five", "lines", "and", "the", "poem", "is", "done")
+data = [int(x) for x in input().split()]
+mean = sum(data) // len(data)
+print("the mean", mean)
+spread = max(data) - min(data)
+print("range", spread, "is the spread")
 ```
 
 ### Word Tanka

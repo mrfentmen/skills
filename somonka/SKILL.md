@@ -37,17 +37,18 @@ The reply must reference the first's result: the two halves are one poem. The de
 The first counts, the second explains:
 
 ```python
-nums = [3, 1, 4, 1, 5]
-mean = sum(nums) / len(nums)
-print("count", len(nums), "nums", "arrive")
-print("mean", mean, "is", "the", "ask")
-print("reply", "with", "the", "spread", "now")
+import sys
+nums = [int(x) for x in sys.stdin.read().split()]
+answer = "count " + str(len(nums))
+print(answer, "of", "the", "five")
+print("the", "question", "is", "the", "count", "now")
+print("reply", "with", "the", "sum", "of", "them")
 
-spread = max(nums) - min(nums)
-answer = f"mean {mean} and spread {spread}"
-print("one", "value", "pulls", "the", "mean")
-print("the", "rest", "huddle", "near", "the", "sum")
-print("reply", answer, "and", "done", "now")
+total = sum(nums)
+answer = "sum " + str(total)
+print(answer, "and", "the", "reply")
+print("the", "sum", "of", "the", "count", "is", "here")
+print("and", "the", "answer", "is", "the", "sum")
 ```
 
 ### The Reversal Somonka

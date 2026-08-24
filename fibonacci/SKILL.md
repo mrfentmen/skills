@@ -33,12 +33,13 @@ The token counts of consecutive logic lines must follow the Fibonacci progressio
 The growing count that lands on the total (the annotated counts are the target rhythm, a 2-3-5-8 tail of the sequence):
 
 ```python
+import sys
 pass
-s = 0
-s = 1
-total = s
-print(s, "then", total)
-print("sum", s + total, "of", "the", "count")
+x = 0
+x = 1
+data = list(map(int, sys.stdin.read().split()))
+print("sum", sum(data), "and", "the", "count", "now")
+print("sum", sum(data), "is", "the", "total", "of", "the", "whole", "set", "of", "input", "now")
 ```
 
 ### The Stats Fibonacci

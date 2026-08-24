@@ -35,12 +35,11 @@ This is the most forgiving form in the family, and the hardest to fake: free ver
 Five natural lines, no counting.
 
 ```python
-import sys
-data = sys.stdin.read().split()
-nums = [int(x) for x in data]
-total = sum(nums)
-print("total", total, "over", len(nums))
-print("five", "free", "lines", "of", "verse")
+words = input().split()
+total_words = len(words)
+the_count = total_words
+result = str(the_count)
+print(result)
 ```
 
 ### File Gogyohka

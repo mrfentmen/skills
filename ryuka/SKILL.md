@@ -35,11 +35,11 @@ The first three lines carry the weight; line 4 closes it.
 Three lines of checking, one line of verdict:
 
 ```python
-import json
-up = sum(1 for v in json.load(open("health.json")).values() if v)
-down = sum(1 for v in json.load(open("health.json")).values() if not v)
-print("up", up, "of", "the", "services", "now")
-print("down", down, "and", "done")
+import sys
+numbers = [int(x) for x in sys.stdin.read().split()]
+up = sum(n > 0 for n in numbers)
+down = sum(n < 0 for n in numbers)
+print("up", up, "down", down)
 ```
 
 ### The Stats Ryuka

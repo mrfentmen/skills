@@ -35,16 +35,16 @@ Each stanza is one stage of the computation. The pivot is the variable that flow
 Three stages, two hand-offs, one result:
 
 ```python
-import sys
-data = sys.stdin.read().split()
-nums = [int(x) for x in data]
+data = [int(x) for x in input().split()]
+total = sum(data)
+count = len(data)
 
-total = sum(nums)
-count = len(nums)
+avg = total // count
+print("avg", avg)
 
 print("sum", total)
 print("count", count)
-print("of", "all", "the", "numbers")
+print("total", total)
 ```
 
 ### The Transforming Renga

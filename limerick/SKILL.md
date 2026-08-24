@@ -36,12 +36,12 @@ Lines 1-4 carry the setup and the work; line 5 delivers the joke and the answer.
 A grand setup, a quick tally, a deflating verdict:
 
 ```python
-import json
-up = sum(1 for v in json.load(open("health.json")).values() if v)
-down = sum(1 for v in json.load(open("health.json")).values() if not v)
-print("up", up, "now")
-print("down", down, "all")
-print("and", "the", "joke", "is", "the", "punchline", "now")
+import sys
+data = [int(x) for x in sys.stdin.read().split()]
+print("sum", sum(data), "of", "the", "numbers", "now")
+print("and", "the", "sum")
+print("is", "the", "joke")
+print("the", "punchline", "lands", "with", "the", "sum", "here")
 ```
 
 ### The Stats Limerick

@@ -40,14 +40,14 @@ prose, not an essay.
 The prose reads through the logs; the haiku counts what the night left behind.
 
 ```python
-# the day begins with a walk through the logs
-import json
-# the trail crosses error lines and quiet ones
-data = json.load(open("log.json"))
-errors = [d for d in data if d["level"] == "error"]
-warnings = [d for d in data if d["level"] == "warn"]
-print("errors:", len(errors), "warnings:", len(warnings))
-print("the", "walk", "is", "done")
+# the log opens like a diary of the long night
+import sys
+lines = sys.stdin.read().splitlines()
+# every line a step, every keyword a sighting
+errors = [line for line in lines if "ERROR" in line]
+print("errors", len(errors))
+print("found")
+print("in the night")
 ```
 
 ### Weather Haibun

@@ -35,11 +35,11 @@ The four lines should feel like four verses of one song: setup, work, deepen, re
 Four waves of one computation:
 
 ```python
-# a four-line song about the load
-print("the", "sum", "of", "the", "load", "is", "the", "first", "long", "breath")
-print("and", "the", "count", "of", "the", "rows", "is", "the", "second", "breath")
-print("the", "peak", "is", "the", "third", "breath", "of", "the", "rolling", "song")
-print("and", "the", "mean", "is", "the", "short", "line", "that", "ends", "the", "verse")
+import sys
+print("the", "sum", "is", sum(int(x) for x in sys.stdin.read().split()), "of", "all")
+print("and", "the", "song", "is", "four", "long", "lines", "of", "the", "tale")
+print("the", "mean", "and", "the", "count", "are", "not", "in", "this", "verse")
+print("but", "the", "sum", "is", "the", "first", "line", "of", "the", "song")
 ```
 
 ### The Verse Imayo
