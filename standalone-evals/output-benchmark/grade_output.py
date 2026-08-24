@@ -195,9 +195,9 @@ def check_form(pid, path):
              f'token profile {toks} != [5,7,5,7,7,7] pm2')
     elif pid == 'imayo':
         toks = [tok(l) for l in lines]
-        need(len(lines) == 4, f'need exactly 4 logic lines, got {len(lines)}')
+        need(len(lines) == 4, f'need exactly 4 logic lines, got {len(lines)} — the imayo is four long lines of ~12 tokens each; add a fourth line that carries the sum')
         need(all(within(t, 12, 4) for t in toks),
-             f'lines not ~12 pm4 (7-5 long-short): {toks}')
+             f'lines not ~12 pm4 (7-5 long-short): {toks} — lengthen each line toward ~12 tokens')
     elif pid == 'kanshi':
         toks = [tok(l) for l in lines]
         need(len(lines) == 4, f'need exactly 4 logic lines, got {len(lines)}')
@@ -205,16 +205,14 @@ def check_form(pid, path):
              f'token profile {toks} != [7,7,7,7] pm2')
     elif pid == 'zappai':
         toks = [tok(l) for l in lines]
-        need(0 < len(toks) <= 3, f'need 1-3 logic lines, got {len(toks)}')
-        if 1 <= len(toks) <= 3:
-            want = {3: [5, 7, 5], 2: [12, 5], 1: [17]}[len(toks)]
-            need(all(within(t, tgt) for t, tgt in zip(toks, want)),
-                 f'token profile {toks} not within pm2 of silhouette {want} (5-7-5 conserved)')
+        need(len(lines) == 3, f'need exactly 3 logic lines, got {len(lines)}')
+        need(all(within(t, tgt) for t, tgt in zip(toks, [5, 7, 5])),
+             f'token profile {toks} != [5,7,5] pm2')
     elif pid == 'waka':
         toks = [tok(l) for l in lines]
-        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
+        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)} — the waka is five lines 5-7-5-7-7; add a fifth line that restates the range or count')
         need(all(within(t, tgt) for t, tgt in zip(toks, [5, 7, 5, 7, 7])),
-             f'token profile {toks} != [5,7,5,7,7] pm2')
+             f'token profile {toks} != [5,7,5,7,7] pm2 — adjust line lengths toward 5-7-5-7-7')
     elif pid == 'renshi':
         raw = Path(path).read_text()
         groups = [g.splitlines() for g in raw.split('\n\n') if g.strip()]
@@ -262,9 +260,9 @@ def check_form(pid, path):
                  f'refrain B text drifts across {b_pos}: {b_lines}')
     elif pid == 'cinquain':
         toks = [tok(l) for l in lines]
-        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)}')
+        need(len(lines) == 5, f'need exactly 5 logic lines, got {len(lines)} — the cinquain is five lines 2-4-6-8-2; add a fifth line that lands the count')
         need(all(within(t, tgt, 1) for t, tgt in zip(toks, [2, 4, 6, 8, 2])),
-             f'token profile {toks} != [2,4,6,8,2] pm1')
+             f'token profile {toks} != [2,4,6,8,2] pm1 — adjust line lengths toward 2-4-6-8-2')
     elif pid == 'ryuka':
         toks = [tok(l) for l in lines]
         need(len(lines) == 4, f'need exactly 4 logic lines, got {len(lines)}')
@@ -287,9 +285,9 @@ def check_form(pid, path):
              f'token profile {toks} != [8,8,5,5,8] pm2')
     elif pid == 'etheree':
         toks = [tok(l) for l in lines]
-        need(len(lines) == 10, f'need exactly 10 logic lines, got {len(lines)}')
+        need(len(lines) == 10, f'need exactly 10 logic lines, got {len(lines)} — the etheree is a ten-line ladder 1-2-3-...-10 tokens; add lines to reach ten')
         need(all(within(t, i + 1, 1) for i, t in enumerate(toks)),
-             f'ladder not 1-10 pm1: {toks}')
+             f'ladder not 1-10 pm1: {toks} — line {next((i + 1 for i, t in enumerate(toks) if not within(t, i + 1, 1)), "?")} should be ~{next((i + 1 for i, t in enumerate(toks) if not within(t, i + 1, 1)), "?")} tokens')
     return fails
 
 parser = argparse.ArgumentParser()

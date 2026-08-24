@@ -19,9 +19,9 @@ import sys
 from pathlib import Path
 
 SKILL = "zappai"
-KIND = "silhouette"
+KIND = "profile"
 TARGET = [5, 7, 5]
-LINES = None
+LINES = 3
 TOL = 2
 
 

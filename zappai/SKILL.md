@@ -37,8 +37,8 @@ The state, the moment:
 ```python
 import sys
 data = [int(x) for x in sys.stdin.read().split()]
-print("max", max(data), "of", "them", "all")
-print("the", "loud", "one")
+print("max", max(data), "and", "the", "loud")
+print("one", "calls", "it", "now")
 ```
 
 ### The Observation Zappai
