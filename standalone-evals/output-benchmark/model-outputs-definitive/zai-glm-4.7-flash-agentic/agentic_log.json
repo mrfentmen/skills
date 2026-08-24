@@ -1,0 +1,91 @@
+{
+ "dodoitsu": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:43:10"
+ },
+ "haibun": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/haibun/haibun.py\", line 2\\n    import csv, sys\\nIndentationError: unexpected indent'] | missing ['2', 'errors'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 00:42:01"
+ },
+ "monoku": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/monoku/monoku.py\", line 2\\n    total = sum(map(int, sys.stdin.read().split()))\\nIndentationError: unexpected indent'] | missing ['15'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-24 00:44:58"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:43:10"
+ },
+ "lunes": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:45:16"
+ },
+ "katauta": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/katauta/katauta.py\", line 2\\n    data = list(map(int, sys.stdin.read().split()))\\nIndentationError: unexpected indent'] | missing ['2'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-24 00:46:55"
+ },
+ "sijo": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:47:04"
+ },
+ "senryu": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:47:22"
+ },
+ "sedoka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:49:01"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:49:09"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 00:49:27"
+ }
+}
