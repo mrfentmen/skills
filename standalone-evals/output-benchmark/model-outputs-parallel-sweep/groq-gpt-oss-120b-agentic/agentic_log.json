@@ -1,0 +1,248 @@
+{
+ "choka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-groq-gpt-oss-120b/choka/choka.py\", line 1\\n    ```python\\n    ^\\nSyntaxError: invalid syntax'] | missing ['14', '5', 'count', 'sum'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['no short/long alternation in [5, 9, 5, 7, 6, 6]']"
+   }
+  ],
+  "ts": "2026-08-23 21:42:02"
+ },
+ "dodoitsu": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 21:42:29"
+ },
+ "gogyohka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   }
+  ],
+  "ts": "2026-08-23 21:43:15"
+ },
+ "haibun": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['errors']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['errors']"
+   }
+  ],
+  "ts": "2026-08-23 21:44:50"
+ },
+ "haiku": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 21:45:16"
+ },
+ "katauta": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 21:46:52"
+ },
+ "lunes": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 21:47:19"
+ },
+ "monoku": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 21:47:45"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 21:53:10"
+ },
+ "sedoka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [1, 3, 3]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [1, 3, 3]']"
+   }
+  ],
+  "ts": "2026-08-23 21:54:45"
+ },
+ "senryu": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 21:55:12"
+ },
+ "sijo": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0'] ['third line missing twist marker']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-groq-gpt-oss-120b/sijo/sijo.py\", line 1\\n    ```python\\n    ^\\nSyntaxError: invalid syntax'] | missing ['1', '22'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 21:57:33"
+ },
+ "tanka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['0']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['0']"
+   }
+  ],
+  "ts": "2026-08-23 21:58:45"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-groq-gpt-oss-120b/kyoka/kyoka.py\", line 1\\n    ```python\\n    ^\\nSyntaxError: invalid syntax'] | missing ['4', '5', 'peak', 'spread'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-23 21:59:56"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:03:22"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:05:42"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:07:46"
+ },
+ "kanshi": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:09:50"
+ },
+ "zappai": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:13:22"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:15:26"
+ },
+ "renshi": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['tokens']"
+   }
+  ],
+  "ts": "2026-08-23 22:18:12"
+ },
+ "sonnet": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-23 22:20:16"
+ }
+}

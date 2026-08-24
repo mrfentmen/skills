@@ -1,0 +1,1 @@
+import sys; data = sys.stdin.read().split(); nums = map(int, data); total = sum(nums); print(total)

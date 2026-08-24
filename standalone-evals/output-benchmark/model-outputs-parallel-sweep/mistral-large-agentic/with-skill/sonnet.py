@@ -1,0 +1,12 @@
+import sys
+nums = list(map(int, sys.stdin.read().split()))
+print("the", "first", "quatrain", "gathers", "the", "numbers", "now")
+print("each", "line", "is", "read", "and", "parsed", "to", "int")
+print("the", "second", "quatrain", "turns", "to", "the", "sum", "task")
+print("the", "sum", "is", "the", "first", "truth", "we", "seek")
+print("the", "third", "quatrain", "deepens", "the", "evidence", "pile")
+print("no", "outliers", "or", "weights", "distort", "the", "tale")
+print("the", "volta", "turns", "the", "argument", "at", "the", "ninth", "line")
+print("and", "the", "couplet", "settles", "the", "whole", "affair")
+print("the", "sum", "of", "all", "numbers", "is", "the", "final", "truth")
+print(sum(nums))

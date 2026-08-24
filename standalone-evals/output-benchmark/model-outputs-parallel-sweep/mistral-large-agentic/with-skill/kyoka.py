@@ -1,0 +1,5 @@
+nums = list(map(int, input().split()))
+peak = max(nums)
+spread = peak - min(nums)
+print(f"{peak} {spread}")
+print("load balancer dreams of one")

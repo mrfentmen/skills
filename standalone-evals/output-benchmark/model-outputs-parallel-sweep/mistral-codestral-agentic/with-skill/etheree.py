@@ -1,0 +1,13 @@
+import sys
+words = sys.stdin.read().split()
+count = len(words)
+print("the", "word", "count")
+print("is", count, "of", "the", "words")
+print("the", "total", "count", "is", "now")
+print("the", "word", "count", "is", count, "now")
+print("the", "total", "word", "count", "is", "now")
+print("the", "total", "word", "count", "is", count, "now")
+print("the", "total", "word", "count", "is", count, "of", "the", "words")
+print("the", "total", "word", "count", "is", count, "of", "the", "words", "now")
+print("the", "total", "word", "count", "is", count, "of", "the", "words", "now")
+print("the", "total", "word", "count", "is", count, "of", "the", "words", "now")

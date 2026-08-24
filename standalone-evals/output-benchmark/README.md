@@ -536,3 +536,21 @@ Added an OpenRouter provider (`or-nemotron3-super-120b`, `nvidia/nemotron-3-supe
 Two more OpenRouter free providers wired (`or-nemotron3-ultra-550b` = `nvidia/nemotron-3-ultra-550b-a55b:free`, `or-north-mini-code` = `cohere/north-mini-code:free`). The 550b arm got villanelle to 18/19 logic lines (closest any arm reached) but 0/2 on strict pass; the `--line-directive` A/B on it showed the directive destabilizes even large models, so it is now opt-in (`--line-directive`).
 
 **The documented-example fix was the lever.** The agentic arms exposed that the primary documented villanelle example read stdin twice (`data` ended empty) and never printed the total/error count tokens, and the etheree example never printed the required `sum N` token — a model copying either verbatim failed the full grader despite passing its rhythm checker. Both replaced with reference-mirroring examples verified `run=True out=True form=True`. **Result: cohere/north-mini-code:free copied the fixed villanelle example verbatim and strict-passed at gen 1** (`model-outputs-or-north-mini-code/`, re-verified deterministically) — the second open form closed after sonnet. etheree's fixed example is in place but every provider 429-capped before an etheree arm could copy it; the next quota window should close it the same way.
+
+### 2026-08-23 — parallel arms CLI + ETHEREE CLOSES (all three open forms done)
+
+`run_parallel_arms.py` is a launcher that works multiple providers AND multiple skills at once: it spawns one `run_feedback_arms.py` worker per (provider × skill-slice), all concurrent, so a full 28-skill sweep across six providers runs in roughly one provider's worth of wall-clock. Features:
+
+- `--probe` — pings every provider in parallel and prints a live status table (OK / RATE-LIMITED / NO-KEY), so you can find open free-tier windows in one shot.
+- `--workers N` — shards the skill list across N concurrent processes per provider (per-skill log entries are now merge-on-write safe in `run_feedback_arms.py`, so parallel workers on one provider don't clobber each other).
+- `--skip-logged` — for chunked resume: each bounded run covers fresh skills.
+- Auto-loads `.env.benchmark` from the repo root; aggregates per-provider logs into a result table.
+
+Example:
+```
+python3 run_parallel_arms.py --probe
+python3 run_parallel_arms.py --providers mistral-small,groq-qwen3.6-27b \
+    --skills villanelle,etheree --workers 2 --max-iters 6 --max-minutes 10
+```
+
+**ETHEREE CLOSED:** the fixed documented etheree example (now prints the required `sum N` token) was copied verbatim by groq-qwen3.6-27b at gen 1 and strict-passed (`run=True out=True form=True`, `model-outputs-etheree-closed/`). **All three open forms — sonnet, villanelle, etheree — are now closed**, each by a different model copying the fixed documented example verbatim; the lever was the documented-example fixes, not model power. A full 6-provider × 28-skill parallel sweep (`model-outputs-parallel-sweep/`) refreshed coverage: qwen3.6-27b 9/28, gpt-oss-120b 6/22, kilo 3/19 (2-gen budget; agentic passes are stochastic — the fixed examples make them *possible*, not guaranteed).

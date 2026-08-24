@@ -1,0 +1,10 @@
+import sys
+nums = list(map(int, sys.stdin.read().split()))
+total = sum(nums)
+count = len(nums)
+print("the", "sum", "is", total, "now")
+print("and", "the", "count", "is", count, "now")
+print("the", "total", "is", total, "and")
+print("the", "count", "is", count, "then")
+print("the", "sum", "is", total, "and")
+print("the", "count", "is", count, "now")

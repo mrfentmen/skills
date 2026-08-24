@@ -223,13 +223,14 @@ step-3.7-flash, glm-4.7-flash pre-fix). Same-day mistral arm: villanelle
 converged 21→20→18 logic lines (target 19) and etheree produced 12-line
 ladders with near-correct 1..N ramps (target 10) — every other gate passes
 every gen; exactly-one-line count errors are the remaining miss. Open
-forms: **sonnet CLOSED** and **villanelle CLOSED** — the documented-example
-fix (see below) let cohere/north-mini-code:free land a verbatim-copy pass
-at gen 1, re-verified `run=True out=True form=True` (evidence in
-`model-outputs-or-north-mini-code/`). etheree remains open: its documented
-example was fixed the same way (now passes all three gates) but every
-provider 429-capped before an etheree arm could copy it; the fix is in
-`etheree/SKILL.md` so the next quota window should close it the same way.
+forms: **sonnet CLOSED**, **villanelle CLOSED**, and **etheree CLOSED** — all
+three via the documented-example fix (below): north-mini-code copied the
+fixed villanelle example verbatim (gen 1, `run=True out=True form=True`,
+`model-outputs-or-north-mini-code/`) and groq-qwen3.6-27b copied the fixed
+etheree example verbatim (gen 1, `run=True out=True form=True`,
+`model-outputs-etheree-closed/`). All three open forms are now closed; the
+lever was fixing the documented examples to pass the full grader, not model
+power.
 
 **Documented-example full-grader fixes (2026-08-23):** the agentic arms
 exposed that the primary documented villanelle example read stdin twice

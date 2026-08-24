@@ -216,6 +216,22 @@ def generate(provider: dict, system: str, user: str, key: str = '',
     return code if code.strip() else None
 
 
+def merge_log(log_path: Path, local: dict) -> dict:
+    """Re-read the on-disk log and merge with the local copy before writing.
+
+    Parallel workers (run_parallel_arms.py) each own a disjoint skill slice but
+    share one agentic_log.json per provider; without a merge here a worker that
+    loaded the log early would overwrite another worker's entries on write.
+    """
+    try:
+        on_disk = json.loads(log_path.read_text(encoding='utf-8'))
+    except Exception:
+        return local
+    merged = dict(on_disk)
+    merged.update(local)
+    return merged
+
+
 def grade_skill(skill: str, workdir: Path) -> tuple[bool, str]:
     """Grade one skill's file in workdir via the real grader. Returns (passed, detail)."""
     proc = subprocess.run([sys.executable, str(GRADER), '--dir', str(workdir)],
@@ -360,6 +376,7 @@ def main() -> int:
                 print(f'  {skill:12s} final: QUOTA-LIMITED', flush=True)
             if cur is None:
                 quota_limited.append(skill)
+            log = merge_log(log_path, log)
             log[skill] = {'final_pass': passed, 'generations': min(gens, args.max_iters),
                           'attempts': attempts, 'ts': time.strftime('%Y-%m-%d %H:%M:%S')}
             log_path.write_text(json.dumps(log, indent=1))
@@ -416,6 +433,7 @@ def main() -> int:
                         log[skill]['ts'] = time.strftime('%Y-%m-%d %H:%M:%S')
                 else:
                     still.append(skill)
+                log = merge_log(log_path, log)
                 log[skill]['attempts'] = attempts
                 log_path.write_text(json.dumps(log, indent=1))
             quota_limited = still
