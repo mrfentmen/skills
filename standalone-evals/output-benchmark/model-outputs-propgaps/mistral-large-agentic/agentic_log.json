@@ -1,0 +1,195 @@
+{
+ "fibonacci": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['final line too small to carry the result']"
+   }
+  ],
+  "ts": "2026-08-24 02:04:17"
+ },
+ "kanshi": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'token profile [5, 7, 4] != [7,7,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'token profile [5, 7, 4] != [7,7,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:04:17"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   }
+  ],
+  "ts": "2026-08-24 02:05:02"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['spread'] ['token profile [7, 3, 5, 2, 6] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['peak'] ['token profile [4, 3, 5, 2, 6] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [4, 3, 5, 4, 6] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['spread'] ['token profile [4, 3, 5, 2, 6] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:05:02"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 1]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 1]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 1]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 1]']"
+   }
+  ],
+  "ts": "2026-08-24 02:06:01"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['count', 'range'] ['need exactly 5 logic lines, got 4', 'token profile [7, 5, 3, 2] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [4, 3, 3, 4, 2] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['count', 'range'] ['need exactly 5 logic lines, got 4', 'token profile [4, 5, 3, 2] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 3, 3, 4, 2] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:06:02"
+ },
+ "bussokusekika": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:06:08"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 12', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 3, 3, 4, 5, 6, 8, 10]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum'] ['ladder not 1-10 pm1: [1, 3, 3, 1, 3, 4, 6, 7, 8, 9]']"
+   }
+  ],
+  "ts": "2026-08-24 02:07:11"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['stanza 1 has 4 lines, need 5', 'stanza 2 has 4 lines, need 5']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['stanza 1 has 4 lines, need 5', 'stanza 2 has 2 lines, need 5']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['stanza 1 has 4 lines, need 5', 'stanza 2 profile [3, 5, 5, 6, 3] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['stanza 1 has 4 lines, need 5']"
+   }
+  ],
+  "ts": "2026-08-24 02:07:18"
+ }
+}

@@ -1,0 +1,230 @@
+{
+ "waka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 5, 3, 4, 7] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 6', 'token profile [7, 3, 1, 4, 2, 1] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 6', 'token profile [7, 3, 1, 4, 2, 1] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 6', 'token profile [7, 3, 1, 1, 1, 1] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:01:57"
+ },
+ "kanshi": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [5, 7, 6, 4] != [7,7,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [5, 7, 6, 4] != [7,7,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [5, 7, 6, 4] != [7,7,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [5, 7, 6, 4] != [7,7,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:01:57"
+ },
+ "fibonacci": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need 6-8 logic lines, got 5', 'line 4: 3 is not the sum of 3 and 7 (+/-3)', 'line 5: 1 is not the sum of 7 and 3 (+/-3)', 'final line too small to carry the result']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['line 4: 1 is not the sum of 4 and 3 (+/-3)', 'final line too small to carry the result']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['line 4: 1 is not the sum of 4 and 3 (+/-3)', 'line 8: 5 is not the sum of 5 and 6 (+/-3)']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "missing ['sum'] ['need 6-8 logic lines, got 5', 'line 4: 3 is not the sum of 3 and 4 (+/-3)', 'line 5: 1 is not the sum of 4 and 3 (+/-3)', 'final line too small to carry the result']"
+   }
+  ],
+  "ts": "2026-08-24 02:01:57"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['too many consecutive like-sized lines: [3, 7, 3, 3, 2, 6, 5]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [5, 4]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 5, 4]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 5, 4]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['too many consecutive like-sized lines: [3, 7, 3, 3, 2, 6, 5]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [5, 4]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 5, 4]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 5, 4]']"
+   }
+  ],
+  "ts": "2026-08-24 02:01:57"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 6', 'token profile [3, 7, 3, 5, 4, 7] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 3, 5, 4, 7] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 6', 'token profile [7, 3, 5, 2, 2, 6] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [4, 3, 5, 4, 7] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:01:57"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 5', 'lines not ~12 pm4 (7-5 long-short): [7, 7, 10, 10, 10]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 5', 'lines not ~12 pm4 (7-5 long-short): [7, 6, 7, 8, 7]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [3, 7, 4]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [10, 17, 12]']"
+   }
+  ],
+  "ts": "2026-08-24 02:01:58"
+ },
+ "bussokusekika": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:02:22"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['5'] ['need exactly 10 logic lines, got 12', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 2, 3, 4, 5, 5, 6, 6]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "RUNTIME stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-mistral-small/etheree/etheree.py\", line 2, in <module>\\n    words\\nNameError: name \\'words\\' is not defined'] | missing ['5', 'sum'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "RUNTIME stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-mistral-small/etheree/etheree.py\", line 1, in <module>\\n    words\\nNameError: name \\'words\\' is not defined'] | missing ['5', 'sum'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "RUNTIME stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-mistral-small/etheree/etheree.py\", line 1, in <module>\\n    words\\nNameError: name \\'words\\' is not defined'] | missing ['5', 'sum'] ['RUNTIME FAIL (1)', '"
+   }
+  ],
+  "ts": "2026-08-24 02:02:50"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['stanza 1 has 6 lines, need 5', 'stanza 1 profile [3, 7, 3, 4, 6, 5] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need two blank-line-separated stanzas, got 5']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need two blank-line-separated stanzas, got 7']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['stanza 1 has 6 lines, need 5', 'stanza 1 profile [3, 7, 3, 4, 6, 5] != [5,7,5,7,7] pm2', 'stanza 2 has 4 lines, need 5', 'stanza 2 profile [3, 3, 6, 7] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:02:50"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "fibonacci": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:01:56"
+ },
+ "kanshi": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:02:57"
+ },
+ "kyoka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:03:53"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:03:53"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:03:54"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-groq-qwen3.6-27b/imayo/imayo.py\", line 5\\n    2.  **7-5 rhythm**: Each line must have a long phrase (~7 tokens) and a short phrase (~5 tokens). The total token count per line should be around 12 (7+5), wi"
+   }
+  ],
+  "ts": "2026-08-24 02:04:18"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:05:01"
+ },
+ "bussokusekika": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:05:57"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:05:58"
+ }
+}

@@ -1,0 +1,128 @@
+{
+ "kyoka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:01:55"
+ },
+ "kanshi": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:01:55"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:07:52"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 5]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3', 'lines not ~12 pm4 (7-5 long-short): [7, 3, 4]']"
+   }
+  ],
+  "ts": "2026-08-24 02:07:58"
+ },
+ "fibonacci": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need 6-8 logic lines, got 5']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum'] ['need 6-8 logic lines, got 4', 'line 4: 1 is not the sum of 3 and 4 (+/-3)', 'final line too small to carry the result']"
+   }
+  ],
+  "ts": "2026-08-24 02:07:58"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 02:07:58"
+ },
+ "bussokusekika": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:08:00"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4', 'token profile [7, 5, 3, 4] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 02:08:04"
+ },
+ "somonka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "unexpected numbers ['19']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['19']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['19']"
+   }
+  ],
+  "ts": "2026-08-24 02:10:14"
+ }
+}

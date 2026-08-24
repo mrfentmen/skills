@@ -133,13 +133,18 @@ def main() -> int:
 
     rng = random.Random(args.seed)
     fails = []
-    tested = passed = 0
+    tested = passed = skipped = 0
     for item in MANIFEST['items']:
         pid = item['skill']
         gen = GENERATORS.get(pid)
         cand = BASE / args.dir / f'{pid}.py'
         ref = REFS / f'{pid}.py'
         if not gen or not cand.is_file() or not ref.is_file():
+            continue
+        head = cand.read_text(encoding='utf-8', errors='replace').splitlines()[:1]
+        if head and head[0].strip() == '# MODEL CALL FAILED':
+            # a quota placeholder is not real code; report it separately
+            skipped += 1
             continue
         tested += 1
         # verify the reference itself runs on all generated inputs (it must —
@@ -174,7 +179,7 @@ def main() -> int:
             passed += 1
             print(f'PASS property {pid} ({args.n} random inputs)')
     print(f'\nPROPERTY GATE: {passed}/{tested} passed (differential vs reference, '
-          f'{args.n} inputs/skill, seed {args.seed})')
+          f'{args.n} inputs/skill, seed {args.seed}, {skipped} quota placeholders skipped)')
     if fails:
         print('FAILURES:')
         for f in fails:

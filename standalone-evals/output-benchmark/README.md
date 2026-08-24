@@ -596,3 +596,28 @@ sections. Re-sweep (`model-outputs-intdiv/`, 6 providers × 3 skills):
 exist (kilo 3/3, codestral 3/3, mistral-large 3/3, mistral-small 3/3). The
 remaining failures are purely form-level (renga 3-2-2 collapse, sijo third
 line 9 tokens vs ~12+) — the known form ceiling, not computation.
+
+### 2026-08-24 — cross-sweep property audit + bussokusekika float fix
+
+Ran the property gate across all 82 model-output dirs (658 real candidates,
+placeholders excluded). Two genuine skill-level gaps fixed:
+
+1. **bussokusekika float reference** — the reference used float division
+   (`/`), printing `5.571...` on non-divisible inputs; a fragile, un-copyable
+   mean. Switched to integer division (`//`) consistently across the
+   reference, the manifest expected output, and the documented example, and
+   added a template-first section with the "use // not /" warning (matching
+   tanka/sijo/renga). Re-sweep (`model-outputs-propgaps/`): every real
+   bussokusekika output now passes the property gate.
+
+2. **Invented means** — models systematically add a float mean to
+   sum/count/max/range skills (kanshi, somonka, imayo, fibonacci, waka,
+   choka, etheree, kyoka). Added an explicit "output contract" note naming
+   the exact numbers to print and forbidding invented statistics.
+
+`property_test.py` now also skips `# MODEL CALL FAILED` quota placeholders
+(previously counted as "missing numbers" failures). Re-sweep result: all real
+outputs across the 9 affected skills pass the property gate **except etheree**
+(codestral built a word-ladder that never printed the count; small wrote a
+syntax error) — both model errors, not skill bugs; the documented example is
+correct.
