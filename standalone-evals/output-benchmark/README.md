@@ -554,3 +554,31 @@ python3 run_parallel_arms.py --providers mistral-small,groq-qwen3.6-27b \
 ```
 
 **ETHEREE CLOSED:** the fixed documented etheree example (now prints the required `sum N` token) was copied verbatim by groq-qwen3.6-27b at gen 1 and strict-passed (`run=True out=True form=True`, `model-outputs-etheree-closed/`). **All three open forms — sonnet, villanelle, etheree — are now closed**, each by a different model copying the fixed documented example verbatim; the lever was the documented-example fixes, not model power. A full 6-provider × 28-skill parallel sweep (`model-outputs-parallel-sweep/`) refreshed coverage: qwen3.6-27b 9/28, gpt-oss-120b 6/22, kilo 3/19 (2-gen budget; agentic passes are stochastic — the fixed examples make them *possible*, not guaranteed).
+
+### 2026-08-24 — differential property gate (anti-memorization)
+
+`property_test.py` is a differential property-based tester that closes the
+single-input gaming hole in `grade_output.py`. The old grader checks ONE fixed
+input per skill (`3 1 4 1 5`), so a program could pass by hardcoding the
+answer or special-casing that input. The property gate runs the candidate AND
+the verified reference on 8 random inputs per skill and requires the
+candidate's **numeric** output to match the reference's on every one (same
+token-subset semantics as `out_ok`, but focused on the computational content —
+decorative poetry words are free to differ).
+
+Proof of value: a fake candidate that passes all three single-input gates
+(`run=True out=True form=True`) yet hardcodes `sum 14` is caught instantly on
+the first random input (real sum differs). Against real model outputs it
+separates genuine generality from artifacts:
+
+- **mistral-codestral 28/28** — outputs generalize to all random inputs
+- **mistral-small 26/28** (renga wrong result, etheree runtime fail)
+- **mistral-large 13/18**, **kilo 10/12** (real computational gaps)
+- **zai 11/12 "fails" = `# MODEL CALL FAILED` quota placeholders**, not code
+
+Wired into CI as a self-check (references must pass 28/28 on random inputs).
+Usage:
+```
+python3 property_test.py --dir references          # self-check (CI)
+python3 property_test.py --dir model-outputs-.../with-skill   # grade real outputs
+```

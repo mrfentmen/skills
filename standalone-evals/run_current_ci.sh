@@ -54,6 +54,9 @@ check "example syntax smoke" \
 check "rhythm examples pass their own checkers" \
   "$PYTHON" "$ROOT/standalone-evals/check_rhythm_examples.py"
 
+check "differential property gate (references 28/28 on random inputs)" \
+  "$PYTHON" "$ROOT/standalone-evals/output-benchmark/property_test.py" --dir references
+
 check "cross-language examples match their form" \
   "$PYTHON" "$ROOT/standalone-evals/check_cross_lang_examples.py"
 
