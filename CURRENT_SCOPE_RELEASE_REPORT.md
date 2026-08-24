@@ -455,3 +455,27 @@ Reproduce with the parallel CLI:
 ### 2026-08-23 — every form now has an agentic strict pass
 
 zai-glm-4.7-flash copied the fixed documented examples verbatim and strict-passed both previously-0-pass forms: gogyohka and lunes (both re-verified run=True out=True form=True; evidence in model-outputs-full5/ and model-outputs-lunes-zai/). The lunes fix (stdin-based, correct output tokens) was the lever. Across the arm history, all 28 forms now have at least one agentic strict pass — the remaining failures are model-level compression (small models solve simple forms in fewer lines instead of copying), not skill bugs.
+
+## 2026-08-24 — Property-based testing gate + cross-sweep computational audit
+
+**Built `property_test.py`** — a differential property gate that closes the
+single-input gaming hole: runs candidate + verified reference on 8 random
+inputs per skill, requiring the candidate's *numeric* output to match on every
+one (decorative poetry words are free to differ). Wired into CI as a
+self-check (references 28/28 on random inputs); CI now 38/38.
+
+**Cross-sweep audit** (all 82 model-output dirs, 658 real candidates):
+- **bussokusekika** — reference used float division (fragile `5.571...`
+  mean); switched to integer division `//` across reference, manifest
+  expected, and documented example + template-first warning. All real outputs
+  now pass the property gate.
+- **Invented means** — models added float means to sum/count/max/range skills
+  (kanshi, somonka, imayo, fibonacci, waka, choka, etheree, kyoka); added
+  explicit "output contract" notes naming the exact numbers to print.
+- `property_test.py` now skips `# MODEL CALL FAILED` quota placeholders.
+
+**Re-sweep result** (`model-outputs-propgaps/`, 6 providers × 9 skills): every
+real output passes the property gate except etheree (codestral word-ladder
+without the count; small syntax error) — model errors, not skill bugs. The
+gate now separates genuine generality from quota artifacts and memorized
+single-input passes.
