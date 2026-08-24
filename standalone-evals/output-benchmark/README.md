@@ -621,3 +621,22 @@ outputs across the 9 affected skills pass the property gate **except etheree**
 (codestral built a word-ladder that never printed the count; small wrote a
 syntax error) — both model errors, not skill bugs; the documented example is
 correct.
+
+### 2026-08-24 — renga 3-2-2 stanza collapse fixed
+
+Cross-sweep audit showed renga's dominant failure was the [3, 2, 2] stanza
+collapse (24/31 real outputs failed the alternation; 9 exactly 3-2-2):
+models write 7-8 natural statements and split them 3-2-2, dropping the third
+line of the closing stanza. Three-part fix: (1) reference + documented
+primary example carry full-line `#` stanza labels (`# opening: ...` /
+`# pivot: ...` / `# closing: ...`) — comments are free in the stanza-size
+check, so the 3-2-3 alternation is visibly scaffolded; (2) the
+"alternation wrong" feedback in both graders now spells out the fix (need
+[3, 2, 3]; add a real third statement to the closing stanza or split one;
+a `#` label is free); (3) template-first section gained a stanza-label step.
+
+Re-sweep (`model-outputs-rengafix/`, 6 providers × renga): **4/4 real
+attempts passed** (codestral, small, large, kilo; the 2 groq arms were quota
+placeholders) and **all 4 pass the differential property gate** on 8 random
+inputs. Both codestral and small produced the verbatim documented example
+including the stanza labels — the scaffold made the alternation copyable.

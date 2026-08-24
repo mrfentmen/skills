@@ -1,0 +1,19 @@
+{
+ "renga": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]; need [3, 2, 3] \u2014 stanza 1 = 3 lines, stanza 2 = 2 lines, stanza 3 = 3 lines. Add a real third statement to the closing stanza (e.g. restate the result as a final print) or split one statement across two lines; a full-line # stanza label comment is free and does not co"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 02:20:17"
+ }
+}
