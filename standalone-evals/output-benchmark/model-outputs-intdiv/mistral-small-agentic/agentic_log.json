@@ -1,0 +1,83 @@
+{
+ "renga": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2, 2]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['alternation wrong: [3, 2, 2]']"
+   }
+  ],
+  "ts": "2026-08-24 01:32:17"
+ },
+ "sijo": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['lines not long enough: [17, 12, 9]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['lines not long enough: [24, 11, 9]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 4', 'lines not long enough: [32, 9, 9, 14]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['lines not long enough: [12, 16, 9]']"
+   }
+  ],
+  "ts": "2026-08-24 01:32:18"
+ },
+ "tanka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 5, 2, 5, 5] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "unexpected numbers ['1', '5'] ['token profile [4, 5, 2, 5, 8] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "unexpected numbers ['1', '5'] ['token profile [4, 5, 2, 5, 8] != [5,7,5,7,7] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 6', 'token profile [4, 5, 2, 3, 3, 5] != [5,7,5,7,7] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 01:32:18"
+ }
+}

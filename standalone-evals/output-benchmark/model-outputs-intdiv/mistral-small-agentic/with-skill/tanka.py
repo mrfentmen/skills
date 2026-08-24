@@ -1,0 +1,6 @@
+data = list(map(int, input().split()))
+mean = sum(data) // len(data)
+print("mean", mean)
+lo = min(data)
+hi = max(data)
+print("range", hi - lo, "spread")

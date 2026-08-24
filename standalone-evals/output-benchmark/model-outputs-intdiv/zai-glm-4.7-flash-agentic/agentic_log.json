@@ -1,0 +1,42 @@
+{
+ "tanka": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 01:34:15"
+ },
+ "sijo": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/sijo/sijo.py\", line 2\\n    avg = total // count; above = sum(1 for x in data if x > avg)\\nIndentationError: unexpected indent'] | missing ['1', '22'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-24 01:35:02"
+ },
+ "renga": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/renga/renga.py\", line 2\\n    total = sum(data)                          # 3 tokens\\nIndentationError: unexpected indent'] | missing ['12', '3', '4'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['4'] ['need >=3 stanzas, got [4, 1]']"
+   }
+  ],
+  "ts": "2026-08-24 01:36:10"
+ }
+}

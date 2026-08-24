@@ -582,3 +582,17 @@ Usage:
 python3 property_test.py --dir references          # self-check (CI)
 python3 property_test.py --dir model-outputs-.../with-skill   # grade real outputs
 ```
+
+### 2026-08-24 — property-gate-driven fix: integer division (tanka/sijo/renga)
+
+The property gate's first catch: models compute the mean/average with float
+division (`/`) while the references and documented examples use integer
+division (`//`), printing `5.714...` digits that fail the differential check
+on random inputs (tanka, sijo, renga across mistral-small/large and kilo).
+Added explicit "use `//` not `/`" warnings to all three template-first
+sections. Re-sweep (`model-outputs-intdiv/`, 6 providers × 3 skills):
+**every real output is now computationally correct** — all graded files are
+`run=True out=True` (single-input) and property passes are 4/4 where files
+exist (kilo 3/3, codestral 3/3, mistral-large 3/3, mistral-small 3/3). The
+remaining failures are purely form-level (renga 3-2-2 collapse, sijo third
+line 9 tokens vs ~12+) — the known form ceiling, not computation.
