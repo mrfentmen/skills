@@ -1,0 +1,63 @@
+{
+ "dodoitsu": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:41:03"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [4, 5]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 4, 5]']"
+   }
+  ],
+  "ts": "2026-08-23 23:42:10"
+ },
+ "sedoka": {
+  "final_pass": true,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [2, 2]', 'token 3 not within pm2 of 7']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [2, 2]', 'token 3 not within pm2 of 7']"
+   },
+   {
+    "gen": 3,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:42:19"
+ }
+}

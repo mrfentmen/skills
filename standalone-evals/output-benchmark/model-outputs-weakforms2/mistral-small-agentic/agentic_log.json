@@ -1,0 +1,83 @@
+{
+ "dodoitsu": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [7, 6, 9, 1] != [7,7,7,5] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [7, 6, 9, 1] != [7,7,7,5] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [7, 6, 9, 1] != [7,7,7,5] pm2']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token profile [7, 6, 9, 1] != [7,7,7,5] pm2']"
+   }
+  ],
+  "ts": "2026-08-23 23:41:06"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [2, 6]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 6]']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [5, 4]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 5, 4]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 5, 4]']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['count', 'sum'] ['closing couplet not ~7-7: [1, 1]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 1, 1]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 1, 1]']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['closing couplet not ~7-7: [2, 9]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 9]', 'too many consecutive like-sized lines: [3, 7, 3, 3, 2, 2, 9]']"
+   }
+  ],
+  "ts": "2026-08-23 23:41:08"
+ },
+ "sedoka": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [3, 2]', 'token 1 not within pm2 of 7', 'token 10 not within pm2 of 5', 'token 1 not within pm2 of 7']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token 1 not within pm2 of 7', 'token 1 not within pm2 of 7']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need two 3-line stanzas, got [3, 2]', 'token 1 not within pm2 of 7', 'token 10 not within pm2 of 5', 'token 1 not within pm2 of 7']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['token 1 not within pm2 of 7', 'token 1 not within pm2 of 7']"
+   }
+  ],
+  "ts": "2026-08-23 23:41:16"
+ }
+}

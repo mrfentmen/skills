@@ -1,0 +1,53 @@
+{
+ "choka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:41:02"
+ },
+ "dodoitsu": {
+  "final_pass": false,
+  "generations": 4,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3']"
+   },
+   {
+    "gen": 4,
+    "passed": false,
+    "detail": "['need exactly 4 logic lines, got 3']"
+   }
+  ],
+  "ts": "2026-08-23 23:41:05"
+ },
+ "sedoka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:41:07"
+ }
+}

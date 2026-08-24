@@ -68,6 +68,18 @@ print(due, "dollars, cash or card")
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a four-line dodoitsu from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly four nonblank, non-comment, non-import logic lines shaped 7-7-7-5 (±2).
+2. The common trap is writing the working lines too short — `sum_of_all = sum(data)` is only 4 tokens. A ~7-token working line needs a real two-step: `sum_of_all = sum(data); count = len(data)` (7) or `sum_of_all = sum(data)  # the total` (7 with the inline comment). Merge a real second operation onto the line (semicolon, chained call, inline comment) rather than padding.
+3. The landing line (line 4) is the short ~5-token result print. All three working lines before it carry a distinct real step.
+4. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output.
+5. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by reshaping its real expression — a 3-4 token assignment gets a real second step, never a filler statement.
+
+This copy-then-adapt method is intentional: it preserves a known-valid 7-7-7-5 shape while leaving the computation task-specific.
+
 
 ## Counting Tokens (the exact procedure)
 

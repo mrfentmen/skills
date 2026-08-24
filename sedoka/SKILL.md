@@ -34,13 +34,13 @@ The 7-7 ending of each stanza is a heavy tail, the stanza lands with weight, and
 One list, two walks, the question and its echo.
 
 ```python
-nums = [3, 1, 4, 1, 5]
-forward = "sum " + str(sum(nums))
-print(forward, "is", "the", "sum", "now")
+data = [int(x) for x in input().split()]
+total = sum(data); back = data[::-1]
+print("the forward sum is", total)
 
-rev = nums[::-1]
-backward = "sum " + str(sum(rev))
-print(backward, "is", "the", "mirror", "sum")
+rev = sum(back)
+print("the reverse sum is", rev)
+print("the mirror sum is", rev)
 ```
 
 ### Count / Rare Sedoka
@@ -62,6 +62,19 @@ print("mirror", "sum", total2, "still", "same")
 2. **Shape the rhythm.** Rewrite in the sedoka form: the line count and token profile in Minimum Requirements are the target; choose short names and tight expressions so each line lands near its count, never pad.
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
+
+## Template-first construction
+
+Do not invent a six-line sedoka from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve exactly two blank-line-separated 3-line stanzas (six nonblank, non-comment, non-import logic lines total). The blank line between stanzas is part of the form.
+2. Keep the stanza shapes fixed: each stanza is 5-7-7 tokens (±2). The first line of each stanza is the short ~5-token setup; the second and third are the heavier ~7-token tail.
+3. The common trap is writing the working lines too short — `total = sum(nums)` is only 3 tokens. A ~7-token working line needs a real two-step: `total = sum(data); back = data[::-1]` (7) or `total = sum(nums)  # the tally` (7 with the inline comment). Merge a real second operation onto the line (semicolon, chained call, inline comment) rather than padding.
+4. Stanza two must mirror stanza one on the same data: reverse, complement, recount, second pass. Reuse the same variable shapes so the mirror is visible.
+5. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output.
+6. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by reshaping its real expression — a 3-token assignment gets a real second step, never a filler statement.
+
+This copy-then-adapt method is intentional: it preserves a known-valid [5, 7, 7, 5, 7, 7] shape and the mirror structure while leaving the computation task-specific.
 
 
 ## Counting Tokens (the exact procedure)

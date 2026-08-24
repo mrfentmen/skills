@@ -83,6 +83,18 @@ print("and", "the", "sieve", "holds", "true")
 3. **Verify the form.** Run it again, the output must be unchanged and correct. Then run `scripts/rhythm_check.py solve.py`; it prints the logic-line token profile and fails any line outside the form's tolerance, so tighten what it flags by simplifying the expression, never split a line into more, never pad.
 4. **Report the counts.** State the logic-line token profile with the solution so a reviewer can check the rhythm without counting.
 
+## Template-first construction
+
+Do not invent a choka from a blank page. Start by copying the first passing Python example in this skill, then adapt its slots to the user's task:
+
+1. Preserve the long-breathing line count (at least six logic lines) and the closing couplet: the last two logic lines must both be ~7 tokens (±2).
+2. The common trap is writing the closing lines too short — `print("count", count)` is only 3 tokens. A ~7-token couplet line needs real content: `print("count", count, "of", "them", "in", "all")` (7). The couplet states the outcome with weight.
+3. Alternate the meter: no run of three consecutive lines all under 5 or all over 7 tokens. Intersperse a short line and a longer line.
+4. Replace the example's data handling with the real task work; never leave poetic filler, dead assignments, or fake output.
+5. After every edit, run the program for the requested input, then run `scripts/rhythm_check.py solve.py`. Fix only the flagged line by reshaping its real expression — a 1-3 token line gets real content, never a filler statement.
+
+This copy-then-adapt method is intentional: it preserves a known-valid alternating shape and the ~7-7 closing couplet while leaving the computation task-specific.
+
 
 ## Counting Tokens (the exact procedure)
 

@@ -1,0 +1,53 @@
+{
+ "dodoitsu": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/dodoitsu/dodoitsu.py\", line 2\\n    cart = | missing ['5'] ['RUNTIME FAIL (1)', '\"milk\", \"bread\", \"bread\"]\\nIndentationError: unexpected indent']"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:41:55"
+ },
+ "choka": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/choka/choka.py\", line 2\\n    nums = | missing ['14', '5', 'count', 'sum'] ['RUNTIME FAIL (1)', 'int(x) for x in all_nums]\\nIndentationError: unexpected indent']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/choka/choka.py\", line 2\\n    nums = | missing ['14', '5', 'count', 'sum'] ['RUNTIME FAIL (1)', 'int(x) for x in all_nums]\\nIndentationError: unexpected indent']"
+   }
+  ],
+  "ts": "2026-08-23 23:45:47"
+ },
+ "sedoka": {
+  "final_pass": true,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "RUNTIME stderr: File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-zai-glm-4.7-flash/sedoka/sedoka.py\", line 2\\n    total = sum(data); back = data[::-1]\\nIndentationError: unexpected indent'] | missing ['14'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 2,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:47:05"
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "dodoitsu": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:41:03"
+ },
+ "choka": {
+  "final_pass": true,
+  "generations": 1,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": true,
+    "detail": ""
+   }
+  ],
+  "ts": "2026-08-23 23:41:06"
+ },
+ "sedoka": {
+  "final_pass": false,
+  "generations": 2,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token 3 not within pm2 of 7', 'token 3 not within pm2 of 7']"
+   }
+  ],
+  "ts": "2026-08-23 23:47:12"
+ }
+}
