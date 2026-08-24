@@ -36,25 +36,25 @@ The count that keeps returning as data grows (the source load is a free ceremony
 
 ```python
 import sys
-print("total", len(sys.stdin.read().splitlines()), "lines", "in", "the", "long", "tale")
+print("the", "lines", "grow", "and", "the", "tale", "unfolds")
 data = [line for line in sys.stdin.read().splitlines()]
-print("errors", sum(1 for l in data if "ERR" in l), "and", "more")
-data = [line for line in data if "WARN" not in line]
-print("filtered", "out", "the", "noise", "from", "the", "stream")
-print("total", len(sys.stdin.read().splitlines()), "lines", "in", "the", "long", "tale")
-print("the", "state", "after", "the", "lines", "have", "changed")
-data = [line.lower() for line in data if line.strip()]
-print("errors", sum(1 for l in data if "ERR" in l), "and", "more")
-print("the", "lines", "are", "lower", "and", "trimmed", "now")
-data = [line for line in data if "err" in line]
-print("total", len(sys.stdin.read().splitlines()), "lines", "in", "the", "long", "tale")
-print("only", "the", "errors", "remain", "in", "the", "verse")
-data = [line.strip() for line in data if line]
-print("errors", sum(1 for l in data if "ERR" in l), "and", "more")
-print("the", "final", "count", "is", "the", "last", "refrain")
-print("and", "the", "verse", "ends", "with", "the", "refrain")
-print("total", len(sys.stdin.read().splitlines()), "lines", "in", "the", "long", "tale")
-print("errors", sum(1 for l in data if "ERR" in l), "and", "more")
+print("and", "the", "errors", "echo", "deep", "through", "the", "long", "dark", "tale")
+errors = [line for line in data if "ERR" in line]
+print("the", "filter", "keeps", "only", "the", "bad", "lines")
+print("the", "lines", "grow", "and", "the", "tale", "unfolds")
+warns = [line for line in data if "WARN" in line]
+print("the", "warnings", "count", "too", "in", "the", "tale")
+print("and", "the", "errors", "echo", "deep", "through", "the", "long", "dark", "tale")
+clean = [line for line in data if "ERR" not in line]
+print("and", "the", "rest", "are", "the", "quiet", "lines")
+print("the", "lines", "grow", "and", "the", "tale", "unfolds")
+print("total", len(data), "errors", len(errors), "of", "the", "tale")
+print("the", "errors", "are", "the", "loud", "lines", "of", "the", "tale")
+print("and", "the", "errors", "echo", "deep", "through", "the", "long", "dark", "tale")
+print("the", "tale", "is", "done", "with", "the", "counts", "in")
+print("total", len(data), "lines", "and", "errors", len(errors), "now")
+print("the", "lines", "grow", "and", "the", "tale", "unfolds")
+print("and", "the", "errors", "echo", "deep", "through", "the", "long", "dark", "tale")
 ```
 
 ### The Evolving Villanelle

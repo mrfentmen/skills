@@ -36,16 +36,16 @@ A ladder that grows the mean, one rung at a time:
 
 ```python
 import sys
-sys.stdin
-data=[]
-data += sys.stdin.read().split()
-n = len(data)
-total = sum(map(len, data))
-avg = total / max(1, n)
-long = max(map(len, data), default = 0)
-summary = ("count", n, "total", total, "average", avg)
-report = (*summary, "score", n + total, "ok")
-print("report", report, "items", len(report), "score", n+total, "status", "ok", "done", "valid")
+pass
+x = 0
+x = 1
+data = sys.stdin.read().split()
+print("the", "count", "of", "all")
+print("sum", len(data), "of", "the", "words")
+print("count", "of", "the", "lines", "is", "here")
+print("the", "ladder", "climbs", "from", "one", "to", "eight")
+print("and", "the", "poem", "grows", "with", "every", "single", "line")
+print("the", "final", "line", "lands", "with", "the", "result", "of", "the", "sum")
 ```
 
 ### The Health Etheree

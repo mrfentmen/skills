@@ -77,10 +77,20 @@ PROVIDERS: dict[str, dict] = {
         "key_env": "OPENROUTER_API_KEY",
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
     },
+    "or-nemotron3-ultra-550b": {
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "key_env": "OPENROUTER_API_KEY",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    },
     "or-glm52-free": {
         "url": "https://openrouter.ai/api/v1/chat/completions",
         "key_env": "OPENROUTER_API_KEY",
         "model": "z-ai/glm-5.2:free",
+    },
+    "or-north-mini-code": {
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "key_env": "OPENROUTER_API_KEY",
+        "model": "cohere/north-mini-code:free",
     },
     "kilo-step3.7": {
         "url": "https://api.kilo.ai/api/gateway/v1/chat/completions",
@@ -231,6 +241,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--providers', default='groq-llama3.3-70b,mistral-small')
     parser.add_argument('--skills', default='')
+    parser.add_argument('--line-directive', action='store_true',
+                        help='append explicit add/remove-N-lines directive to refine feedback')
     parser.add_argument('--max-iters', type=int, default=4,
                         help='total generations per skill including the starting one')
     parser.add_argument('--resume', action='store_true')
@@ -321,9 +333,11 @@ def main() -> int:
                 # the grader reports one: the measured failure mode across all
                 # arms is a 1-2 line over/undershoot that plain "fix it"
                 # feedback cannot steer. Making the count an explicit, scoped
-                # instruction is cheap and deterministic.
+                # instruction is cheap and deterministic. (A/B arm
+                # model-outputs-linedirect-mistral showed it worsens small-model
+                # stability, so it is off by default; --line-directive opts in.)
                 m = re.search(r'need exactly (\d+) logic lines, got (\d+)', feedback)
-                if m:
+                if m and args.line_directive:
                     target, current = int(m.group(1)), int(m.group(2))
                     op = 'remove' if current > target else 'add'
                     feedback += (f"\nLINE-COUNT DIRECTIVE: your program currently has "
