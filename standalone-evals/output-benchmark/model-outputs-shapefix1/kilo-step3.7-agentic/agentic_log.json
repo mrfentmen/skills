@@ -1,0 +1,52 @@
+{
+ "zappai": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [7, 2] != [5,7,5] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [7, 2] != [5,7,5] pm2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [7, 2] != [5,7,5] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 03:32:00"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4 \u2014 the waka is five lines 5-7-5-7-7; add a fifth line that restates the range or count']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4 \u2014 the waka is five lines 5-7-5-7-7; add a fifth line that restates the range or count']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['need exactly 5 logic lines, got 4 \u2014 the waka is five lines 5-7-5-7-7; add a fifth line that restates the range or count']"
+   }
+  ],
+  "ts": "2026-08-24 03:36:30"
+ },
+ "cinquain": {
+  "final_pass": false,
+  "generations": 1,
+  "attempts": [],
+  "ts": "2026-08-24 03:37:53"
+ }
+}

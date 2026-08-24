@@ -1,0 +1,107 @@
+{
+ "cinquain": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['token profile [1, 1, 1, 1, 1] != [2,4,6,8,2] pm1 \u2014 adjust line lengths toward 2-4-6-8-2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [1, 1, 1, 1, 1] != [2,4,6,8,2] pm1 \u2014 adjust line lengths toward 2-4-6-8-2']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "['token profile [1, 1, 1, 1, 1] != [2,4,6,8,2] pm1 \u2014 adjust line lengths toward 2-4-6-8-2']"
+   }
+  ],
+  "ts": "2026-08-24 03:33:20"
+ },
+ "waka": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['count', 'range'] ['need exactly 5 logic lines, got 4 \u2014 the waka is five lines 5-7-5-7-7; add a fifth line that restates the range or count', 'token profile [4, 5, 3, 2] != [5,7,5,7,7] pm2 \u2014 adjust line lengths toward 5-7-5-7-7']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['token profile [4, 3, 3, 4, 3] != [5,7,5,7,7] pm2 \u2014 adjust line lengths toward 5-7-5-7-7']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['count', 'range'] ['need exactly 5 logic lines, got 4 \u2014 the waka is five lines 5-7-5-7-7; add a fifth line that restates the range or count', 'token profile [4, 3, 3, 4] != [5,7,5,7,7] pm2 \u2014 adjust line lengths toward 5-7-5-7-7']"
+   }
+  ],
+  "ts": "2026-08-24 03:34:01"
+ },
+ "imayo": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3 \u2014 the imayo is four long lines of ~12 tokens each; add a fourth line that carries the sum', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 1] \u2014 lengthen each line toward ~12 tokens']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3 \u2014 the imayo is four long lines of ~12 tokens each; add a fourth line that carries the sum', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 1] \u2014 lengthen each line toward ~12 tokens']"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 4 logic lines, got 3 \u2014 the imayo is four long lines of ~12 tokens each; add a fourth line that carries the sum', 'lines not ~12 pm4 (7-5 long-short): [4, 3, 1] \u2014 lengthen each line toward ~12 tokens']"
+   }
+  ],
+  "ts": "2026-08-24 03:34:01"
+ },
+ "etheree": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 11 \u2014 the etheree is a ten-line ladder 1-2-3-...-10 tokens; add lines to reach ten', 'ladder not 1-10 pm1: [1, 3, 3, 1, 3, 4, 5, 6, 7, 8, 10] \u2014 line 4 should be ~4 tokens']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "RUNTIME stderr: Traceback (most recent call last):\\n  File \"/Users/del/Desktop/skills/standalone-evals/output-benchmark/.agentic-work-mistral-large/etheree/etheree.py\", line 2, in <module>\\n    data\\nNameError: name \\'data\\' is not defined'] | missing ['5', 'sum'] ['RUNTIME FAIL (1)', '"
+   },
+   {
+    "gen": 3,
+    "passed": false,
+    "detail": "missing ['sum'] ['need exactly 10 logic lines, got 12 \u2014 the etheree is a ten-line ladder 1-2-3-...-10 tokens; add lines to reach ten', 'ladder not 1-10 pm1: [1, 3, 3, 1, 2, 3, 4, 5, 6, 7, 8, 8] \u2014 line 4 should be ~4 tokens']"
+   }
+  ],
+  "ts": "2026-08-24 03:34:05"
+ },
+ "zappai": {
+  "final_pass": false,
+  "generations": 3,
+  "attempts": [
+   {
+    "gen": 1,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [4, 1] != [5,7,5] pm2']"
+   },
+   {
+    "gen": 2,
+    "passed": false,
+    "detail": "['need exactly 3 logic lines, got 2', 'token profile [4, 1] != [5,7,5] pm2']"
+   }
+  ],
+  "ts": "2026-08-24 03:34:19"
+ }
+}
